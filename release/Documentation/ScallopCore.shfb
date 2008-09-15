@@ -1,0 +1,60 @@
+﻿<project schemaVersion="1.6.0.2">
+    <assemblies>
+        <assembly assemblyPath="..\Common\bin\Debug\ScallopCore.dll" xmlCommentsPath="..\Common\bin\Debug\ScallopCore.xml" commentsOnly="False" />
+    </assemblies>
+    <namespaceSummaries>
+        <namespaceSummaryItem name="" isDocumented="False" />
+        <namespaceSummaryItem name="Scallop" isDocumented="True">Scallop namespace.</namespaceSummaryItem>
+        <namespaceSummaryItem name="Scallop.Events" isDocumented="True">Scallop events namespace.</namespaceSummaryItem>
+        <namespaceSummaryItem name="Scallop.Network" isDocumented="True">Scallop network namespace.</namespaceSummaryItem>
+        <namespaceSummaryItem name="Scallop.Network.PeerChannel" isDocumented="True">PeerChannel.</namespaceSummaryItem>
+        <namespaceSummaryItem name="Scallop.Sensor" isDocumented="True">Scallop sensor namespace.</namespaceSummaryItem>
+        <namespaceSummaryItem name="Scallop.Sensor.Axis" isDocumented="True">Axis IP camera.</namespaceSummaryItem>
+        <namespaceSummaryItem name="ScallopCore" isDocumented="True">Core Scallop functionality.</namespaceSummaryItem>
+        <namespaceSummaryItem name="ScallopCore.Events" isDocumented="True">Events.</namespaceSummaryItem>
+        <namespaceSummaryItem name="ScallopCore.Network" isDocumented="True">Networks.</namespaceSummaryItem>
+        <namespaceSummaryItem name="ScallopCore.Sensor" isDocumented="True">Sensors.</namespaceSummaryItem>
+    </namespaceSummaries>
+    <apiFilter>
+        <filter entryType="Namespace" fullName="System" isExposed="True">
+            <filter entryType="Class" fullName="System.Object" filterName="Object" isExposed="False" />
+        </filter>
+    </apiFilter>
+    <ProjectSummary>Scallop distributed sensor framework API documentation.</ProjectSummary>
+    <MissingTags>Summary, Parameter, Returns, AutoDocumentCtors, Namespace</MissingTags>
+    <VisibleItems>InheritedMembers, InheritedFrameworkMembers, Protected, SealedProtected</VisibleItems>
+    <HtmlHelp1xCompilerPath path="" />
+    <HtmlHelp2xCompilerPath path="" />
+    <OutputPath>.\Help\</OutputPath>
+    <SandcastlePath path="" />
+    <WorkingPath path="" />
+    <CleanIntermediates>True</CleanIntermediates>
+    <KeepLogFile>True</KeepLogFile>
+    <HelpFileFormat>HtmlHelp1x</HelpFileFormat>
+    <PurgeDuplicateTopics>True</PurgeDuplicateTopics>
+    <CppCommentsFixup>False</CppCommentsFixup>
+    <FrameworkVersion>2.0.50727</FrameworkVersion>
+    <BinaryTOC>True</BinaryTOC>
+    <IncludeFavorites>False</IncludeFavorites>
+    <Preliminary>True</Preliminary>
+    <RootNamespaceContainer>False</RootNamespaceContainer>
+    <RootNamespaceTitle />
+    <HelpTitle>Scallop API documentation</HelpTitle>
+    <HtmlHelpName>ScallopAPI</HtmlHelpName>
+    <Language>en-US</Language>
+    <CopyrightHref />
+    <CopyrightText />
+    <FeedbackEMailAddress />
+    <HeaderText />
+    <FooterText />
+    <ProjectLinkType>Local</ProjectLinkType>
+    <SdkLinkType>Msdn</SdkLinkType>
+    <SdkLinkTarget>Blank</SdkLinkTarget>
+    <PresentationStyle>vs2005</PresentationStyle>
+    <NamingMethod>Guid</NamingMethod>
+    <SyntaxFilters>Standard</SyntaxFilters>
+    <ShowFeedbackControl>False</ShowFeedbackControl>
+    <ContentPlacement>BelowNamespaces</ContentPlacement>
+    <ContentSiteMap path="" />
+    <TopicFileTransform path="" />
+</project>

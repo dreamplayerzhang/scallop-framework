@@ -1,0 +1,6 @@
+C:\Documents and Settings\psaastam\My Documents\Scallop\release\Common\bin\Debug\ScallopCore.xml
+C:\Documents and Settings\psaastam\My Documents\Scallop\release\Common\bin\Debug\ScallopCore.dll
+C:\Documents and Settings\psaastam\My Documents\Scallop\release\Common\bin\Debug\ScallopCore.pdb
+C:\Documents and Settings\psaastam\My Documents\Scallop\release\Common\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\psaastam\My Documents\Scallop\release\Common\obj\Debug\ScallopCore.dll
+C:\Documents and Settings\psaastam\My Documents\Scallop\release\Common\obj\Debug\ScallopCore.pdb

@@ -1,0 +1,332 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="AxisCameraSchema"
+    targetNamespace="Scallop/AxisCameraSchema.xsd"
+    elementFormDefault="qualified"
+    xmlns="Scallop/AxisCameraSchema.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="AxisCameraConfigSet">
+    <xs:annotation>
+      <xs:documentation>
+        A set of camera configurations.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:choice>
+        <xs:element name="AxisCameraConfig" type="AxisCameraConfigType"
+                    minOccurs="1" maxOccurs="unbounded"/>
+      </xs:choice>
+      <xs:attribute name="DefaultConfig" type="xs:string" use="required" id="unique"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="AxisCameraConfigType" id="conf">
+    <xs:all>
+      <xs:element name="Address" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            IP address of the camera.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:anyURI">
+            <xs:whiteSpace value="collapse"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+
+      <xs:element name="Camera" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Applies only to video servers with more than one video input. Selects the source camera.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="1"/>
+            <xs:enumeration value="2"/>
+            <xs:enumeration value="3"/>
+            <xs:enumeration value="4"/>
+            <xs:enumeration value="quad"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+
+
+
+      <xs:element name="Color" type="xs:boolean" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Enables/disables color. 0 = black and white, 1 = color.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      
+      <xs:element name="ColorLevel" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Color level of image, from 0 ( greyscale ) to 100 ( full color ).
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:int">
+            <xs:maxInclusive value="100"/>
+            <xs:minInclusive value="0"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+
+
+      <xs:element name="Compression" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Adjusts the compression level of the image. Higher values correspond to higher compression, i.e. lower quality and smaller image size.
+            Note: This value is internally mapped and is therefore product-dependent.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:int">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="100"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+
+
+      <xs:element name="CustomCgiString" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            A custom cgi string to be passed to the camera.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:whiteSpace value="collapse"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+
+      <xs:element name="Framerate" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Framerate of frame stream. Valid values are in the range 0-50, 0 being unlimited framerate.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:int">
+            <xs:maxInclusive value="50"/>
+            <xs:minInclusive value="0"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+
+      <xs:element name="OverlayPosition" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Set the position of the overlay image.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="([0-9]+)x([0-9]+)"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+
+      <xs:element name="Password" type="xs:string"
+                  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Password.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
+      
+      <xs:element name="Resolution" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Specify the resolution of the returned image.
+            Use one of the resolutions in the camera's
+            root.Properties.Image.Resolution
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="1280x1024"/>
+            <xs:enumeration value="1280x960"/>
+            <xs:enumeration value="1280x720"/>
+            <xs:enumeration value="768x576"/>
+            <xs:enumeration value="4CIF"/>
+            <xs:enumeration value="704x576"/>
+            <xs:enumeration value="704x480"/>
+            <xs:enumeration value="VGA"/>
+            <xs:enumeration value="640x480"/>
+            <xs:enumeration value="640x360"/>
+            <xs:enumeration value="2CIFEXP"/>
+            <xs:enumeration value="2CIF"/>
+            <xs:enumeration value="704x288"/>
+            <xs:enumeration value="704x240"/>
+            <xs:enumeration value="480x360"/>
+            <xs:enumeration value="CIF"/>
+            <xs:enumeration value="384x288"/>
+            <xs:enumeration value="352x288"/>
+            <xs:enumeration value="352x240"/>
+            <xs:enumeration value="320x240"/>
+            <xs:enumeration value="240x180"/>
+            <xs:enumeration value="QCIF"/>
+            <xs:enumeration value="192x144"/>
+            <xs:enumeration value="176x144"/>
+            <xs:enumeration value="176x120"/>
+            <xs:enumeration value="160x120"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+
+      
+      <xs:element name="Rotation" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:int">
+            <xs:enumeration value="0"/>
+            <xs:enumeration value="90"/>
+            <xs:enumeration value="180"/>
+            <xs:enumeration value="270"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+
+
+      <xs:element name="ShowClock" type="xs:boolean"
+                  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Show clock in the image.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="ShowDate" type="xs:boolean"
+                  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Show date in the image.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+
+      <xs:element name="ShowOverlay" type="xs:boolean"
+                  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Enable/disable overlay image.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
+      
+      <xs:element name="ShowText" type="xs:boolean"
+                  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Show text in the image.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+
+      <xs:element name="Text" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Content of text overlay.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:whiteSpace value="preserve"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+
+      <xs:element name="TextBackgroundColor" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The color of the text background shown in the image.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="black"/>
+            <xs:enumeration value="white"/>
+            <xs:enumeration value="transparent"/>
+            <xs:enumeration value="semitransparent"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+
+      <xs:element name="TextColor" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The color of the text shown in the image.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="black"/>
+            <xs:enumeration value="white"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+
+      <xs:element name="TextPosition" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The position of the string shown in the image.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="top"/>
+            <xs:enumeration value="bottom"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      
+      
+      <xs:element name="User" type="xs:string"
+                  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            User name.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="FrameFormat"
+                  minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Format of the frames returned by the camera module. Valid values are:
+            
+            System.Drawing.Bitmap - A Windows Forms bitmap.
+            System.Windows.Media.Imaging.BitmapSource - A WPF bitmap.
+            Jpeg - raw JPEG byte buffer, as System.Byte[].
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="System.Drawing.Bitmap"/>
+            <xs:enumeration value="System.Windows.Media.Imaging.BitmapSource"/>
+            <xs:enumeration value="Jpeg"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+     
+    </xs:all>
+    <xs:attribute name="ConfigName" use="required" form="unqualified" type="xs:string"/>
+  </xs:complexType>
+
+  
+
+</xs:schema>

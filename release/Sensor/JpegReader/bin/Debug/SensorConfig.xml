@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+
+<JpegReaderConfigSet DefaultConfig="cam1" xmlns="Scallop/JpegReaderSchema.xsd">
+
+  <JpegReaderConfig ConfigName="cam1">
+    <BaseName>frame</BaseName>
+    <Directory>.\cam1</Directory>
+    <FrameFormat>CVImage</FrameFormat>
+    <Framerate>5</Framerate>
+  </JpegReaderConfig>
+
+</JpegReaderConfigSet>
+
+
