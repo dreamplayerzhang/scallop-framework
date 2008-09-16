@@ -43,14 +43,12 @@
 
             System.Drawing.Bitmap - A Windows Forms bitmap.
             System.Windows.Media.Imaging.BitmapSource - A WPF bitmap.
-            Jpeg - raw JPEG byte buffer, as System.Byte[].
           </xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
             <xs:enumeration value="System.Drawing.Bitmap"/>
             <xs:enumeration value="System.Windows.Media.Imaging.BitmapSource"/>
-            <xs:enumeration value="Jpeg"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
