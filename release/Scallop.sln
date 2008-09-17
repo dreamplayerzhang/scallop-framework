@@ -13,8 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AxisCamera", "Sensor\Axis\A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileSource", "Sensor\FileSource\FileSource.csproj", "{82BD6068-A2DD-4776-9136-5A4C1ACA9F70}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JpegReader", "Sensor\JpegReader\JpegReader.csproj", "{F7BE5C81-74B8-4C87-8CBE-9AA40B8C51CE}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,10 +35,6 @@ Global
 		{82BD6068-A2DD-4776-9136-5A4C1ACA9F70}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82BD6068-A2DD-4776-9136-5A4C1ACA9F70}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82BD6068-A2DD-4776-9136-5A4C1ACA9F70}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F7BE5C81-74B8-4C87-8CBE-9AA40B8C51CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F7BE5C81-74B8-4C87-8CBE-9AA40B8C51CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F7BE5C81-74B8-4C87-8CBE-9AA40B8C51CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F7BE5C81-74B8-4C87-8CBE-9AA40B8C51CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -49,6 +43,5 @@ Global
 		{06FA057D-E01A-4D18-9F6A-007DE3A0DF76} = {C5C21AE9-8E6A-4C9E-BFB5-E5C5C21E7127}
 		{233D2032-1FED-4B3D-9DDC-C5B217437E20} = {E580528A-C03A-4C91-AB5B-EAC89F3C8900}
 		{82BD6068-A2DD-4776-9136-5A4C1ACA9F70} = {E580528A-C03A-4C91-AB5B-EAC89F3C8900}
-		{F7BE5C81-74B8-4C87-8CBE-9AA40B8C51CE} = {E580528A-C03A-4C91-AB5B-EAC89F3C8900}
 	EndGlobalSection
 EndGlobal
