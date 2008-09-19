@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AxisCamera", "Sensor\Axis\A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileSource", "Sensor\FileSource\FileSource.csproj", "{82BD6068-A2DD-4776-9136-5A4C1ACA9F70}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorld", "HelloWorld\HelloWorld.csproj", "{5D3CB8F0-DD51-41EB-BF30-5BC89E017B81}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{82BD6068-A2DD-4776-9136-5A4C1ACA9F70}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82BD6068-A2DD-4776-9136-5A4C1ACA9F70}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82BD6068-A2DD-4776-9136-5A4C1ACA9F70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D3CB8F0-DD51-41EB-BF30-5BC89E017B81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D3CB8F0-DD51-41EB-BF30-5BC89E017B81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D3CB8F0-DD51-41EB-BF30-5BC89E017B81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D3CB8F0-DD51-41EB-BF30-5BC89E017B81}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

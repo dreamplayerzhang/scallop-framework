@@ -49,7 +49,7 @@ namespace Scallop.Sensor.FileSource
 
     public void Register(System.Xml.XmlDocument config, string selectConfig)
     {
-      return;
+      throw new NotImplementedException();
     }
 
     public void Register(System.Xml.Linq.XDocument config, string selectConfig)
@@ -68,21 +68,11 @@ namespace Scallop.Sensor.FileSource
 
     void frameThread_DoWork(object sender, DoWorkEventArgs e)
     {
-      // mms://media.oulu.fi
-
       MediaPlayer myPlayer = new MediaPlayer();
-      //myPlayer.Open(new Uri(@"test.avi", UriKind.Relative));
-      //myPlayer.Open(new Uri(@"mms://media.oulu.fi", UriKind.Absolute));
-      //myPlayer.Open(new Uri(@"behave.avi", UriKind.Relative));
-      //myPlayer.Open(new Uri(@"http://akastreaming.yle.fi/vp/fiyle/no_geo/ondemand.asx?gjmf=areena/1/34/73/1347316_859410", UriKind.Absolute));
       myPlayer.Open(parameters.SourceUri);
       myPlayer.Volume = 0;
       myPlayer.Play();
 
-      
-      
-
-     
       while ( myPlayer.NaturalVideoWidth < 1 )
         System.Threading.Thread.Sleep(100);
 
@@ -130,12 +120,6 @@ namespace Scallop.Sensor.FileSource
             break;
         }
         
-        
-
-        //bmp3.Dispose();
-        //bmp2.Dispose();
-       
-        //System.Threading.Thread.Sleep(100);
         if (myPlayer.Position >= myPlayer.NaturalDuration)
         {
           myPlayer.Stop();
