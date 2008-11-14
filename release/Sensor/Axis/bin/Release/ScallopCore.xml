@@ -4,203 +4,6 @@
         <name>ScallopCore</name>
     </assembly>
     <members>
-        <member name="T:ScallopCore.Network.ScallopNetworkState">
-            <summary>
-            Enumeration representing the possible states of a Scallop network
-            implementation.
-            </summary>
-        </member>
-        <member name="F:ScallopCore.Network.ScallopNetworkState.Offline">
-            <summary>
-            State indicating the network is idle. No messages are sent or received.
-            </summary>
-        </member>
-        <member name="F:ScallopCore.Network.ScallopNetworkState.Online">
-            <summary>
-            State indicating the node has successfully joined the network. Messages
-            can be sent and received.
-            </summary>
-        </member>
-        <member name="F:ScallopCore.Network.ScallopNetworkState.Error">
-            <summary>
-            State indicating the network is in an error state. Can indicate network
-            problems, etc.
-            </summary>
-        </member>
-        <member name="F:ScallopCore.Network.ScallopNetworkState.Undefined">
-            <summary>
-            An undefined network state.
-            </summary>
-        </member>
-        <member name="T:ScallopCore.Network.IScallopNetwork">
-            <summary>
-            Network interface for Scallop network implementations.
-            </summary>
-            <example>
-            <code>
-             {
-            ...
-             // if the network type is passed from a configuration file 
-             IScallopNetwork chan = InterfaceFactory.CreateNetworkInstance("PeerChannel", "Scallop.Network.PeerChannel.ScallopPeerChannel");
-             
-             if the network type is known at compile time
-             // ScallopPeerChannel chan = new ScallopPeerChannel();
-             
-             chan.Data += this.network_data; // add the handlers
-             chan.StatusChanged += this.network_error;
-             chan.Info += this.network_info;
-             chan.Opened += this.network_join;
-             chan.Closed += this.network_leave;
-             
-             chan.Register(System.Xml.Linq.XDocument.Load("SensorConfig.xml"),
-                           null);
-             
-             chan.Join()
-             ...
-             }
-             
-             void network_join(object sender, EventArgs e) { }
-             void network_leave(object sender, EventArgs e) { }
-             void network_error(object sender, ScallopNetworkStatusChangedEventArgs e) { }
-             void network_info(object sender, ScallopInfoEventArgs e) {}
-             void network_data(object sender, ScallopNetworkDataEventArgs e) {}
-             </code>
-            </example>
-        </member>
-        <member name="M:ScallopCore.Network.IScallopNetwork.Join(System.Xml.XmlDocument,System.String)">
-            <summary>
-            Joins a network using the provided settings.
-            </summary>
-            <param name="networkSettings">The network settings XML.</param>
-            <param name="selectConfig">The name of the config to use.</param>
-            <returns>Node identification string.</returns>
-        </member>
-        <member name="M:ScallopCore.Network.IScallopNetwork.Leave">
-            <summary>
-            Leaves a network.
-            </summary>
-        </member>
-        <member name="M:ScallopCore.Network.IScallopNetwork.SendMessage(System.String)">
-            <summary>
-            Sends a message, broadcast.
-            </summary>
-            <param name="message">The message.</param>
-        </member>
-        <member name="M:ScallopCore.Network.IScallopNetwork.SendMessage(System.String,System.String)">
-            <summary>
-            Sends a message, to a specific node.
-            </summary>
-            <param name="message">The message.</param>
-            <param name="nodeid">Node ID of the target node.</param>
-        </member>
-        <member name="M:ScallopCore.Network.IScallopNetwork.SendMessage(System.String,System.String[])">
-            <summary>
-            Sends a message, to a group of nodes.
-            </summary>
-            <param name="message">The message.</param>
-            <param name="nodeids"></param>
-        </member>
-        <member name="M:ScallopCore.Network.IScallopNetwork.SendMessage(System.String,System.Int32)">
-            <summary>
-            Sends a message, to neighbouring nodes within a specified number of hops.
-            </summary>
-            <param name="message">The message.</param>
-            <param name="reach">Hopcount.</param>
-        </member>
-        <member name="P:ScallopCore.Network.IScallopNetwork.ConfigSchema">
-            <summary>
-            Gets the XSD schema used to configure this network type.
-            </summary>
-            <returns>An XML schema.</returns>
-        </member>
-        <member name="P:ScallopCore.Network.IScallopNetwork.State">
-            <summary>
-            Gets the network state.
-            </summary>
-        </member>
-        <member name="P:ScallopCore.Network.IScallopNetwork.NodeId">
-            <summary>
-            Gets the node identification string.
-            </summary>
-        </member>
-        <member name="P:ScallopCore.Network.IScallopNetwork.Version">
-            <summary>
-            Gets the version.
-            </summary>
-        </member>
-        <member name="P:ScallopCore.Network.IScallopNetwork.Neighbors">
-            <summary>
-            Gets list of node neighbours.
-            </summary>
-        </member>
-        <member name="P:ScallopCore.Network.IScallopNetwork.MessageCountRX">
-            <summary>
-            Number of messages received.
-            </summary>
-        </member>
-        <member name="P:ScallopCore.Network.IScallopNetwork.MessageCountTX">
-            <summary>
-            Number of messages sent.
-            </summary>
-        </member>
-        <member name="P:ScallopCore.Network.IScallopNetwork.MessageSizeRX">
-            <summary>
-            Cumulative size of payload in messages received.
-            </summary>
-        </member>
-        <member name="P:ScallopCore.Network.IScallopNetwork.MessageSizeTX">
-            <summary>
-            Cumulative size of payload in messages sent.
-            </summary>
-        </member>
-        <member name="P:ScallopCore.Network.IScallopNetwork.HopCountSum">
-            <summary>
-            Sum of hopcounts of received messages. Divide by MessageCountRX to get average.
-            </summary>
-        </member>
-        <member name="E:ScallopCore.Network.IScallopNetwork.StatusChanged">
-            <summary>
-            This event is raised when there is an error with the network.
-            The reason for the error is contained in the event arguments. 
-            </summary>
-        </member>
-        <member name="E:ScallopCore.Network.IScallopNetwork.Data">
-            <summary>
-            This event is raised when new network data is received. The received message
-            is passed in the event arguments. 
-            </summary>
-        </member>
-        <member name="E:ScallopCore.Network.IScallopNetwork.Info">
-            <summary>
-            This event is raised when the network module wants to inform the user
-            of something interesting. The message is passed in the event arguments.
-            </summary>
-        </member>
-        <member name="T:ScallopCore.Network.ScallopMessage">
-            <summary> </summary>
-        </member>
-        <member name="F:ScallopCore.Network.ScallopMessage.sender">
-            <summary> ID of sending node.</summary>
-        </member>
-        <member name="F:ScallopCore.Network.ScallopMessage.contents">
-            <summary> Content of message in XML.</summary>
-        </member>
-        <member name="F:ScallopCore.Network.ScallopMessage.receivers">
-            <summary> Array of receiver IDs.</summary>
-        </member>
-        <member name="F:ScallopCore.Network.ScallopMessage.hopcount">
-            <summary>Hopcount.</summary>
-        </member>
-        <member name="F:ScallopCore.Network.ScallopMessage.origHopcount">
-            <summary>
-            Original hopcount.
-            </summary>
-        </member>
-        <member name="F:ScallopCore.Network.ScallopMessage.InternalMessage">
-            <summary>
-            Flag indicating whether this is a message internal to the implementation.
-            </summary>
-        </member>
         <member name="T:ScallopCore.Sensor.ScallopSensorState">
             <summary>
             An enumeration of possible sensor states
@@ -309,6 +112,101 @@
             This event is raised when the sensor has information that the user might
             find useful. The information is passed in the event arguments.
             </summary>
+        </member>
+        <member name="T:ScallopException">
+            <summary>
+            A generic Scallop exception.
+            </summary>
+        </member>
+        <member name="M:ScallopException.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:ScallopException.#ctor(System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="message">Message to user.</param>
+        </member>
+        <member name="M:ScallopException.#ctor(System.String,System.Exception)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="message">Message to user.</param>
+            <param name="inner">A possible causing InnerException.</param>
+        </member>
+        <member name="T:InvalidConfigurationException">
+            <summary>
+            Thrown when the XML configuration is invalid.
+            </summary>
+        </member>
+        <member name="M:InvalidConfigurationException.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:InvalidConfigurationException.#ctor(System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="message">Message to user.</param>
+        </member>
+        <member name="M:InvalidConfigurationException.#ctor(System.String,System.Exception)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="message">Message to user.</param>
+            <param name="inner">A possible causing InnerException.</param>
+        </member>
+        <member name="T:MessageContentException">
+            <summary>
+            Thrown when a message content does not match the XML schema.
+            </summary>
+        </member>
+        <member name="M:MessageContentException.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:MessageContentException.#ctor(System.Exception)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="inner">Message to user.</param>
+        </member>
+        <member name="M:MessageContentException.#ctor(System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="message">Message to user.</param>
+        </member>
+        <member name="M:MessageContentException.#ctor(System.String,System.Exception)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="message">Message to user.</param>
+            <param name="inner">A possible causing InnerException.</param>
+        </member>
+        <member name="T:ScallopCore.ScallopUtils">
+            <summary>
+            Static utilities for Scallop. Includes Base64Encoding.
+            </summary>
+        </member>
+        <member name="M:ScallopCore.ScallopUtils.Base64Encode(System.Byte[])">
+            <summary>
+            Base64-encodes a byte buffer to a format that is suitable for text-based transmission
+            </summary>
+            <param name="buf">Data to be encoded.</param>
+            <returns>A string containing the data in buf, encoded in base64.</returns>
+            <remarks>Use Base64Decode to reverse the encoding.</remarks>
+        </member>
+        <member name="M:ScallopCore.ScallopUtils.Base64Decode(System.String)">
+            <summary>
+            Base64 decodes a string to it's byte buffer representation.
+            </summary>
+            <param name="encoded">The encoded string.</param>
+            <returns>Byte buffer containing decoded data.</returns>
         </member>
         <member name="T:ScallopCore.Events.ScallopSensorOpenedHandler">
             <summary>
@@ -514,100 +412,202 @@
             <param name="sender">Identifies the object that sent the event.</param>
             <param name="e">Event parameters, containing the information text.</param>
         </member>
-        <member name="T:ScallopCore.ScallopUtils">
+        <member name="T:ScallopCore.Network.ScallopNetworkState">
             <summary>
-            Static utilities for Scallop. Includes Base64Encoding.
+            Enumeration representing the possible states of a Scallop network
+            implementation.
             </summary>
         </member>
-        <member name="M:ScallopCore.ScallopUtils.Base64Encode(System.Byte[])">
+        <member name="F:ScallopCore.Network.ScallopNetworkState.Offline">
             <summary>
-            Base64-encodes a byte buffer to a format that is suitable for text-based transmission
-            </summary>
-            <param name="buf">Data to be encoded.</param>
-            <returns>A string containing the data in buf, encoded in base64.</returns>
-            <remarks>Use Base64Decode to reverse the encoding.</remarks>
-        </member>
-        <member name="M:ScallopCore.ScallopUtils.Base64Decode(System.String)">
-            <summary>
-            Base64 decodes a string to it's byte buffer representation.
-            </summary>
-            <param name="encoded">The encoded string.</param>
-            <returns>Byte buffer containing decoded data.</returns>
-        </member>
-        <member name="T:ScallopException">
-            <summary>
-            A generic Scallop exception.
+            State indicating the network is idle. No messages are sent or received.
             </summary>
         </member>
-        <member name="M:ScallopException.#ctor">
+        <member name="F:ScallopCore.Network.ScallopNetworkState.Online">
             <summary>
-            Default constructor.
+            State indicating the node has successfully joined the network. Messages
+            can be sent and received.
             </summary>
         </member>
-        <member name="M:ScallopException.#ctor(System.String)">
+        <member name="F:ScallopCore.Network.ScallopNetworkState.Error">
             <summary>
-            Constructor.
-            </summary>
-            <param name="message">Message to user.</param>
-        </member>
-        <member name="M:ScallopException.#ctor(System.String,System.Exception)">
-            <summary>
-            Constructor.
-            </summary>
-            <param name="message">Message to user.</param>
-            <param name="inner">A possible causing InnerException.</param>
-        </member>
-        <member name="T:InvalidConfigurationException">
-            <summary>
-            Thrown when the XML configuration is invalid.
+            State indicating the network is in an error state. Can indicate network
+            problems, etc.
             </summary>
         </member>
-        <member name="M:InvalidConfigurationException.#ctor">
+        <member name="F:ScallopCore.Network.ScallopNetworkState.Undefined">
             <summary>
-            Default constructor.
+            An undefined network state.
             </summary>
         </member>
-        <member name="M:InvalidConfigurationException.#ctor(System.String)">
+        <member name="T:ScallopCore.Network.IScallopNetwork">
             <summary>
-            Constructor.
+            Network interface for Scallop network implementations.
             </summary>
-            <param name="message">Message to user.</param>
+            <example>
+            <code>
+             {
+            ...
+             // if the network type is passed from a configuration file 
+             IScallopNetwork chan = InterfaceFactory.CreateNetworkInstance("PeerChannel", "Scallop.Network.PeerChannel.ScallopPeerChannel");
+             
+             if the network type is known at compile time
+             // ScallopPeerChannel chan = new ScallopPeerChannel();
+             
+             chan.Data += this.network_data; // add the handlers
+             chan.StatusChanged += this.network_error;
+             chan.Info += this.network_info;
+             chan.Opened += this.network_join;
+             chan.Closed += this.network_leave;
+             
+             chan.Register(System.Xml.Linq.XDocument.Load("SensorConfig.xml"),
+                           null);
+             
+             chan.Join()
+             ...
+             }
+             
+             void network_join(object sender, EventArgs e) { }
+             void network_leave(object sender, EventArgs e) { }
+             void network_error(object sender, ScallopNetworkStatusChangedEventArgs e) { }
+             void network_info(object sender, ScallopInfoEventArgs e) {}
+             void network_data(object sender, ScallopNetworkDataEventArgs e) {}
+             </code>
+            </example>
         </member>
-        <member name="M:InvalidConfigurationException.#ctor(System.String,System.Exception)">
+        <member name="M:ScallopCore.Network.IScallopNetwork.Join(System.Xml.XmlDocument,System.String)">
             <summary>
-            Constructor.
+            Joins a network using the provided settings.
             </summary>
-            <param name="message">Message to user.</param>
-            <param name="inner">A possible causing InnerException.</param>
+            <param name="networkSettings">The network settings XML.</param>
+            <param name="selectConfig">The name of the config to use.</param>
+            <returns>Node identification string.</returns>
         </member>
-        <member name="T:MessageContentException">
+        <member name="M:ScallopCore.Network.IScallopNetwork.Leave">
             <summary>
-            Thrown when a message content does not match the XML schema.
-            </summary>
-        </member>
-        <member name="M:MessageContentException.#ctor">
-            <summary>
-            Default constructor.
+            Leaves a network.
             </summary>
         </member>
-        <member name="M:MessageContentException.#ctor(System.Exception)">
+        <member name="M:ScallopCore.Network.IScallopNetwork.SendMessage(System.String)">
             <summary>
-            Constructor.
+            Sends a message, broadcast.
             </summary>
-            <param name="inner">Message to user.</param>
+            <param name="message">The message.</param>
         </member>
-        <member name="M:MessageContentException.#ctor(System.String)">
+        <member name="M:ScallopCore.Network.IScallopNetwork.SendMessage(System.String,System.String)">
             <summary>
-            Constructor.
+            Sends a message, to a specific node.
             </summary>
-            <param name="message">Message to user.</param>
+            <param name="message">The message.</param>
+            <param name="nodeid">Node ID of the target node.</param>
         </member>
-        <member name="M:MessageContentException.#ctor(System.String,System.Exception)">
+        <member name="M:ScallopCore.Network.IScallopNetwork.SendMessage(System.String,System.String[])">
             <summary>
-            Constructor.
+            Sends a message, to a group of nodes.
             </summary>
-            <param name="message">Message to user.</param>
-            <param name="inner">A possible causing InnerException.</param>
+            <param name="message">The message.</param>
+            <param name="nodeids"></param>
+        </member>
+        <member name="M:ScallopCore.Network.IScallopNetwork.SendMessage(System.String,System.Int32)">
+            <summary>
+            Sends a message, to neighbouring nodes within a specified number of hops.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="reach">Hopcount.</param>
+        </member>
+        <member name="P:ScallopCore.Network.IScallopNetwork.ConfigSchema">
+            <summary>
+            Gets the XSD schema used to configure this network type.
+            </summary>
+            <returns>An XML schema.</returns>
+        </member>
+        <member name="P:ScallopCore.Network.IScallopNetwork.State">
+            <summary>
+            Gets the network state.
+            </summary>
+        </member>
+        <member name="P:ScallopCore.Network.IScallopNetwork.NodeId">
+            <summary>
+            Gets the node identification string.
+            </summary>
+        </member>
+        <member name="P:ScallopCore.Network.IScallopNetwork.Version">
+            <summary>
+            Gets the version.
+            </summary>
+        </member>
+        <member name="P:ScallopCore.Network.IScallopNetwork.Neighbors">
+            <summary>
+            Gets list of node neighbours.
+            </summary>
+        </member>
+        <member name="P:ScallopCore.Network.IScallopNetwork.MessageCountRX">
+            <summary>
+            Number of messages received.
+            </summary>
+        </member>
+        <member name="P:ScallopCore.Network.IScallopNetwork.MessageCountTX">
+            <summary>
+            Number of messages sent.
+            </summary>
+        </member>
+        <member name="P:ScallopCore.Network.IScallopNetwork.MessageSizeRX">
+            <summary>
+            Cumulative size of payload in messages received.
+            </summary>
+        </member>
+        <member name="P:ScallopCore.Network.IScallopNetwork.MessageSizeTX">
+            <summary>
+            Cumulative size of payload in messages sent.
+            </summary>
+        </member>
+        <member name="P:ScallopCore.Network.IScallopNetwork.HopCountSum">
+            <summary>
+            Sum of hopcounts of received messages. Divide by MessageCountRX to get average.
+            </summary>
+        </member>
+        <member name="E:ScallopCore.Network.IScallopNetwork.StatusChanged">
+            <summary>
+            This event is raised when there is an error with the network.
+            The reason for the error is contained in the event arguments. 
+            </summary>
+        </member>
+        <member name="E:ScallopCore.Network.IScallopNetwork.Data">
+            <summary>
+            This event is raised when new network data is received. The received message
+            is passed in the event arguments. 
+            </summary>
+        </member>
+        <member name="E:ScallopCore.Network.IScallopNetwork.Info">
+            <summary>
+            This event is raised when the network module wants to inform the user
+            of something interesting. The message is passed in the event arguments.
+            </summary>
+        </member>
+        <member name="T:ScallopCore.Network.ScallopMessage">
+            <summary> </summary>
+        </member>
+        <member name="F:ScallopCore.Network.ScallopMessage.sender">
+            <summary> ID of sending node.</summary>
+        </member>
+        <member name="F:ScallopCore.Network.ScallopMessage.contents">
+            <summary> Content of message in XML.</summary>
+        </member>
+        <member name="F:ScallopCore.Network.ScallopMessage.receivers">
+            <summary> Array of receiver IDs.</summary>
+        </member>
+        <member name="F:ScallopCore.Network.ScallopMessage.hopcount">
+            <summary>Hopcount.</summary>
+        </member>
+        <member name="F:ScallopCore.Network.ScallopMessage.origHopcount">
+            <summary>
+            Original hopcount.
+            </summary>
+        </member>
+        <member name="F:ScallopCore.Network.ScallopMessage.InternalMessage">
+            <summary>
+            Flag indicating whether this is a message internal to the implementation.
+            </summary>
         </member>
         <member name="T:ScallopCore.InterfaceFactory">
             <summary>
