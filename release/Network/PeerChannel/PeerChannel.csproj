@@ -67,6 +67,7 @@
     <Compile Include="PeerChannel.cs" />
     <Compile Include="PeerChannelParameters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScallopMessagePropagationFilter.cs" />
     <Compile Include="ScallopPeerChannel.cs" />
   </ItemGroup>
   <ItemGroup>

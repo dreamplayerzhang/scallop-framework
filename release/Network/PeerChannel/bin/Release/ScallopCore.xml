@@ -419,19 +419,12 @@
             </summary>
             <param name="message">The message.</param>
         </member>
-        <member name="M:ScallopCore.Network.IScallopNetwork.SendMessage(System.String,System.String)">
-            <summary>
-            Sends a message, to a specific node.
-            </summary>
-            <param name="message">The message.</param>
-            <param name="nodeid">Node ID of the target node.</param>
-        </member>
         <member name="M:ScallopCore.Network.IScallopNetwork.SendMessage(System.String,System.String[])">
             <summary>
-            Sends a message, to a group of nodes.
+            Sends a message to a specific group of nodes.
             </summary>
             <param name="message">The message.</param>
-            <param name="nodeids"></param>
+            <param name="nodeids">Node IDs of the target nodes</param>
         </member>
         <member name="M:ScallopCore.Network.IScallopNetwork.SendMessage(System.String,System.Int32)">
             <summary>
@@ -510,26 +503,39 @@
             </summary>
         </member>
         <member name="T:ScallopCore.Network.ScallopMessage">
-            <summary> </summary>
+            <summary>
+            Message contract that defines the structure of a generated SOAP message.
+            For more information, see http://msdn.microsoft.com/en-us/library/ms730255.aspx
+            </summary>
         </member>
-        <member name="F:ScallopCore.Network.ScallopMessage.sender">
-            <summary> ID of sending node.</summary>
+        <member name="F:ScallopCore.Network.ScallopMessage.header">
+            <summary>
+            Custom message header
+            </summary>
         </member>
         <member name="F:ScallopCore.Network.ScallopMessage.contents">
             <summary> Content of message in XML.</summary>
         </member>
-        <member name="F:ScallopCore.Network.ScallopMessage.receivers">
-            <summary> Array of receiver IDs.</summary>
-        </member>
         <member name="F:ScallopCore.Network.ScallopMessage.hopcount">
             <summary>Hopcount.</summary>
         </member>
-        <member name="F:ScallopCore.Network.ScallopMessage.origHopcount">
+        <member name="T:ScallopCore.Network.ScallopMessageHeader">
+            <summary>
+            Data contract for a message header
+            </summary>
+        </member>
+        <member name="F:ScallopCore.Network.ScallopMessageHeader.sender">
+            <summary> ID of sending node.</summary> 
+        </member>
+        <member name="F:ScallopCore.Network.ScallopMessageHeader.receivers">
+            <summary> Array of receiver IDs.</summary>
+        </member>
+        <member name="F:ScallopCore.Network.ScallopMessageHeader.origHopcount">
             <summary>
             Original hopcount.
             </summary>
         </member>
-        <member name="F:ScallopCore.Network.ScallopMessage.InternalMessage">
+        <member name="F:ScallopCore.Network.ScallopMessageHeader.InternalMessage">
             <summary>
             Flag indicating whether this is a message internal to the implementation.
             </summary>
