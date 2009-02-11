@@ -24,9 +24,8 @@
  */
 
 using ScallopCore.Network;
-using System.Net.PeerToPeer;
-using System;
 using System.ServiceModel;
+
 namespace Scallop.Network.PeerChannel
 {
 
@@ -53,19 +52,19 @@ namespace Scallop.Network.PeerChannel
     /// Method to send a message.
     /// </summary>
     /// <param name="message">The message.</param>
-    [OperationContract(IsOneWay = true, IsInitiating = true)]
+    [OperationContract(IsOneWay = true)]
     void PCSend(ScallopMessage message);
 
     /// <summary>
     /// Method to join a network.
     /// </summary>
-    [OperationContract(IsOneWay = true, IsInitiating = true)]
+    [OperationContract(IsOneWay = true)]
     void PCJoin(string id);
 
     /// <summary>
     /// Method to leave a network.
     /// </summary>
-    [OperationContract(IsOneWay = true, IsInitiating = true)]
+    [OperationContract(IsOneWay = true)]
     void PCLeave(string id);
     
   }

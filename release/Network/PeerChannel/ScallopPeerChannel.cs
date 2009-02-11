@@ -27,7 +27,6 @@ using System;
 using System.Xml;
 using System.ServiceModel;
 using System.Threading;
-using System.Collections.Specialized;
 using System.Xml.Schema;
 using System.IO;
 using System.Reflection;
@@ -161,7 +160,7 @@ namespace Scallop.Network.PeerChannel
       {
          try
          {
-            if (this.chan != null && this.State == ScallopNetworkState.Online)
+            if (this.chan != null && this.peer.IsOnline)
             {
                if (msg.header.sender == null)
                   msg.header.sender = this.id;
@@ -470,11 +469,14 @@ namespace Scallop.Network.PeerChannel
 
          this.chan.Open();
 
-         this.chan.PCJoin(id);
-         this.id = id;
+         this.chan.PCJoin(this.id);
          this.registered = true;
-         if (peer.IsOnline)
-            doStateChanged(this, new ScallopNetworkStatusChangedEventArgs(ScallopNetworkState.Online, null, "Logged in"));
+
+         this.id = id;
+
+         //if(peer.IsOnline)
+         //   this.doStateChanged(this, new ScallopNetworkStatusChangedEventArgs(ScallopNetworkState.Online, null, "Online"));
+
       }
 
       void peer_Online(object sender, EventArgs e)
@@ -494,7 +496,7 @@ namespace Scallop.Network.PeerChannel
          try
          {
             e.OldState = this.myState;
-            myState = e.NewState;
+            this.myState = e.NewState;
             if (StatusChanged != null)
                StatusChanged(sender, e);
          }

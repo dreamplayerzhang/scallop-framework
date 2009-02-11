@@ -26,7 +26,6 @@
 using System;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
-using System.Collections.Specialized;
 using System.Xml.Schema;
 using System.Xml;
 using ScallopCore.Events;
@@ -211,7 +210,7 @@ namespace ScallopCore.Network
    /// Message contract that defines the structure of a generated SOAP message.
    /// For more information, see http://msdn.microsoft.com/en-us/library/ms730255.aspx
    /// </summary>
-   [MessageContract, Serializable]
+   [MessageContract]
    public class ScallopMessage
    {
       /// <summary>
@@ -228,6 +227,9 @@ namespace ScallopCore.Network
       [PeerHopCount]
       public int hopcount;
 
+      /// <summary>
+      /// Creates a new message.
+      /// </summary>
       public ScallopMessage()
       {
          this.header = new ScallopMessageHeader();
