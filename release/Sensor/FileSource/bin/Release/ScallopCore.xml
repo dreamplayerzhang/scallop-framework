@@ -4,202 +4,201 @@
         <name>ScallopCore</name>
     </assembly>
     <members>
-        <member name="T:ScallopCore.Network.ScallopNetworkState">
+        <member name="T:ScallopCore.ScallopUtils">
             <summary>
-            Enumeration representing the possible states of a Scallop network
-            implementation.
+            Static utilities for Scallop. Includes Base64Encoding.
             </summary>
         </member>
-        <member name="F:ScallopCore.Network.ScallopNetworkState.Offline">
+        <member name="M:ScallopCore.ScallopUtils.Base64Encode(System.Byte[])">
             <summary>
-            State indicating the network is idle. No messages are sent or received.
+            Base64-encodes a byte buffer to a format that is suitable for text-based transmission
+            </summary>
+            <param name="buf">Data to be encoded.</param>
+            <returns>A string containing the data in buf, encoded in base64.</returns>
+            <remarks>Use Base64Decode to reverse the encoding.</remarks>
+        </member>
+        <member name="M:ScallopCore.ScallopUtils.Base64Decode(System.String)">
+            <summary>
+            Base64 decodes a string to it's byte buffer representation.
+            </summary>
+            <param name="encoded">The encoded string.</param>
+            <returns>Byte buffer containing decoded data.</returns>
+        </member>
+        <member name="T:ScallopCore.Events.ScallopSensorStatusChangedHandler">
+            <summary>
+            Event handler signature for sensor error events.
+            </summary>
+            <param name="sender">Identifies the object that sent the event.</param>
+            <param name="e">Event arguments, containing the error message.</param>
+        </member>
+        <member name="T:ScallopCore.Events.ScallopSensorStatusChangedEventArgs">
+            <summary>
+            Event arguments for sensor status changed events.
             </summary>
         </member>
-        <member name="F:ScallopCore.Network.ScallopNetworkState.Online">
+        <member name="F:ScallopCore.Events.ScallopSensorStatusChangedEventArgs.CausingException">
             <summary>
-            State indicating the node has successfully joined the network. Messages
-            can be sent and received.
+            Possible exception that caused the error.
             </summary>
         </member>
-        <member name="F:ScallopCore.Network.ScallopNetworkState.Error">
+        <member name="F:ScallopCore.Events.ScallopSensorStatusChangedEventArgs.msg">
             <summary>
-            State indicating the network is in an error state. Can indicate network
-            problems, etc.
+            StatusChanged message.
             </summary>
         </member>
-        <member name="F:ScallopCore.Network.ScallopNetworkState.Undefined">
+        <member name="F:ScallopCore.Events.ScallopSensorStatusChangedEventArgs.NewState">
             <summary>
-            An undefined network state.
+            The state after the event.
             </summary>
         </member>
-        <member name="T:ScallopCore.Network.IScallopNetwork">
+        <member name="F:ScallopCore.Events.ScallopSensorStatusChangedEventArgs.OldState">
             <summary>
-            Network interface for Scallop network implementations.
-            </summary>
-            <example>
-            <code>
-             {
-            ...
-             // if the network type is passed from a configuration file 
-             IScallopNetwork chan = InterfaceFactory.CreateNetworkInstance("PeerChannel", "Scallop.Network.PeerChannel.ScallopPeerChannel");
-             
-             if the network type is known at compile time
-             // ScallopPeerChannel chan = new ScallopPeerChannel();
-             
-             chan.Data += this.network_data; // add the handlers
-             chan.StatusChanged += this.network_error;
-             chan.Info += this.network_info;
-             chan.Opened += this.network_join;
-             chan.Closed += this.network_leave;
-             
-             chan.Register(System.Xml.Linq.XDocument.Load("SensorConfig.xml"),
-                           null);
-             
-             chan.Join()
-             ...
-             }
-             
-             void network_join(object sender, EventArgs e) { }
-             void network_leave(object sender, EventArgs e) { }
-             void network_error(object sender, ScallopNetworkStatusChangedEventArgs e) { }
-             void network_info(object sender, ScallopInfoEventArgs e) {}
-             void network_data(object sender, ScallopNetworkDataEventArgs e) {}
-             </code>
-            </example>
-        </member>
-        <member name="M:ScallopCore.Network.IScallopNetwork.Join(System.Xml.XmlDocument,System.String)">
-            <summary>
-            Joins a network using the provided settings.
-            </summary>
-            <param name="networkSettings">The network settings XML.</param>
-            <param name="selectConfig">The name of the config to use.</param>
-            <returns>Node identification string.</returns>
-        </member>
-        <member name="M:ScallopCore.Network.IScallopNetwork.Leave">
-            <summary>
-            Leaves a network.
+            The state before the event.
             </summary>
         </member>
-        <member name="M:ScallopCore.Network.IScallopNetwork.SendMessage(System.String)">
+        <member name="M:ScallopCore.Events.ScallopSensorStatusChangedEventArgs.#ctor(ScallopCore.Sensor.ScallopSensorState,ScallopCore.Sensor.ScallopSensorState,System.Exception,System.String)">
             <summary>
-            Sends a message, broadcast.
+            Constructor.
             </summary>
-            <param name="message">The message.</param>
+            <param name="e">Possible exception that caused an error.</param>
+            <param name="fromState">State before event.</param>
+            <param name="toState">State after event.</param>
+            <param name="msg">A freeform string message for the user.</param>
         </member>
-        <member name="M:ScallopCore.Network.IScallopNetwork.SendMessage(System.String,System.String)">
+        <member name="T:ScallopCore.Events.ScallopSensorDataHandler">
             <summary>
-            Sends a message, to a specific node.
+            Event handler signature for sensor data events.
             </summary>
-            <param name="message">The message.</param>
-            <param name="nodeid">Node ID of the target node.</param>
+            <param name="sender">Identifies the object that sent the event.</param>
+            <param name="e">Event arguments, containing the data associated with the event.</param>
         </member>
-        <member name="M:ScallopCore.Network.IScallopNetwork.SendMessage(System.String,System.String[])">
+        <member name="T:ScallopCore.Events.ScallopSensorDataEventArgs">
             <summary>
-            Sends a message, to a group of nodes.
-            </summary>
-            <param name="message">The message.</param>
-            <param name="nodeids"></param>
-        </member>
-        <member name="M:ScallopCore.Network.IScallopNetwork.SendMessage(System.String,System.Int32)">
-            <summary>
-            Sends a message, to neighbouring nodes within a specified number of hops.
-            </summary>
-            <param name="message">The message.</param>
-            <param name="reach">Hopcount.</param>
-        </member>
-        <member name="P:ScallopCore.Network.IScallopNetwork.ConfigSchema">
-            <summary>
-            Gets the XSD schema used to configure this network type.
-            </summary>
-            <returns>An XML schema.</returns>
-        </member>
-        <member name="P:ScallopCore.Network.IScallopNetwork.State">
-            <summary>
-            Gets the network state.
+            Event arguments for sensor data events.
             </summary>
         </member>
-        <member name="P:ScallopCore.Network.IScallopNetwork.NodeId">
+        <member name="F:ScallopCore.Events.ScallopSensorDataEventArgs.data">
             <summary>
-            Gets the node identification string.
+            The data content.
             </summary>
         </member>
-        <member name="P:ScallopCore.Network.IScallopNetwork.Version">
+        <member name="F:ScallopCore.Events.ScallopSensorDataEventArgs.dataType">
             <summary>
-            Gets the version.
+            Type of data.
             </summary>
         </member>
-        <member name="P:ScallopCore.Network.IScallopNetwork.Neighbors">
+        <member name="F:ScallopCore.Events.ScallopSensorDataEventArgs.msg">
             <summary>
-            Gets list of node neighbours.
+            A freeform message for the user.
             </summary>
         </member>
-        <member name="P:ScallopCore.Network.IScallopNetwork.MessageCountRX">
+        <member name="M:ScallopCore.Events.ScallopSensorDataEventArgs.#ctor(System.Object,System.String)">
             <summary>
-            Number of messages received.
+            Constructor.
+            </summary>
+            <param name="data">The event sensordata.</param>
+            <param name="msg">A message.</param>
+        </member>
+        <member name="T:ScallopCore.Events.ScallopSensorInfoHandler">
+            <summary>
+            Event handler signature for sensor info events.
+            </summary>
+            <param name="sender">Identifies the object that sent the event.</param>
+            <param name="e">Event arguments, containing the information text.</param>
+        </member>
+        <member name="T:ScallopCore.Events.ScallopInfoEventArgs">
+            <summary>
+            Event arguments for sensor and network information events.
             </summary>
         </member>
-        <member name="P:ScallopCore.Network.IScallopNetwork.MessageCountTX">
+        <member name="F:ScallopCore.Events.ScallopInfoEventArgs.msg">
             <summary>
-            Number of messages sent.
+            The information message.
             </summary>
         </member>
-        <member name="P:ScallopCore.Network.IScallopNetwork.MessageSizeRX">
+        <member name="M:ScallopCore.Events.ScallopInfoEventArgs.#ctor(System.String)">
             <summary>
-            Cumulative size of payload in messages received.
+            Constructor.
+            </summary>
+            <param name="msg">The information message.</param>
+        </member>
+        <member name="T:ScallopCore.Events.ScallopNetworkStatusChangedHandler">
+            <summary>
+            Event handler signature for network error events.
+            </summary>
+            <param name="sender">Identifies the object that sent the event.</param>
+            <param name="e">Event arguments, containing the error message.</param>
+        </member>
+        <member name="T:ScallopCore.Events.ScallopNetworkStatusChangedEventArgs">
+            <summary>
+            Event arguments for network status changed events.
             </summary>
         </member>
-        <member name="P:ScallopCore.Network.IScallopNetwork.MessageSizeTX">
+        <member name="F:ScallopCore.Events.ScallopNetworkStatusChangedEventArgs.CausingException">
             <summary>
-            Cumulative size of payload in messages sent.
+            Possible exception that caused the error.
             </summary>
         </member>
-        <member name="P:ScallopCore.Network.IScallopNetwork.HopCountSum">
+        <member name="F:ScallopCore.Events.ScallopNetworkStatusChangedEventArgs.msg">
             <summary>
-            Sum of hopcounts of received messages. Divide by MessageCountRX to get average.
+            StatusChanged message.
             </summary>
         </member>
-        <member name="E:ScallopCore.Network.IScallopNetwork.StatusChanged">
+        <member name="F:ScallopCore.Events.ScallopNetworkStatusChangedEventArgs.NewState">
             <summary>
-            This event is raised when there is an error with the network.
-            The reason for the error is contained in the event arguments. 
+            State after the event.
             </summary>
         </member>
-        <member name="E:ScallopCore.Network.IScallopNetwork.Data">
+        <member name="F:ScallopCore.Events.ScallopNetworkStatusChangedEventArgs.OldState">
             <summary>
-            This event is raised when new network data is received. The received message
-            is passed in the event arguments. 
+            State before the event.
             </summary>
         </member>
-        <member name="E:ScallopCore.Network.IScallopNetwork.Info">
+        <member name="M:ScallopCore.Events.ScallopNetworkStatusChangedEventArgs.#ctor(ScallopCore.Network.ScallopNetworkState,System.Exception,System.String)">
             <summary>
-            This event is raised when the network module wants to inform the user
-            of something interesting. The message is passed in the event arguments.
+            Constructor.
             </summary>
         </member>
-        <member name="T:ScallopCore.Network.ScallopMessage">
-            <summary> </summary>
-        </member>
-        <member name="F:ScallopCore.Network.ScallopMessage.sender">
-            <summary> ID of sending node.</summary>
-        </member>
-        <member name="F:ScallopCore.Network.ScallopMessage.contents">
-            <summary> Content of message in XML.</summary>
-        </member>
-        <member name="F:ScallopCore.Network.ScallopMessage.receivers">
-            <summary> Array of receiver IDs.</summary>
-        </member>
-        <member name="F:ScallopCore.Network.ScallopMessage.hopcount">
-            <summary>Hopcount.</summary>
-        </member>
-        <member name="F:ScallopCore.Network.ScallopMessage.origHopcount">
+        <member name="T:ScallopCore.Events.ScallopNetworkDataHandler">
             <summary>
-            Original hopcount.
+            Event handler signature for network data events.
+            </summary>
+            <param name="sender">Identifies the object that sent the event.</param>
+            <param name="e">Event arguments, containing the data.</param>
+        </member>
+        <member name="T:ScallopCore.Events.ScallopNetworkDataEventArgs">
+            <summary>
+            Event arguments for network data events.
             </summary>
         </member>
-        <member name="F:ScallopCore.Network.ScallopMessage.InternalMessage">
+        <member name="F:ScallopCore.Events.ScallopNetworkDataEventArgs.data">
             <summary>
-            Flag indicating whether this is a message internal to the implementation.
+            The data received from the network.
             </summary>
+        </member>
+        <member name="F:ScallopCore.Events.ScallopNetworkDataEventArgs.dataType">
+            <summary>
+            Type of data.
+            </summary>
+        </member>
+        <member name="F:ScallopCore.Events.ScallopNetworkDataEventArgs.msg">
+            <summary>
+            An optional message for the user.
+            </summary>
+        </member>
+        <member name="M:ScallopCore.Events.ScallopNetworkDataEventArgs.#ctor(System.Object,System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="data">The network data.</param>
+            <param name="msg">A user message.</param>
+        </member>
+        <member name="T:ScallopCore.Events.ScallopNetworkInfoHandler">
+            <summary>
+            Event handler signature for network info events.
+            </summary>
+            <param name="sender">Identifies the object that sent the event.</param>
+            <param name="e">Event parameters, containing the information text.</param>
         </member>
         <member name="T:ScallopCore.Sensor.ScallopSensorState">
             <summary>
@@ -310,229 +309,213 @@
             find useful. The information is passed in the event arguments.
             </summary>
         </member>
-        <member name="T:ScallopCore.Events.ScallopSensorOpenedHandler">
+        <member name="T:ScallopCore.Network.ScallopNetworkState">
             <summary>
-            Event handler signature for sensor open events.
-            </summary>
-            <param name="sender">Identifies the object that sent the event.</param>
-            <param name="e">Event arguments, empty.</param>
-        </member>
-        <member name="T:ScallopCore.Events.ScallopSensorClosedHandler">
-            <summary>
-            Event handler signature for sensor close events.
-            </summary>
-            <param name="sender">Identifies the object that sent the event.</param>
-            <param name="e">Event arguments, empty.</param>
-        </member>
-        <member name="T:ScallopCore.Events.ScallopSensorStatusChangedHandler">
-            <summary>
-            Event handler signature for sensor error events.
-            </summary>
-            <param name="sender">Identifies the object that sent the event.</param>
-            <param name="e">Event arguments, containing the error message.</param>
-        </member>
-        <member name="T:ScallopCore.Events.ScallopSensorStatusChangedEventArgs">
-            <summary>
-            Event arguments for sensor status changed events.
+            Enumeration representing the possible states of a Scallop network
+            implementation.
             </summary>
         </member>
-        <member name="F:ScallopCore.Events.ScallopSensorStatusChangedEventArgs.CausingException">
+        <member name="F:ScallopCore.Network.ScallopNetworkState.Offline">
             <summary>
-            Possible exception that caused the error.
+            State indicating the network is idle. No messages are sent or received.
             </summary>
         </member>
-        <member name="F:ScallopCore.Events.ScallopSensorStatusChangedEventArgs.msg">
+        <member name="F:ScallopCore.Network.ScallopNetworkState.Online">
             <summary>
-            StatusChanged message.
+            State indicating the node has successfully joined the network. Messages
+            can be sent and received.
             </summary>
         </member>
-        <member name="F:ScallopCore.Events.ScallopSensorStatusChangedEventArgs.NewState">
+        <member name="F:ScallopCore.Network.ScallopNetworkState.Error">
             <summary>
-            The state after the event.
+            State indicating the network is in an error state. Can indicate network
+            problems, etc.
             </summary>
         </member>
-        <member name="F:ScallopCore.Events.ScallopSensorStatusChangedEventArgs.OldState">
+        <member name="F:ScallopCore.Network.ScallopNetworkState.Undefined">
             <summary>
-            The state before the event.
+            An undefined network state.
             </summary>
         </member>
-        <member name="M:ScallopCore.Events.ScallopSensorStatusChangedEventArgs.#ctor(ScallopCore.Sensor.ScallopSensorState,ScallopCore.Sensor.ScallopSensorState,System.Exception,System.String)">
+        <member name="T:ScallopCore.Network.IScallopNetwork">
             <summary>
-            Constructor.
+            Network interface for Scallop network implementations.
             </summary>
-            <param name="e">Possible exception that caused an error.</param>
-            <param name="fromState">State before event.</param>
-            <param name="toState">State after event.</param>
-            <param name="msg">A freeform string message for the user.</param>
+            <example>
+            <code>
+             {
+            ...
+             // if the network type is passed from a configuration file 
+             IScallopNetwork chan = InterfaceFactory.CreateNetworkInstance("PeerChannel", "Scallop.Network.PeerChannel.ScallopPeerChannel");
+             
+             if the network type is known at compile time
+             // ScallopPeerChannel chan = new ScallopPeerChannel();
+             
+             chan.Data += this.network_data; // add the handlers
+             chan.StatusChanged += this.network_error;
+             chan.Info += this.network_info;
+             chan.Opened += this.network_join;
+             chan.Closed += this.network_leave;
+             
+             chan.Register(System.Xml.Linq.XDocument.Load("SensorConfig.xml"),
+                           null);
+             
+             chan.Join()
+             ...
+             }
+             
+             void network_join(object sender, EventArgs e) { }
+             void network_leave(object sender, EventArgs e) { }
+             void network_error(object sender, ScallopNetworkStatusChangedEventArgs e) { }
+             void network_info(object sender, ScallopInfoEventArgs e) {}
+             void network_data(object sender, ScallopNetworkDataEventArgs e) {}
+             </code>
+            </example>
         </member>
-        <member name="T:ScallopCore.Events.ScallopSensorDataHandler">
+        <member name="M:ScallopCore.Network.IScallopNetwork.Join(System.Xml.XmlDocument,System.String)">
             <summary>
-            Event handler signature for sensor data events.
+            Joins a network using the provided settings.
             </summary>
-            <param name="sender">Identifies the object that sent the event.</param>
-            <param name="e">Event arguments, containing the data associated with the event.</param>
+            <param name="networkSettings">The network settings XML.</param>
+            <param name="selectConfig">The name of the config to use.</param>
+            <returns>Node identification string.</returns>
         </member>
-        <member name="T:ScallopCore.Events.ScallopSensorDataEventArgs">
+        <member name="M:ScallopCore.Network.IScallopNetwork.Leave">
             <summary>
-            Event arguments for sensor data events.
-            </summary>
-        </member>
-        <member name="F:ScallopCore.Events.ScallopSensorDataEventArgs.data">
-            <summary>
-            The data content.
-            </summary>
-        </member>
-        <member name="F:ScallopCore.Events.ScallopSensorDataEventArgs.dataType">
-            <summary>
-            Type of data.
-            </summary>
-        </member>
-        <member name="F:ScallopCore.Events.ScallopSensorDataEventArgs.msg">
-            <summary>
-            A freeform message for the user.
-            </summary>
-        </member>
-        <member name="M:ScallopCore.Events.ScallopSensorDataEventArgs.#ctor(System.Object,System.String)">
-            <summary>
-            Constructor.
-            </summary>
-            <param name="data">The event sensordata.</param>
-            <param name="msg">A message.</param>
-        </member>
-        <member name="T:ScallopCore.Events.ScallopSensorInfoHandler">
-            <summary>
-            Event handler signature for sensor info events.
-            </summary>
-            <param name="sender">Identifies the object that sent the event.</param>
-            <param name="e">Event arguments, containing the information text.</param>
-        </member>
-        <member name="T:ScallopCore.Events.ScallopInfoEventArgs">
-            <summary>
-            Event arguments for sensor and network information events.
+            Leaves a network.
             </summary>
         </member>
-        <member name="F:ScallopCore.Events.ScallopInfoEventArgs.msg">
+        <member name="M:ScallopCore.Network.IScallopNetwork.SendMessage(System.String)">
             <summary>
-            The information message.
+            Sends a message, broadcast.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:ScallopCore.Network.IScallopNetwork.SendMessage(System.String,System.String[])">
+            <summary>
+            Sends a message to a specific group of nodes.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="nodeids">Node IDs of the target nodes</param>
+        </member>
+        <member name="M:ScallopCore.Network.IScallopNetwork.SendMessage(System.String,System.Int32)">
+            <summary>
+            Sends a message, to neighbouring nodes within a specified number of hops.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="reach">Hopcount.</param>
+        </member>
+        <member name="P:ScallopCore.Network.IScallopNetwork.ConfigSchema">
+            <summary>
+            Gets the XSD schema used to configure this network type.
+            </summary>
+            <returns>An XML schema.</returns>
+        </member>
+        <member name="P:ScallopCore.Network.IScallopNetwork.State">
+            <summary>
+            Gets the network state.
             </summary>
         </member>
-        <member name="M:ScallopCore.Events.ScallopInfoEventArgs.#ctor(System.String)">
+        <member name="P:ScallopCore.Network.IScallopNetwork.NodeId">
             <summary>
-            Constructor.
-            </summary>
-            <param name="msg">The information message.</param>
-        </member>
-        <member name="T:ScallopCore.Events.ScallopNetworkOpenedHandler">
-            <summary>
-            Event handler signature for network open events.
-            </summary>
-            <param name="sender">Identifies the object that sent the event.</param>
-            <param name="e">Event arguments, empty.</param>
-        </member>
-        <member name="T:ScallopCore.Events.ScallopNetworkClosedHandler">
-            <summary>
-            Event handler signature for network closed events.
-            </summary>
-            <param name="sender">Identifies the object that sent the event.</param>
-            <param name="e">Event arguments, empty.</param>
-        </member>
-        <member name="T:ScallopCore.Events.ScallopNetworkStatusChangedHandler">
-            <summary>
-            Event handler signature for network error events.
-            </summary>
-            <param name="sender">Identifies the object that sent the event.</param>
-            <param name="e">Event arguments, containing the error message.</param>
-        </member>
-        <member name="T:ScallopCore.Events.ScallopNetworkStatusChangedEventArgs">
-            <summary>
-            Event arguments for network status changed events.
+            Gets the node identification string.
             </summary>
         </member>
-        <member name="F:ScallopCore.Events.ScallopNetworkStatusChangedEventArgs.CausingException">
+        <member name="P:ScallopCore.Network.IScallopNetwork.Version">
             <summary>
-            Possible exception that caused the error.
+            Gets the version.
             </summary>
         </member>
-        <member name="F:ScallopCore.Events.ScallopNetworkStatusChangedEventArgs.msg">
+        <member name="P:ScallopCore.Network.IScallopNetwork.Neighbors">
             <summary>
-            StatusChanged message.
+            Gets list of node neighbours.
             </summary>
         </member>
-        <member name="F:ScallopCore.Events.ScallopNetworkStatusChangedEventArgs.NewState">
+        <member name="P:ScallopCore.Network.IScallopNetwork.MessageCountRX">
             <summary>
-            State after the event.
+            Number of messages received.
             </summary>
         </member>
-        <member name="F:ScallopCore.Events.ScallopNetworkStatusChangedEventArgs.OldState">
+        <member name="P:ScallopCore.Network.IScallopNetwork.MessageCountTX">
             <summary>
-            State before the event.
+            Number of messages sent.
             </summary>
         </member>
-        <member name="M:ScallopCore.Events.ScallopNetworkStatusChangedEventArgs.#ctor(ScallopCore.Network.ScallopNetworkState,System.Exception,System.String)">
+        <member name="P:ScallopCore.Network.IScallopNetwork.MessageSizeRX">
             <summary>
-            Constructor.
+            Cumulative size of payload in messages received.
             </summary>
         </member>
-        <member name="T:ScallopCore.Events.ScallopNetworkDataHandler">
+        <member name="P:ScallopCore.Network.IScallopNetwork.MessageSizeTX">
             <summary>
-            Event handler signature for network data events.
-            </summary>
-            <param name="sender">Identifies the object that sent the event.</param>
-            <param name="e">Event arguments, containing the data.</param>
-        </member>
-        <member name="T:ScallopCore.Events.ScallopNetworkDataEventArgs">
-            <summary>
-            Event arguments for network data events.
+            Cumulative size of payload in messages sent.
             </summary>
         </member>
-        <member name="F:ScallopCore.Events.ScallopNetworkDataEventArgs.data">
+        <member name="P:ScallopCore.Network.IScallopNetwork.HopCountSum">
             <summary>
-            The data received from the network.
+            Sum of hopcounts of received messages. Divide by MessageCountRX to get average.
             </summary>
         </member>
-        <member name="F:ScallopCore.Events.ScallopNetworkDataEventArgs.dataType">
+        <member name="E:ScallopCore.Network.IScallopNetwork.StatusChanged">
             <summary>
-            Type of data.
+            This event is raised when there is an error with the network.
+            The reason for the error is contained in the event arguments. 
             </summary>
         </member>
-        <member name="F:ScallopCore.Events.ScallopNetworkDataEventArgs.msg">
+        <member name="E:ScallopCore.Network.IScallopNetwork.Data">
             <summary>
-            An optional message for the user.
+            This event is raised when new network data is received. The received message
+            is passed in the event arguments. 
             </summary>
         </member>
-        <member name="M:ScallopCore.Events.ScallopNetworkDataEventArgs.#ctor(System.Object,System.String)">
+        <member name="E:ScallopCore.Network.IScallopNetwork.Info">
             <summary>
-            Constructor.
-            </summary>
-            <param name="data">The network data.</param>
-            <param name="msg">A user message.</param>
-        </member>
-        <member name="T:ScallopCore.Events.ScallopNetworkInfoHandler">
-            <summary>
-            Event handler signature for network info events.
-            </summary>
-            <param name="sender">Identifies the object that sent the event.</param>
-            <param name="e">Event parameters, containing the information text.</param>
-        </member>
-        <member name="T:ScallopCore.ScallopUtils">
-            <summary>
-            Static utilities for Scallop. Includes Base64Encoding.
+            This event is raised when the network module wants to inform the user
+            of something interesting. The message is passed in the event arguments.
             </summary>
         </member>
-        <member name="M:ScallopCore.ScallopUtils.Base64Encode(System.Byte[])">
+        <member name="T:ScallopCore.Network.ScallopMessage">
             <summary>
-            Base64-encodes a byte buffer to a format that is suitable for text-based transmission
+            Message contract that defines the structure of a generated SOAP message.
+            For more information, see http://msdn.microsoft.com/en-us/library/ms730255.aspx
             </summary>
-            <param name="buf">Data to be encoded.</param>
-            <returns>A string containing the data in buf, encoded in base64.</returns>
-            <remarks>Use Base64Decode to reverse the encoding.</remarks>
         </member>
-        <member name="M:ScallopCore.ScallopUtils.Base64Decode(System.String)">
+        <member name="F:ScallopCore.Network.ScallopMessage.header">
             <summary>
-            Base64 decodes a string to it's byte buffer representation.
+            Custom message header
             </summary>
-            <param name="encoded">The encoded string.</param>
-            <returns>Byte buffer containing decoded data.</returns>
+        </member>
+        <member name="F:ScallopCore.Network.ScallopMessage.contents">
+            <summary> Content of message in XML.</summary>
+        </member>
+        <member name="F:ScallopCore.Network.ScallopMessage.hopcount">
+            <summary>Hopcount.</summary>
+        </member>
+        <member name="M:ScallopCore.Network.ScallopMessage.#ctor">
+            <summary>
+            Creates a new message.
+            </summary>
+        </member>
+        <member name="T:ScallopCore.Network.ScallopMessageHeader">
+            <summary>
+            Data contract for a message header
+            </summary>
+        </member>
+        <member name="F:ScallopCore.Network.ScallopMessageHeader.sender">
+            <summary> ID of sending node.</summary> 
+        </member>
+        <member name="F:ScallopCore.Network.ScallopMessageHeader.receivers">
+            <summary> Array of receiver IDs.</summary>
+        </member>
+        <member name="F:ScallopCore.Network.ScallopMessageHeader.origHopcount">
+            <summary>
+            Original hopcount.
+            </summary>
+        </member>
+        <member name="F:ScallopCore.Network.ScallopMessageHeader.InternalMessage">
+            <summary>
+            Flag indicating whether this is a message internal to the implementation.
+            </summary>
         </member>
         <member name="T:ScallopException">
             <summary>

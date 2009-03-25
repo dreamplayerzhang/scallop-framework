@@ -35,14 +35,14 @@ namespace ScallopCore.Events
   /// </summary>
   /// <param name="sender">Identifies the object that sent the event.</param>
   /// <param name="e">Event arguments, empty.</param>
-  public delegate void ScallopSensorOpenedHandler(object sender, EventArgs e);
+  //public delegate void ScallopSensorOpenedHandler(object sender, EventArgs e);
 
   /// <summary>
   /// Event handler signature for sensor close events.
   /// </summary>
   /// <param name="sender">Identifies the object that sent the event.</param>
   /// <param name="e">Event arguments, empty.</param>
-  public delegate void ScallopSensorClosedHandler(object sender, EventArgs e);
+  //public delegate void ScallopSensorClosedHandler(object sender, EventArgs e);
 
   /// <summary>
   /// Event handler signature for sensor error events.
@@ -169,14 +169,14 @@ namespace ScallopCore.Events
   /// </summary>
   /// <param name="sender">Identifies the object that sent the event.</param>
   /// <param name="e">Event arguments, empty.</param>
-  public delegate void ScallopNetworkOpenedHandler(object sender, EventArgs e);
+  //public delegate void ScallopNetworkOpenedHandler(object sender, EventArgs e);
 
   /// <summary>
   /// Event handler signature for network closed events.
   /// </summary>
   /// <param name="sender">Identifies the object that sent the event.</param>
   /// <param name="e">Event arguments, empty.</param>
-  public delegate void ScallopNetworkClosedHandler(object sender, EventArgs e);
+  //public delegate void ScallopNetworkClosedHandler(object sender, EventArgs e);
 
 
   /// <summary>
