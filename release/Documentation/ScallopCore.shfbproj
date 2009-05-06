@@ -1,0 +1,69 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <!-- The configuration and platform will be used to determine which
+         assemblies to include from solution and project documentation
+         sources -->
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{c909a1c5-1468-47ac-b0b2-37a54064e57d}</ProjectGuid>
+    <SHFBSchemaVersion>1.8.0.0</SHFBSchemaVersion>
+    <!-- AssemblyName, Name, and RootNamespace are not used by SHFB but Visual
+         Studio adds them anyway -->
+    <AssemblyName>Documentation</AssemblyName>
+    <RootNamespace>Documentation</RootNamespace>
+    <Name>Documentation</Name>
+    <!-- SHFB properties -->
+    <OutputPath>.\Help\</OutputPath>
+    <HtmlHelpName>ScallopAPI</HtmlHelpName>
+    <ApiFilter>
+      <Filter entryType="Namespace" fullName="System" isExposed="True" xmlns="">
+        <Filter entryType="Class" fullName="System.Object" filterName="Object" isExposed="False" />
+      </Filter>
+    </ApiFilter>
+    <ProjectSummary>Scallop distributed sensor framework API documentation.</ProjectSummary>
+    <MissingTags>Summary, Parameter, Returns, AutoDocumentCtors, Namespace, TypeParameter</MissingTags>
+    <VisibleItems>InheritedMembers, InheritedFrameworkMembers, Protected, SealedProtected</VisibleItems>
+    <HtmlHelp1xCompilerPath>
+    </HtmlHelp1xCompilerPath>
+    <HtmlHelp2xCompilerPath>
+    </HtmlHelp2xCompilerPath>
+    <SandcastlePath>
+    </SandcastlePath>
+    <WorkingPath>
+    </WorkingPath>
+    <BuildLogFile>
+    </BuildLogFile>
+    <FrameworkVersion>3.5</FrameworkVersion>
+    <HelpTitle>Scallop API documentation</HelpTitle>
+    <CopyrightText>The Scallop framework %28including the binary executables and the source code%29 is distributed under the terms of the MIT license.</CopyrightText>
+    <ProjectLinkType>Index</ProjectLinkType>
+    <PresentationStyle>vs2005</PresentationStyle>
+    <ContentPlacement>BelowNamespaces</ContentPlacement>
+    <DocumentationSources>
+      <DocumentationSource sourceFile="..\Common\bin\Release\ScallopCore.dll" />
+<DocumentationSource sourceFile="..\Common\bin\Release\ScallopCore.xml" /></DocumentationSources>
+    <NamespaceSummaries>
+      <NamespaceSummaryItem name="(global)" isDocumented="False" xmlns="" />
+      <NamespaceSummaryItem name="Scallop" isDocumented="True" xmlns="">Scallop namespace.</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="Scallop.Events" isDocumented="True" xmlns="">Scallop events namespace.</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="Scallop.Network" isDocumented="True" xmlns="">Scallop network namespace.</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="Scallop.Network.PeerChannel" isDocumented="True" xmlns="">PeerChannel.</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="Scallop.Sensor" isDocumented="True" xmlns="">Scallop sensor namespace.</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="Scallop.Sensor.Axis" isDocumented="True" xmlns="">Axis IP camera.</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="ScallopCore" isDocumented="True" xmlns="">Core Scallop functionality.</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="ScallopCore.Events" isDocumented="True" xmlns="">Events.</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="ScallopCore.Network" isDocumented="True" xmlns="">Networks.</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="ScallopCore.Sensor" isDocumented="True" xmlns="">Sensors.</NamespaceSummaryItem>
+    </NamespaceSummaries>
+    <HelpFileFormat>Help1xAndWebsite</HelpFileFormat>
+  </PropertyGroup>
+  <!-- There are no properties for these two groups but they need to appear in
+       order for Visual Studio to perform the build. -->
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+  </PropertyGroup>
+  <!-- Import the SHFB build targets -->
+  <Import Project="$(SHFBROOT)\SandcastleHelpFileBuilder.targets" />
+</Project>
