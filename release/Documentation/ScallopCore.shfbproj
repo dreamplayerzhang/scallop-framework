@@ -37,12 +37,13 @@
     <FrameworkVersion>3.5</FrameworkVersion>
     <HelpTitle>Scallop API documentation</HelpTitle>
     <CopyrightText>The Scallop framework %28including the binary executables and the source code%29 is distributed under the terms of the MIT license.</CopyrightText>
-    <ProjectLinkType>Index</ProjectLinkType>
+    <ProjectLinkType>Local</ProjectLinkType>
     <PresentationStyle>vs2005</PresentationStyle>
     <ContentPlacement>BelowNamespaces</ContentPlacement>
     <DocumentationSources>
       <DocumentationSource sourceFile="..\Common\bin\Release\ScallopCore.dll" />
-<DocumentationSource sourceFile="..\Common\bin\Release\ScallopCore.xml" /></DocumentationSources>
+      <DocumentationSource sourceFile="..\Common\bin\Release\ScallopCore.xml" />
+    </DocumentationSources>
     <NamespaceSummaries>
       <NamespaceSummaryItem name="(global)" isDocumented="False" xmlns="" />
       <NamespaceSummaryItem name="Scallop" isDocumented="True" xmlns="">Scallop namespace.</NamespaceSummaryItem>
