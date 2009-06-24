@@ -37,24 +37,24 @@ using System;
 /// </summary>
 public class ScallopException : ApplicationException
 {
-  /// <summary>
-  /// Default constructor.
-  /// </summary>
-  public ScallopException() { }
+   /// <summary>
+   /// Default constructor.
+   /// </summary>
+   public ScallopException() { }
 
-  /// <summary>
-  /// Constructor.
-  /// </summary>
-  /// <param name="message">Message to user.</param>
-  public ScallopException(string message) : base(message) { }
+   /// <summary>
+   /// Constructor.
+   /// </summary>
+   /// <param name="message">Message to user.</param>
+   public ScallopException(string message) : base(message) { }
 
-  /// <summary>
-  /// Constructor.
-  /// </summary>
-  /// <param name="message">Message to user.</param>
-  /// <param name="inner">A possible causing InnerException.</param>
-  public ScallopException(string message, Exception inner) : base(message, inner) { }
-  
+   /// <summary>
+   /// Constructor.
+   /// </summary>
+   /// <param name="message">Message to user.</param>
+   /// <param name="inner">A possible causing InnerException.</param>
+   public ScallopException(string message, Exception inner) : base(message, inner) { }
+
 }
 
 /// <summary>
@@ -62,24 +62,24 @@ public class ScallopException : ApplicationException
 /// </summary>
 public class InvalidConfigurationException : ScallopException
 {
-  /// <summary>
-  /// Default constructor.
-  /// </summary>
-  public InvalidConfigurationException() { }
+   /// <summary>
+   /// Default constructor.
+   /// </summary>
+   public InvalidConfigurationException() { }
 
-  /// <summary>
-  /// Constructor.
-  /// </summary>
-  /// <param name="message">Message to user.</param>
-  public InvalidConfigurationException(string message) : base(message) { }
+   /// <summary>
+   /// Constructor.
+   /// </summary>
+   /// <param name="message">Message to user.</param>
+   public InvalidConfigurationException(string message) : base(message) { }
 
-  /// <summary>
-  /// Constructor.
-  /// </summary>
-  /// <param name="message">Message to user.</param>
-  /// <param name="inner">A possible causing InnerException.</param>
-  public InvalidConfigurationException(string message, Exception inner) : base(message, inner) { }
-  
+   /// <summary>
+   /// Constructor.
+   /// </summary>
+   /// <param name="message">Message to user.</param>
+   /// <param name="inner">A possible causing InnerException.</param>
+   public InvalidConfigurationException(string message, Exception inner) : base(message, inner) { }
+
 }
 
 /// <summary>
@@ -87,36 +87,34 @@ public class InvalidConfigurationException : ScallopException
 /// </summary>
 public class MessageContentException : ScallopException
 {
-  static string defaultMessage = "The message content does not match the XML schema.";
+   static string defaultMessage = "The message content does not match the XML schema.";
 
-  /// <summary>
-  /// Default constructor.
-  /// </summary>
-  public MessageContentException()
-  {
-    new MessageContentException(defaultMessage);
-  }
+   /// <summary>
+   /// Default constructor.
+   /// </summary>
+   public MessageContentException()
+   {
+      new MessageContentException(defaultMessage);
+   }
 
-  /// <summary>
-  /// Constructor.
-  /// </summary>
-  /// <param name="inner">Message to user.</param>
-  public MessageContentException(System.Exception inner) : base(defaultMessage, inner) { }
+   /// <summary>
+   /// Constructor.
+   /// </summary>
+   /// <param name="inner">Message to user.</param>
+   public MessageContentException(System.Exception inner) : base(defaultMessage, inner) { }
 
 
-  /// <summary>
-  /// Constructor.
-  /// </summary>
-  /// <param name="message">Message to user.</param>
-  public MessageContentException(string message) : base(message) { }
+   /// <summary>
+   /// Constructor.
+   /// </summary>
+   /// <param name="message">Message to user.</param>
+   public MessageContentException(string message) : base(message) { }
 
-  /// <summary>
-  /// Constructor.
-  /// </summary>
-  /// <param name="message">Message to user.</param>
-  /// <param name="inner">A possible causing InnerException.</param>
-  public MessageContentException(string message, System.Exception inner) : base(message, inner) { }
+   /// <summary>
+   /// Constructor.
+   /// </summary>
+   /// <param name="message">Message to user.</param>
+   /// <param name="inner">A possible causing InnerException.</param>
+   public MessageContentException(string message, System.Exception inner) : base(message, inner) { }
 
-  
-  
 }

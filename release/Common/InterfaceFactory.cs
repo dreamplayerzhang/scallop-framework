@@ -24,7 +24,6 @@
  */
 
 using System;
-using Scallop.Core;
 using Scallop.Core.Sensor;
 using Scallop.Core.Network;
 

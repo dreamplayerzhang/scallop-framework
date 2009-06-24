@@ -81,7 +81,7 @@ namespace Scallop.Network.PeerChannel
       {
          try
          {
-            Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("PeerChannel.PeerChannelConfig.xsd");
+            Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("Scallop.Network.PeerChannel.PeerChannelConfig.xsd");
             XmlSerializer serializer = new XmlSerializer(typeof(XmlSchema));
             this.configSchema = (XmlSchema)(serializer.Deserialize(stream));
          }
