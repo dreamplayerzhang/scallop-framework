@@ -28,8 +28,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using ScallopCore.Sensor;
-using ScallopCore.Events;
+using Scallop.Core.Sensor;
+using Scallop.Core.Events;
 using System.Windows.Media.Imaging;
 using System.Windows.Media;
 using System.Windows.Controls;

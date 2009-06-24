@@ -28,10 +28,10 @@ using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.Xml.Schema;
 using System.Xml;
-using ScallopCore.Events;
+using Scallop.Core.Events;
 using System.Runtime.Serialization;
 
-namespace ScallopCore.Network
+namespace Scallop.Core.Network
 {
    /// <summary>
    /// Enumeration representing the possible states of a Scallop network

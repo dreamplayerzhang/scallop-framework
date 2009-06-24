@@ -24,11 +24,11 @@
  */
 
 using System;
-using ScallopCore;
-using ScallopCore.Sensor;
-using ScallopCore.Network;
+using Scallop.Core;
+using Scallop.Core.Sensor;
+using Scallop.Core.Network;
 
-namespace ScallopCore
+namespace Scallop.Core
 {
   // TODO Handle exceptions.
 

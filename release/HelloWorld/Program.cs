@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Xml.Linq;
 
-using ScallopCore;
-using ScallopCore.Events;
-using ScallopCore.Network;
-using ScallopCore.Sensor;
+using Scallop.Core;
+using Scallop.Core.Events;
+using Scallop.Core.Network;
+using Scallop.Core.Sensor;
 
 using Scallop.Sensor.FileSource;
 using Scallop.Network.PeerChannel;
@@ -66,7 +66,7 @@ namespace HelloWorld
     void NetworkInterface_Data(object sender, ScallopNetworkDataEventArgs e)
     {
       ScallopMessage Message = (ScallopMessage)e.data;
-      Console.WriteLine("Message received from " + Message.sender + " : " + Message.contents);
+      Console.WriteLine("Message received from " + Message.header.sender + " : " + Message.contents);
     }
     
     void NetworkInterface_StatusChanged(object sender, ScallopNetworkStatusChangedEventArgs e)

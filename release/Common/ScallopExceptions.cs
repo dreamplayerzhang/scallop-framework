@@ -23,7 +23,6 @@
  * THE SOFTWARE.
  */
 
-using System.Runtime.Serialization;
 using System;
 
 //

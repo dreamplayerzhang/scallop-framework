@@ -23,7 +23,7 @@
  * THE SOFTWARE.
  */
 
-using ScallopCore.Network;
+using Scallop.Core.Network;
 using System.ServiceModel;
 
 namespace Scallop.Network.PeerChannel

@@ -31,8 +31,8 @@ using System.Xml.Schema;
 using System.IO;
 using System.Reflection;
 using System.Xml.Serialization;
-using ScallopCore.Events;
-using ScallopCore.Network;
+using Scallop.Core.Events;
+using Scallop.Core.Network;
 using System.Collections.Generic;
 using System.ComponentModel;
 

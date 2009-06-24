@@ -24,7 +24,8 @@
  */
 
 using System;
-namespace ScallopCore
+
+namespace Scallop.Core
 {
   /// <summary>
   /// Static utilities for Scallop. Includes Base64Encoding.

@@ -15,7 +15,7 @@
     <Name>Documentation</Name>
     <!-- SHFB properties -->
     <OutputPath>.\Help\</OutputPath>
-    <HtmlHelpName>ScallopAPI</HtmlHelpName>
+    <HtmlHelpName>Scallop API</HtmlHelpName>
     <ApiFilter>
       <Filter entryType="Namespace" fullName="System" isExposed="True" xmlns="">
         <Filter entryType="Class" fullName="System.Object" filterName="Object" isExposed="False" />
@@ -41,23 +41,20 @@
     <PresentationStyle>vs2005</PresentationStyle>
     <ContentPlacement>BelowNamespaces</ContentPlacement>
     <DocumentationSources>
-      <DocumentationSource sourceFile="..\Common\bin\Release\ScallopCore.dll" />
-      <DocumentationSource sourceFile="..\Common\bin\Release\ScallopCore.xml" />
-    </DocumentationSources>
+      <DocumentationSource sourceFile="..\Common\bin\Release\Scallop.Core.dll" />
+<DocumentationSource sourceFile="..\Common\bin\Release\Scallop.Core.xml" /></DocumentationSources>
     <NamespaceSummaries>
-      <NamespaceSummaryItem name="(global)" isDocumented="False" xmlns="" />
-      <NamespaceSummaryItem name="Scallop" isDocumented="True" xmlns="">Scallop namespace.</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="Scallop.Events" isDocumented="True" xmlns="">Scallop events namespace.</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="Scallop.Network" isDocumented="True" xmlns="">Scallop network namespace.</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="Scallop.Network.PeerChannel" isDocumented="True" xmlns="">PeerChannel.</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="Scallop.Sensor" isDocumented="True" xmlns="">Scallop sensor namespace.</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="Scallop.Sensor.Axis" isDocumented="True" xmlns="">Axis IP camera.</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="ScallopCore" isDocumented="True" xmlns="">Core Scallop functionality.</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="ScallopCore.Events" isDocumented="True" xmlns="">Events.</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="ScallopCore.Network" isDocumented="True" xmlns="">Networks.</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="ScallopCore.Sensor" isDocumented="True" xmlns="">Sensors.</NamespaceSummaryItem>
-    </NamespaceSummaries>
+      <NamespaceSummaryItem name="(global)" isDocumented="False" />
+<NamespaceSummaryItem name="Scallop.Network" isDocumented="True">Namespace for Scallop network implementations.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="Scallop.Network.PeerChannel" isDocumented="True">Namespace for Scallop PeerChannel network implementation.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="Scallop.Sensor" isDocumented="True">Namespace for Scallop sensor implementations.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="Scallop.Sensor.Axis" isDocumented="True">Namespace for Scallop Axisl sensor implementation.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="Scallop.Core" isDocumented="True">Namespace for Scallop core functionalities.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="Scallop.Core.Events" isDocumented="True">Namespace for Scallop events.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="Scallop.Core.Network" isDocumented="True">Namespace for Scallop core network functionalities.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="Scallop.Core.Sensor" isDocumented="True">Namespace for Scallop core sensor functionalities.</NamespaceSummaryItem></NamespaceSummaries>
     <HelpFileFormat>Help1xAndWebsite</HelpFileFormat>
+    <Language>en-US</Language>
   </PropertyGroup>
   <!-- There are no properties for these two groups but they need to appear in
        order for Visual Studio to perform the build. -->

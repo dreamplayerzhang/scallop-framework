@@ -24,9 +24,10 @@
  */
 
 using System;
-using ScallopCore.Network;
-using ScallopCore.Sensor;
-namespace ScallopCore.Events
+using Scallop.Core.Network;
+using Scallop.Core.Sensor;
+
+namespace Scallop.Core.Events
 {
   #region Sensor
 

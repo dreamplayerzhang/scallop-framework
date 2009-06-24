@@ -34,8 +34,8 @@ using System.Xml.Schema;
 using System.Xml.Serialization;
 using System.Reflection;
 using System.Xml;
-using ScallopCore.Events;
-using ScallopCore.Sensor;
+using Scallop.Core.Events;
+using Scallop.Core.Sensor;
 using System.Windows.Media.Imaging;
 
 namespace Scallop.Sensor.Axis

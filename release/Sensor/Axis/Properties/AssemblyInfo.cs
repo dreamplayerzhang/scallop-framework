@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("University of Oulu")]
-[assembly: AssemblyProduct("Axis.Properties")]
+[assembly: AssemblyProduct("Scallop")]
 [assembly: AssemblyCopyright("Machine Vision Group")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

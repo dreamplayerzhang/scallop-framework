@@ -24,12 +24,11 @@
  */
 
 using System;
-using System.Collections.Specialized;
 using System.Xml.Schema;
 using System.Xml;
-using ScallopCore.Events;
+using Scallop.Core.Events;
 
-namespace ScallopCore.Sensor
+namespace Scallop.Core.Sensor
 {
 
   /// <summary>
