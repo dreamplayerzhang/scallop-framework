@@ -53,6 +53,10 @@
       <Project>{06FA057D-E01A-4D18-9F6A-007DE3A0DF76}</Project>
       <Name>PeerChannel</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Sensor\Axis\AxisCamera.csproj">
+      <Project>{233D2032-1FED-4B3D-9DDC-C5B217437E20}</Project>
+      <Name>AxisCamera</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Sensor\FileSource\FileSource.csproj">
       <Project>{82BD6068-A2DD-4776-9136-5A4C1ACA9F70}</Project>
       <Name>FileSource</Name>

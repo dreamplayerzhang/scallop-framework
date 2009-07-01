@@ -24,6 +24,8 @@
  */
 
 using System;
+using System.Reflection;
+
 using Scallop.Core.Sensor;
 using Scallop.Core.Network;
 
@@ -46,7 +48,33 @@ namespace Scallop.Core
     public static IScallopSensor CreateSensorInstance(string assembly,
                                                       string sensorType )
     {
-      return (IScallopSensor)AppDomain.CurrentDomain.CreateInstanceAndUnwrap(assembly,sensorType);
+      return (IScallopSensor)AppDomain.CurrentDomain.CreateInstanceFromAndUnwrap(assembly,sensorType);
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="assembly">The assembly containing the sensor class.</param>
+    /// <returns></returns>
+    public static IScallopSensor CreateSensorInstance(string assembly)
+    {
+       string sensorType = null;
+       Assembly asm = Assembly.LoadFrom(assembly);
+
+       Type[] types = asm.GetTypes();
+
+       foreach (Type t in types)
+       {
+          Type sensorInterface = t.GetInterface("Scallop.Core.Sensor.IScallopSensor");
+
+          if (sensorInterface != null)
+          {
+             sensorType = t.FullName;
+             break;
+          }
+       }
+
+       return InterfaceFactory.CreateSensorInstance(assembly, sensorType);
     }
 
     /// <summary>
@@ -58,7 +86,7 @@ namespace Scallop.Core
     public static IScallopNetwork CreateNetworkInstance(string assembly,
                                                         string networkType)
     {
-      return (IScallopNetwork)AppDomain.CurrentDomain.CreateInstanceAndUnwrap(assembly, networkType);
+      return (IScallopNetwork)AppDomain.CurrentDomain.CreateInstanceFromAndUnwrap(assembly, networkType);
     }
 
   }

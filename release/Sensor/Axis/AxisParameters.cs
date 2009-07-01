@@ -40,62 +40,90 @@ namespace Scallop.Sensor.Axis
   {
     // Parameters from 
     // http://www.axis.com/techsup/cam_servers/dev/cam_http_api_2.php#api_blocks_image_video_mjpg_video_cgi
-    
-    public string Address;
-    public string Resolution = null;
-    public int Camera = -1; // no point in the quad option
-    public int Compression = -1;
-    
-    public int UseColor = -1;
-    public int ColorLevel = -1;
-    
-    public int ShowClock = -1; 
-    public int ShowDate = -1;
-    
-    public int ShowText = -1;
-    public string Text = null;
-    public string TextColor = null;
-    public string TextBackGround = null;
-    public string TextPosition = null;
 
-    public int ShowOverlay = -1;
-    public string OverlayPosition = null;
-    
-    public int Fps = -1;
-    public int SquarePixel = -1;
+     public string Address;
+     public string Resolution = null;
+     public int Camera = -1; // no point in the quad option
+     public int Compression = -1;
 
-    public int Rotation = -1;
+     public int UseColor = -1;
+     public int ColorLevel = -1;
 
-    public string UserName = null;
-    public string Password = null;
+     public int ShowClock = -1;
+     public int ShowDate = -1;
 
-    public string delimiter = "--myboundary";
-    public string frameFormat = null;
+     public int ShowText = -1;
+     public string Text = null;
+     public string TextColor = null;
+     public string TextBackGround = null;
+     public string TextPosition = null;
+
+     public int ShowOverlay = -1;
+     public string OverlayPosition = null;
+
+     public int Fps = -1;
+     public int SquarePixel = -1;
+
+     public int Rotation = -1;
+
+     public string UserName = null;
+     public string Password = null;
+
+     public string delimiter = "--myboundary";
+     public string frameFormat = null;
 
 
-    public string MjpgParameterString()
+     public string MjpgParameterString()
+     {
+        string parameters =
+           /*"http://" +*/ this.Address + "/axis-cgi/mjpg/video.cgi?" +
+          ((this.Fps != -1) ? "fps=" + this.Fps : "") +
+          ((this.Resolution != null) ? "&resolution=" + this.Resolution : "") +
+          ((this.Compression != -1) ? "&compression=" + this.Compression : "") +
+          ((this.UseColor != -1) ? "&color=" + this.UseColor : "") +
+          ((this.ShowClock != -1) ? "&clock=" + this.ShowClock : "") +
+          ((this.ShowDate != -1) ? "&date=" + this.ShowDate : "") +
+          ((this.ShowText != -1) ? "&text=" + this.ShowText : "") +
+          ((this.TextColor != null) ? "&textcolor=" + this.TextColor : "") +
+          ((this.TextBackGround != null) ? "&textbackgroundcolor=" + this.TextBackGround : "") +
+          ((this.TextPosition != null) ? "&textposition=" + this.TextPosition : "") +
+          ((this.Text != null) ? "&textstring=" + this.Text : "") +
+          ((this.Rotation != -1) ? ("&rotation=" + this.Rotation) : "") +
+          ((this.Camera != -1) ? "&camera=" + this.Camera : "") +
+          ((this.ColorLevel != -1) ? "&colorlevel=" + this.ColorLevel : "") +
+          ((this.ShowOverlay != -1) ? "&overlayimage=" + this.ShowOverlay : "") +
+          ((this.OverlayPosition != null) ? "&overlayposition=" + this.OverlayPosition : "")
+          ;
+
+        return parameters;
+     }
+
+    public static string MjpgParameterString(AxisCameraConfigType config)
     {
-      string parameters = 
-        /*"http://" +*/ this.Address + "/axis-cgi/mjpg/video.cgi?" +
-        ((this.Fps != -1 ) ? "fps=" + this.Fps : "" ) +
-        ((this.Resolution != null ) ? "&resolution=" + this.Resolution : "") +
-        ((this.Compression != -1 ) ? "&compression=" + this.Compression : "")+
-        ((this.UseColor != -1 ) ? "&color=" + this.UseColor : "") +
-        ((this.ShowClock != -1 ) ? "&clock=" + this.ShowClock : "" )+
-        ((this.ShowDate != -1 ) ? "&date=" + this.ShowDate : "")+
-        ((this.ShowText != -1 ) ? "&text=" + this.ShowText : "" ) +
-        ((this.TextColor != null ) ? "&textcolor=" + this.TextColor : "" )+
-        ((this.TextBackGround != null ) ? "&textbackgroundcolor=" + this.TextBackGround : "") +
-        ((this.TextPosition != null ) ? "&textposition=" + this.TextPosition : "") +
-        ((this.Text != null ) ? "&textstring=" + this.Text : "") +
-        ((this.Rotation != -1 ) ? ("&rotation=" + this.Rotation) : "") +
-        ((this.Camera != -1 ) ? "&camera=" + this.Camera : "") +
-        ((this.ColorLevel != -1 ) ? "&colorlevel=" + this.ColorLevel : "") +
-        ((this.ShowOverlay != -1 ) ? "&overlayimage=" + this.ShowOverlay : "") + 
-        ((this.OverlayPosition != null ) ? "&overlayposition=" + this.OverlayPosition : "")
-        ;
+       string strResolution = config.Resolution.ToString();
 
-      return parameters;
+       strResolution = strResolution.Contains("Item") ? strResolution.Remove(0, 4) : strResolution;
+       
+       string parameters =
+          /*"http://" +*/ config.Address + "/axis-cgi/mjpg/video.cgi?" +
+         ((config.FramerateSpecified) ? "fps=" + config.Framerate : "") +
+         ((config.ResolutionSpecified) ? "&resolution=" + strResolution : "") +
+         ((config.CompressionSpecified) ? "&compression=" + config.Compression : "") +
+         ((config.ShowClockSpecified) ? "&clock=" + config.ShowClock : "") +
+         ((config.ShowDateSpecified) ? "&date=" + config.ShowDate : "") +
+         ((config.ShowTextSpecified) ? "&text=" + config.ShowText : "") +
+         ((config.TextColorSpecified) ? "&textcolor=" + config.TextColor : "") +
+         ((config.TextBackgroundColorSpecified) ? "&textbackgroundcolor=" + config.TextBackgroundColor : "") +
+         ((config.TextPositionSpecified) ? "&textposition=" + config.TextPosition : "") +
+         ((config.Text != null) ? "&textstring=" + config.Text : "") +
+         ((config.RotationSpecified) ? ("&rotation=" + config.Rotation) : "") +
+         ((config.CameraSpecified) ? "&camera=" + (int)config.Camera : "") +
+         ((config.ColorLevelSpecified) ? "&colorlevel=" + config.ColorLevel : "") +
+         ((config.ShowOverlaySpecified) ? "&overlayimage=" + config.ShowOverlay : "") +
+         ((config.OverlayPosition != null) ? "&overlayposition=" + config.OverlayPosition : "")
+         ;
+
+       return parameters;
     }
 
     public static AxisParameters ParseConfig(XDocument configDoc, string selectConfig)

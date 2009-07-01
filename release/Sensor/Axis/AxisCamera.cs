@@ -34,6 +34,8 @@ using System.Xml.Schema;
 using System.Xml.Serialization;
 using System.Reflection;
 using System.Xml;
+using System.Xml.Linq;
+using System.Linq;
 using System.Windows.Media.Imaging;
 
 using Scallop.Core.Events;
@@ -47,9 +49,10 @@ namespace Scallop.Sensor.Axis
    public class AxisCameraClass : IScallopSensor, IDisposable
    {
       /* Class fields */
-      private Stream mjpgStream;
+      private BufferedStream mjpgStream;
 
-      private AxisParameters camParams;
+      //private AxisParameters camParams;
+      private AxisCameraConfigType cameraConfig;
       private ScallopSensorState myState = ScallopSensorState.Undefined;
       private BackgroundWorker frameHandlerThread;
       private bool registered = false;
@@ -72,9 +75,9 @@ namespace Scallop.Sensor.Axis
 
             this.myState = ScallopSensorState.Idle;
          }
-         catch
+         catch (Exception ex)
          {
-            throw new ApplicationException("Assembly error");
+            throw new ScallopException("Reading Axis configuration schema failed.", ex);
          }
       }
 
@@ -94,44 +97,47 @@ namespace Scallop.Sensor.Axis
       #region IScallopSensor members
 
 
+      #region Old interface methods
+      ///// <summary>
+      ///// Registers a node with a sensor.
+      ///// </summary>
+      ///// <param name="configDoc">The configuration XML document.</param>
+      ///// <param name="selectConfig">String identifying the configuration item to use.</param>
+      //public void Register(XmlDocument configDoc, string selectConfig)
+      //{
+      //   // validate the xml
+      //   configDoc.Schemas.Add(this.configSchema);
+      //   configDoc.Validate(null);
 
+      //   // parse the settings from the xml
+
+
+      //   this.camParams = AxisParameters.ParseConfig(configDoc, selectConfig);
+      //   if (this.camParams == null)
+      //   {
+      //      throw new ApplicationException("StatusChanged parsing config");
+      //   }
+
+      //   this.registered = true;
+      //}
+
+      #endregion
       /// <summary>
       /// Registers a node with a sensor.
       /// </summary>
       /// <param name="configDoc">The configuration XML document.</param>
       /// <param name="selectConfig">String identifying the configuration item to use.</param>
-      public void Register(XmlDocument configDoc, string selectConfig)
-      {
-         // validate the xml
-         configDoc.Schemas.Add(this.configSchema);
-         configDoc.Validate(null);
-
-         // parse the settings from the xml
-
-
-         this.camParams = AxisParameters.ParseConfig(configDoc, selectConfig);
-         if (this.camParams == null)
-         {
-            throw new ApplicationException("StatusChanged parsing config");
-         }
-
-         this.registered = true;
-      }
-
-      /// <summary>
-      /// Registers a node with a sensor.
-      /// </summary>
-      /// <param name="configDoc">The configuration XML document.</param>
-      /// <param name="selectConfig">String identifying the configuration item to use.</param>
-      public void Register(System.Xml.Linq.XDocument configDoc, string selectConfig)
+      public void Register(XDocument configDoc, string selectConfig)
       {
          // validate the xml
          XmlSchemaSet schemas = new XmlSchemaSet();
          schemas.Add(this.configSchema);
          configDoc.Validate(schemas, null);
 
-         this.camParams = AxisParameters.ParseConfig(configDoc, selectConfig);
-         if (this.camParams == null)
+         //this.camParams = AxisParameters.ParseConfig(configDoc, selectConfig);
+         this.cameraConfig = this.GetConfig(configDoc, selectConfig);
+
+         if (this.cameraConfig == null)
          {
             throw new ApplicationException("StatusChanged parsing config");
          }
@@ -140,9 +146,33 @@ namespace Scallop.Sensor.Axis
          this.registered = true;
       }
 
+      private AxisCameraConfigType GetConfig(XDocument configDoc, string selectConfig)
+      {
+         AxisCameraConfigType ctSelected = null;
 
+         XElement root = configDoc.Root;
 
+         XmlSerializer xmlConfigReader = new XmlSerializer(typeof(AxisCameraConfigSet));
 
+         AxisCameraConfigSet configSet = (AxisCameraConfigSet)xmlConfigReader.Deserialize(root.CreateReader());
+
+         var config = (from ct in configSet.Items
+                       where ct.ConfigName == selectConfig
+                       select ct).FirstOrDefault();
+
+         ctSelected = config as AxisCameraConfigType;
+
+         if (ctSelected == null)
+         {
+            var configDefault = (from ct in configSet.Items
+                                 where ct.ConfigName == configSet.DefaultConfig
+                                 select ct).FirstOrDefault();
+
+            ctSelected = configDefault as AxisCameraConfigType;
+         }
+
+         return ctSelected;
+      }
 
       /// <summary>
       /// Unregisters a node from a sensor.
@@ -287,6 +317,7 @@ namespace Scallop.Sensor.Axis
          }
          myState = ScallopSensorState.Idle;
       }
+
       private void doOpened(object sender, EventArgs e)
       {
          if (this.StatusChanged != null)
@@ -360,27 +391,27 @@ namespace Scallop.Sensor.Axis
          BackgroundWorker bw = (BackgroundWorker)sender;
 
 
-         string delimiter = this.camParams.delimiter.ToString();
+         string delimiter = "--myboundary";
+
          // Set the URL to request
-         HttpWebRequest request = (HttpWebRequest)WebRequest.Create(this.camParams.MjpgParameterString());
+         //string strRequest = this.camParams.MjpgParameterString();
+         string strRequest = AxisParameters.MjpgParameterString(this.cameraConfig);
+         HttpWebRequest request = (HttpWebRequest)WebRequest.Create(strRequest);
 
          // set the username and password
-         if (camParams.UserName != null && camParams.Password != null)
+         if (this.cameraConfig.User != null && this.cameraConfig.Password != null)
          {
             request.Credentials = new NetworkCredential(
-                                      camParams.UserName,
-                                      camParams.Password
+                                      this.cameraConfig.User,
+                                      this.cameraConfig.Password
                                       );
          }
-
-
-
 
          this.doInfo(this, new ScallopInfoEventArgs("Trying Axis camera with URL " + request.RequestUri.ToString()));
 
          HttpWebResponse streamResponse = (HttpWebResponse)request.GetResponse();
          this.doInfo(this, new ScallopInfoEventArgs("Server responded with : " + streamResponse.StatusDescription));
-         this.mjpgStream = streamResponse.GetResponseStream();
+         this.mjpgStream = new BufferedStream(streamResponse.GetResponseStream());
 
          // find the first boundary
          while (!(readMjpgLine(mjpgStream).Equals(delimiter)))
@@ -391,7 +422,6 @@ namespace Scallop.Sensor.Axis
          this.doOpened(this, EventArgs.Empty);
          while (true)
          {
-
             int contentLen = 0;
             string aLine;
             if (bw.CancellationPending == true)
@@ -400,16 +430,6 @@ namespace Scallop.Sensor.Axis
                ev.Cancel = true;
                return;
             }
-
-            /*
-            string frameString = "";
-            do
-            {
-              aLine = readMjpgLine(mjpgStream);
-              frameString += aLine;
-            }
-            while (!aLine.Equals(delimiter));
-            */
 
             aLine = readMjpgLine(mjpgStream);
             if (!aLine.StartsWith("Content-Type: image/jpeg"))
@@ -425,54 +445,29 @@ namespace Scallop.Sensor.Axis
             if (!aLine.Equals("")) // empty line
                throw new ApplicationException("Blank line not found");
 
-
             // buffer for MJPG frame data
             byte[] frameBuffer = new byte[contentLen];
             int tmp = 0;
-            /*
-            while (tmp < contentLen)
-            {
-              frameBuffer[tmp++] = (byte)mjpgStream.ReadByte();
-            }
-            */
-
 
             // read up to contentLen of data to frameBuffer
-            while ((tmp += mjpgStream.Read(frameBuffer,
+            while ((tmp += this.mjpgStream.Read(frameBuffer,
                                            tmp,
                                            contentLen - tmp)) < contentLen)
             {
                // No op
             }
 
-
-
-
-
-            /*      
-            aLine = reader.ReadLine();
-            if (!aLine.Equals("")) // empty line
-              throw new ApplicationException("Blank line not found");
-            */
-
             aLine = readMjpgLine(mjpgStream);
             while (!aLine.StartsWith(delimiter))
                aLine = readMjpgLine(mjpgStream);
 
-            /*
-            aLine = reader.ReadLine();
-            debugLine += aLine;
-            if (!aLine.StartsWith(delimiter))
-              throw new ApplicationException("Boundary not found");
-            */
-
-            switch (this.camParams.frameFormat)
+            switch (this.cameraConfig.FrameFormat)
             {
-               case "Jpeg":
+               case AxisCameraConfigTypeFrameFormat.Jpeg:
                   this.doData(this, new ScallopSensorDataEventArgs(frameBuffer, "New frame"));
                   break;
 
-               case "System.Drawing.Bitmap":
+               case AxisCameraConfigTypeFrameFormat.SystemDrawingBitmap:
                   using (MemoryStream pixelStream = new MemoryStream(frameBuffer))
                   {
                      Bitmap streamBitmap = new Bitmap(pixelStream);
@@ -483,10 +478,10 @@ namespace Scallop.Sensor.Axis
                   }
                   break;
 
-               case "System.Windows.Media.Imaging.BitmapSource":
+               case AxisCameraConfigTypeFrameFormat.SystemWindowsMediaImagingBitmapSource:
                   JpegBitmapDecoder decoder = new JpegBitmapDecoder(new MemoryStream(frameBuffer), BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default);
                   if (decoder.Frames[0] != null)
-                     this.doData(this, new ScallopSensorDataEventArgs(decoder.Frames[0], "New frame"));
+                     this.doData(this, new ScallopSensorDataEventArgs(decoder.Frames[0] as BitmapSource, "New frame"));
                   break;
             }
          }
@@ -520,7 +515,6 @@ namespace Scallop.Sensor.Axis
                return (enc.GetString((byte[])buf.ToArray(), 0, count - 2));
             }
          }
-
       }
    }
 }

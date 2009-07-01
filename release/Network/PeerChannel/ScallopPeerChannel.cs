@@ -113,11 +113,11 @@ namespace Scallop.Network.PeerChannel
          this._sendMessage(msg);
       }
 
-      /// <summary>
-      /// 
-      /// </summary>
-      /// <param name="message"></param>
-      /// <param name="nodeid"></param>
+      ///// <summary>
+      ///// 
+      ///// </summary>
+      ///// <param name="message"></param>
+      ///// <param name="nodeid"></param>
       //public void SendMessage(string message, string nodeid)
       //{
       //  ScallopMessage msg = new ScallopMessage();

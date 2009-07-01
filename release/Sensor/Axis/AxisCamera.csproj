@@ -8,7 +8,7 @@
     <ProjectGuid>{233D2032-1FED-4B3D-9DDC-C5B217437E20}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Axis</RootNamespace>
+    <RootNamespace>Scallop.Sensor.Axis</RootNamespace>
     <AssemblyName>Scallop.Sensor.Axis</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -24,7 +24,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\Scallop.Sensor.Axis.xml</DocumentationFile>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -62,6 +63,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AxisCamera.cs" />
+    <Compile Include="AxisCameraConfig.cs">
+      <DependentUpon>AxisCameraConfig.xsd</DependentUpon>
+    </Compile>
     <Compile Include="AxisParameters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

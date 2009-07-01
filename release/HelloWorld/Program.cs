@@ -10,10 +10,11 @@ namespace Scallop.HelloWorld
 {
    class Program
    {
-      IScallopSensor SensorInterface;
+      IScallopSensor SensorInterface = null;
       string SensorConfigFile = "FileSourceConfig.xml";
+      //string SensorConfigFile = "SensorConfig.xml";
 
-      IScallopNetwork NetworkInterface;
+      IScallopNetwork NetworkInterface = null;
       string NetworkConfigFile = "PeerChannelConfig.xml";
 
       static void Main(string[] args)
@@ -22,18 +23,26 @@ namespace Scallop.HelloWorld
          myProgram.Run();
       }
 
+      public Program() 
+      {
+      
+      }
+
       private void Run()
       {
          // Get an instance of the sensor class using the assembly and class names.
-         SensorInterface = InterfaceFactory.CreateSensorInstance("Scallop.Sensor.FileSource", "Scallop.Sensor.FileSource.ScallopFileSource");
+         SensorInterface = InterfaceFactory.CreateSensorInstance("Scallop.Sensor.FileSource.dll");
+         //SensorInterface = InterfaceFactory.CreateSensorInstance("Scallop.Sensor.Axis.dll", "Scallop.Sensor.Axis.AxisCameraClass");
+         //SensorInterface = InterfaceFactory.CreateSensorInstance("Scallop.Sensor.Axis.dll");
+                  
          // Configure the sensor interface with parameters from an XML file.
-         SensorInterface.Register(XDocument.Load(SensorConfigFile), null);
+         SensorInterface.Register(XDocument.Load(SensorConfigFile),null);
          // Define the handler functions
          SensorInterface.Data += new ScallopSensorDataHandler(SensorInterface_Data);
          SensorInterface.StatusChanged += new ScallopSensorStatusChangedHandler(SensorInterface_StatusChanged);
 
          // Get instance of network class.
-         NetworkInterface = InterfaceFactory.CreateNetworkInstance("Scallop.Network.PeerChannel", "Scallop.Network.PeerChannel.ScallopPeerChannel");
+         NetworkInterface = InterfaceFactory.CreateNetworkInstance("Scallop.Network.PeerChannel.dll", "Scallop.Network.PeerChannel.ScallopPeerChannel");
          // Define handler functions.
          NetworkInterface.Data += new ScallopNetworkDataHandler(NetworkInterface_Data);
          NetworkInterface.StatusChanged += new ScallopNetworkStatusChangedHandler(NetworkInterface_StatusChanged);
@@ -48,6 +57,7 @@ namespace Scallop.HelloWorld
          for (; ; )
          {
             // infinite loop
+            System.Threading.Thread.Sleep(1000);
          }
 
       }

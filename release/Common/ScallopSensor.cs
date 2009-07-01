@@ -26,6 +26,7 @@
 using System;
 using System.Xml.Schema;
 using System.Xml;
+using System.Xml.Linq;
 
 using Scallop.Core.Events;
 
@@ -63,14 +64,14 @@ namespace Scallop.Core.Sensor
    /// </summary>
    public interface IScallopSensor : IDisposable
    {
-      /// <summary>
-      /// Register the node's interest in a sensor.
-      /// </summary>
-      /// <param name="config">The sensor settings, including
-      /// address, resolution, frequency of updates etc.</param>
-      /// <param name="selectConfig">String containing the config name that should
-      /// be used.</param>
-      void Register(XmlDocument config, string selectConfig);
+      ///// <summary>
+      ///// Register the node's interest in a sensor.
+      ///// </summary>
+      ///// <param name="config">The sensor settings, including
+      ///// address, resolution, frequency of updates etc.</param>
+      ///// <param name="selectConfig">String containing the config name that should
+      ///// be used.</param>
+      //void Register(XmlDocument config, string selectConfig);
 
       /// <summary>
       /// 
@@ -79,7 +80,7 @@ namespace Scallop.Core.Sensor
       /// address, resolution, frequency of updates etc.</param>
       /// /// <param name="selectConfig">String containing the config name that should
       /// be used.</param>
-      void Register(System.Xml.Linq.XDocument config, string selectConfig);
+      void Register(XDocument config, string selectConfig);
 
       /// <summary>
       /// Starts receiving sensor data.

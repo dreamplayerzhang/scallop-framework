@@ -232,15 +232,6 @@
             Generic sensor class for the Scallop system.
             </summary>
         </member>
-        <member name="M:Scallop.Core.Sensor.IScallopSensor.Register(System.Xml.XmlDocument,System.String)">
-            <summary>
-            Register the node's interest in a sensor.
-            </summary>
-            <param name="config">The sensor settings, including
-            address, resolution, frequency of updates etc.</param>
-            <param name="selectConfig">String containing the config name that should
-            be used.</param>
-        </member>
         <member name="M:Scallop.Core.Sensor.IScallopSensor.Register(System.Xml.Linq.XDocument,System.String)">
             <summary>
             
@@ -603,6 +594,13 @@
             </summary>
             <param name="assembly">The assembly containing the sensor class.</param>
             <param name="sensorType">Name of the sensor class, including namespace.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Scallop.Core.InterfaceFactory.CreateSensorInstance(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="assembly">The assembly containing the sensor class.</param>
             <returns></returns>
         </member>
         <member name="M:Scallop.Core.InterfaceFactory.CreateNetworkInstance(System.String,System.String)">
