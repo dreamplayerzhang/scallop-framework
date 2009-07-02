@@ -173,12 +173,12 @@ namespace Scallop.Core.Network
       /// <summary>
       /// Cumulative size of payload in messages received.
       /// </summary>
-      ulong MessageSizeRX { get; }
+      long MessageSizeRX { get; }
 
       /// <summary>
       /// Cumulative size of payload in messages sent.
       /// </summary>
-      ulong MessageSizeTX { get; }
+      long MessageSizeTX { get; }
 
 
       /// <summary>
@@ -190,20 +190,22 @@ namespace Scallop.Core.Network
       /// This event is raised when there is an error with the network.
       /// The reason for the error is contained in the event arguments. 
       /// </summary>
-      event ScallopNetworkStatusChangedHandler StatusChanged;
+      //event ScallopNetworkStatusChangedHandler StatusChanged;
+      event EventHandler<ScallopNetworkStatusChangedEventArgs> StatusChanged;
 
       /// <summary>
       /// This event is raised when new network data is received. The received message
       /// is passed in the event arguments. 
       /// </summary>
-      event ScallopNetworkDataHandler Data;
+      //event ScallopNetworkDataHandler Data;
+      event EventHandler<ScallopNetworkDataEventArgs> Data;
 
       /// <summary>
       /// This event is raised when the network module wants to inform the user
       /// of something interesting. The message is passed in the event arguments.
       /// </summary>
-      event ScallopNetworkInfoHandler Info;
-
+      //event ScallopNetworkInfoHandler Info;
+      event EventHandler<ScallopInfoEventArgs> Info;
    }
 
    /// <summary>
@@ -213,19 +215,33 @@ namespace Scallop.Core.Network
    [MessageContract]
    public class ScallopMessage
    {
+      private ScallopMessageHeader header;
+
       /// <summary>
       /// Custom message header
       /// </summary>
       [MessageHeader]
-      public ScallopMessageHeader header;
+      public ScallopMessageHeader Header
+      {
+         get { return header; }
+         set { header = value; }
+      }
 
       /// <summary> Content of message in XML.</summary>
       [MessageBodyMember]
-      public string contents;
+      public string Contents
+      {
+         get;
+         set;
+      }
 
       /// <summary>Hopcount.</summary>
       [PeerHopCount]
-      public int hopcount;
+      public int HopCount
+      {
+         get;
+         set;
+      }
 
       /// <summary>
       /// Creates a new message.
@@ -244,22 +260,38 @@ namespace Scallop.Core.Network
    {
       /// <summary> ID of sending node.</summary> 
       [DataMember]
-      public string sender;
+      public string Sender
+      {
+         get;
+         set;
+      }
 
       /// <summary> Array of receiver IDs.</summary>
       [DataMember]
-      public string[] receivers;
+      public string[] Receivers
+      {
+         get;
+         set;
+      }
 
       /// <summary>
       /// Original hopcount.
       /// </summary>
       [DataMember]
-      public int origHopcount;
+      public int OrigHopcount
+      {
+         get;
+         set;
+      }
 
       /// <summary>
       /// Flag indicating whether this is a message internal to the implementation.
       /// </summary>
       [DataMember]
-      public bool InternalMessage;
+      public bool InternalMessage
+      {
+         get;
+         set;
+      }
    }
 }

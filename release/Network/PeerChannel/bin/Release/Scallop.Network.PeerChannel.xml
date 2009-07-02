@@ -169,5 +169,29 @@
             Gets the network state.
             </summary>
         </member>
+        <member name="T:Scallop.Network.PeerChannel.ScallopMessageFilter">
+            <summary>
+            A message filter that filters out own sent messages
+            </summary>
+        </member>
+        <member name="M:Scallop.Network.PeerChannel.ScallopMessageFilter.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="strID"></param>
+        </member>
+        <member name="M:Scallop.Network.PeerChannel.ScallopMessageFilter.ShouldMessagePropagate(System.ServiceModel.Channels.Message,System.ServiceModel.PeerMessageOrigination)">
+            <summary>
+            Delivers only the messages sent by other nodes
+            </summary>
+            <param name="message">Incoming message</param>
+            <param name="origination">Message source</param>
+            <returns></returns>
+        </member>
+        <member name="P:Scallop.Network.PeerChannel.ScallopMessageFilter.ID">
+            <summary>
+            Own node ID
+            </summary>
+        </member>
     </members>
 </doc>

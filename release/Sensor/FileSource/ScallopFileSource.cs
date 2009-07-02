@@ -24,162 +24,226 @@
  */
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Scallop.Core.Sensor;
-using Scallop.Core.Events;
 using System.Windows.Media.Imaging;
 using System.Windows.Media;
-using System.Windows.Controls;
 using System.Windows;
 using System.ComponentModel;
 using System.IO;
-using System.Windows.Media.Animation;
+
+using Scallop.Core.Sensor;
+using Scallop.Core.Events;
+using System.Drawing;
+
+[assembly: System.CLSCompliant(true)]
 
 namespace Scallop.Sensor.FileSource
 {
-  public class ScallopFileSource : IScallopSensor
-  {
-    ScallopSensorState myState = ScallopSensorState.Idle;
-    FileSourceParameters parameters;
+   /// <summary>
+   /// File source class for playing video files
+   /// </summary>
+   public class ScallopFileSource : IScallopSensor
+   {
+      ScallopSensorState myState = ScallopSensorState.Idle;
+      FileSourceParameters parameters;
 
-    #region IScallopSensor Members
+      #region IScallopSensor Members
 
-    public void Register(System.Xml.XmlDocument config, string selectConfig)
-    {
-      throw new NotImplementedException();
-    }
+      //public void Register(System.Xml.XmlDocument config, string selectConfig)
+      //{
+      //  throw new NotImplementedException();
+      //}
 
-    public void Register(System.Xml.Linq.XDocument config, string selectConfig)
-    {
-      parameters = FileSourceParameters.ParseConfig(config, selectConfig);
-      return;
-    }
-
-    public void Start()
-    {
-      BackgroundWorker frameThread = new BackgroundWorker();
-      frameThread.DoWork += new DoWorkEventHandler(frameThread_DoWork);
-
-      frameThread.RunWorkerAsync();
-    }
-
-    void frameThread_DoWork(object sender, DoWorkEventArgs e)
-    {
-      MediaPlayer myPlayer = new MediaPlayer();
-      myPlayer.Open(parameters.SourceUri);
-      myPlayer.Volume = 0;
-      myPlayer.Play();
-
-      while ( myPlayer.NaturalVideoWidth < 1 )
-        System.Threading.Thread.Sleep(100);
-
-      myState = ScallopSensorState.Active;
-      this.StatusChanged(this, new ScallopSensorStatusChangedEventArgs(ScallopSensorState.Idle, ScallopSensorState.Active, null, "Online"));
-
-      while (true)
+      /// <summary>
+      /// Registers a node with a sensor.
+      /// </summary>
+      /// <param name="config">The configuration XML document.</param>
+      /// <param name="selectConfig">String identifying the configuration item to use.</param>
+      public void Register(System.Xml.Linq.XDocument config, string selectConfig)
       {
-        RenderTargetBitmap rtb = new RenderTargetBitmap(myPlayer.NaturalVideoWidth, myPlayer.NaturalVideoHeight,
-                                                       96, 96, PixelFormats.Pbgra32);
-        DrawingVisual dv = new DrawingVisual();
-        DrawingContext dc = dv.RenderOpen();
-
-        dc.DrawVideo(myPlayer, new Rect(0, 0, myPlayer.NaturalVideoWidth, myPlayer.NaturalVideoHeight));
-        dc.Close();
-        rtb.Render(dv);
-        BitmapSource bmp = BitmapFrame.Create(rtb);
-
-        BitmapEncoder bitmapEncoder = new PngBitmapEncoder();
-        MemoryStream memoryStream = new MemoryStream();
-        bitmapEncoder.Frames.Add(BitmapFrame.Create(bmp));
-        bitmapEncoder.Save(memoryStream);
-        memoryStream.Flush();
-
-        switch (parameters.FrameFormat)
-        {
-          case ("System.Drawing.Bitmap"):
-            System.Drawing.Bitmap bmp2 = (System.Drawing.Bitmap)System.Drawing.Bitmap.FromStream(memoryStream);
-            System.Drawing.Bitmap bmp3 = new System.Drawing.Bitmap(bmp2.Size.Width, bmp2.Size.Height, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
-            
-            bmp3.SetResolution(bmp2.HorizontalResolution,bmp2.VerticalResolution);
-            
-            System.Drawing.Graphics g = System.Drawing.Graphics.FromImage(bmp3);
-            g.DrawImage((System.Drawing.Bitmap)bmp2.Clone(), 0, 0);
-            g.Dispose();
-            
-
-            if ( this.Data != null )
-              this.Data(this, new ScallopSensorDataEventArgs((System.Drawing.Bitmap)bmp3.Clone(), "new frame"));
-            break;
-
-          case("System.Windows.Media.Imaging.BitmapSource"):
-            if (this.Data != null)
-              this.Data(this, new ScallopSensorDataEventArgs(bmp, "new frame"));
-            break;
-        }
-        
-        if (myPlayer.Position >= myPlayer.NaturalDuration)
-        {
-          myPlayer.Stop();
-          myPlayer.Position = TimeSpan.Zero;
-          myPlayer.Play();
-        }
+         parameters = FileSourceParameters.ParseConfig(config, selectConfig);
+         return;
       }
-      
-    }
 
-
-
-    public void Stop()
-    {
-      throw new NotImplementedException();
-    }
-
-    public void PanTilt(bool absolute, int x, int y)
-    {
-      throw new NotImplementedException();
-    }
-
-    public void Zoom(bool absolute, int zoomValue)
-    {
-      throw new NotImplementedException();
-    }
-
-    public string Version
-    {
-      get { throw new NotImplementedException(); }
-    }
-
-    public System.Xml.Schema.XmlSchema ConfigSchema
-    {
-      get { throw new NotImplementedException(); }
-    }
-
-    public ScallopSensorState State
-    {
-      get
+      /// <summary>
+      /// Starts receiving sensor data.
+      /// </summary>
+      public void Start()
       {
-        return myState;
+         BackgroundWorker frameThread = new BackgroundWorker();
+         frameThread.DoWork += new DoWorkEventHandler(frameThread_DoWork);
+
+         frameThread.RunWorkerAsync();
       }
-    }
 
-    public event ScallopSensorStatusChangedHandler StatusChanged;
+      void frameThread_DoWork(object sender, DoWorkEventArgs e)
+      {
+         BackgroundWorker bw = (BackgroundWorker)sender;
 
-    public event ScallopSensorDataHandler Data;
+         MediaPlayer myPlayer = new MediaPlayer();
+         myPlayer.Open(parameters.SourceUri);
+         myPlayer.Volume = 0;
+         myPlayer.Play();
 
-    public event ScallopSensorInfoHandler Info;
+         while (myPlayer.NaturalVideoWidth < 1)
+            System.Threading.Thread.Sleep(100);
 
-    #endregion
+         myState = ScallopSensorState.Active;
+         this.StatusChanged(this, new ScallopSensorStatusChangedEventArgs(ScallopSensorState.Idle, ScallopSensorState.Active, null, "Online"));
 
-    #region IDisposable Members
+         RenderTargetBitmap rtb = new RenderTargetBitmap(myPlayer.NaturalVideoWidth, myPlayer.NaturalVideoHeight,
+                                                           96, 96, PixelFormats.Pbgra32);
 
-    public void Dispose()
-    {
-      // stop player etc.
-    }
+         while (true)
+         {
+            if (bw.CancellationPending == true)
+            {
+               myPlayer.Stop();
+               e.Cancel = true;
+               return;
+            }
 
-    #endregion
-  }
+            DrawingVisual dv = new DrawingVisual();
+            DrawingContext dc = dv.RenderOpen();
+
+            dc.DrawVideo(myPlayer, new Rect(0, 0, myPlayer.NaturalVideoWidth, myPlayer.NaturalVideoHeight));
+            dc.Close();
+
+            rtb.Clear();
+            rtb.Render(dv);
+
+            BitmapFrame bmp = BitmapFrame.Create(rtb);
+
+            switch (parameters.FrameFormat)
+            {
+               case ("System.Drawing.Bitmap"):
+
+                  using (MemoryStream memoryStream = new MemoryStream())
+                  {
+                     //bitmapEncoder.Frames.Add(BitmapFrame.Create(bmp));
+                     PngBitmapEncoder bitmapEncoder = new PngBitmapEncoder();
+                     bitmapEncoder.Frames.Add(bmp);
+                     bitmapEncoder.Save(memoryStream);
+                     memoryStream.Flush();
+
+                     using (Bitmap bmp2 = Bitmap.FromStream(memoryStream) as Bitmap,
+                                   bmp3 = new Bitmap(bmp2.Width,bmp2.Height,System.Drawing.Imaging.PixelFormat.Format24bppRgb))
+                     {
+                        bmp3.SetResolution(bmp2.HorizontalResolution, bmp2.VerticalResolution);
+
+                        using (System.Drawing.Graphics g = System.Drawing.Graphics.FromImage(bmp3))
+                        {
+                           g.DrawImage(bmp2, 0, 0);
+                        }   
+
+                        if (this.Data != null)
+                           this.Data(this, new ScallopSensorDataEventArgs((System.Drawing.Bitmap)bmp3.Clone(), "new frame"));
+                     }
+
+                  }
+                  break;
+
+               case ("System.Windows.Media.Imaging.BitmapSource"):
+                  if (this.Data != null)
+                     this.Data(this, new ScallopSensorDataEventArgs(bmp as BitmapSource, "new frame"));
+                  break;
+            }
+
+            if (myPlayer.Position >= myPlayer.NaturalDuration)
+            {
+               myPlayer.Stop();
+               myPlayer.Position = TimeSpan.Zero;
+               myPlayer.Play();
+            }
+         }
+      }
+
+      /// <summary>
+      /// Stops receiving sensor data.
+      /// </summary>
+      public void Stop()
+      {
+         return;
+      }
+
+      /// <summary>
+      /// Pans the sensor.
+      /// </summary>
+      /// <param name="absolute">True if absolute pan value, 
+      /// false if relative.</param>
+      /// <param name="x">Degrees to pan on the horizontal axis.</param>
+      /// <param name="y">Degrees to pan on the vertical axis.</param>
+      public void PanTilt(bool absolute, int x, int y)
+      {
+         return;
+      }
+
+      /// <summary>
+      /// Zooms the sensor.
+      /// </summary>
+      /// <param name="absolute">True if absolute zoom value, 
+      /// false if relative.</param>
+      /// <param name="zoomValue">The zoom value.</param>
+      public void Zoom(bool absolute, int zoomValue)
+      {
+         return;
+      }
+
+      /// <summary>
+      /// Gets the current version of the module
+      /// </summary>
+      public string Version
+      {
+         get { return System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString(); }
+      }
+
+      /// <summary>
+      /// Gets the configuration XML schema.
+      /// </summary>
+      public System.Xml.Schema.XmlSchema ConfigSchema
+      {
+         get { return null; }
+      }
+
+      /// <summary>
+      /// Gets the sensor state.
+      /// </summary>
+      public ScallopSensorState State
+      {
+         get
+         {
+            return myState;
+         }
+      }
+
+      /// <summary>
+      /// An event indicating the sensor status has changed. This could mean it
+      /// has become active, encountered an error condition, etc.
+      /// </summary>
+      public event EventHandler<ScallopSensorStatusChangedEventArgs> StatusChanged;
+
+      /// <summary>
+      /// Fired when a new frame is available. The image data is passed in the
+      /// event arguments.
+      /// </summary>
+      public event EventHandler<ScallopSensorDataEventArgs> Data;
+
+      /// <summary>
+      /// Fired when the camera module wants to inform the user of something.
+      /// </summary>
+      public event EventHandler<ScallopInfoEventArgs> Info;
+
+      #endregion
+
+      #region IDisposable Members
+
+      /// <summary>
+      /// Frees the resources used by the object.
+      /// </summary>
+      public void Dispose()
+      {
+         // stop player etc.
+      }
+
+      #endregion
+   }
 }

@@ -13,7 +13,7 @@
             <summary>
             Base64-encodes a byte buffer to a format that is suitable for text-based transmission
             </summary>
-            <param name="buf">Data to be encoded.</param>
+            <param name="buffer">Data to be encoded.</param>
             <returns>A string containing the data in buf, encoded in base64.</returns>
             <remarks>Use Base64Decode to reverse the encoding.</remarks>
         </member>
@@ -24,19 +24,12 @@
             <param name="encoded">The encoded string.</param>
             <returns>Byte buffer containing decoded data.</returns>
         </member>
-        <member name="T:Scallop.Core.Events.ScallopSensorStatusChangedHandler">
-            <summary>
-            Event handler signature for sensor error events.
-            </summary>
-            <param name="sender">Identifies the object that sent the event.</param>
-            <param name="e">Event arguments, containing the error message.</param>
-        </member>
         <member name="T:Scallop.Core.Events.ScallopSensorStatusChangedEventArgs">
             <summary>
             Event arguments for sensor status changed events.
             </summary>
         </member>
-        <member name="F:Scallop.Core.Events.ScallopSensorStatusChangedEventArgs.CausingException">
+        <member name="F:Scallop.Core.Events.ScallopSensorStatusChangedEventArgs.causingException">
             <summary>
             Possible exception that caused the error.
             </summary>
@@ -46,12 +39,12 @@
             StatusChanged message.
             </summary>
         </member>
-        <member name="F:Scallop.Core.Events.ScallopSensorStatusChangedEventArgs.NewState">
+        <member name="F:Scallop.Core.Events.ScallopSensorStatusChangedEventArgs.newState">
             <summary>
             The state after the event.
             </summary>
         </member>
-        <member name="F:Scallop.Core.Events.ScallopSensorStatusChangedEventArgs.OldState">
+        <member name="F:Scallop.Core.Events.ScallopSensorStatusChangedEventArgs.oldState">
             <summary>
             The state before the event.
             </summary>
@@ -65,31 +58,29 @@
             <param name="toState">State after event.</param>
             <param name="msg">A freeform string message for the user.</param>
         </member>
-        <member name="T:Scallop.Core.Events.ScallopSensorDataHandler">
+        <member name="P:Scallop.Core.Events.ScallopSensorStatusChangedEventArgs.CausingException">
             <summary>
-            Event handler signature for sensor data events.
+            Gets the possible exception that caused the error.
             </summary>
-            <param name="sender">Identifies the object that sent the event.</param>
-            <param name="e">Event arguments, containing the data associated with the event.</param>
+        </member>
+        <member name="P:Scallop.Core.Events.ScallopSensorStatusChangedEventArgs.Message">
+            <summary>
+            Gets the StatusChanged message.
+            </summary>
+        </member>
+        <member name="P:Scallop.Core.Events.ScallopSensorStatusChangedEventArgs.NewState">
+            <summary>
+            Gets the state after the event.
+            </summary>
+        </member>
+        <member name="P:Scallop.Core.Events.ScallopSensorStatusChangedEventArgs.OldState">
+            <summary>
+            Gets the state before the event.
+            </summary>
         </member>
         <member name="T:Scallop.Core.Events.ScallopSensorDataEventArgs">
             <summary>
             Event arguments for sensor data events.
-            </summary>
-        </member>
-        <member name="F:Scallop.Core.Events.ScallopSensorDataEventArgs.data">
-            <summary>
-            The data content.
-            </summary>
-        </member>
-        <member name="F:Scallop.Core.Events.ScallopSensorDataEventArgs.dataType">
-            <summary>
-            Type of data.
-            </summary>
-        </member>
-        <member name="F:Scallop.Core.Events.ScallopSensorDataEventArgs.msg">
-            <summary>
-            A freeform message for the user.
             </summary>
         </member>
         <member name="M:Scallop.Core.Events.ScallopSensorDataEventArgs.#ctor(System.Object,System.String)">
@@ -99,12 +90,20 @@
             <param name="data">The event sensordata.</param>
             <param name="msg">A message.</param>
         </member>
-        <member name="T:Scallop.Core.Events.ScallopSensorInfoHandler">
+        <member name="P:Scallop.Core.Events.ScallopSensorDataEventArgs.Data">
             <summary>
-            Event handler signature for sensor info events.
+            The data content.
             </summary>
-            <param name="sender">Identifies the object that sent the event.</param>
-            <param name="e">Event arguments, containing the information text.</param>
+        </member>
+        <member name="P:Scallop.Core.Events.ScallopSensorDataEventArgs.DataType">
+            <summary>
+            Type of data.
+            </summary>
+        </member>
+        <member name="P:Scallop.Core.Events.ScallopSensorDataEventArgs.Message">
+            <summary>
+            A freeform message for the user.
+            </summary>
         </member>
         <member name="T:Scallop.Core.Events.ScallopInfoEventArgs">
             <summary>
@@ -121,13 +120,6 @@
             Constructor.
             </summary>
             <param name="msg">The information message.</param>
-        </member>
-        <member name="T:Scallop.Core.Events.ScallopNetworkStatusChangedHandler">
-            <summary>
-            Event handler signature for network error events.
-            </summary>
-            <param name="sender">Identifies the object that sent the event.</param>
-            <param name="e">Event arguments, containing the error message.</param>
         </member>
         <member name="T:Scallop.Core.Events.ScallopNetworkStatusChangedEventArgs">
             <summary>
@@ -159,13 +151,6 @@
             Constructor.
             </summary>
         </member>
-        <member name="T:Scallop.Core.Events.ScallopNetworkDataHandler">
-            <summary>
-            Event handler signature for network data events.
-            </summary>
-            <param name="sender">Identifies the object that sent the event.</param>
-            <param name="e">Event arguments, containing the data.</param>
-        </member>
         <member name="T:Scallop.Core.Events.ScallopNetworkDataEventArgs">
             <summary>
             Event arguments for network data events.
@@ -192,13 +177,6 @@
             </summary>
             <param name="data">The network data.</param>
             <param name="msg">A user message.</param>
-        </member>
-        <member name="T:Scallop.Core.Events.ScallopNetworkInfoHandler">
-            <summary>
-            Event handler signature for network info events.
-            </summary>
-            <param name="sender">Identifies the object that sent the event.</param>
-            <param name="e">Event parameters, containing the information text.</param>
         </member>
         <member name="T:Scallop.Core.Sensor.ScallopSensorState">
             <summary>
@@ -471,112 +449,112 @@
             For more information, see http://msdn.microsoft.com/en-us/library/ms730255.aspx
             </summary>
         </member>
-        <member name="F:Scallop.Core.Network.ScallopMessage.header">
-            <summary>
-            Custom message header
-            </summary>
-        </member>
-        <member name="F:Scallop.Core.Network.ScallopMessage.contents">
-            <summary> Content of message in XML.</summary>
-        </member>
-        <member name="F:Scallop.Core.Network.ScallopMessage.hopcount">
-            <summary>Hopcount.</summary>
-        </member>
         <member name="M:Scallop.Core.Network.ScallopMessage.#ctor">
             <summary>
             Creates a new message.
             </summary>
+        </member>
+        <member name="P:Scallop.Core.Network.ScallopMessage.Header">
+            <summary>
+            Custom message header
+            </summary>
+        </member>
+        <member name="P:Scallop.Core.Network.ScallopMessage.Contents">
+            <summary> Content of message in XML.</summary>
+        </member>
+        <member name="P:Scallop.Core.Network.ScallopMessage.HopCount">
+            <summary>Hopcount.</summary>
         </member>
         <member name="T:Scallop.Core.Network.ScallopMessageHeader">
             <summary>
             Data contract for a message header
             </summary>
         </member>
-        <member name="F:Scallop.Core.Network.ScallopMessageHeader.sender">
+        <member name="P:Scallop.Core.Network.ScallopMessageHeader.Sender">
             <summary> ID of sending node.</summary> 
         </member>
-        <member name="F:Scallop.Core.Network.ScallopMessageHeader.receivers">
+        <member name="P:Scallop.Core.Network.ScallopMessageHeader.Receivers">
             <summary> Array of receiver IDs.</summary>
         </member>
-        <member name="F:Scallop.Core.Network.ScallopMessageHeader.origHopcount">
+        <member name="P:Scallop.Core.Network.ScallopMessageHeader.OrigHopcount">
             <summary>
             Original hopcount.
             </summary>
         </member>
-        <member name="F:Scallop.Core.Network.ScallopMessageHeader.InternalMessage">
+        <member name="P:Scallop.Core.Network.ScallopMessageHeader.InternalMessage">
             <summary>
             Flag indicating whether this is a message internal to the implementation.
             </summary>
         </member>
-        <member name="T:ScallopException">
+        <member name="T:Scallop.Core.ScallopException">
             <summary>
             A generic Scallop exception.
             </summary>
         </member>
-        <member name="M:ScallopException.#ctor">
+        <member name="M:Scallop.Core.ScallopException.#ctor">
             <summary>
             Default constructor.
             </summary>
         </member>
-        <member name="M:ScallopException.#ctor(System.String)">
+        <member name="M:Scallop.Core.ScallopException.#ctor(System.String)">
             <summary>
             Constructor.
             </summary>
             <param name="message">Message to user.</param>
         </member>
-        <member name="M:ScallopException.#ctor(System.String,System.Exception)">
+        <member name="M:Scallop.Core.ScallopException.#ctor(System.String,System.Exception)">
             <summary>
             Constructor.
             </summary>
             <param name="message">Message to user.</param>
             <param name="inner">A possible causing InnerException.</param>
         </member>
-        <member name="T:InvalidConfigurationException">
+        <member name="T:Scallop.Core.InvalidConfigurationException">
             <summary>
             Thrown when the XML configuration is invalid.
             </summary>
         </member>
-        <member name="M:InvalidConfigurationException.#ctor">
+        <member name="M:Scallop.Core.InvalidConfigurationException.#ctor">
             <summary>
             Default constructor.
             </summary>
         </member>
-        <member name="M:InvalidConfigurationException.#ctor(System.String)">
+        <member name="M:Scallop.Core.InvalidConfigurationException.#ctor(System.String)">
             <summary>
             Constructor.
             </summary>
             <param name="message">Message to user.</param>
         </member>
-        <member name="M:InvalidConfigurationException.#ctor(System.String,System.Exception)">
+        <member name="M:Scallop.Core.InvalidConfigurationException.#ctor(System.String,System.Exception)">
             <summary>
             Constructor.
             </summary>
             <param name="message">Message to user.</param>
             <param name="inner">A possible causing InnerException.</param>
         </member>
-        <member name="T:MessageContentException">
+        <member name="T:Scallop.Core.MessageContentException">
             <summary>
             Thrown when a message content does not match the XML schema.
             </summary>
         </member>
-        <member name="M:MessageContentException.#ctor">
+        <member name="M:Scallop.Core.MessageContentException.#ctor">
             <summary>
             Default constructor.
             </summary>
         </member>
-        <member name="M:MessageContentException.#ctor(System.Exception)">
+        <member name="M:Scallop.Core.MessageContentException.#ctor(System.Exception)">
             <summary>
             Constructor.
             </summary>
             <param name="inner">Message to user.</param>
         </member>
-        <member name="M:MessageContentException.#ctor(System.String)">
+        <member name="M:Scallop.Core.MessageContentException.#ctor(System.String)">
             <summary>
             Constructor.
             </summary>
             <param name="message">Message to user.</param>
         </member>
-        <member name="M:MessageContentException.#ctor(System.String,System.Exception)">
+        <member name="M:Scallop.Core.MessageContentException.#ctor(System.String,System.Exception)">
             <summary>
             Constructor.
             </summary>
@@ -609,6 +587,13 @@
             </summary>
             <param name="assembly">The assembly containing the network class.</param>
             <param name="networkType">Name of the network class, including namespace.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Scallop.Core.InterfaceFactory.CreateNetworkInstance(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="assembly">The assembly containing the sensor class.</param>
             <returns></returns>
         </member>
     </members>

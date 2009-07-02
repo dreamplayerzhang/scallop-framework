@@ -23,29 +23,31 @@ namespace Scallop.HelloWorld
          myProgram.Run();
       }
 
-      public Program() 
+      public Program()
       {
-      
+
       }
 
       private void Run()
       {
          // Get an instance of the sensor class using the assembly and class names.
          SensorInterface = InterfaceFactory.CreateSensorInstance("Scallop.Sensor.FileSource.dll");
-         //SensorInterface = InterfaceFactory.CreateSensorInstance("Scallop.Sensor.Axis.dll", "Scallop.Sensor.Axis.AxisCameraClass");
          //SensorInterface = InterfaceFactory.CreateSensorInstance("Scallop.Sensor.Axis.dll");
-                  
+         Console.WriteLine("Sensor: {0}\tVersion: {1}", SensorInterface.ToString(), SensorInterface.Version);
+
          // Configure the sensor interface with parameters from an XML file.
-         SensorInterface.Register(XDocument.Load(SensorConfigFile),null);
+         SensorInterface.Register(XDocument.Load(SensorConfigFile), null);
          // Define the handler functions
-         SensorInterface.Data += new ScallopSensorDataHandler(SensorInterface_Data);
-         SensorInterface.StatusChanged += new ScallopSensorStatusChangedHandler(SensorInterface_StatusChanged);
+         SensorInterface.Data += new EventHandler<ScallopSensorDataEventArgs>(SensorInterface_Data);
+         SensorInterface.StatusChanged += new EventHandler<ScallopSensorStatusChangedEventArgs>(SensorInterface_StatusChanged);
 
          // Get instance of network class.
-         NetworkInterface = InterfaceFactory.CreateNetworkInstance("Scallop.Network.PeerChannel.dll", "Scallop.Network.PeerChannel.ScallopPeerChannel");
+         NetworkInterface = InterfaceFactory.CreateNetworkInstance("Scallop.Network.PeerChannel.dll");
+         Console.WriteLine("Network: {0}\tVersion: {1}", NetworkInterface.ToString(), NetworkInterface.Version);
+
          // Define handler functions.
-         NetworkInterface.Data += new ScallopNetworkDataHandler(NetworkInterface_Data);
-         NetworkInterface.StatusChanged += new ScallopNetworkStatusChangedHandler(NetworkInterface_StatusChanged);
+         NetworkInterface.Data += new EventHandler<ScallopNetworkDataEventArgs>(NetworkInterface_Data);
+         NetworkInterface.StatusChanged += new EventHandler<ScallopNetworkStatusChangedEventArgs>(NetworkInterface_StatusChanged);
 
          // Start sensor.
          SensorInterface.Start();
@@ -68,7 +70,7 @@ namespace Scallop.HelloWorld
       void NetworkInterface_Data(object sender, ScallopNetworkDataEventArgs e)
       {
          ScallopMessage Message = (ScallopMessage)e.data;
-         Console.WriteLine("Message received from " + Message.header.sender + " : " + Message.contents);
+         Console.WriteLine("Message received from " + Message.Header.Sender + " : " + Message.Contents);
       }
 
       void NetworkInterface_StatusChanged(object sender, ScallopNetworkStatusChangedEventArgs e)

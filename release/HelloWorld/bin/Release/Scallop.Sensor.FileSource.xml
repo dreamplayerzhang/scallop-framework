@@ -4,5 +4,81 @@
         <name>Scallop.Sensor.FileSource</name>
     </assembly>
     <members>
+        <member name="T:Scallop.Sensor.FileSource.ScallopFileSource">
+            <summary>
+            File source class for playing video files
+            </summary>
+        </member>
+        <member name="M:Scallop.Sensor.FileSource.ScallopFileSource.Register(System.Xml.Linq.XDocument,System.String)">
+            <summary>
+            Registers a node with a sensor.
+            </summary>
+            <param name="config">The configuration XML document.</param>
+            <param name="selectConfig">String identifying the configuration item to use.</param>
+        </member>
+        <member name="M:Scallop.Sensor.FileSource.ScallopFileSource.Start">
+            <summary>
+            Starts receiving sensor data.
+            </summary>
+        </member>
+        <member name="M:Scallop.Sensor.FileSource.ScallopFileSource.Stop">
+            <summary>
+            Stops receiving sensor data.
+            </summary>
+        </member>
+        <member name="M:Scallop.Sensor.FileSource.ScallopFileSource.PanTilt(System.Boolean,System.Int32,System.Int32)">
+            <summary>
+            Pans the sensor.
+            </summary>
+            <param name="absolute">True if absolute pan value, 
+            false if relative.</param>
+            <param name="x">Degrees to pan on the horizontal axis.</param>
+            <param name="y">Degrees to pan on the vertical axis.</param>
+        </member>
+        <member name="M:Scallop.Sensor.FileSource.ScallopFileSource.Zoom(System.Boolean,System.Int32)">
+            <summary>
+            Zooms the sensor.
+            </summary>
+            <param name="absolute">True if absolute zoom value, 
+            false if relative.</param>
+            <param name="zoomValue">The zoom value.</param>
+        </member>
+        <member name="M:Scallop.Sensor.FileSource.ScallopFileSource.Dispose">
+            <summary>
+            Frees the resources used by the object.
+            </summary>
+        </member>
+        <member name="P:Scallop.Sensor.FileSource.ScallopFileSource.Version">
+            <summary>
+            Gets the current version of the module
+            </summary>
+        </member>
+        <member name="P:Scallop.Sensor.FileSource.ScallopFileSource.ConfigSchema">
+            <summary>
+            Gets the configuration XML schema.
+            </summary>
+        </member>
+        <member name="P:Scallop.Sensor.FileSource.ScallopFileSource.State">
+            <summary>
+            Gets the sensor state.
+            </summary>
+        </member>
+        <member name="E:Scallop.Sensor.FileSource.ScallopFileSource.StatusChanged">
+            <summary>
+            An event indicating the sensor status has changed. This could mean it
+            has become active, encountered an error condition, etc.
+            </summary>
+        </member>
+        <member name="E:Scallop.Sensor.FileSource.ScallopFileSource.Data">
+            <summary>
+            Fired when a new frame is available. The image data is passed in the
+            event arguments.
+            </summary>
+        </member>
+        <member name="E:Scallop.Sensor.FileSource.ScallopFileSource.Info">
+            <summary>
+            Fired when the camera module wants to inform the user of something.
+            </summary>
+        </member>
     </members>
 </doc>

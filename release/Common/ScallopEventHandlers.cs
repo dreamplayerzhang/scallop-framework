@@ -45,12 +45,19 @@ namespace Scallop.Core.Events
   ///// <param name="e">Event arguments, empty.</param>
   //public delegate void ScallopSensorClosedHandler(object sender, EventArgs e);
 
-  /// <summary>
-  /// Event handler signature for sensor error events.
-  /// </summary>
-  /// <param name="sender">Identifies the object that sent the event.</param>
-  /// <param name="e">Event arguments, containing the error message.</param>
-  public delegate void ScallopSensorStatusChangedHandler(object sender, ScallopSensorStatusChangedEventArgs e);
+  ///// <summary>
+  ///// Event handler signature for sensor error events.
+  ///// </summary>
+  ///// <param name="sender">Identifies the object that sent the event.</param>
+  ///// <param name="e">Event arguments, containing the error message.</param>
+  //public delegate void ScallopSensorStatusChangedHandler(object sender, ScallopSensorStatusChangedEventArgs e);
+
+   ///// <summary>
+   ///// Event handler signature for sensor data events.
+   ///// </summary>
+   ///// <param name="sender">Identifies the object that sent the event.</param>
+   ///// <param name="e">Event arguments, containing the data associated with the event.</param>
+   //public delegate void ScallopSensorDataHandler(object sender, ScallopSensorDataEventArgs e);
 
   /// <summary>
   /// Event arguments for sensor status changed events.
@@ -60,22 +67,54 @@ namespace Scallop.Core.Events
     /// <summary>
     /// Possible exception that caused the error.
     /// </summary>
-    public Exception CausingException;
+     private Exception causingException;
+
+     /// <summary>
+     /// Gets the possible exception that caused the error.
+     /// </summary>
+     public Exception CausingException
+     {
+        get { return causingException; }
+     }
 
     /// <summary>
     /// StatusChanged message.
     /// </summary>
-    public string msg;
+     private string msg;
+
+     /// <summary>
+     /// Gets the StatusChanged message.
+     /// </summary>
+     public string Message
+     {
+        get { return msg; }
+     }
 
     /// <summary>
     /// The state after the event.
     /// </summary>
-    public ScallopSensorState NewState;
+     private ScallopSensorState newState;
+
+     /// <summary>
+     /// Gets the state after the event.
+     /// </summary>
+     public ScallopSensorState NewState
+     {
+        get { return newState; }
+     }
 
     /// <summary>
     /// The state before the event.
     /// </summary>
-    public ScallopSensorState OldState;
+     private ScallopSensorState oldState;
+
+     /// <summary>
+     /// Gets the state before the event.
+     /// </summary>
+     public ScallopSensorState OldState
+     {
+        get { return oldState; }
+     }
     
     /// <summary>
     /// Constructor.
@@ -86,40 +125,47 @@ namespace Scallop.Core.Events
     /// <param name="msg">A freeform string message for the user.</param>
     public ScallopSensorStatusChangedEventArgs(ScallopSensorState fromState, ScallopSensorState toState, Exception e, string msg)
     {
-      this.OldState = fromState;
-      this.NewState = toState;
-      this.CausingException = e;
+      this.oldState = fromState;
+      this.newState = toState;
+      this.causingException = e;
       this.msg = msg;
     }
   }
-
-
-  /// <summary>
-  /// Event handler signature for sensor data events.
-  /// </summary>
-  /// <param name="sender">Identifies the object that sent the event.</param>
-  /// <param name="e">Event arguments, containing the data associated with the event.</param>
-  public delegate void ScallopSensorDataHandler(object sender, ScallopSensorDataEventArgs e);
 
   /// <summary>
   /// Event arguments for sensor data events.
   /// </summary>
   public class ScallopSensorDataEventArgs : EventArgs
   {
-    /// <summary>
-    /// The data content.
-    /// </summary>
-    public object data;
+      private object data;
 
-    /// <summary>
-    /// Type of data.
-    /// </summary>
-    public Type dataType;
+      /// <summary>
+      /// The data content.
+      /// </summary>
+     public object Data
+     {
+        get { return data; }
+     }
 
-    /// <summary>
-    /// A freeform message for the user.
-    /// </summary>
-    public string msg;
+     private Type dataType;
+
+     /// <summary>
+     /// Type of data.
+     /// </summary>
+     public Type DataType
+     {
+        get { return dataType; }
+     }
+
+     private string msg;
+
+     /// <summary>
+     /// A freeform message for the user.
+     /// </summary>
+     public string Message
+     {
+        get { return msg; }
+     }
 
     /// <summary>
     /// Constructor.
@@ -134,12 +180,12 @@ namespace Scallop.Core.Events
     }
   }
 
-  /// <summary>
-  /// Event handler signature for sensor info events.
-  /// </summary>
-  /// <param name="sender">Identifies the object that sent the event.</param>
-  /// <param name="e">Event arguments, containing the information text.</param>
-  public delegate void ScallopSensorInfoHandler(object sender, ScallopInfoEventArgs e);
+  ///// <summary>
+  ///// Event handler signature for sensor info events.
+  ///// </summary>
+  ///// <param name="sender">Identifies the object that sent the event.</param>
+  ///// <param name="e">Event arguments, containing the information text.</param>
+  //public delegate void ScallopSensorInfoHandler(object sender, ScallopInfoEventArgs e);
   
   /// <summary>
   /// Event arguments for sensor and network information events.
@@ -180,12 +226,12 @@ namespace Scallop.Core.Events
   //public delegate void ScallopNetworkClosedHandler(object sender, EventArgs e);
 
 
-  /// <summary>
-  /// Event handler signature for network error events.
-  /// </summary>
-  /// <param name="sender">Identifies the object that sent the event.</param>
-  /// <param name="e">Event arguments, containing the error message.</param>
-  public delegate void ScallopNetworkStatusChangedHandler(object sender, ScallopNetworkStatusChangedEventArgs e);
+  ///// <summary>
+  ///// Event handler signature for network error events.
+  ///// </summary>
+  ///// <param name="sender">Identifies the object that sent the event.</param>
+  ///// <param name="e">Event arguments, containing the error message.</param>
+  //public delegate void ScallopNetworkStatusChangedHandler(object sender, ScallopNetworkStatusChangedEventArgs e);
 
   /// <summary>
   /// Event arguments for network status changed events.
@@ -223,12 +269,12 @@ namespace Scallop.Core.Events
     }
   }
 
-  /// <summary>
-  /// Event handler signature for network data events.
-  /// </summary>
-  /// <param name="sender">Identifies the object that sent the event.</param>
-  /// <param name="e">Event arguments, containing the data.</param>
-  public delegate void ScallopNetworkDataHandler(object sender, ScallopNetworkDataEventArgs e);
+  ///// <summary>
+  ///// Event handler signature for network data events.
+  ///// </summary>
+  ///// <param name="sender">Identifies the object that sent the event.</param>
+  ///// <param name="e">Event arguments, containing the data.</param>
+  //public delegate void ScallopNetworkDataHandler(object sender, ScallopNetworkDataEventArgs e);
 
   /// <summary>
   /// Event arguments for network data events.
@@ -263,14 +309,12 @@ namespace Scallop.Core.Events
     }
   }
 
-  /// <summary>
-  /// Event handler signature for network info events.
-  /// </summary>
-  /// <param name="sender">Identifies the object that sent the event.</param>
-  /// <param name="e">Event parameters, containing the information text.</param>
-  public delegate void ScallopNetworkInfoHandler(object sender, ScallopInfoEventArgs e);
+  ///// <summary>
+  ///// Event handler signature for network info events.
+  ///// </summary>
+  ///// <param name="sender">Identifies the object that sent the event.</param>
+  ///// <param name="e">Event parameters, containing the information text.</param>
+  //public delegate void ScallopNetworkInfoHandler(object sender, ScallopInfoEventArgs e);
   
-  
-
   #endregion Network
 }

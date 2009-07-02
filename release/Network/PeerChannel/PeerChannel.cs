@@ -26,6 +26,9 @@
 using Scallop.Core.Network;
 using System.ServiceModel;
 
+
+[assembly: System.CLSCompliant(true)]
+
 namespace Scallop.Network.PeerChannel
 {
 

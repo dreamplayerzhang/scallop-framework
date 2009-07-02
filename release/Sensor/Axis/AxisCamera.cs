@@ -33,20 +33,22 @@ using System.ComponentModel;
 using System.Xml.Schema;
 using System.Xml.Serialization;
 using System.Reflection;
-using System.Xml;
 using System.Xml.Linq;
 using System.Linq;
 using System.Windows.Media.Imaging;
 
+using Scallop.Core;
 using Scallop.Core.Events;
 using Scallop.Core.Sensor;
+
+[assembly: System.CLSCompliant(true)]
 
 namespace Scallop.Sensor.Axis
 {
    /// <summary>
    /// Axis IP camera class.
    /// </summary>
-   public class AxisCameraClass : IScallopSensor, IDisposable
+   public class AxisCamera : IScallopSensor, IDisposable
    {
       /* Class fields */
       private BufferedStream mjpgStream;
@@ -57,6 +59,7 @@ namespace Scallop.Sensor.Axis
       private BackgroundWorker frameHandlerThread;
       private bool registered = false;
       private bool streaming = false;
+      private bool _disposed = false;
 
       private XmlSchema configSchema;
 
@@ -64,14 +67,13 @@ namespace Scallop.Sensor.Axis
       /// Constructor. Sets up the configuration schema.
       /// </summary>
       /// <exception cref="ApplicationException">Thrown when there is an error with getting the schema from the assembly.</exception>
-      public AxisCameraClass()
+      public AxisCamera()
       {
          try
          {
             Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("Scallop.Sensor.Axis.AxisCameraConfig.xsd");
             XmlSerializer serializer = new XmlSerializer(typeof(XmlSchema));
             this.configSchema = (XmlSchema)(serializer.Deserialize(stream));
-
 
             this.myState = ScallopSensorState.Idle;
          }
@@ -81,6 +83,14 @@ namespace Scallop.Sensor.Axis
          }
       }
 
+      /// <summary>
+      /// Object destructor
+      /// </summary>
+      ~AxisCamera()
+      {
+         Dispose(false);
+      }
+
       #region IDisposable Members
 
       /// <summary>
@@ -88,8 +98,31 @@ namespace Scallop.Sensor.Axis
       /// </summary>
       public void Dispose()
       {
-         if (this.frameHandlerThread != null)
-            this.frameHandlerThread.Dispose();
+         Dispose(true);
+
+         // Use SupressFinalize in case a subclass
+         // of this type implements a finalizer.
+         GC.SuppressFinalize(this);
+      }
+
+      /// <summary>
+      /// Frees the resources used by the object
+      /// </summary>
+      /// <param name="disposing">The parameter tells if the Dispose is called directly</param>
+      protected virtual void Dispose(bool disposing)
+      {
+         if (!_disposed)
+         {
+            if (disposing)
+            {
+               if (this.frameHandlerThread != null)
+                  this.frameHandlerThread.Dispose();
+               if (this.mjpgStream != null)
+                  this.mjpgStream.Dispose();
+            }
+            this.frameHandlerThread = null;
+            this.mjpgStream = null;
+         }
       }
 
       #endregion
@@ -243,13 +276,13 @@ namespace Scallop.Sensor.Axis
       }
 
       /// <summary>
-      /// 
+      /// Current version
       /// </summary>
       public string Version
       {
          get
          {
-            return "alpha";
+            return System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
          }
       }
 
@@ -276,18 +309,18 @@ namespace Scallop.Sensor.Axis
       /// An event indicating the sensor status has changed. This could mean it
       /// has become active, encountered an error condition, etc.
       /// </summary>
-      public event ScallopSensorStatusChangedHandler StatusChanged;
+      public event EventHandler<ScallopSensorStatusChangedEventArgs> StatusChanged;
 
       /// <summary>
       /// Fired when a new frame is available. The image data is passed in the
       /// event arguments.
       /// </summary>
-      public event ScallopSensorDataHandler Data;
+      public event EventHandler<ScallopSensorDataEventArgs> Data;
 
       /// <summary>
       /// Fired when the camera module wants to inform the user of something.
       /// </summary>
-      public event ScallopSensorInfoHandler Info;
+      public event EventHandler<ScallopInfoEventArgs> Info;
 
       #endregion
 
@@ -305,8 +338,6 @@ namespace Scallop.Sensor.Axis
             this.StatusChanged(sender, e);
 
          myState = ScallopSensorState.Error;
-
-
       }
 
       private void doClosed(object sender, EventArgs e)
@@ -495,9 +526,8 @@ namespace Scallop.Sensor.Axis
       /// <exception cref="IOException">Thrown when end-of-stream is 
       /// encountered</exception>
       /// <exception cref="WebException"></exception>
-      private string readMjpgLine(Stream input)
+      private static string readMjpgLine(Stream input)
       {
-         System.Text.ASCIIEncoding enc = new System.Text.ASCIIEncoding();
          List<byte> buf = new List<byte>();
          int temp = 0, temp2;
          int count = 0;
@@ -512,7 +542,7 @@ namespace Scallop.Sensor.Axis
             count++;
             if (count > 1 && temp2 == '\r' && temp == '\n')
             {
-               return (enc.GetString((byte[])buf.ToArray(), 0, count - 2));
+               return (System.Text.Encoding.ASCII.GetString((byte[])buf.ToArray(), 0, count - 2));
             }
          }
       }

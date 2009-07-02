@@ -31,10 +31,12 @@ using System.Xml.Schema;
 using System.IO;
 using System.Reflection;
 using System.Xml.Serialization;
-using Scallop.Core.Events;
-using Scallop.Core.Network;
 using System.Collections.Generic;
 using System.ComponentModel;
+
+using Scallop.Core;
+using Scallop.Core.Events;
+using Scallop.Core.Network;
 
 namespace Scallop.Network.PeerChannel
 {
@@ -66,8 +68,8 @@ namespace Scallop.Network.PeerChannel
 
       private int msgCountRX;
       private int msgCountTX;
-      private ulong msgSizeRX;
-      private ulong msgSizeTX;
+      private long msgSizeRX;
+      private long msgSizeTX;
       private int hopsSumRX;
 
       private List<string> neighbours = new List<string>();
@@ -107,9 +109,9 @@ namespace Scallop.Network.PeerChannel
       public void SendMessage(string message)
       {
          ScallopMessage msg = new ScallopMessage();
-         msg.contents = message;
-         msg.header.sender = this.id;
-         msg.hopcount = int.MaxValue;
+         msg.Contents = message;
+         msg.Header.Sender = this.id;
+         msg.HopCount = int.MaxValue;
          this._sendMessage(msg);
       }
 
@@ -136,8 +138,8 @@ namespace Scallop.Network.PeerChannel
       public void SendMessage(string message, params string[] nodeids)
       {
          ScallopMessage msg = new ScallopMessage();
-         msg.contents = message;
-         msg.header.receivers = nodeids;
+         msg.Contents = message;
+         msg.Header.Receivers = nodeids;
 
          this._sendMessage(msg);
       }
@@ -150,8 +152,8 @@ namespace Scallop.Network.PeerChannel
       public void SendMessage(string message, int reach)
       {
          ScallopMessage msg = new ScallopMessage();
-         msg.contents = message;
-         msg.hopcount = reach;
+         msg.Contents = message;
+         msg.HopCount = reach;
 
          this._sendMessage(msg);
       }
@@ -162,16 +164,16 @@ namespace Scallop.Network.PeerChannel
          {
             if (this.chan != null && this.peer.IsOnline)
             {
-               if (msg.header.sender == null)
-                  msg.header.sender = this.id;
+               if (msg.Header.Sender == null)
+                  msg.Header.Sender = this.id;
 
-               if (!msg.header.InternalMessage)
+               if (!msg.Header.InternalMessage)
                {
                   msgCountTX++;
-                  msgSizeTX += (ulong)msg.contents.Length;
+                  msgSizeTX += (long)msg.Contents.Length;
                }
 
-               msg.header.origHopcount = msg.hopcount;
+               msg.Header.OrigHopcount = msg.HopCount;
 
                chan.PCSend(msg);
             }
@@ -252,11 +254,11 @@ namespace Scallop.Network.PeerChannel
             this.neighbours.Clear();
             ScallopMessage msg = new ScallopMessage();
             this.lastNeighbourId = Guid.NewGuid().ToString();
-            msg.contents = "QUERY" + lastNeighbourId;
-            msg.header.sender = this.id;
-            msg.header.InternalMessage = true;
-            msg.hopcount = 1;
-            msg.header.origHopcount = 1;
+            msg.Contents = "QUERY" + lastNeighbourId;
+            msg.Header.Sender = this.id;
+            msg.Header.InternalMessage = true;
+            msg.HopCount = 1;
+            msg.Header.OrigHopcount = 1;
             this._sendMessage(msg);
             Thread.Sleep(1000 * parameters.NeighborQueryRate);
          }
@@ -363,7 +365,7 @@ namespace Scallop.Network.PeerChannel
       /// <summary>
       /// Cumulative size of payloads of received messages.
       /// </summary>
-      public ulong MessageSizeRX
+      public long MessageSizeRX
       {
          get
          {
@@ -374,7 +376,7 @@ namespace Scallop.Network.PeerChannel
       /// <summary>
       /// Cumulative size of payloads of sent messages.
       /// </summary>
-      public ulong MessageSizeTX
+      public long MessageSizeTX
       {
          get
          {
@@ -396,19 +398,18 @@ namespace Scallop.Network.PeerChannel
       /// <summary>
       /// Raised when the network status changes.
       /// </summary>
-      public event ScallopNetworkStatusChangedHandler StatusChanged;
+      public event EventHandler<ScallopNetworkStatusChangedEventArgs> StatusChanged;
 
       /// <summary>
       /// Raised when a new message is received. The message is passed in the
       /// event arguments.
       /// </summary>
-      public event ScallopNetworkDataHandler Data;
+      public event EventHandler<ScallopNetworkDataEventArgs> Data;
 
       /// <summary>
       /// Raised when the network module wants to inform the user of something.
       /// </summary>
-      public event ScallopNetworkInfoHandler Info;
-
+      public event EventHandler<ScallopInfoEventArgs> Info;
 
 
       /// <summary>
@@ -426,7 +427,6 @@ namespace Scallop.Network.PeerChannel
          NetPeerTcpBinding myBinding = new NetPeerTcpBinding();
          myBinding.ReaderQuotas = quotas;
 
-
          if (parameters.UseTLS)
          {
             myBinding.Security.Mode = SecurityMode.Transport;
@@ -437,7 +437,6 @@ namespace Scallop.Network.PeerChannel
             myBinding.Security.Mode = SecurityMode.None;
          }
 
-
          // if the listening address is specified, use it
          if (parameters.Ip != null)
          {
@@ -447,8 +446,6 @@ namespace Scallop.Network.PeerChannel
             myBinding.ListenIPAddress = parameters.Ip;
             */
          }
-
-
 
          EndpointAddress myAddress = new EndpointAddress("net.p2p://Scallop_" + this.Version + "_" + parameters.NetworkName + "/");
 
@@ -509,7 +506,7 @@ namespace Scallop.Network.PeerChannel
          try
          {
             this.msgCountRX++;
-            this.msgSizeRX += (ulong)((ScallopMessage)(e.data)).contents.Length;
+            this.msgSizeRX += (long)((ScallopMessage)(e.data)).Contents.Length;
             if (Data != null)
                Data(sender, e);
          }
@@ -532,7 +529,6 @@ namespace Scallop.Network.PeerChannel
       }
 
       #endregion
-
 
       private void factory_faulted(object sender, EventArgs e)
       {
@@ -564,33 +560,31 @@ namespace Scallop.Network.PeerChannel
          }
       }
 
-
       /// <summary>
       /// Sends a message over PeerChannel.
       /// </summary>
       /// <param name="message"></param>
       void IPeerChannel.PCSend(ScallopMessage message)
       {
-
          // Don't pass own messages or when no handler is registered
-         if (message.header.sender == this.id || !this.registered || this.Data == null)
+         if (message.Header.Sender == this.id || !this.registered || this.Data == null)
             return;
 
 
-         switch (message.header.InternalMessage)
+         switch (message.Header.InternalMessage)
          {
             case false:
-               if (message.header.receivers != null)
+               if (message.Header.Receivers != null)
                {
                   // the message has a list of receivers, check whether we're on it
-                  foreach (string target in message.header.receivers)
+                  foreach (string target in message.Header.Receivers)
                   {
                      if (target == this.id)
                      {
                         // alright, we're on it, pass message to user.
 
-                        if (message.header.origHopcount > 0)
-                           this.hopsSumRX += (message.header.origHopcount - message.hopcount);
+                        if (message.Header.OrigHopcount > 0)
+                           this.hopsSumRX += (message.Header.OrigHopcount - message.HopCount);
                         doData(this, new ScallopNetworkDataEventArgs(message, "New message"));
                         return;
                      }
@@ -598,34 +592,33 @@ namespace Scallop.Network.PeerChannel
                }
                else // no receiver list, a broadcast message, accept it
                {
-                  if (message.header.origHopcount > 0)
-                     this.hopsSumRX += (message.header.origHopcount - message.hopcount);
+                  if (message.Header.OrigHopcount > 0)
+                     this.hopsSumRX += (message.Header.OrigHopcount - message.HopCount);
                   doData(this, new ScallopNetworkDataEventArgs(message, "New message"));
                   return;
                }
                break;
 
             case true:
-               if (message.contents.StartsWith("QUERY"))
+               if (message.Contents.StartsWith("QUERY"))
                {
                   ScallopMessage msg = new ScallopMessage();
-                  msg.contents = message.contents;
-                  msg.contents = msg.contents.Replace("QUERY", "RESPO");
-                  msg.header.sender = this.id;
-                  msg.hopcount = 1;
-                  msg.header.origHopcount = 1;
-                  msg.header.InternalMessage = true;
+                  msg.Contents = message.Contents;
+                  msg.Contents = msg.Contents.Replace("QUERY", "RESPO");
+                  msg.Header.Sender = this.id;
+                  msg.HopCount = 1;
+                  msg.Header.OrigHopcount = 1;
+                  msg.Header.InternalMessage = true;
                   this._sendMessage(msg);
                }
-               if (message.contents.StartsWith("RESPO") && message.contents.Contains(lastNeighbourId))
+               if (message.Contents.StartsWith("RESPO") && message.Contents.Contains(lastNeighbourId))
                {
-                  if (!this.neighbours.Contains(message.header.sender))
-                     this.neighbours.Add(message.header.sender);
+                  if (!this.neighbours.Contains(message.Header.Sender))
+                     this.neighbours.Add(message.Header.Sender);
                }
                break;
          }
       }
-
 
       void IPeerChannel.PCJoin(string id)
       {
@@ -636,14 +629,5 @@ namespace Scallop.Network.PeerChannel
       {
          this.doInfo(this, new ScallopInfoEventArgs(id + " left."));
       }
-
-
-
    }
-
-
-
-
-
-
 }

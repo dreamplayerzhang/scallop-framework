@@ -127,19 +127,22 @@ namespace Scallop.Core.Sensor
       /// This event is raised when the status of the sensor changes. This can
       /// mean the sensor becoming active, encountering an error condition, etc.
       /// </summary>
-      event ScallopSensorStatusChangedHandler StatusChanged;
+      //event ScallopSensorStatusChangedHandler StatusChanged;
+      event EventHandler<ScallopSensorStatusChangedEventArgs> StatusChanged;
 
       /// <summary>
       /// This event is raised when the sensor has new data available. The data is
       /// passed in the event arguments.
       /// </summary>
-      event ScallopSensorDataHandler Data;
+      //event ScallopSensorDataHandler Data;
+      event EventHandler<ScallopSensorDataEventArgs> Data;
 
       /// <summary>
       /// This event is raised when the sensor has information that the user might
       /// find useful. The information is passed in the event arguments.
       /// </summary>
-      event ScallopSensorInfoHandler Info;
+      //event ScallopSensorInfoHandler Info;
+      event EventHandler<ScallopInfoEventArgs> Info;
 
    }
 }

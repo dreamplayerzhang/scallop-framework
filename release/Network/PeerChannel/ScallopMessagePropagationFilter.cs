@@ -28,21 +28,37 @@ using System.ServiceModel.Channels;
 
 namespace Scallop.Network.PeerChannel
 {
+   /// <summary>
+   /// A message filter that filters out own sent messages
+   /// </summary>
    public class ScallopMessageFilter : PeerMessagePropagationFilter
    {
       private string ownID = "";
 
+      /// <summary>
+      /// Own node ID
+      /// </summary>
       public string ID 
       {
          get { return ownID; }
          set { ownID = value; }
       }
 
+      /// <summary>
+      /// Constructor
+      /// </summary>
+      /// <param name="strID"></param>
       public ScallopMessageFilter(string strID)
       {
          this.ownID = strID;
       }
 
+      /// <summary>
+      /// Delivers only the messages sent by other nodes
+      /// </summary>
+      /// <param name="message">Incoming message</param>
+      /// <param name="origination">Message source</param>
+      /// <returns></returns>
       public override PeerMessagePropagation ShouldMessagePropagate(Message message, PeerMessageOrigination origination)
       {
 

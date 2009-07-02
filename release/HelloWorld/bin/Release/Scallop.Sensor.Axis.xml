@@ -4,47 +4,58 @@
         <name>Scallop.Sensor.Axis</name>
     </assembly>
     <members>
-        <member name="T:Scallop.Sensor.Axis.AxisCameraClass">
+        <member name="T:Scallop.Sensor.Axis.AxisCamera">
             <summary>
             Axis IP camera class.
             </summary>
         </member>
-        <member name="M:Scallop.Sensor.Axis.AxisCameraClass.#ctor">
+        <member name="M:Scallop.Sensor.Axis.AxisCamera.#ctor">
             <summary>
             Constructor. Sets up the configuration schema.
             </summary>
             <exception cref="T:System.ApplicationException">Thrown when there is an error with getting the schema from the assembly.</exception>
         </member>
-        <member name="M:Scallop.Sensor.Axis.AxisCameraClass.Dispose">
+        <member name="M:Scallop.Sensor.Axis.AxisCamera.Finalize">
+            <summary>
+            Object destructor
+            </summary>
+        </member>
+        <member name="M:Scallop.Sensor.Axis.AxisCamera.Dispose">
             <summary>
             Frees the resources used by the object.
             </summary>
         </member>
-        <member name="M:Scallop.Sensor.Axis.AxisCameraClass.Register(System.Xml.Linq.XDocument,System.String)">
+        <member name="M:Scallop.Sensor.Axis.AxisCamera.Dispose(System.Boolean)">
+            <summary>
+            Frees the resources used by the object
+            </summary>
+            <param name="disposing">The parameter tells if the Dispose is called directly</param>
+        </member>
+        <member name="M:Scallop.Sensor.Axis.AxisCamera.Register(System.Xml.Linq.XDocument,System.String)">
             <summary>
             Registers a node with a sensor.
             </summary>
             <param name="configDoc">The configuration XML document.</param>
             <param name="selectConfig">String identifying the configuration item to use.</param>
         </member>
-        <member name="M:Scallop.Sensor.Axis.AxisCameraClass.Unregister">
+        <member name="M:Scallop.Sensor.Axis.AxisCamera.Unregister">
             <summary>
             Unregisters a node from a sensor.
             </summary>
         </member>
-        <member name="M:Scallop.Sensor.Axis.AxisCameraClass.Start">
+        <member name="M:Scallop.Sensor.Axis.AxisCamera.Start">
             <summary>
             Starts receiving sensor data.
             </summary>
             <exception cref="T:System.ApplicationException">Thrown if sensor has not been
             registered prior to calling Start().</exception>
         </member>
-        <member name="M:Scallop.Sensor.Axis.AxisCameraClass.Stop">
+        <member name="M:Scallop.Sensor.Axis.AxisCamera.Stop">
             <summary>
             Stops receiving sensor data.
             </summary>
         </member>
-        <member name="M:Scallop.Sensor.Axis.AxisCameraClass.PanTilt(System.Boolean,System.Int32,System.Int32)">
+        <member name="M:Scallop.Sensor.Axis.AxisCamera.PanTilt(System.Boolean,System.Int32,System.Int32)">
             <summary>
             Pans the sensor.
             </summary>
@@ -53,7 +64,7 @@
             <param name="x">Degrees to pan on the horizontal axis.</param>
             <param name="y">Degrees to pan on the vertical axis.</param>
         </member>
-        <member name="M:Scallop.Sensor.Axis.AxisCameraClass.Zoom(System.Boolean,System.Int32)">
+        <member name="M:Scallop.Sensor.Axis.AxisCamera.Zoom(System.Boolean,System.Int32)">
             <summary>
             Zooms the sensor.
             </summary>
@@ -61,14 +72,14 @@
             false if relative.</param>
             <param name="zoomValue">The zoom value.</param>
         </member>
-        <member name="M:Scallop.Sensor.Axis.AxisCameraClass.getFrames_completed(System.Object,System.ComponentModel.RunWorkerCompletedEventArgs)">
+        <member name="M:Scallop.Sensor.Axis.AxisCamera.getFrames_completed(System.Object,System.ComponentModel.RunWorkerCompletedEventArgs)">
             <summary>
             
             </summary>
             <param name="sender"></param>
             <param name="e"></param>
         </member>
-        <member name="M:Scallop.Sensor.Axis.AxisCameraClass.getFrames(System.Object,System.ComponentModel.DoWorkEventArgs)">
+        <member name="M:Scallop.Sensor.Axis.AxisCamera.getFrames(System.Object,System.ComponentModel.DoWorkEventArgs)">
             <summary>
             Parse the MJPG stream. This should only return in the case of an 
             exception accuring.
@@ -77,7 +88,7 @@
             there is a problem with the handling of the stream. See the
             string description for more information.</exception>
         </member>
-        <member name="M:Scallop.Sensor.Axis.AxisCameraClass.readMjpgLine(System.IO.Stream)">
+        <member name="M:Scallop.Sensor.Axis.AxisCamera.readMjpgLine(System.IO.Stream)">
             <summary>
             
             </summary>
@@ -87,34 +98,34 @@
             encountered</exception>
             <exception cref="T:System.Net.WebException"></exception>
         </member>
-        <member name="P:Scallop.Sensor.Axis.AxisCameraClass.Version">
+        <member name="P:Scallop.Sensor.Axis.AxisCamera.Version">
             <summary>
-            
+            Current version
             </summary>
         </member>
-        <member name="P:Scallop.Sensor.Axis.AxisCameraClass.ConfigSchema">
+        <member name="P:Scallop.Sensor.Axis.AxisCamera.ConfigSchema">
             <summary>
             Gets the configuration XML schema associated with an Axis camera.
             </summary>
         </member>
-        <member name="P:Scallop.Sensor.Axis.AxisCameraClass.State">
+        <member name="P:Scallop.Sensor.Axis.AxisCamera.State">
             <summary>
             Gets the sensor state.
             </summary>
         </member>
-        <member name="E:Scallop.Sensor.Axis.AxisCameraClass.StatusChanged">
+        <member name="E:Scallop.Sensor.Axis.AxisCamera.StatusChanged">
             <summary>
             An event indicating the sensor status has changed. This could mean it
             has become active, encountered an error condition, etc.
             </summary>
         </member>
-        <member name="E:Scallop.Sensor.Axis.AxisCameraClass.Data">
+        <member name="E:Scallop.Sensor.Axis.AxisCamera.Data">
             <summary>
             Fired when a new frame is available. The image data is passed in the
             event arguments.
             </summary>
         </member>
-        <member name="E:Scallop.Sensor.Axis.AxisCameraClass.Info">
+        <member name="E:Scallop.Sensor.Axis.AxisCamera.Info">
             <summary>
             Fired when the camera module wants to inform the user of something.
             </summary>
@@ -124,268 +135,268 @@
             
             </summary>
         </member>
-        <member name="T:AxisCameraConfigSet">
+        <member name="T:Scallop.Sensor.Axis.AxisCameraConfigSet">
             <remarks/>
         </member>
-        <member name="P:AxisCameraConfigSet.Items">
+        <member name="P:Scallop.Sensor.Axis.AxisCameraConfigSet.Items">
             <remarks/>
         </member>
-        <member name="P:AxisCameraConfigSet.DefaultConfig">
+        <member name="P:Scallop.Sensor.Axis.AxisCameraConfigSet.DefaultConfig">
             <remarks/>
         </member>
-        <member name="T:AxisCameraConfigType">
+        <member name="T:Scallop.Sensor.Axis.AxisCameraConfigType">
             <remarks/>
         </member>
-        <member name="P:AxisCameraConfigType.Address">
+        <member name="P:Scallop.Sensor.Axis.AxisCameraConfigType.Address">
             <remarks/>
         </member>
-        <member name="P:AxisCameraConfigType.Camera">
+        <member name="P:Scallop.Sensor.Axis.AxisCameraConfigType.Camera">
             <remarks/>
         </member>
-        <member name="P:AxisCameraConfigType.CameraSpecified">
+        <member name="P:Scallop.Sensor.Axis.AxisCameraConfigType.CameraSpecified">
             <remarks/>
         </member>
-        <member name="P:AxisCameraConfigType.Color">
+        <member name="P:Scallop.Sensor.Axis.AxisCameraConfigType.Color">
             <remarks/>
         </member>
-        <member name="P:AxisCameraConfigType.ColorSpecified">
+        <member name="P:Scallop.Sensor.Axis.AxisCameraConfigType.ColorSpecified">
             <remarks/>
         </member>
-        <member name="P:AxisCameraConfigType.ColorLevel">
+        <member name="P:Scallop.Sensor.Axis.AxisCameraConfigType.ColorLevel">
             <remarks/>
         </member>
-        <member name="P:AxisCameraConfigType.ColorLevelSpecified">
+        <member name="P:Scallop.Sensor.Axis.AxisCameraConfigType.ColorLevelSpecified">
             <remarks/>
         </member>
-        <member name="P:AxisCameraConfigType.Compression">
+        <member name="P:Scallop.Sensor.Axis.AxisCameraConfigType.Compression">
             <remarks/>
         </member>
-        <member name="P:AxisCameraConfigType.CompressionSpecified">
+        <member name="P:Scallop.Sensor.Axis.AxisCameraConfigType.CompressionSpecified">
             <remarks/>
         </member>
-        <member name="P:AxisCameraConfigType.CustomCgiString">
+        <member name="P:Scallop.Sensor.Axis.AxisCameraConfigType.CustomCgiString">
             <remarks/>
         </member>
-        <member name="P:AxisCameraConfigType.Framerate">
+        <member name="P:Scallop.Sensor.Axis.AxisCameraConfigType.Framerate">
             <remarks/>
         </member>
-        <member name="P:AxisCameraConfigType.FramerateSpecified">
+        <member name="P:Scallop.Sensor.Axis.AxisCameraConfigType.FramerateSpecified">
             <remarks/>
         </member>
-        <member name="P:AxisCameraConfigType.OverlayPosition">
+        <member name="P:Scallop.Sensor.Axis.AxisCameraConfigType.OverlayPosition">
             <remarks/>
         </member>
-        <member name="P:AxisCameraConfigType.Password">
+        <member name="P:Scallop.Sensor.Axis.AxisCameraConfigType.Password">
             <remarks/>
         </member>
-        <member name="P:AxisCameraConfigType.Resolution">
+        <member name="P:Scallop.Sensor.Axis.AxisCameraConfigType.Resolution">
             <remarks/>
         </member>
-        <member name="P:AxisCameraConfigType.ResolutionSpecified">
+        <member name="P:Scallop.Sensor.Axis.AxisCameraConfigType.ResolutionSpecified">
             <remarks/>
         </member>
-        <member name="P:AxisCameraConfigType.Rotation">
+        <member name="P:Scallop.Sensor.Axis.AxisCameraConfigType.Rotation">
             <remarks/>
         </member>
-        <member name="P:AxisCameraConfigType.RotationSpecified">
+        <member name="P:Scallop.Sensor.Axis.AxisCameraConfigType.RotationSpecified">
             <remarks/>
         </member>
-        <member name="P:AxisCameraConfigType.ShowClock">
+        <member name="P:Scallop.Sensor.Axis.AxisCameraConfigType.ShowClock">
             <remarks/>
         </member>
-        <member name="P:AxisCameraConfigType.ShowClockSpecified">
+        <member name="P:Scallop.Sensor.Axis.AxisCameraConfigType.ShowClockSpecified">
             <remarks/>
         </member>
-        <member name="P:AxisCameraConfigType.ShowDate">
+        <member name="P:Scallop.Sensor.Axis.AxisCameraConfigType.ShowDate">
             <remarks/>
         </member>
-        <member name="P:AxisCameraConfigType.ShowDateSpecified">
+        <member name="P:Scallop.Sensor.Axis.AxisCameraConfigType.ShowDateSpecified">
             <remarks/>
         </member>
-        <member name="P:AxisCameraConfigType.ShowOverlay">
+        <member name="P:Scallop.Sensor.Axis.AxisCameraConfigType.ShowOverlay">
             <remarks/>
         </member>
-        <member name="P:AxisCameraConfigType.ShowOverlaySpecified">
+        <member name="P:Scallop.Sensor.Axis.AxisCameraConfigType.ShowOverlaySpecified">
             <remarks/>
         </member>
-        <member name="P:AxisCameraConfigType.ShowText">
+        <member name="P:Scallop.Sensor.Axis.AxisCameraConfigType.ShowText">
             <remarks/>
         </member>
-        <member name="P:AxisCameraConfigType.ShowTextSpecified">
+        <member name="P:Scallop.Sensor.Axis.AxisCameraConfigType.ShowTextSpecified">
             <remarks/>
         </member>
-        <member name="P:AxisCameraConfigType.Text">
+        <member name="P:Scallop.Sensor.Axis.AxisCameraConfigType.Text">
             <remarks/>
         </member>
-        <member name="P:AxisCameraConfigType.TextBackgroundColor">
+        <member name="P:Scallop.Sensor.Axis.AxisCameraConfigType.TextBackgroundColor">
             <remarks/>
         </member>
-        <member name="P:AxisCameraConfigType.TextBackgroundColorSpecified">
+        <member name="P:Scallop.Sensor.Axis.AxisCameraConfigType.TextBackgroundColorSpecified">
             <remarks/>
         </member>
-        <member name="P:AxisCameraConfigType.TextColor">
+        <member name="P:Scallop.Sensor.Axis.AxisCameraConfigType.TextColor">
             <remarks/>
         </member>
-        <member name="P:AxisCameraConfigType.TextColorSpecified">
+        <member name="P:Scallop.Sensor.Axis.AxisCameraConfigType.TextColorSpecified">
             <remarks/>
         </member>
-        <member name="P:AxisCameraConfigType.TextPosition">
+        <member name="P:Scallop.Sensor.Axis.AxisCameraConfigType.TextPosition">
             <remarks/>
         </member>
-        <member name="P:AxisCameraConfigType.TextPositionSpecified">
+        <member name="P:Scallop.Sensor.Axis.AxisCameraConfigType.TextPositionSpecified">
             <remarks/>
         </member>
-        <member name="P:AxisCameraConfigType.User">
+        <member name="P:Scallop.Sensor.Axis.AxisCameraConfigType.User">
             <remarks/>
         </member>
-        <member name="P:AxisCameraConfigType.FrameFormat">
+        <member name="P:Scallop.Sensor.Axis.AxisCameraConfigType.FrameFormat">
             <remarks/>
         </member>
-        <member name="P:AxisCameraConfigType.ConfigName">
+        <member name="P:Scallop.Sensor.Axis.AxisCameraConfigType.ConfigName">
             <remarks/>
         </member>
-        <member name="T:AxisCameraConfigTypeCamera">
+        <member name="T:Scallop.Sensor.Axis.AxisCameraConfigTypeCamera">
             <remarks/>
         </member>
-        <member name="F:AxisCameraConfigTypeCamera.Item1">
+        <member name="F:Scallop.Sensor.Axis.AxisCameraConfigTypeCamera.Item1">
             <remarks/>
         </member>
-        <member name="F:AxisCameraConfigTypeCamera.Item2">
+        <member name="F:Scallop.Sensor.Axis.AxisCameraConfigTypeCamera.Item2">
             <remarks/>
         </member>
-        <member name="F:AxisCameraConfigTypeCamera.Item3">
+        <member name="F:Scallop.Sensor.Axis.AxisCameraConfigTypeCamera.Item3">
             <remarks/>
         </member>
-        <member name="F:AxisCameraConfigTypeCamera.Item4">
+        <member name="F:Scallop.Sensor.Axis.AxisCameraConfigTypeCamera.Item4">
             <remarks/>
         </member>
-        <member name="F:AxisCameraConfigTypeCamera.quad">
+        <member name="F:Scallop.Sensor.Axis.AxisCameraConfigTypeCamera.quad">
             <remarks/>
         </member>
-        <member name="T:AxisCameraConfigTypeResolution">
+        <member name="T:Scallop.Sensor.Axis.AxisCameraConfigTypeResolution">
             <remarks/>
         </member>
-        <member name="F:AxisCameraConfigTypeResolution.Item1280x1024">
+        <member name="F:Scallop.Sensor.Axis.AxisCameraConfigTypeResolution.Item1280x1024">
             <remarks/>
         </member>
-        <member name="F:AxisCameraConfigTypeResolution.Item1280x960">
+        <member name="F:Scallop.Sensor.Axis.AxisCameraConfigTypeResolution.Item1280x960">
             <remarks/>
         </member>
-        <member name="F:AxisCameraConfigTypeResolution.Item1280x720">
+        <member name="F:Scallop.Sensor.Axis.AxisCameraConfigTypeResolution.Item1280x720">
             <remarks/>
         </member>
-        <member name="F:AxisCameraConfigTypeResolution.Item768x576">
+        <member name="F:Scallop.Sensor.Axis.AxisCameraConfigTypeResolution.Item768x576">
             <remarks/>
         </member>
-        <member name="F:AxisCameraConfigTypeResolution.Item4CIF">
+        <member name="F:Scallop.Sensor.Axis.AxisCameraConfigTypeResolution.Item4CIF">
             <remarks/>
         </member>
-        <member name="F:AxisCameraConfigTypeResolution.Item704x576">
+        <member name="F:Scallop.Sensor.Axis.AxisCameraConfigTypeResolution.Item704x576">
             <remarks/>
         </member>
-        <member name="F:AxisCameraConfigTypeResolution.Item704x480">
+        <member name="F:Scallop.Sensor.Axis.AxisCameraConfigTypeResolution.Item704x480">
             <remarks/>
         </member>
-        <member name="F:AxisCameraConfigTypeResolution.VGA">
+        <member name="F:Scallop.Sensor.Axis.AxisCameraConfigTypeResolution.VGA">
             <remarks/>
         </member>
-        <member name="F:AxisCameraConfigTypeResolution.Item640x480">
+        <member name="F:Scallop.Sensor.Axis.AxisCameraConfigTypeResolution.Item640x480">
             <remarks/>
         </member>
-        <member name="F:AxisCameraConfigTypeResolution.Item640x360">
+        <member name="F:Scallop.Sensor.Axis.AxisCameraConfigTypeResolution.Item640x360">
             <remarks/>
         </member>
-        <member name="F:AxisCameraConfigTypeResolution.Item2CIFEXP">
+        <member name="F:Scallop.Sensor.Axis.AxisCameraConfigTypeResolution.Item2CIFEXP">
             <remarks/>
         </member>
-        <member name="F:AxisCameraConfigTypeResolution.Item2CIF">
+        <member name="F:Scallop.Sensor.Axis.AxisCameraConfigTypeResolution.Item2CIF">
             <remarks/>
         </member>
-        <member name="F:AxisCameraConfigTypeResolution.Item704x288">
+        <member name="F:Scallop.Sensor.Axis.AxisCameraConfigTypeResolution.Item704x288">
             <remarks/>
         </member>
-        <member name="F:AxisCameraConfigTypeResolution.Item704x240">
+        <member name="F:Scallop.Sensor.Axis.AxisCameraConfigTypeResolution.Item704x240">
             <remarks/>
         </member>
-        <member name="F:AxisCameraConfigTypeResolution.Item480x360">
+        <member name="F:Scallop.Sensor.Axis.AxisCameraConfigTypeResolution.Item480x360">
             <remarks/>
         </member>
-        <member name="F:AxisCameraConfigTypeResolution.CIF">
+        <member name="F:Scallop.Sensor.Axis.AxisCameraConfigTypeResolution.CIF">
             <remarks/>
         </member>
-        <member name="F:AxisCameraConfigTypeResolution.Item384x288">
+        <member name="F:Scallop.Sensor.Axis.AxisCameraConfigTypeResolution.Item384x288">
             <remarks/>
         </member>
-        <member name="F:AxisCameraConfigTypeResolution.Item352x288">
+        <member name="F:Scallop.Sensor.Axis.AxisCameraConfigTypeResolution.Item352x288">
             <remarks/>
         </member>
-        <member name="F:AxisCameraConfigTypeResolution.Item352x240">
+        <member name="F:Scallop.Sensor.Axis.AxisCameraConfigTypeResolution.Item352x240">
             <remarks/>
         </member>
-        <member name="F:AxisCameraConfigTypeResolution.Item320x240">
+        <member name="F:Scallop.Sensor.Axis.AxisCameraConfigTypeResolution.Item320x240">
             <remarks/>
         </member>
-        <member name="F:AxisCameraConfigTypeResolution.Item240x180">
+        <member name="F:Scallop.Sensor.Axis.AxisCameraConfigTypeResolution.Item240x180">
             <remarks/>
         </member>
-        <member name="F:AxisCameraConfigTypeResolution.QCIF">
+        <member name="F:Scallop.Sensor.Axis.AxisCameraConfigTypeResolution.QCIF">
             <remarks/>
         </member>
-        <member name="F:AxisCameraConfigTypeResolution.Item192x144">
+        <member name="F:Scallop.Sensor.Axis.AxisCameraConfigTypeResolution.Item192x144">
             <remarks/>
         </member>
-        <member name="F:AxisCameraConfigTypeResolution.Item176x144">
+        <member name="F:Scallop.Sensor.Axis.AxisCameraConfigTypeResolution.Item176x144">
             <remarks/>
         </member>
-        <member name="F:AxisCameraConfigTypeResolution.Item176x120">
+        <member name="F:Scallop.Sensor.Axis.AxisCameraConfigTypeResolution.Item176x120">
             <remarks/>
         </member>
-        <member name="F:AxisCameraConfigTypeResolution.Item160x120">
+        <member name="F:Scallop.Sensor.Axis.AxisCameraConfigTypeResolution.Item160x120">
             <remarks/>
         </member>
-        <member name="T:AxisCameraConfigTypeTextBackgroundColor">
+        <member name="T:Scallop.Sensor.Axis.AxisCameraConfigTypeTextBackgroundColor">
             <remarks/>
         </member>
-        <member name="F:AxisCameraConfigTypeTextBackgroundColor.black">
+        <member name="F:Scallop.Sensor.Axis.AxisCameraConfigTypeTextBackgroundColor.black">
             <remarks/>
         </member>
-        <member name="F:AxisCameraConfigTypeTextBackgroundColor.white">
+        <member name="F:Scallop.Sensor.Axis.AxisCameraConfigTypeTextBackgroundColor.white">
             <remarks/>
         </member>
-        <member name="F:AxisCameraConfigTypeTextBackgroundColor.transparent">
+        <member name="F:Scallop.Sensor.Axis.AxisCameraConfigTypeTextBackgroundColor.transparent">
             <remarks/>
         </member>
-        <member name="F:AxisCameraConfigTypeTextBackgroundColor.semitransparent">
+        <member name="F:Scallop.Sensor.Axis.AxisCameraConfigTypeTextBackgroundColor.semitransparent">
             <remarks/>
         </member>
-        <member name="T:AxisCameraConfigTypeTextColor">
+        <member name="T:Scallop.Sensor.Axis.AxisCameraConfigTypeTextColor">
             <remarks/>
         </member>
-        <member name="F:AxisCameraConfigTypeTextColor.black">
+        <member name="F:Scallop.Sensor.Axis.AxisCameraConfigTypeTextColor.black">
             <remarks/>
         </member>
-        <member name="F:AxisCameraConfigTypeTextColor.white">
+        <member name="F:Scallop.Sensor.Axis.AxisCameraConfigTypeTextColor.white">
             <remarks/>
         </member>
-        <member name="T:AxisCameraConfigTypeTextPosition">
+        <member name="T:Scallop.Sensor.Axis.AxisCameraConfigTypeTextPosition">
             <remarks/>
         </member>
-        <member name="F:AxisCameraConfigTypeTextPosition.top">
+        <member name="F:Scallop.Sensor.Axis.AxisCameraConfigTypeTextPosition.top">
             <remarks/>
         </member>
-        <member name="F:AxisCameraConfigTypeTextPosition.bottom">
+        <member name="F:Scallop.Sensor.Axis.AxisCameraConfigTypeTextPosition.bottom">
             <remarks/>
         </member>
-        <member name="T:AxisCameraConfigTypeFrameFormat">
+        <member name="T:Scallop.Sensor.Axis.AxisCameraConfigTypeFrameFormat">
             <remarks/>
         </member>
-        <member name="F:AxisCameraConfigTypeFrameFormat.SystemDrawingBitmap">
+        <member name="F:Scallop.Sensor.Axis.AxisCameraConfigTypeFrameFormat.SystemDrawingBitmap">
             <remarks/>
         </member>
-        <member name="F:AxisCameraConfigTypeFrameFormat.SystemWindowsMediaImagingBitmapSource">
+        <member name="F:Scallop.Sensor.Axis.AxisCameraConfigTypeFrameFormat.SystemWindowsMediaImagingBitmapSource">
             <remarks/>
         </member>
-        <member name="F:AxisCameraConfigTypeFrameFormat.Jpeg">
+        <member name="F:Scallop.Sensor.Axis.AxisCameraConfigTypeFrameFormat.Jpeg">
             <remarks/>
         </member>
     </members>
