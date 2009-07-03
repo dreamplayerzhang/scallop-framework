@@ -325,7 +325,7 @@ namespace Scallop.Network.PeerChannel
       {
          get
          {
-            return "1";
+            return System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
          }
       }
 

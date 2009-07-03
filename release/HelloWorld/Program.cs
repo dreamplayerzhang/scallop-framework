@@ -10,17 +10,37 @@ namespace Scallop.HelloWorld
 {
    class Program
    {
-      IScallopSensor SensorInterface = null;
-      string SensorConfigFile = "FileSourceConfig.xml";
-      //string SensorConfigFile = "SensorConfig.xml";
+      public static IScallopSensor SensorInterface = null;
+      string SensorConfigFile = "SensorConfig.xml";
 
-      IScallopNetwork NetworkInterface = null;
+      public static IScallopNetwork NetworkInterface = null;
       string NetworkConfigFile = "PeerChannelConfig.xml";
 
       static void Main(string[] args)
       {
-         Program myProgram = new Program();
-         myProgram.Run();
+         try
+         {
+            Console.CancelKeyPress += new ConsoleCancelEventHandler(Console_CancelKeyPress);
+            Program myProgram = new Program();
+            Console.Title = "Scallop HelloWorld: Press <Ctrl>+<C> to close window";
+            myProgram.Run();
+         }
+         catch (Exception ex)
+         {
+            Console.WriteLine(ex.ToString());
+         }
+      }
+
+      static void Console_CancelKeyPress(object sender, ConsoleCancelEventArgs e)
+      {
+         if (SensorInterface != null)
+            SensorInterface.Dispose();
+
+         if (NetworkInterface != null)
+            NetworkInterface.Dispose();
+
+         SensorInterface = null;
+         NetworkInterface = null;
       }
 
       public Program()
@@ -30,24 +50,29 @@ namespace Scallop.HelloWorld
 
       private void Run()
       {
+         #region Initialize sensor
          // Get an instance of the sensor class using the assembly and class names.
-         SensorInterface = InterfaceFactory.CreateSensorInstance("Scallop.Sensor.FileSource.dll");
-         //SensorInterface = InterfaceFactory.CreateSensorInstance("Scallop.Sensor.Axis.dll");
-         Console.WriteLine("Sensor: {0}\tVersion: {1}", SensorInterface.ToString(), SensorInterface.Version);
+         //SensorInterface = InterfaceFactory.CreateSensorInstance("Scallop.Sensor.FileSource.dll");
+         SensorInterface = InterfaceFactory.CreateSensorInstance("Scallop.Sensor.Axis.dll");
 
-         // Configure the sensor interface with parameters from an XML file.
-         SensorInterface.Register(XDocument.Load(SensorConfigFile), null);
          // Define the handler functions
          SensorInterface.Data += new EventHandler<ScallopSensorDataEventArgs>(SensorInterface_Data);
          SensorInterface.StatusChanged += new EventHandler<ScallopSensorStatusChangedEventArgs>(SensorInterface_StatusChanged);
+         SensorInterface.Info += new EventHandler<ScallopInfoEventArgs>(SensorInterface_Info);
 
+         // Configure the sensor interface with parameters from an XML file.
+         SensorInterface.Register(XDocument.Load(SensorConfigFile), null);
+         #endregion
+
+         #region Initialize network
          // Get instance of network class.
          NetworkInterface = InterfaceFactory.CreateNetworkInstance("Scallop.Network.PeerChannel.dll");
-         Console.WriteLine("Network: {0}\tVersion: {1}", NetworkInterface.ToString(), NetworkInterface.Version);
 
          // Define handler functions.
          NetworkInterface.Data += new EventHandler<ScallopNetworkDataEventArgs>(NetworkInterface_Data);
          NetworkInterface.StatusChanged += new EventHandler<ScallopNetworkStatusChangedEventArgs>(NetworkInterface_StatusChanged);
+         NetworkInterface.Info += new EventHandler<ScallopInfoEventArgs>(NetworkInterface_Info);
+         #endregion
 
          // Start sensor.
          SensorInterface.Start();
@@ -56,14 +81,13 @@ namespace Scallop.HelloWorld
          NetworkConfig.Load(NetworkConfigFile);
          NetworkInterface.Join(NetworkConfig, null);
 
-         for (; ; )
+         do
          {
             // infinite loop
             System.Threading.Thread.Sleep(1000);
-         }
+         } while (true);
 
       }
-
 
       #region Network handlers
 
@@ -82,6 +106,11 @@ namespace Scallop.HelloWorld
           */
       }
 
+      void NetworkInterface_Info(object sender, ScallopInfoEventArgs e)
+      {
+         Console.WriteLine(e.msg);
+      }
+
       #endregion
 
 
@@ -89,7 +118,7 @@ namespace Scallop.HelloWorld
 
       void SensorInterface_Data(object sender, ScallopSensorDataEventArgs e)
       {
-         Console.WriteLine("Sensor data received");
+         Console.WriteLine("Sensor data received at " + System.DateTime.Now.ToString("HH:mm:ss.ff"));
       }
 
       void SensorInterface_StatusChanged(object sender, ScallopSensorStatusChangedEventArgs e)
@@ -100,6 +129,11 @@ namespace Scallop.HelloWorld
           * ...
           *
           */
+      }
+
+      void SensorInterface_Info(object sender, ScallopInfoEventArgs e)
+      {
+         Console.WriteLine(e.msg);
       }
 
       #endregion

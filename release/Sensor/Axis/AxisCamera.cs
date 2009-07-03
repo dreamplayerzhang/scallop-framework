@@ -51,7 +51,6 @@ namespace Scallop.Sensor.Axis
    public class AxisCamera : IScallopSensor, IDisposable
    {
       /* Class fields */
-      private BufferedStream mjpgStream;
 
       //private AxisParameters camParams;
       private AxisCameraConfigType cameraConfig;
@@ -116,12 +115,12 @@ namespace Scallop.Sensor.Axis
             if (disposing)
             {
                if (this.frameHandlerThread != null)
+               {
+                  this.Stop();
                   this.frameHandlerThread.Dispose();
-               if (this.mjpgStream != null)
-                  this.mjpgStream.Dispose();
+               }
             }
             this.frameHandlerThread = null;
-            this.mjpgStream = null;
          }
       }
 
@@ -383,7 +382,6 @@ namespace Scallop.Sensor.Axis
          if (e.Cancelled) // CancelAsync called
          {
             this.streaming = false;
-            this.mjpgStream = null;
             this.doClosed(this, EventArgs.Empty);
             return;
          }
@@ -393,7 +391,6 @@ namespace Scallop.Sensor.Axis
             this.myState = ScallopSensorState.Error;
             this.doClosed(this, EventArgs.Empty);
             this.streaming = false;
-            this.mjpgStream = null;
             this.doInfo(this, new ScallopInfoEventArgs("Retrying in 5 seconds..."));
             Thread.Sleep(5000);
             this.Start();
@@ -405,8 +402,6 @@ namespace Scallop.Sensor.Axis
             System.Diagnostics.Debug.Assert(false, /* we should never get here! */
               "An impossible event happened at getFrames_completed");
          }
-
-
       }
 
       /// <summary>
@@ -442,78 +437,80 @@ namespace Scallop.Sensor.Axis
 
          HttpWebResponse streamResponse = (HttpWebResponse)request.GetResponse();
          this.doInfo(this, new ScallopInfoEventArgs("Server responded with : " + streamResponse.StatusDescription));
-         this.mjpgStream = new BufferedStream(streamResponse.GetResponseStream());
-
-         // find the first boundary
-         while (!(readMjpgLine(mjpgStream).Equals(delimiter)))
-         { /* NO-OP */ }
-
-
-         this.streaming = true;
-         this.doOpened(this, EventArgs.Empty);
-         while (true)
+         
+         using (BufferedStream mjpgStream = new BufferedStream(streamResponse.GetResponseStream()))
          {
-            int contentLen = 0;
-            string aLine;
-            if (bw.CancellationPending == true)
+            // find the first boundary
+            while (!(readMjpgLine(mjpgStream).Equals(delimiter)))
+            { /* NO-OP */ }
+
+
+            this.streaming = true;
+            this.doOpened(this, EventArgs.Empty);
+            while (true)
             {
-               this.mjpgStream.Close();
-               ev.Cancel = true;
-               return;
-            }
+               int contentLen = 0;
+               string aLine;
+               if (bw.CancellationPending == true)
+               {
+                  mjpgStream.Close();
+                  ev.Cancel = true;
+                  return;
+               }
 
-            aLine = readMjpgLine(mjpgStream);
-            if (!aLine.StartsWith("Content-Type: image/jpeg"))
-               throw new ApplicationException("Content-Type not found");
-
-            aLine = readMjpgLine(mjpgStream);
-            if (aLine.StartsWith("Content-Length:"))
-               contentLen = int.Parse(aLine.Substring(15));
-            else
-               throw new ApplicationException("Content-Length not found");
-
-            aLine = readMjpgLine(mjpgStream);
-            if (!aLine.Equals("")) // empty line
-               throw new ApplicationException("Blank line not found");
-
-            // buffer for MJPG frame data
-            byte[] frameBuffer = new byte[contentLen];
-            int tmp = 0;
-
-            // read up to contentLen of data to frameBuffer
-            while ((tmp += this.mjpgStream.Read(frameBuffer,
-                                           tmp,
-                                           contentLen - tmp)) < contentLen)
-            {
-               // No op
-            }
-
-            aLine = readMjpgLine(mjpgStream);
-            while (!aLine.StartsWith(delimiter))
                aLine = readMjpgLine(mjpgStream);
+               if (!aLine.StartsWith("Content-Type: image/jpeg"))
+                  throw new ApplicationException("Content-Type not found");
 
-            switch (this.cameraConfig.FrameFormat)
-            {
-               case AxisCameraConfigTypeFrameFormat.Jpeg:
-                  this.doData(this, new ScallopSensorDataEventArgs(frameBuffer, "New frame"));
-                  break;
+               aLine = readMjpgLine(mjpgStream);
+               if (aLine.StartsWith("Content-Length:"))
+                  contentLen = int.Parse(aLine.Substring(15));
+               else
+                  throw new ApplicationException("Content-Length not found");
 
-               case AxisCameraConfigTypeFrameFormat.SystemDrawingBitmap:
-                  using (MemoryStream pixelStream = new MemoryStream(frameBuffer))
-                  {
-                     Bitmap streamBitmap = new Bitmap(pixelStream);
-                     Bitmap bmp = streamBitmap.Clone() as Bitmap;
-                     if (bmp != null)
-                        this.doData(this, new ScallopSensorDataEventArgs(bmp, "New frame"));
-                     streamBitmap.Dispose();
-                  }
-                  break;
+               aLine = readMjpgLine(mjpgStream);
+               if (!aLine.Equals("")) // empty line
+                  throw new ApplicationException("Blank line not found");
 
-               case AxisCameraConfigTypeFrameFormat.SystemWindowsMediaImagingBitmapSource:
-                  JpegBitmapDecoder decoder = new JpegBitmapDecoder(new MemoryStream(frameBuffer), BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default);
-                  if (decoder.Frames[0] != null)
-                     this.doData(this, new ScallopSensorDataEventArgs(decoder.Frames[0] as BitmapSource, "New frame"));
-                  break;
+               // buffer for MJPG frame data
+               byte[] frameBuffer = new byte[contentLen];
+               int tmp = 0;
+
+               // read up to contentLen of data to frameBuffer
+               while ((tmp += mjpgStream.Read(frameBuffer,
+                                              tmp,
+                                              contentLen - tmp)) < contentLen)
+               {
+                  // No op
+               }
+
+               aLine = readMjpgLine(mjpgStream);
+               while (!aLine.StartsWith(delimiter))
+                  aLine = readMjpgLine(mjpgStream);
+
+               switch (this.cameraConfig.FrameFormat)
+               {
+                  case AxisCameraConfigTypeFrameFormat.Jpeg:
+                     this.doData(this, new ScallopSensorDataEventArgs(frameBuffer, "New frame"));
+                     break;
+
+                  case AxisCameraConfigTypeFrameFormat.SystemDrawingBitmap:
+                     using (MemoryStream pixelStream = new MemoryStream(frameBuffer))
+                     {
+                        Bitmap streamBitmap = new Bitmap(pixelStream);
+                        Bitmap bmp = streamBitmap.Clone() as Bitmap;
+                        if (bmp != null)
+                           this.doData(this, new ScallopSensorDataEventArgs(bmp, "New frame"));
+                        streamBitmap.Dispose();
+                     }
+                     break;
+
+                  case AxisCameraConfigTypeFrameFormat.SystemWindowsMediaImagingBitmapSource:
+                     JpegBitmapDecoder decoder = new JpegBitmapDecoder(new MemoryStream(frameBuffer), BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default);
+                     if (decoder.Frames[0] != null)
+                        this.doData(this, new ScallopSensorDataEventArgs(decoder.Frames[0] as BitmapSource, "New frame"));
+                     break;
+               }
             }
          }
       }

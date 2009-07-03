@@ -306,41 +306,7 @@
             An undefined network state.
             </summary>
         </member>
-        <member name="T:Scallop.Core.Network.IScallopNetwork">
-            <summary>
-            Network interface for Scallop network implementations.
-            </summary>
-            <example>
-            <code>
-             {
-            ...
-             // if the network type is passed from a configuration file 
-             IScallopNetwork chan = InterfaceFactory.CreateNetworkInstance("PeerChannel", "Scallop.Network.PeerChannel.ScallopPeerChannel");
-             
-             if the network type is known at compile time
-             // ScallopPeerChannel chan = new ScallopPeerChannel();
-             
-             chan.Data += this.network_data; // add the handlers
-             chan.StatusChanged += this.network_error;
-             chan.Info += this.network_info;
-             chan.Opened += this.network_join;
-             chan.Closed += this.network_leave;
-             
-             chan.Register(System.Xml.Linq.XDocument.Load("SensorConfig.xml"),
-                           null);
-             
-             chan.Join()
-             ...
-             }
-             
-             void network_join(object sender, EventArgs e) { }
-             void network_leave(object sender, EventArgs e) { }
-             void network_error(object sender, ScallopNetworkStatusChangedEventArgs e) { }
-             void network_info(object sender, ScallopInfoEventArgs e) {}
-             void network_data(object sender, ScallopNetworkDataEventArgs e) {}
-             </code>
-            </example>
-        </member>
+        <!-- Badly formed XML comment ignored for member "T:Scallop.Core.Network.IScallopNetwork" -->
         <member name="M:Scallop.Core.Network.IScallopNetwork.Join(System.Xml.XmlDocument,System.String)">
             <summary>
             Joins a network using the provided settings.

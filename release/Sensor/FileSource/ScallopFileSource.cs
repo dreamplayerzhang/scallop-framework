@@ -61,6 +61,11 @@ namespace Scallop.Sensor.FileSource
       public void Register(System.Xml.Linq.XDocument config, string selectConfig)
       {
          parameters = FileSourceParameters.ParseConfig(config, selectConfig);
+
+         if(this.Info != null)
+            this.Info(this, new ScallopInfoEventArgs(
+                                this.ToString()+" "+this.Version+Environment.NewLine+
+                                this.parameters.SourceUri+" "+this.parameters.FrameFormat));
          return;
       }
 

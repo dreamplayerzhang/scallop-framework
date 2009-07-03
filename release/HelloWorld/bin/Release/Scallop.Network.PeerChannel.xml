@@ -4,6 +4,45 @@
         <name>Scallop.Network.PeerChannel</name>
     </assembly>
     <members>
+        <member name="T:Scallop.Network.PeerChannel.PeerChannelConfigSet">
+            <remarks/>
+        </member>
+        <member name="P:Scallop.Network.PeerChannel.PeerChannelConfigSet.Items">
+            <remarks/>
+        </member>
+        <member name="P:Scallop.Network.PeerChannel.PeerChannelConfigSet.DefaultConfig">
+            <remarks/>
+        </member>
+        <member name="T:Scallop.Network.PeerChannel.PeerChannelConfigType">
+            <remarks/>
+        </member>
+        <member name="P:Scallop.Network.PeerChannel.PeerChannelConfigType.NodeId">
+            <remarks/>
+        </member>
+        <member name="P:Scallop.Network.PeerChannel.PeerChannelConfigType.NetworkName">
+            <remarks/>
+        </member>
+        <member name="P:Scallop.Network.PeerChannel.PeerChannelConfigType.NetworkAddress">
+            <remarks/>
+        </member>
+        <member name="P:Scallop.Network.PeerChannel.PeerChannelConfigType.EnableTransportSecurity">
+            <remarks/>
+        </member>
+        <member name="P:Scallop.Network.PeerChannel.PeerChannelConfigType.EnableTransportSecuritySpecified">
+            <remarks/>
+        </member>
+        <member name="P:Scallop.Network.PeerChannel.PeerChannelConfigType.TLSPassword">
+            <remarks/>
+        </member>
+        <member name="P:Scallop.Network.PeerChannel.PeerChannelConfigType.NeighborQueryRate">
+            <remarks/>
+        </member>
+        <member name="P:Scallop.Network.PeerChannel.PeerChannelConfigType.NeighborQueryRateSpecified">
+            <remarks/>
+        </member>
+        <member name="P:Scallop.Network.PeerChannel.PeerChannelConfigType.ConfigName">
+            <remarks/>
+        </member>
         <member name="T:Scallop.Network.PeerChannel.ScallopPeerChannelMessageType">
             <summary>
             Enumeration of message types.

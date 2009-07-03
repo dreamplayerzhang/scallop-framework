@@ -67,29 +67,24 @@ namespace Scallop.Core.Network
    ///  {
    /// ...
    ///  // if the network type is passed from a configuration file 
-   ///  IScallopNetwork chan = InterfaceFactory.CreateNetworkInstance("PeerChannel", "Scallop.Network.PeerChannel.ScallopPeerChannel");
+   ///  IScallopNetwork chan = InterfaceFactory.CreateNetworkInstance("Scallop.Network.PeerChannel.dll");
    ///  
    ///  if the network type is known at compile time
    ///  // ScallopPeerChannel chan = new ScallopPeerChannel();
    ///  
-   ///  chan.Data += this.network_data; // add the handlers
-   ///  chan.StatusChanged += this.network_error;
-   ///  chan.Info += this.network_info;
-   ///  chan.Opened += this.network_join;
-   ///  chan.Closed += this.network_leave;
+   ///  chan.Data += new EventHandler<ScallopNetworkDataEventArgs>(NetworkInterface_Data);
+   ///  chan.StatusChanged += new EventHandler<ScallopNetworkStatusChangedEventArgs>(NetworkInterface_StatusChanged);
+   ///  chan.Info += new EventHandler<ScallopInfoEventArgs>(NetworkInterface_Info);
    ///  
-   ///  chan.Register(System.Xml.Linq.XDocument.Load("SensorConfig.xml"),
-   ///                null);
-   ///  
-   ///  chan.Join()
+   ///   System.Xml.XmlDocument NetworkConfig = new System.Xml.XmlDocument();
+   ///   NetworkConfig.Load("NetworkConfigFile.xml");
+   ///   chan.Join(NetworkConfig, null);
    ///  ...
    ///  }
    ///  
-   ///  void network_join(object sender, EventArgs e) { }
-   ///  void network_leave(object sender, EventArgs e) { }
-   ///  void network_error(object sender, ScallopNetworkStatusChangedEventArgs e) { }
-   ///  void network_info(object sender, ScallopInfoEventArgs e) {}
-   ///  void network_data(object sender, ScallopNetworkDataEventArgs e) {}
+   ///   void NetworkInterface_Data(object sender, ScallopNetworkDataEventArgs e){ }
+   ///   void NetworkInterface_StatusChanged(object sender, ScallopNetworkStatusChangedEventArgs e){ }
+   ///   void NetworkInterface_Info(object sender, ScallopInfoEventArgs e){ }
    ///  </code>
    /// </example>
    public interface IScallopNetwork : IDisposable
@@ -113,11 +108,11 @@ namespace Scallop.Core.Network
       /// <param name="message">The message.</param>
       void SendMessage(string message);
 
-      // <summary>
-      // Sends a message, to a specific node.
-      // </summary>
-      // <param name="message">The message.</param>
-      // <param name="nodeid">Node ID of the target node.</param>
+      //// <summary>
+      //// Sends a message, to a specific node.
+      //// </summary>
+      //// <param name="message">The message.</param>
+      //// <param name="nodeid">Node ID of the target node.</param>
       //void SendMessage(string message, string nodeid);
 
       /// <summary>
