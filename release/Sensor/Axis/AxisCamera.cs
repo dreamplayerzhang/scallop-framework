@@ -542,6 +542,8 @@ namespace Scallop.Sensor.Axis
                return (System.Text.Encoding.ASCII.GetString((byte[])buf.ToArray(), 0, count - 2));
             }
          }
+
+         buf.Clear();
       }
    }
 }
