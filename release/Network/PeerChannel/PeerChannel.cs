@@ -35,7 +35,7 @@ namespace Scallop.Network.PeerChannel
    /// <summary>
    /// Enumeration of message types.
    /// </summary>
-   public enum ScallopPeerChannelMessageType
+   internal enum ScallopPeerChannelMessageType
    {
       /// <summary>
       /// Regular message.
@@ -51,7 +51,7 @@ namespace Scallop.Network.PeerChannel
    /// Interface for PeerChannel communication.
    /// </summary>
    [ServiceContract(CallbackContract = typeof(IPeerChannel))]
-   public interface IPeerChannel
+   internal interface IPeerChannel
    {
       /// <summary>
       /// Method to send a message.
@@ -77,7 +77,7 @@ namespace Scallop.Network.PeerChannel
    /// <summary>
    /// Inner communication channel.
    /// </summary>
-   public interface IPeerChannelChannel : IPeerChannel, IClientChannel
+   internal interface IPeerChannelChannel : IPeerChannel, IClientChannel
    {
    }
 

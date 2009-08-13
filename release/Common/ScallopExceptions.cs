@@ -37,7 +37,7 @@ namespace Scallop.Core
    /// <summary>
    /// A generic Scallop exception.
    /// </summary>
-   public class ScallopException : ApplicationException
+   public class ScallopException : Exception
    {
       /// <summary>
       /// Default constructor.
@@ -114,7 +114,7 @@ namespace Scallop.Core
       /// </summary>
       /// <param name="message">Message to user.</param>
       /// <param name="inner">A possible causing InnerException.</param>
-      public MessageContentException(string message, System.Exception inner) : base(message, inner) { }
+      public MessageContentException(string message, Exception inner) : base(message, inner) { }
 
    }
 }

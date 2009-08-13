@@ -31,7 +31,7 @@ namespace Scallop.Network.PeerChannel
    /// <summary>
    /// A message filter that filters out own sent messages
    /// </summary>
-   public class ScallopMessageFilter : PeerMessagePropagationFilter
+   internal class ScallopMessageFilter : PeerMessagePropagationFilter
    {
       private string ownID = "";
 
