@@ -179,7 +179,7 @@ namespace Scallop.Network.PeerChannel
          }
          catch (Exception e)
          {
-            this.doStateChanged(this, new ScallopNetworkStatusChangedEventArgs(ScallopNetworkState.Error, e, "Error sending message"));
+            this.doStateChanged(this, new ScallopNetworkStatusChangedEventArgs(this.myState, ScallopNetworkState.Error, e, "Error sending message"));
             //error_handler(this, new UnhandledExceptionEventArgs(e, false));
          }
       }
@@ -195,18 +195,18 @@ namespace Scallop.Network.PeerChannel
       {
          if (NetPeerTcpBinding.IsPnrpAvailable == false)
          {
-            this.doStateChanged(this, new ScallopNetworkStatusChangedEventArgs(ScallopNetworkState.Error, null, "PNRP is not installed and configured!"));
+            this.doStateChanged(this, new ScallopNetworkStatusChangedEventArgs(this.myState, ScallopNetworkState.Error, null, "PNRP is not installed and configured!"));
             return;
          }
 
-         AppDomain.CurrentDomain.UnhandledException += this.error_handler;
+         //AppDomain.CurrentDomain.UnhandledException += this.error_handler;
 
          try
          {
             // parse config
             if (configDoc == null)
             {
-               this.doStateChanged(this, new ScallopNetworkStatusChangedEventArgs(ScallopNetworkState.Error, null, "Config is null"));
+               this.doStateChanged(this, new ScallopNetworkStatusChangedEventArgs(this.myState, ScallopNetworkState.Error, null, "Config is null"));
                return;
             }
 
@@ -279,7 +279,7 @@ namespace Scallop.Network.PeerChannel
             this.factory.Close();
             this.factory = null;
             this.registered = false;
-            doStateChanged(this, new ScallopNetworkStatusChangedEventArgs(ScallopNetworkState.Offline, null, "Logout"));
+            doStateChanged(this, new ScallopNetworkStatusChangedEventArgs(this.myState, ScallopNetworkState.Offline, null, "Logout"));
          }
          catch
          { }
@@ -425,6 +425,7 @@ namespace Scallop.Network.PeerChannel
 
          NetPeerTcpBinding myBinding = new NetPeerTcpBinding();
          myBinding.ReaderQuotas = quotas;
+         myBinding.Resolver.Mode = System.ServiceModel.PeerResolvers.PeerResolverMode.Pnrp;
 
          if (parameters.UseTLS)
          {
@@ -477,12 +478,12 @@ namespace Scallop.Network.PeerChannel
 
       void peer_Online(object sender, EventArgs e)
       {
-         this.doStateChanged(this, new ScallopNetworkStatusChangedEventArgs(ScallopNetworkState.Online, null, "Online"));
+         this.doStateChanged(this, new ScallopNetworkStatusChangedEventArgs(this.myState, ScallopNetworkState.Online, null, "Online"));
       }
 
       void peer_Offline(object sender, EventArgs e)
       {
-         this.doStateChanged(this, new ScallopNetworkStatusChangedEventArgs(ScallopNetworkState.Offline, null, "Offline"));
+         this.doStateChanged(this, new ScallopNetworkStatusChangedEventArgs(this.myState, ScallopNetworkState.Offline, null, "Offline"));
       }
 
       #region Event wrappers
@@ -491,7 +492,6 @@ namespace Scallop.Network.PeerChannel
       {
          try
          {
-            e.OldState = this.myState;
             this.myState = e.NewState;
             if (StatusChanged != null)
                StatusChanged(sender, e);
@@ -531,12 +531,12 @@ namespace Scallop.Network.PeerChannel
 
       private void factory_faulted(object sender, EventArgs e)
       {
-         doStateChanged(this, new ScallopNetworkStatusChangedEventArgs(ScallopNetworkState.Error, new ApplicationException("Channel factory faulted"), "Channel factory faulted"));
+         doStateChanged(this, new ScallopNetworkStatusChangedEventArgs(this.myState, ScallopNetworkState.Error, new ApplicationException("Channel factory faulted"), "Channel factory faulted"));
       }
 
       private void error_handler(object sender, UnhandledExceptionEventArgs e)
       {
-         doStateChanged(this, new ScallopNetworkStatusChangedEventArgs(ScallopNetworkState.Error,
+         doStateChanged(this, new ScallopNetworkStatusChangedEventArgs(this.myState, ScallopNetworkState.Error,
            (Exception)e.ExceptionObject, "Error with network."));
 
          //throw (Exception)e.ExceptionObject;

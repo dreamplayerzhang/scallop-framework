@@ -126,29 +126,29 @@
             Event arguments for network status changed events.
             </summary>
         </member>
-        <member name="F:Scallop.Core.Events.ScallopNetworkStatusChangedEventArgs.CausingException">
+        <member name="M:Scallop.Core.Events.ScallopNetworkStatusChangedEventArgs.#ctor(Scallop.Core.Network.ScallopNetworkState,Scallop.Core.Network.ScallopNetworkState,System.Exception,System.String)">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="P:Scallop.Core.Events.ScallopNetworkStatusChangedEventArgs.CausingException">
             <summary>
             Possible exception that caused the error.
             </summary>
         </member>
-        <member name="F:Scallop.Core.Events.ScallopNetworkStatusChangedEventArgs.msg">
+        <member name="P:Scallop.Core.Events.ScallopNetworkStatusChangedEventArgs.Message">
             <summary>
             StatusChanged message.
             </summary>
         </member>
-        <member name="F:Scallop.Core.Events.ScallopNetworkStatusChangedEventArgs.NewState">
+        <member name="P:Scallop.Core.Events.ScallopNetworkStatusChangedEventArgs.NewState">
             <summary>
             State after the event.
             </summary>
         </member>
-        <member name="F:Scallop.Core.Events.ScallopNetworkStatusChangedEventArgs.OldState">
+        <member name="P:Scallop.Core.Events.ScallopNetworkStatusChangedEventArgs.OldState">
             <summary>
             State before the event.
-            </summary>
-        </member>
-        <member name="M:Scallop.Core.Events.ScallopNetworkStatusChangedEventArgs.#ctor(Scallop.Core.Network.ScallopNetworkState,System.Exception,System.String)">
-            <summary>
-            Constructor.
             </summary>
         </member>
         <member name="T:Scallop.Core.Events.ScallopNetworkDataEventArgs">

@@ -469,7 +469,7 @@ namespace Scallop.Sensor.Axis
                   throw new ApplicationException("Content-Length not found");
 
                aLine = readMjpgLine(mjpgStream);
-               if (!aLine.Equals("")) // empty line
+               if (!String.IsNullOrEmpty(aLine)) // empty line
                   throw new ApplicationException("Blank line not found");
 
                // buffer for MJPG frame data
