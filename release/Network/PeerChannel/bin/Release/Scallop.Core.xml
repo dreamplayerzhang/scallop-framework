@@ -156,27 +156,27 @@
             Event arguments for network data events.
             </summary>
         </member>
-        <member name="F:Scallop.Core.Events.ScallopNetworkDataEventArgs.data">
-            <summary>
-            The data received from the network.
-            </summary>
-        </member>
-        <member name="F:Scallop.Core.Events.ScallopNetworkDataEventArgs.dataType">
-            <summary>
-            Type of data.
-            </summary>
-        </member>
-        <member name="F:Scallop.Core.Events.ScallopNetworkDataEventArgs.msg">
-            <summary>
-            An optional message for the user.
-            </summary>
-        </member>
         <member name="M:Scallop.Core.Events.ScallopNetworkDataEventArgs.#ctor(System.Object,System.String)">
             <summary>
             Constructor.
             </summary>
             <param name="data">The network data.</param>
             <param name="msg">A user message.</param>
+        </member>
+        <member name="P:Scallop.Core.Events.ScallopNetworkDataEventArgs.Data">
+            <summary>
+            The data received from the network.
+            </summary>
+        </member>
+        <member name="P:Scallop.Core.Events.ScallopNetworkDataEventArgs.DataType">
+            <summary>
+            Type of data.
+            </summary>
+        </member>
+        <member name="P:Scallop.Core.Events.ScallopNetworkDataEventArgs.Message">
+            <summary>
+            An optional message for the user.
+            </summary>
         </member>
         <member name="T:Scallop.Core.Sensor.ScallopSensorState">
             <summary>

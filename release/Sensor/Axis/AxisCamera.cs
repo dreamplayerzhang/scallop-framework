@@ -167,7 +167,7 @@ namespace Scallop.Sensor.Axis
          configDoc.Validate(schemas, null);
 
          //this.camParams = AxisParameters.ParseConfig(configDoc, selectConfig);
-         this.cameraConfig = this.GetConfig(configDoc, selectConfig);
+         this.cameraConfig = AxisCamera.GetConfig(configDoc, selectConfig);
 
          if (this.cameraConfig == null)
          {
@@ -178,7 +178,7 @@ namespace Scallop.Sensor.Axis
          this.registered = true;
       }
 
-      private AxisCameraConfigType GetConfig(XDocument configDoc, string selectConfig)
+      private static AxisCameraConfigType GetConfig(XDocument configDoc, string selectConfig)
       {
          AxisCameraConfigType ctSelected = null;
 
@@ -414,9 +414,8 @@ namespace Scallop.Sensor.Axis
       //private void getFrames()
       private void getFrames(object sender, DoWorkEventArgs ev)
       {
-         BackgroundWorker bw = (BackgroundWorker)sender;
-
-
+         BackgroundWorker bw = sender as BackgroundWorker;
+         
          string delimiter = "--myboundary";
 
          // Set the URL to request
@@ -526,7 +525,8 @@ namespace Scallop.Sensor.Axis
       private static string readMjpgLine(Stream input)
       {
          List<byte> buf = new List<byte>();
-         int temp = 0, temp2;
+         string strBuffer;
+         int temp =0, temp2 = 0;
          int count = 0;
 
          while (true)
@@ -539,11 +539,13 @@ namespace Scallop.Sensor.Axis
             count++;
             if (count > 1 && temp2 == '\r' && temp == '\n')
             {
-               return (System.Text.Encoding.ASCII.GetString((byte[])buf.ToArray(), 0, count - 2));
+               break;
             }
          }
 
+         strBuffer = System.Text.Encoding.ASCII.GetString((byte[])buf.ToArray(), 0, count - 2);
          buf.Clear();
+         return strBuffer;
       }
    }
 }

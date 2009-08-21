@@ -93,13 +93,42 @@ namespace Scallop.Network.PeerChannel
       }
 
       /// <summary>
-      /// Frees resources.
+      /// Object destructor
+      /// </summary>
+      ~ScallopPeerChannel()
+      {
+         Dispose(false);
+      }
+
+      #region IDisposable Members
+
+      /// <summary>
+      /// Frees the resources used by the object.
       /// </summary>
       public void Dispose()
       {
-         if (this.chan != null)
-            this.Leave();
+         Dispose(true);
+
+         // Use SupressFinalize in case a subclass
+         // of this type implements a finalizer.
+         GC.SuppressFinalize(this);
       }
+
+
+      /// <summary>
+      /// Frees the resources used by the object
+      /// </summary>
+      /// <param name="disposing">The parameter tells if the Dispose is called directly</param>
+      protected virtual void Dispose(bool disposing)
+      {
+         if (disposing)
+         {
+            if (this.chan != null)
+               this.Leave();
+         }
+         this.chan = null;
+      }
+      #endregion
 
       /// <summary>
       /// Sends a message to all recipients, broadcast.
@@ -161,7 +190,7 @@ namespace Scallop.Network.PeerChannel
       {
          try
          {
-            if (this.chan != null && this.peer.IsOnline)
+            if (this.peer.IsOnline && this.chan != null)
             {
                if (msg.Header.Sender == null)
                   msg.Header.Sender = this.id;
@@ -177,14 +206,12 @@ namespace Scallop.Network.PeerChannel
                chan.PCSend(msg);
             }
          }
-         catch (Exception e)
+         catch (CommunicationException e)
          {
             this.doStateChanged(this, new ScallopNetworkStatusChangedEventArgs(this.myState, ScallopNetworkState.Error, e, "Error sending message"));
             //error_handler(this, new UnhandledExceptionEventArgs(e, false));
          }
       }
-
-
 
       /// <summary>
       /// Joins a PeerChannel.
@@ -247,8 +274,16 @@ namespace Scallop.Network.PeerChannel
 
       void queryThread_DoWork(object sender, DoWorkEventArgs e)
       {
-         for (; ; )
+         BackgroundWorker bw = sender as BackgroundWorker;
+
+         do
          {
+            if (bw.CancellationPending == true)
+            {
+               e.Cancel = true;
+               return;
+            }
+
             this.oldNeighbours = new List<string>(this.neighbours); // copy neighbours to oldneighbours
             this.neighbours.Clear();
             ScallopMessage msg = new ScallopMessage();
@@ -260,7 +295,7 @@ namespace Scallop.Network.PeerChannel
             msg.Header.OrigHopcount = 1;
             this._sendMessage(msg);
             Thread.Sleep(1000 * parameters.NeighborQueryRate);
-         }
+         } while (true);
       }
 
 
@@ -490,41 +525,24 @@ namespace Scallop.Network.PeerChannel
 
       private void doStateChanged(object sender, ScallopNetworkStatusChangedEventArgs e)
       {
-         try
-         {
-            this.myState = e.NewState;
-            if (StatusChanged != null)
-               StatusChanged(sender, e);
-         }
-         catch
-         { }
+         this.myState = e.NewState;
+         if (StatusChanged != null)
+            StatusChanged(sender, e);
       }
 
       private void doData(object sender, ScallopNetworkDataEventArgs e)
       {
-         try
-         {
-            this.msgCountRX++;
-            this.msgSizeRX += (long)((ScallopMessage)(e.data)).Contents.Length;
-            if (Data != null)
-               Data(sender, e);
-         }
-         catch (Exception ee)
-         {
-            this.doInfo(this, new ScallopInfoEventArgs(ee.ToString()));
-         }
+         this.msgCountRX++;
+         this.msgSizeRX += (long)((ScallopMessage)(e.Data)).Contents.Length;
 
-
+         if (Data != null)
+            Data(sender, e);
       }
+
       private void doInfo(object sender, ScallopInfoEventArgs e)
       {
-         try
-         {
-            if (Info != null)
-               Info(sender, e);
-         }
-         catch
-         { }
+         if (Info != null)
+            Info(sender, e);
       }
 
       #endregion

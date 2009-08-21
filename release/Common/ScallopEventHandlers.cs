@@ -147,14 +147,12 @@ namespace Scallop.Core.Events
          get { return data; }
       }
 
-      private Type dataType;
-
       /// <summary>
       /// Type of data.
       /// </summary>
       public Type DataType
       {
-         get { return dataType; }
+         get { return this.data.GetType(); }
       }
 
       private string msg;
@@ -176,7 +174,6 @@ namespace Scallop.Core.Events
       {
          this.data = data;
          this.msg = msg;
-         this.dataType = data.GetType();
       }
    }
 
@@ -304,20 +301,34 @@ namespace Scallop.Core.Events
    /// </summary>
    public class ScallopNetworkDataEventArgs : EventArgs
    {
+      private object data;
+
       /// <summary>
       /// The data received from the network.
       /// </summary>
-      public object data;
+      public object Data
+      {
+         get { return data; }
+      }
 
       /// <summary>
       /// Type of data.
       /// </summary>
-      public Type dataType;
+      public Type DataType
+      {
+         get { return this.data.GetType(); }
+      }
+
+      private string msg;
 
       /// <summary>
       /// An optional message for the user.
       /// </summary>
-      public string msg;
+      public string Message
+      {
+         get { return msg; }
+         set { msg = value; }
+      }
 
       /// <summary>
       /// Constructor.
@@ -328,7 +339,6 @@ namespace Scallop.Core.Events
       {
          this.data = data;
          this.msg = msg;
-         this.dataType = data.GetType();
       }
    }
 

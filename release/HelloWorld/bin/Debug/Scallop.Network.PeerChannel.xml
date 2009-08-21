@@ -94,10 +94,21 @@
             Constructor.
             </summary>
         </member>
+        <member name="M:Scallop.Network.PeerChannel.ScallopPeerChannel.Finalize">
+            <summary>
+            Object destructor
+            </summary>
+        </member>
         <member name="M:Scallop.Network.PeerChannel.ScallopPeerChannel.Dispose">
             <summary>
-            Frees resources.
+            Frees the resources used by the object.
             </summary>
+        </member>
+        <member name="M:Scallop.Network.PeerChannel.ScallopPeerChannel.Dispose(System.Boolean)">
+            <summary>
+            Frees the resources used by the object
+            </summary>
+            <param name="disposing">The parameter tells if the Dispose is called directly</param>
         </member>
         <member name="M:Scallop.Network.PeerChannel.ScallopPeerChannel.SendMessage(System.String)">
             <summary>

@@ -175,44 +175,14 @@
            </Member>
           </Members>
          </Type>
-         <Type Name="ScallopNetworkDataEventArgs">
-          <Members>
-           <Member Name="#data">
-            <Messages>
-             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Created="2009-07-02 08:48:15Z">
-              <Issue>
-               <Item>'ScallopNetworkDataEventArgs.data'</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
-           <Member Name="#dataType">
-            <Messages>
-             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Created="2009-07-02 08:48:15Z">
-              <Issue>
-               <Item>'ScallopNetworkDataEventArgs.dataType'</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
-           <Member Name="#msg">
-            <Messages>
-             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Created="2009-07-02 08:48:15Z">
-              <Issue>
-               <Item>'ScallopNetworkDataEventArgs.msg'</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
-          </Members>
-         </Type>
          <Type Name="ScallopNetworkStatusChangedEventArgs">
           <Members>
-           <Member Name="#msg">
+           <Member Name="#.ctor(Scallop.Core.Network.ScallopNetworkState,Scallop.Core.Network.ScallopNetworkState,System.Exception,System.String)">
             <Messages>
-             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Created="2009-07-02 08:48:15Z">
-              <Issue>
-               <Item>'ScallopNetworkStatusChangedEventArgs.msg'</Item>
+             <Message Id="e" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2009-08-21 06:52:38Z">
+              <Issue Name="MemberParameterMoreMeaningfulName">
+               <Item>'ScallopNetworkStatusChangedEventArgs.ScallopNetworkStatusChangedEventArgs(ScallopNetworkState, ScallopNetworkState, Exception, string)'</Item>
+               <Item>'e'</Item>
               </Issue>
              </Message>
             </Messages>
@@ -429,13 +399,6 @@
           </Members>
          </Type>
          <Type Name="ScallopPeerChannel">
-          <Messages>
-           <Message TypeName="ImplementIDisposableCorrectly" Category="Microsoft.Design" CheckId="CA1063" Created="2009-07-02 08:48:15Z">
-            <Issue Name="ProvideDisposeBool">
-             <Item>'ScallopPeerChannel'</Item>
-            </Issue>
-           </Message>
-          </Messages>
           <Members>
            <Member Name="#.ctor()">
             <Messages>
@@ -480,51 +443,6 @@
              </Accessor>
             </Accessors>
            </Member>
-           <Member Name="#Dispose()">
-            <Messages>
-             <Message TypeName="CallGCSuppressFinalizeCorrectly" Category="Microsoft.Usage" CheckId="CA1816" Created="2009-07-02 08:48:15Z">
-              <Issue Name="NotCalled">
-               <Item>'ScallopPeerChannel.Dispose()'</Item>
-               <Item>'GC.SuppressFinalize(object)'</Item>
-              </Issue>
-             </Message>
-             <Message TypeName="ImplementIDisposableCorrectly" Category="Microsoft.Design" CheckId="CA1063" Created="2009-07-02 08:48:15Z">
-              <Issue Name="DisposeImplementation">
-               <Item>'ScallopPeerChannel.Dispose()'</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
-           <Member Name="#doData(System.Object,Scallop.Core.Events.ScallopNetworkDataEventArgs)">
-            <Messages>
-             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Created="2009-07-02 08:48:15Z">
-              <Issue>
-               <Item>'ScallopPeerChannel.doData(object, ScallopNetworkDataEventArgs)'</Item>
-               <Item>'Exception'</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
-           <Member Name="#doInfo(System.Object,Scallop.Core.Events.ScallopInfoEventArgs)">
-            <Messages>
-             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Created="2009-07-02 08:48:15Z">
-              <Issue>
-               <Item>'ScallopPeerChannel.doInfo(object, ScallopInfoEventArgs)'</Item>
-               <Item>'object'</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
-           <Member Name="#doStateChanged(System.Object,Scallop.Core.Events.ScallopNetworkStatusChangedEventArgs)">
-            <Messages>
-             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Created="2009-07-02 08:48:15Z">
-              <Issue>
-               <Item>'ScallopPeerChannel.doStateChanged(object, ScallopNetworkStatusChangedEventArgs)'</Item>
-               <Item>'object'</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
            <Member Name="#factory_faulted(System.Object,System.EventArgs)">
             <Messages>
              <Message TypeName="DoNotRaiseReservedExceptionTypes" Category="Microsoft.Usage" CheckId="CA2201" Created="2009-07-02 08:48:15Z">
@@ -541,13 +459,6 @@
               <Issue>
                <Item>'ScallopPeerChannel.Join(XmlDocument, string)'</Item>
                <Item>'Exception'</Item>
-              </Issue>
-             </Message>
-             <Message TypeName="DoNotIndirectlyExposeMethodsWithLinkDemands" Category="Microsoft.Security" CheckId="CA2122" Created="2009-07-02 08:48:15Z">
-              <Issue>
-               <Item>'ScallopPeerChannel.Join(XmlDocument, string)'</Item>
-               <Item>'AppDomain.UnhandledException.add(UnhandledExceptionEventHandler)'</Item>
-               <Item>&#xD;&#xA;   -&gt;'ScallopPeerChannel.Join(XmlDocument, string)'&#xD;&#xA;   -&gt;'ScallopPeerChannel.Join(XmlDocument, string)'</Item>
               </Issue>
              </Message>
              <Message TypeName="DoNotRaiseReservedExceptionTypes" Category="Microsoft.Usage" CheckId="CA2201" Created="2009-07-02 08:48:15Z">
@@ -810,9 +721,6 @@
    </Rule>
    <Rule TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051">
     <Resolution Name="Default">Because field {0} is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Resolution>
-   </Rule>
-   <Rule TypeName="DoNotIndirectlyExposeMethodsWithLinkDemands" Category="Microsoft.Security" CheckId="CA2122">
-    <Resolution Name="Default">{0} calls into {1} which has a LinkDemand. By making this call, {1} is indirectly exposed to user code. Review the following call stack that might expose a way to circumvent security protection: {2}</Resolution>
    </Rule>
    <Rule TypeName="DoNotRaiseReservedExceptionTypes" Category="Microsoft.Usage" CheckId="CA2201">
     <Resolution Name="TooGeneric">{0} creates an exception of type {1}, an exception type that is not sufficiently specific and should never be raised by user code. If this exception instance might be thrown, use a different exception type.</Resolution>

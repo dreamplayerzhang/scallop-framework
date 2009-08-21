@@ -93,8 +93,10 @@ namespace Scallop.HelloWorld
 
       void NetworkInterface_Data(object sender, ScallopNetworkDataEventArgs e)
       {
-         ScallopMessage Message = (ScallopMessage)e.data;
-         Console.WriteLine("Message received from " + Message.Header.Sender + " : " + Message.Contents);
+         ScallopMessage message = e.Data as ScallopMessage;
+
+         if (message != null)
+            Console.WriteLine("Message received from " + message.Header.Sender + " : " + message.Contents);
       }
 
       void NetworkInterface_StatusChanged(object sender, ScallopNetworkStatusChangedEventArgs e)

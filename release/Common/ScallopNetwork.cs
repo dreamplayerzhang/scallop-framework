@@ -82,9 +82,9 @@ namespace Scallop.Core.Network
    ///  ...
    ///  }
    ///  
-   ///   void NetworkInterface_Data(object sender, ScallopNetworkDataEventArgs e){ }
-   ///   void NetworkInterface_StatusChanged(object sender, ScallopNetworkStatusChangedEventArgs e){ }
-   ///   void NetworkInterface_Info(object sender, ScallopInfoEventArgs e){ }
+   ///   void NetworkInterface_Data(object sender, ScallopNetworkDataEventArgs e){ };
+   ///   void NetworkInterface_StatusChanged(object sender, ScallopNetworkStatusChangedEventArgs e){ };
+   ///   void NetworkInterface_Info(object sender, ScallopInfoEventArgs e){ };
    ///  </code>
    /// </example>
    public interface IScallopNetwork : IDisposable
