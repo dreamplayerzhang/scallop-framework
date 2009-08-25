@@ -61,9 +61,10 @@ namespace Scallop.Core
         buf = Convert.FromBase64String(encoded);
         return buf;
       }
-      catch
+      catch(FormatException exception)
       {
-        return null;
+         System.Diagnostics.Trace.TraceError("Error in decoding string: {0}", exception.StackTrace);
+         return null;
       }
     }
 

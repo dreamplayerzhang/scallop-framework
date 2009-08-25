@@ -134,7 +134,7 @@
             <summary>
             Joins a PeerChannel.
             </summary>
-            <param name="configDoc">Configuration XML document.</param>
+            <param name="networkSettings">Configuration XML document.</param>
             <param name="selectConfig">String identifying config item to use.</param>
         </member>
         <member name="M:Scallop.Network.PeerChannel.ScallopPeerChannel.Leave">

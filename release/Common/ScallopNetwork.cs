@@ -30,6 +30,7 @@ using System.Xml.Schema;
 using System.Xml;
 using Scallop.Core.Events;
 using System.Runtime.Serialization;
+using System.Collections.ObjectModel;
 
 namespace Scallop.Core.Network
 {
@@ -153,7 +154,7 @@ namespace Scallop.Core.Network
       /// <summary>
       /// Gets list of node neighbours.
       /// </summary>
-      string[] Neighbors { get; }
+      ReadOnlyCollection<string> Neighbors { get; }
 
       /// <summary>
       /// Number of messages received.
@@ -210,7 +211,7 @@ namespace Scallop.Core.Network
    [MessageContract]
    public class ScallopMessage
    {
-      private ScallopMessageHeader header;
+      private ScallopMessageHeader header = new ScallopMessageHeader();
 
       /// <summary>
       /// Custom message header
@@ -243,7 +244,16 @@ namespace Scallop.Core.Network
       /// </summary>
       public ScallopMessage()
       {
-         this.header = new ScallopMessageHeader();
+         //this.header = new ScallopMessageHeader();
+      }
+
+      /// <summary>
+      /// Creates a new message.
+      /// </summary>
+      /// <param name="header">Message header</param>
+      public ScallopMessage(ScallopMessageHeader header)
+      {
+         this.header = header;
       }
    }
 

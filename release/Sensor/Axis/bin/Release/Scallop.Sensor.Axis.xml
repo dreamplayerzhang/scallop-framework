@@ -35,7 +35,7 @@
             <summary>
             Registers a node with a sensor.
             </summary>
-            <param name="configDoc">The configuration XML document.</param>
+            <param name="config">The configuration XML document.</param>
             <param name="selectConfig">String identifying the configuration item to use.</param>
         </member>
         <member name="M:Scallop.Sensor.Axis.AxisCamera.Unregister">
@@ -61,8 +61,8 @@
             </summary>
             <param name="absolute">True if absolute pan value, 
             false if relative.</param>
-            <param name="x">Degrees to pan on the horizontal axis.</param>
-            <param name="y">Degrees to pan on the vertical axis.</param>
+            <param name="xCoordinate">Degrees to pan on the horizontal axis.</param>
+            <param name="yCoordinate">Degrees to pan on the vertical axis.</param>
         </member>
         <member name="M:Scallop.Sensor.Axis.AxisCamera.Zoom(System.Boolean,System.Int32)">
             <summary>

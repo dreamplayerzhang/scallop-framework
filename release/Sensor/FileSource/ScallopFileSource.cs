@@ -93,7 +93,7 @@ namespace Scallop.Sensor.FileSource
             System.Threading.Thread.Sleep(100);
 
          myState = ScallopSensorState.Active;
-         this.StatusChanged(this, new ScallopSensorStatusChangedEventArgs(ScallopSensorState.Idle, ScallopSensorState.Active, null, "Online"));
+         this.StatusChanged(this, new ScallopSensorStatusChangedEventArgs(ScallopSensorState.Idle, ScallopSensorState.Active));
 
          RenderTargetBitmap rtb = new RenderTargetBitmap(myPlayer.NaturalVideoWidth, myPlayer.NaturalVideoHeight,
                                                            96, 96, PixelFormats.Pbgra32);

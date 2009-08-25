@@ -29,6 +29,8 @@ using System.Net.NetworkInformation;
 using System.Net;
 using System.Net.Sockets;
 
+using Scallop.Core;
+
 namespace Scallop.Network.PeerChannel
 {
   class PeerChannelParameters
@@ -55,7 +57,7 @@ namespace Scallop.Network.PeerChannel
       {
         elementList = elementList.NextSibling;
         if (elementList == null)
-          throw new ApplicationException("Configuration " + defConfig + " not found!");
+          throw new ScallopException("Configuration " + defConfig + " not found!");
       }
 
       XmlNodeList settings = elementList.ChildNodes;

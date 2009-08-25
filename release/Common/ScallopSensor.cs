@@ -96,9 +96,9 @@ namespace Scallop.Core.Sensor
       /// 
       /// </summary>
       /// <param name="absolute"></param>
-      /// <param name="x"></param>
-      /// <param name="y"></param>
-      void PanTilt(bool absolute, int x, int y);
+      /// <param name="xCoordinate"></param>
+      /// <param name="yCoordinate"></param>
+      void PanTilt(bool absolute, int xCoordinate, int yCoordinate);
 
       /// <summary>
       /// 

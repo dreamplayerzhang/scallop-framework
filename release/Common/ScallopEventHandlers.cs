@@ -119,15 +119,38 @@ namespace Scallop.Core.Events
       /// <summary>
       /// Constructor.
       /// </summary>
-      /// <param name="e">Possible exception that caused an error.</param>
+      /// <param name="fromState">State before event.</param>
+      /// <param name="toState">State after event.</param>
+      public ScallopSensorStatusChangedEventArgs(ScallopSensorState fromState, ScallopSensorState toState)
+         : this(fromState, toState, null, null)
+      {
+
+      }
+
+      /// <summary>
+      /// Constructor.
+      /// </summary>
       /// <param name="fromState">State before event.</param>
       /// <param name="toState">State after event.</param>
       /// <param name="msg">A freeform string message for the user.</param>
-      public ScallopSensorStatusChangedEventArgs(ScallopSensorState fromState, ScallopSensorState toState, Exception e, string msg)
+      public ScallopSensorStatusChangedEventArgs(ScallopSensorState fromState, ScallopSensorState toState, string msg)
+         : this(fromState, toState, msg, null)
+      {
+
+      }
+
+      /// <summary>
+      /// Constructor.
+      /// </summary>
+      /// <param name="fromState">State before event.</param>
+      /// <param name="toState">State after event.</param>
+      /// <param name="msg">A freeform string message for the user.</param>
+      /// <param name="causingException">Possible exception that caused an error.</param>
+      public ScallopSensorStatusChangedEventArgs(ScallopSensorState fromState, ScallopSensorState toState, string msg, Exception causingException)
       {
          this.oldState = fromState;
          this.newState = toState;
-         this.causingException = e;
+         this.causingException = causingException;
          this.msg = msg;
       }
    }
@@ -189,10 +212,16 @@ namespace Scallop.Core.Events
    /// </summary>
    public class ScallopInfoEventArgs : EventArgs
    {
+      private string msg;
+
       /// <summary>
       /// The information message.
       /// </summary>
-      public string msg;
+      public string Message
+      {
+         get { return msg; }
+         set { msg = value; }
+      }
 
       /// <summary>
       /// Constructor.
@@ -280,11 +309,38 @@ namespace Scallop.Core.Events
       /// <summary>
       /// Constructor.
       /// </summary>
-      public ScallopNetworkStatusChangedEventArgs(ScallopNetworkState fromState, ScallopNetworkState toState, Exception e, string msg)
+      /// <param name="fromState">State before event.</param>
+      /// <param name="toState">State after event.</param>
+      public ScallopNetworkStatusChangedEventArgs(ScallopNetworkState fromState, ScallopNetworkState toState)
+         : this(fromState, toState, null, null)
+      {
+
+      }
+
+      /// <summary>
+      /// Constructor.
+      /// </summary>
+      /// <param name="fromState">State before event.</param>
+      /// <param name="toState">State after event.</param>
+      /// <param name="msg">A freeform string message for the user.</param>
+      public ScallopNetworkStatusChangedEventArgs(ScallopNetworkState fromState, ScallopNetworkState toState, string msg)
+         : this(fromState, toState, msg, null)
+      {
+
+      }
+
+      /// <summary>
+      /// Constructor.
+      /// </summary>
+      /// <param name="fromState">State before event.</param>
+      /// <param name="toState">State after event.</param>
+      /// <param name="msg">A freeform string message for the user.</param>
+      /// <param name="causingException">Possible exception that caused an error.</param>
+      public ScallopNetworkStatusChangedEventArgs(ScallopNetworkState fromState, ScallopNetworkState toState, string msg, Exception causingException)
       {
          this.oldState = fromState;
          this.newState = toState;
-         this.causingException = e;
+         this.causingException = causingException;
          this.msg = msg;
       }
    }

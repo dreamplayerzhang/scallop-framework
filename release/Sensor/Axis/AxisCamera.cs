@@ -157,21 +157,21 @@ namespace Scallop.Sensor.Axis
       /// <summary>
       /// Registers a node with a sensor.
       /// </summary>
-      /// <param name="configDoc">The configuration XML document.</param>
+      /// <param name="config">The configuration XML document.</param>
       /// <param name="selectConfig">String identifying the configuration item to use.</param>
-      public void Register(XDocument configDoc, string selectConfig)
+      public void Register(XDocument config, string selectConfig)
       {
          // validate the xml
          XmlSchemaSet schemas = new XmlSchemaSet();
          schemas.Add(this.configSchema);
-         configDoc.Validate(schemas, null);
+         config.Validate(schemas, null);
 
          //this.camParams = AxisParameters.ParseConfig(configDoc, selectConfig);
-         this.cameraConfig = AxisCamera.GetConfig(configDoc, selectConfig);
+         this.cameraConfig = AxisCamera.GetConfig(config, selectConfig);
 
          if (this.cameraConfig == null)
          {
-            throw new ApplicationException("StatusChanged parsing config");
+            throw new ScallopException("Error when tryin to parse config");
          }
 
 
@@ -223,7 +223,7 @@ namespace Scallop.Sensor.Axis
       public void Start()
       {
          if (!this.registered)
-            throw new ApplicationException("Sensor not registered!");
+            throw new ScallopException("Sensor not registered!");
 
          if (this.streaming)
             return;
@@ -256,9 +256,9 @@ namespace Scallop.Sensor.Axis
       /// </summary>
       /// <param name="absolute">True if absolute pan value, 
       /// false if relative.</param>
-      /// <param name="x">Degrees to pan on the horizontal axis.</param>
-      /// <param name="y">Degrees to pan on the vertical axis.</param>
-      public void PanTilt(bool absolute, int x, int y)
+      /// <param name="xCoordinate">Degrees to pan on the horizontal axis.</param>
+      /// <param name="yCoordinate">Degrees to pan on the vertical axis.</param>
+      public void PanTilt(bool absolute, int xCoordinate, int yCoordinate)
       {
          throw new NotImplementedException();
       }
@@ -343,7 +343,7 @@ namespace Scallop.Sensor.Axis
       {
          if (this.StatusChanged != null)
          {
-            this.StatusChanged(this, new ScallopSensorStatusChangedEventArgs(myState, ScallopSensorState.Idle, null, ""));
+            this.StatusChanged(this, new ScallopSensorStatusChangedEventArgs(myState, ScallopSensorState.Idle));
          }
          myState = ScallopSensorState.Idle;
       }
@@ -352,7 +352,7 @@ namespace Scallop.Sensor.Axis
       {
          if (this.StatusChanged != null)
          {
-            this.StatusChanged(this, new ScallopSensorStatusChangedEventArgs(myState, ScallopSensorState.Active, null, ""));
+            this.StatusChanged(this, new ScallopSensorStatusChangedEventArgs(myState, ScallopSensorState.Active));
          }
          myState = ScallopSensorState.Active;
       }
@@ -387,7 +387,7 @@ namespace Scallop.Sensor.Axis
          }
          else if (e.Error != null) // Exception occured
          {
-            this.doError(this, new ScallopSensorStatusChangedEventArgs(myState, ScallopSensorState.Error, e.Error, ""));
+            this.doError(this, new ScallopSensorStatusChangedEventArgs(myState, ScallopSensorState.Error, "", e.Error));
             this.myState = ScallopSensorState.Error;
             this.doClosed(this, EventArgs.Empty);
             this.streaming = false;
@@ -459,17 +459,17 @@ namespace Scallop.Sensor.Axis
 
                aLine = readMjpgLine(mjpgStream);
                if (!aLine.StartsWith("Content-Type: image/jpeg"))
-                  throw new ApplicationException("Content-Type not found");
+                  throw new ScallopException("Content-Type not found");
 
                aLine = readMjpgLine(mjpgStream);
                if (aLine.StartsWith("Content-Length:"))
                   contentLen = int.Parse(aLine.Substring(15));
                else
-                  throw new ApplicationException("Content-Length not found");
+                  throw new ScallopException("Content-Length not found");
 
                aLine = readMjpgLine(mjpgStream);
                if (!String.IsNullOrEmpty(aLine)) // empty line
-                  throw new ApplicationException("Blank line not found");
+                  throw new ScallopException("Blank line not found");
 
                // buffer for MJPG frame data
                byte[] frameBuffer = new byte[contentLen];
@@ -534,7 +534,7 @@ namespace Scallop.Sensor.Axis
             temp2 = temp;
             temp = input.ReadByte();
             if (temp == -1)
-               throw new IOException("End of stream encountered.");
+               throw new ScallopException("End of stream encountered.");
             buf.Add((byte)temp);
             count++;
             if (count > 1 && temp2 == '\r' && temp == '\n')

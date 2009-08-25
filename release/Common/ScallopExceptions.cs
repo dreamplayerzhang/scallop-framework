@@ -24,6 +24,7 @@
  */
 
 using System;
+using System.Runtime.Serialization;
 
 namespace Scallop.Core
 {
@@ -37,6 +38,7 @@ namespace Scallop.Core
    /// <summary>
    /// A generic Scallop exception.
    /// </summary>
+   [Serializable]
    public class ScallopException : Exception
    {
       /// <summary>
@@ -57,11 +59,19 @@ namespace Scallop.Core
       /// <param name="inner">A possible causing InnerException.</param>
       public ScallopException(string message, Exception inner) : base(message, inner) { }
 
+      /// <summary>
+      /// Initializes a new instance of the class with serialized data.
+      /// </summary>
+      /// <param name="info">The SerializationInfo that holds the serialized object data about the exception being thrown.</param>
+      /// <param name="context">The StreamingContext that contains contextual information about the source or destination.</param>
+      protected ScallopException(SerializationInfo info, StreamingContext context) : base(info, context) { }
+
    }
 
    /// <summary>
    /// Thrown when the XML configuration is invalid.
    /// </summary>
+   [Serializable]
    public class InvalidConfigurationException : ScallopException
    {
       /// <summary>
@@ -82,11 +92,19 @@ namespace Scallop.Core
       /// <param name="inner">A possible causing InnerException.</param>
       public InvalidConfigurationException(string message, Exception inner) : base(message, inner) { }
 
+      /// <summary>
+      /// Initializes a new instance of the class with serialized data.
+      /// </summary>
+      /// <param name="info">The SerializationInfo that holds the serialized object data about the exception being thrown.</param>
+      /// <param name="context">The StreamingContext that contains contextual information about the source or destination.</param>
+      protected InvalidConfigurationException(SerializationInfo info, StreamingContext context) : base(info, context) { }
+
    }
 
    /// <summary>
    /// Thrown when a message content does not match the XML schema.
    /// </summary>
+   [Serializable]
    public class MessageContentException : ScallopException
    {
       static string defaultMessage = "The message content does not match the XML schema.";
@@ -116,5 +134,11 @@ namespace Scallop.Core
       /// <param name="inner">A possible causing InnerException.</param>
       public MessageContentException(string message, Exception inner) : base(message, inner) { }
 
+      /// <summary>
+      /// Initializes a new instance of the class with serialized data.
+      /// </summary>
+      /// <param name="info">The SerializationInfo that holds the serialized object data about the exception being thrown.</param>
+      /// <param name="context">The StreamingContext that contains contextual information about the source or destination.</param>
+      protected MessageContentException(SerializationInfo info, StreamingContext context) : base(info, context) { }
    }
 }

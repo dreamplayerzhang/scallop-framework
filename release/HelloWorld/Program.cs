@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Xml.Linq;
 
 using Scallop.Core;
@@ -110,7 +111,7 @@ namespace Scallop.HelloWorld
 
       void NetworkInterface_Info(object sender, ScallopInfoEventArgs e)
       {
-         Console.WriteLine(e.msg);
+         Console.WriteLine(e.Message);
       }
 
       #endregion
@@ -121,6 +122,11 @@ namespace Scallop.HelloWorld
       void SensorInterface_Data(object sender, ScallopSensorDataEventArgs e)
       {
          Console.WriteLine("Sensor data received at " + System.DateTime.Now.ToString("HH:mm:ss.ff"));
+
+         Bitmap bmp = e.Data as Bitmap;
+
+         if (bmp != null)
+            bmp.Dispose();
       }
 
       void SensorInterface_StatusChanged(object sender, ScallopSensorStatusChangedEventArgs e)
@@ -135,7 +141,7 @@ namespace Scallop.HelloWorld
 
       void SensorInterface_Info(object sender, ScallopInfoEventArgs e)
       {
-         Console.WriteLine(e.msg);
+         Console.WriteLine(e.Message);
       }
 
       #endregion

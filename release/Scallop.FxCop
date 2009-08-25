@@ -22,7 +22,26 @@
  </ProjectOptions>
  <Targets>
   <Target Name="$(ProjectDir)/Common/bin/Release/Scallop.Core.dll" Analyze="True" AnalyzeAllChildren="True" />
-  <Target Name="$(ProjectDir)/Network/PeerChannel/bin/Release/Scallop.Network.PeerChannel.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/Network/PeerChannel/bin/Release/Scallop.Network.PeerChannel.dll" Analyze="True" AnalyzeAllChildren="False">
+   <Modules AnalyzeAllChildren="False">
+    <Module Name="scallop.network.peerchannel.dll" Analyze="True" AnalyzeAllChildren="False">
+     <Namespaces AnalyzeAllChildren="False">
+      <Namespace Name="" Analyze="True" AnalyzeAllChildren="True" />
+      <Namespace Name="Scallop.Network.PeerChannel" Analyze="True" AnalyzeAllChildren="False">
+       <Types AnalyzeAllChildren="False">
+        <Type Name="IPeerChannel" Analyze="True" AnalyzeAllChildren="True" />
+        <Type Name="IPeerChannelChannel" Analyze="True" />
+        <Type Name="PeerChannelParameters" Analyze="True" AnalyzeAllChildren="True" />
+        <Type Name="ScallopMessageFilter" Analyze="True" AnalyzeAllChildren="True" />
+        <Type Name="ScallopPeerChannel" Analyze="True" AnalyzeAllChildren="True" />
+        <Type Name="ScallopPeerChannelMessageType" Analyze="True" AnalyzeAllChildren="True" />
+       </Types>
+      </Namespace>
+     </Namespaces>
+     <Resources AnalyzeAllChildren="True" />
+    </Module>
+   </Modules>
+  </Target>
   <Target Name="$(ProjectDir)/Sensor/Axis/bin/Release/Scallop.Sensor.Axis.dll" Analyze="True" AnalyzeAllChildren="False">
    <Modules AnalyzeAllChildren="False">
     <Module Name="scallop.sensor.axis.dll" Analyze="True" AnalyzeAllChildren="False">
@@ -101,41 +120,6 @@
       <Namespaces>
        <Namespace Name="Scallop.Core">
         <Types>
-         <Type Name="InvalidConfigurationException">
-          <Messages>
-           <Message TypeName="ImplementStandardExceptionConstructors" Category="Microsoft.Design" CheckId="CA1032" Created="2009-07-02 11:57:18Z">
-            <Issue Name="MissingConstructor">
-             <Item>'InvalidConfigurationException'</Item>
-             <Item>protected InvalidConfigurationException(SerializationInfo, StreamingContext)</Item>
-            </Issue>
-           </Message>
-          </Messages>
-         </Type>
-         <Type Name="MessageContentException">
-          <Messages>
-           <Message TypeName="ImplementStandardExceptionConstructors" Category="Microsoft.Design" CheckId="CA1032" Created="2009-07-02 11:57:18Z">
-            <Issue Name="MissingConstructor">
-             <Item>'MessageContentException'</Item>
-             <Item>protected MessageContentException(SerializationInfo, StreamingContext)</Item>
-            </Issue>
-           </Message>
-          </Messages>
-         </Type>
-         <Type Name="ScallopException">
-          <Messages>
-           <Message TypeName="ImplementStandardExceptionConstructors" Category="Microsoft.Design" CheckId="CA1032" Created="2009-07-02 11:57:18Z">
-            <Issue Name="MissingConstructor">
-             <Item>'ScallopException'</Item>
-             <Item>protected ScallopException(SerializationInfo, StreamingContext)</Item>
-            </Issue>
-           </Message>
-           <Message TypeName="MarkISerializableTypesWithSerializable" Category="Microsoft.Usage" CheckId="CA2237" Created="2009-07-02 11:57:18Z">
-            <Issue Certainty="95" Level="Error">
-             <Item>'ScallopException'</Item>
-            </Issue>
-           </Message>
-          </Messages>
-         </Type>
          <Type Name="ScallopUtils">
           <Messages>
            <Message Id="Utils" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2009-07-02 08:48:15Z">
@@ -145,63 +129,6 @@
             </Issue>
            </Message>
           </Messages>
-          <Members>
-           <Member Name="#Base64Decode(System.String)">
-            <Messages>
-             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Created="2009-07-02 08:48:15Z">
-              <Issue>
-               <Item>'ScallopUtils.Base64Decode(string)'</Item>
-               <Item>'object'</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
-          </Members>
-         </Type>
-        </Types>
-       </Namespace>
-       <Namespace Name="Scallop.Core.Events">
-        <Types>
-         <Type Name="ScallopInfoEventArgs">
-          <Members>
-           <Member Name="#msg">
-            <Messages>
-             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Created="2009-07-02 08:48:15Z">
-              <Issue>
-               <Item>'ScallopInfoEventArgs.msg'</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
-          </Members>
-         </Type>
-         <Type Name="ScallopNetworkStatusChangedEventArgs">
-          <Members>
-           <Member Name="#.ctor(Scallop.Core.Network.ScallopNetworkState,Scallop.Core.Network.ScallopNetworkState,System.Exception,System.String)">
-            <Messages>
-             <Message Id="e" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2009-08-21 06:52:38Z">
-              <Issue Name="MemberParameterMoreMeaningfulName">
-               <Item>'ScallopNetworkStatusChangedEventArgs.ScallopNetworkStatusChangedEventArgs(ScallopNetworkState, ScallopNetworkState, Exception, string)'</Item>
-               <Item>'e'</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
-          </Members>
-         </Type>
-         <Type Name="ScallopSensorStatusChangedEventArgs">
-          <Members>
-           <Member Name="#.ctor(Scallop.Core.Sensor.ScallopSensorState,Scallop.Core.Sensor.ScallopSensorState,System.Exception,System.String)">
-            <Messages>
-             <Message Id="e" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2009-07-02 08:48:15Z">
-              <Issue Name="MemberParameterMoreMeaningfulName">
-               <Item>'ScallopSensorStatusChangedEventArgs.ScallopSensorStatusChangedEventArgs(ScallopSensorState, ScallopSensorState, Exception, string)'</Item>
-               <Item>'e'</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
-          </Members>
          </Type>
         </Types>
        </Namespace>
@@ -215,15 +142,6 @@
               <Issue Name="Xml">
                <Item>'IScallopNetwork.Join(XmlDocument, string)'</Item>
                <Item>'XmlDocument'</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
-           <Member Name="#Neighbors">
-            <Messages>
-             <Message TypeName="PropertiesShouldNotReturnArrays" Category="Microsoft.Performance" CheckId="CA1819" Created="2009-07-02 08:48:15Z">
-              <Issue>
-               <Item>'IScallopNetwork.Neighbors'</Item>
               </Issue>
              </Message>
             </Messages>
@@ -279,15 +197,17 @@
            <Member Name="#PanTilt(System.Boolean,System.Int32,System.Int32)">
             <Messages>
              <Message Id="x" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2009-07-02 08:48:15Z">
-              <Issue Name="MemberParameterMoreMeaningfulName">
+              <Issue Name="MemberParameter">
                <Item>'IScallopSensor.PanTilt(bool, int, int)'</Item>
-               <Item>'x'</Item>
+               <Item>x</Item>
+               <Item>'xCoordinate'</Item>
               </Issue>
              </Message>
              <Message Id="y" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2009-07-02 08:48:15Z">
-              <Issue Name="MemberParameterMoreMeaningfulName">
+              <Issue Name="MemberParameter">
                <Item>'IScallopSensor.PanTilt(bool, int, int)'</Item>
-               <Item>'y'</Item>
+               <Item>y</Item>
+               <Item>'yCoordinate'</Item>
               </Issue>
              </Message>
             </Messages>
@@ -323,44 +243,10 @@
       <Namespaces>
        <Namespace Name="Scallop.Network.PeerChannel">
         <Types>
-         <Type Name="PeerChannelConfigSet">
-          <Members>
-           <Member Name="#Items">
-            <Messages>
-             <Message TypeName="PropertiesShouldNotReturnArrays" Category="Microsoft.Performance" CheckId="CA1819" Created="2009-08-17 12:23:25Z">
-              <Issue>
-               <Item>'PeerChannelConfigSet.Items'</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
-          </Members>
-         </Type>
-         <Type Name="PeerChannelConfigType">
-          <Members>
-           <Member Name="#TLSPassword">
-            <Messages>
-             <Message Id="TLS" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2009-08-17 12:23:25Z">
-              <Issue Name="Member">
-               <Item>TLS</Item>
-               <Item>'PeerChannelConfigType.TLSPassword'</Item>
-               <Item>Tls</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
-          </Members>
-         </Type>
          <Type Name="PeerChannelParameters">
           <Members>
            <Member Name="#ParseConfig(System.Xml.XmlDocument,System.String)">
             <Messages>
-             <Message TypeName="DoNotRaiseReservedExceptionTypes" Category="Microsoft.Usage" CheckId="CA2201" Created="2009-07-02 08:48:15Z">
-              <Issue Name="TooGeneric">
-               <Item>'PeerChannelParameters.ParseConfig(XmlDocument, string)'</Item>
-               <Item>'ApplicationException'</Item>
-              </Issue>
-             </Message>
              <Message Id="System.Int32.Parse(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2009-07-02 08:48:15Z">
               <Issue>
                <Item>'int.Parse(string)'</Item>
@@ -400,55 +286,11 @@
          </Type>
          <Type Name="ScallopPeerChannel">
           <Members>
-           <Member Name="#.ctor()">
-            <Messages>
-             <Message TypeName="DoNotRaiseReservedExceptionTypes" Category="Microsoft.Usage" CheckId="CA2201" Created="2009-07-02 08:48:15Z">
-              <Issue Name="TooGeneric">
-               <Item>'ScallopPeerChannel.ScallopPeerChannel()'</Item>
-               <Item>'ApplicationException'</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
-           <Member Name="#_sendMessage(Scallop.Core.Network.ScallopMessage)">
-            <Messages>
-             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Created="2009-07-02 08:48:15Z">
-              <Issue>
-               <Item>'ScallopPeerChannel._sendMessage(ScallopMessage)'</Item>
-               <Item>'Exception'</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
            <Member Name="#configDocument">
             <Messages>
              <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Created="2009-07-02 08:48:15Z">
               <Issue>
                <Item>'ScallopPeerChannel.configDocument'</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
-           <Member Name="#ConfigSchema">
-            <Accessors>
-             <Accessor Name="#get_ConfigSchema()">
-              <Messages>
-               <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Created="2009-07-02 08:48:15Z">
-                <Issue>
-                 <Item>'ScallopPeerChannel.ConfigSchema.get()'</Item>
-                 <Item>'object'</Item>
-                </Issue>
-               </Message>
-              </Messages>
-             </Accessor>
-            </Accessors>
-           </Member>
-           <Member Name="#factory_faulted(System.Object,System.EventArgs)">
-            <Messages>
-             <Message TypeName="DoNotRaiseReservedExceptionTypes" Category="Microsoft.Usage" CheckId="CA2201" Created="2009-07-02 08:48:15Z">
-              <Issue Name="TooGeneric">
-               <Item>'ScallopPeerChannel.factory_faulted(object, EventArgs)'</Item>
-               <Item>'ApplicationException'</Item>
               </Issue>
              </Message>
             </Messages>
@@ -459,20 +301,6 @@
               <Issue>
                <Item>'ScallopPeerChannel.Join(XmlDocument, string)'</Item>
                <Item>'Exception'</Item>
-              </Issue>
-             </Message>
-             <Message TypeName="DoNotRaiseReservedExceptionTypes" Category="Microsoft.Usage" CheckId="CA2201" Created="2009-07-02 08:48:15Z">
-              <Issue Name="TooGeneric">
-               <Item>'ScallopPeerChannel.Join(XmlDocument, string)'</Item>
-               <Item>'ApplicationException'</Item>
-              </Issue>
-             </Message>
-             <Message Id="0#" TypeName="ParameterNamesShouldMatchBaseDeclaration" Category="Microsoft.Naming" CheckId="CA1725" Created="2009-07-02 08:48:15Z">
-              <Issue>
-               <Item>'ScallopPeerChannel.Join(XmlDocument, string)'</Item>
-               <Item>'configDoc'</Item>
-               <Item>'networkSettings'</Item>
-               <Item>'IScallopNetwork.Join(XmlDocument, string)'</Item>
               </Issue>
              </Message>
             </Messages>
@@ -492,6 +320,15 @@
               <Issue>
                <Item>'ScallopPeerChannel.Leave()'</Item>
                <Item>'object'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#oldNeighbours">
+            <Messages>
+             <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Created="2009-08-25 08:29:27Z">
+              <Issue>
+               <Item>'ScallopPeerChannel.oldNeighbours'</Item>
               </Issue>
              </Message>
             </Messages>
@@ -553,31 +390,8 @@
              </Message>
             </Messages>
            </Member>
-           <Member Name="#GetConfig(System.Xml.Linq.XDocument,System.String)">
-            <Messages>
-             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Created="2009-07-02 12:46:36Z" FixCategory="NonBreaking">
-              <Issue>
-               <Item>'AxisCamera.GetConfig(XDocument, string)'</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
            <Member Name="#getFrames(System.Object,System.ComponentModel.DoWorkEventArgs)">
             <Messages>
-             <Message TypeName="DoNotRaiseReservedExceptionTypes" Category="Microsoft.Usage" CheckId="CA2201" Created="2009-07-02 12:46:36Z">
-              <Issue Name="TooGeneric">
-               <Item>'AxisCamera.getFrames(object, DoWorkEventArgs)'</Item>
-               <Item>'ApplicationException'</Item>
-              </Issue>
-              <Issue Name="TooGeneric">
-               <Item>'AxisCamera.getFrames(object, DoWorkEventArgs)'</Item>
-               <Item>'ApplicationException'</Item>
-              </Issue>
-              <Issue Name="TooGeneric">
-               <Item>'AxisCamera.getFrames(object, DoWorkEventArgs)'</Item>
-               <Item>'ApplicationException'</Item>
-              </Issue>
-             </Message>
              <Message Id="System.Int32.Parse(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2009-07-02 12:46:36Z">
               <Issue>
                <Item>'int.Parse(string)'</Item>
@@ -600,34 +414,6 @@
                <Item>'AxisCamera.getFrames(object, DoWorkEventArgs)'</Item>
                <Item>'string.StartsWith(string)'</Item>
                <Item>'string.StartsWith(string, StringComparison)'</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
-           <Member Name="#Register(System.Xml.Linq.XDocument,System.String)">
-            <Messages>
-             <Message TypeName="DoNotRaiseReservedExceptionTypes" Category="Microsoft.Usage" CheckId="CA2201" Created="2009-07-02 12:46:36Z">
-              <Issue Name="TooGeneric">
-               <Item>'AxisCamera.Register(XDocument, string)'</Item>
-               <Item>'ApplicationException'</Item>
-              </Issue>
-             </Message>
-             <Message Id="0#" TypeName="ParameterNamesShouldMatchBaseDeclaration" Category="Microsoft.Naming" CheckId="CA1725" Created="2009-07-02 12:46:36Z">
-              <Issue>
-               <Item>'AxisCamera.Register(XDocument, string)'</Item>
-               <Item>'configDoc'</Item>
-               <Item>'config'</Item>
-               <Item>'IScallopSensor.Register(XDocument, string)'</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
-           <Member Name="#Start()">
-            <Messages>
-             <Message TypeName="DoNotRaiseReservedExceptionTypes" Category="Microsoft.Usage" CheckId="CA2201" Created="2009-07-02 12:46:36Z">
-              <Issue Name="TooGeneric">
-               <Item>'AxisCamera.Start()'</Item>
-               <Item>'ApplicationException'</Item>
               </Issue>
              </Message>
             </Messages>
@@ -719,19 +505,12 @@
    <Rule TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031">
     <Resolution Name="Default">Modify {0} to catch a more specific exception than {1} or rethrow the exception.</Resolution>
    </Rule>
-   <Rule TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051">
-    <Resolution Name="Default">Because field {0} is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Resolution>
-   </Rule>
    <Rule TypeName="DoNotRaiseReservedExceptionTypes" Category="Microsoft.Usage" CheckId="CA2201">
     <Resolution Name="TooGeneric">{0} creates an exception of type {1}, an exception type that is not sufficiently specific and should never be raised by user code. If this exception instance might be thrown, use a different exception type.</Resolution>
-   </Rule>
-   <Rule TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709">
-    <Resolution Name="Member">Correct the casing of '{0}' in member name {1} by changing it to '{2}'.</Resolution>
    </Rule>
    <Rule TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704">
     <Resolution Name="Member">Correct the spelling of '{0}' in member name {1} or remove it entirely if it represents any sort of Hungarian notation.</Resolution>
     <Resolution Name="MemberParameter">In method {0}, correct the spelling of '{1}' in parameter name {2} or remove it entirely if it represents any sort of Hungarian notation.</Resolution>
-    <Resolution Name="MemberParameterMoreMeaningfulName">In method {0}, consider providing a more meaningful name than parameter name {1}.</Resolution>
     <Resolution Name="Type">Correct the spelling of '{0}' in type name {1}.</Resolution>
    </Rule>
    <Rule TypeName="IdentifiersShouldNotMatchKeywords" Category="Microsoft.Naming" CheckId="CA1716">
@@ -741,20 +520,8 @@
     <Resolution Name="DisposeImplementation">Modify {0} so that it calls Dispose(true), then calls GC.SuppressFinalize on the current object instance ('this' or 'Me' in Visual Basic), and then returns.</Resolution>
     <Resolution Name="ProvideDisposeBool">Provide an overridable implementation of Dispose(bool) on {0} or mark the type as sealed. A call to Dispose(false) should only clean up native resources. A call to Dispose(true) should clean up both managed and native resources.</Resolution>
    </Rule>
-   <Rule TypeName="ImplementStandardExceptionConstructors" Category="Microsoft.Design" CheckId="CA1032">
-    <Resolution Name="MissingConstructor">Add the following constructor to {0}: {1}.</Resolution>
-   </Rule>
-   <Rule TypeName="MarkISerializableTypesWithSerializable" Category="Microsoft.Usage" CheckId="CA2237">
-    <Resolution Name="Default">Add [Serializable] to {0} as this type implements ISerializable.</Resolution>
-   </Rule>
-   <Rule TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822">
-    <Resolution Name="Default">The 'this' parameter (or 'Me' in Visual Basic) of {0} is never used. Mark the member as static (or Shared in Visual Basic) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate.</Resolution>
-   </Rule>
    <Rule TypeName="MembersShouldNotExposeCertainConcreteTypes" Category="Microsoft.Design" CheckId="CA1059">
     <Resolution Name="Xml">Modify member {0} so that it no longer exposes the concrete type {1}. Use IXPathNavigable to represent XML data sources.</Resolution>
-   </Rule>
-   <Rule TypeName="ParameterNamesShouldMatchBaseDeclaration" Category="Microsoft.Naming" CheckId="CA1725">
-    <Resolution Name="Default">In member {0}, change parameter name {1} to {2} in order to match the identifier as it has been declared in {3}.</Resolution>
    </Rule>
    <Rule TypeName="PropertiesShouldNotReturnArrays" Category="Microsoft.Performance" CheckId="CA1819">
     <Resolution Name="Default">Change {0} to return a collection or make it a method.</Resolution>

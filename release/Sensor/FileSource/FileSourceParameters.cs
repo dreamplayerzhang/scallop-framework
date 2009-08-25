@@ -28,6 +28,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml.Linq;
+using Scallop.Core;
 
 namespace Scallop.Sensor.FileSource
 {
@@ -52,7 +53,7 @@ namespace Scallop.Sensor.FileSource
         select el;
 
       if (configs.Count<XElement>() != 1)
-        throw new ApplicationException("Ambiguous config name, " + selectConfig);
+        throw new ScallopException("Ambiguous config name, " + selectConfig);
 
       XElement activeConfig = configs.First<XElement>();
 
