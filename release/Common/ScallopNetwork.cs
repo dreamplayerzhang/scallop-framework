@@ -208,7 +208,7 @@ namespace Scallop.Core.Network
    /// Message contract that defines the structure of a generated SOAP message.
    /// For more information, see http://msdn.microsoft.com/en-us/library/ms730255.aspx
    /// </summary>
-   [MessageContract]
+   [MessageContract(IsWrapped=false)]
    public class ScallopMessage
    {
       private ScallopMessageHeader header = new ScallopMessageHeader();

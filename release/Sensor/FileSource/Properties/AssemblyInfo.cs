@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("University of Oulu")]
 [assembly: AssemblyProduct("Scallop")]
-[assembly: AssemblyCopyright("Machine Vision Group")]
+[assembly: AssemblyCopyright("Copyright © Machine Vision Group 2009")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
