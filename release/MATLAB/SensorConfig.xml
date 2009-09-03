@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<AxisCameraConfigSet DefaultConfig="Rotuaari" xmlns="Scallop/AxisCameraSchema.xsd">
+  
+  <AxisCameraConfig ConfigName="Rutakko">
+    <Address>http://koti.sonkajarvi.net</Address>
+    <FrameFormat>System.Drawing.Bitmap</FrameFormat>
+    <Resolution>CIF</Resolution>
+  </AxisCameraConfig>
+
+  <AxisCameraConfig ConfigName="Linnanmaa">
+    <Address>http://camera.willab.fi</Address>
+    <FrameFormat>System.Drawing.Bitmap</FrameFormat>
+    <Resolution>320x240</Resolution>
+  </AxisCameraConfig>
+
+  <AxisCameraConfig ConfigName="Rotuaari">
+    <Address>http://livekuva.suomi.net</Address>
+    <FrameFormat>System.Drawing.Bitmap</FrameFormat>
+    <Resolution>320x240</Resolution>
+  </AxisCameraConfig>
+
+</AxisCameraConfigSet>
