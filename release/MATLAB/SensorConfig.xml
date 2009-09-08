@@ -20,4 +20,10 @@
     <Resolution>320x240</Resolution>
   </AxisCameraConfig>
 
+  <AxisCameraConfig ConfigName="Kungsbacka">
+    <Address>http://217.28.194.148/</Address>
+    <FrameFormat>System.Drawing.Bitmap</FrameFormat>
+    <Resolution>320x240</Resolution>
+  </AxisCameraConfig>
+
 </AxisCameraConfigSet>
