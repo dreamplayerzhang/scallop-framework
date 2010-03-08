@@ -370,7 +370,7 @@ namespace Scallop.Network.PeerChannel
       {
          get
          {
-            return new ReadOnlyCollection<string>(neighbours);
+            return new ReadOnlyCollection<string>(new List<string>(neighbours));
          }
       }
 
