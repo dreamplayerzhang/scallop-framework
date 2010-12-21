@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 
-<AxisCameraConfigSet DefaultConfig="Rotuaari" xmlns="Scallop/AxisCameraSchema.xsd">
+<AxisCameraConfigSet DefaultConfig="CorridorTS340b" xmlns="Scallop/AxisCameraSchema.xsd">
   
   <AxisCameraConfig ConfigName="LabTS318">
     <Address>http://130.231.50.72</Address>

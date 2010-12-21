@@ -415,8 +415,13 @@ namespace Scallop.Sensor.Axis
       private void getFrames(object sender, DoWorkEventArgs ev)
       {
          BackgroundWorker bw = sender as BackgroundWorker;
-         
-         string delimiter = "--myboundary";
+
+         string strHeader = "--myboundary\r\nContent-Type: image/jpeg\r\nContent-Length: ";
+
+         byte[] headerBuffer = new byte[strHeader.Length];
+         string strHeaderBuffer = "";
+
+         int bytesRead = 0;
 
          // Set the URL to request
          //string strRequest = this.camParams.MjpgParameterString();
@@ -439,17 +444,12 @@ namespace Scallop.Sensor.Axis
          
          using (BufferedStream mjpgStream = new BufferedStream(streamResponse.GetResponseStream()))
          {
-            // find the first boundary
-            while (!(readMjpgLine(mjpgStream).Equals(delimiter)))
-            { /* NO-OP */ }
-
-
             this.streaming = true;
             this.doOpened(this, EventArgs.Empty);
             while (true)
             {
                int contentLen = 0;
-               string aLine;
+               string aLine = "";
                if (bw.CancellationPending == true)
                {
                   mjpgStream.Close();
@@ -457,15 +457,47 @@ namespace Scallop.Sensor.Axis
                   return;
                }
 
-               aLine = readMjpgLine(mjpgStream);
-               if (!aLine.StartsWith("Content-Type: image/jpeg"))
-                  throw new ScallopException("Content-Type not found");
+               /*
+               HTTP/1.0 200 OK\r\n
+               Content-Type: multipart/x-mixed-replace;boundary=myboundary\r\n
+               \r\n
+               --myboundary\r\n
+               Content-Type: image/jpeg\r\n
+               Content-Length: 15656\r\n
+               \r\n
+               <JPEG image data>\r\n
+               --myboundary\r\n
+               Content-Type: image/jpeg\r\n
+               Content-Length: 14978\r\n
+               \r\n
+               <JPEG image data>\r\n
+               --myboundary\r\n
+               Content-Type: image/jpeg\r\n
+               Content-Length: 15136\r\n
+               \r\n
+               <JPEG image data>\r\n
+               --myboundary\r\n
+                .
+                .
+                .*/
+
+              bytesRead = 0;
+
+               // Read --myboundary and Content-Type
+              while ((bytesRead += mjpgStream.Read(headerBuffer,
+                                    bytesRead,
+                                    headerBuffer.Length - bytesRead)) < headerBuffer.Length)
+               {
+                  // No op
+               }
+
+               strHeaderBuffer = System.Text.Encoding.UTF8.GetString(headerBuffer);
+
+               if (!strHeaderBuffer.Equals(strHeader))
+                  throw new ScallopException("MJPEG header not found");
 
                aLine = readMjpgLine(mjpgStream);
-               if (aLine.StartsWith("Content-Length:"))
-                  contentLen = int.Parse(aLine.Substring(15));
-               else
-                  throw new ScallopException("Content-Length not found");
+               contentLen = int.Parse(aLine);
 
                aLine = readMjpgLine(mjpgStream);
                if (!String.IsNullOrEmpty(aLine)) // empty line
@@ -473,19 +505,17 @@ namespace Scallop.Sensor.Axis
 
                // buffer for MJPG frame data
                byte[] frameBuffer = new byte[contentLen];
-               int tmp = 0;
+               bytesRead = 0;
 
                // read up to contentLen of data to frameBuffer
-               while ((tmp += mjpgStream.Read(frameBuffer,
-                                              tmp,
-                                              contentLen - tmp)) < contentLen)
+               while ((bytesRead += mjpgStream.Read(frameBuffer,
+                                              bytesRead,
+                                              contentLen - bytesRead)) < contentLen)
                {
                   // No op
                }
 
                aLine = readMjpgLine(mjpgStream);
-               while (!aLine.StartsWith(delimiter))
-                  aLine = readMjpgLine(mjpgStream);
 
                switch (this.cameraConfig.FrameFormat)
                {
@@ -533,6 +563,7 @@ namespace Scallop.Sensor.Axis
          {
             temp2 = temp;
             temp = input.ReadByte();
+
             if (temp == -1)
                throw new ScallopException("End of stream encountered.");
             buf.Add((byte)temp);
@@ -543,7 +574,7 @@ namespace Scallop.Sensor.Axis
             }
          }
 
-         strBuffer = System.Text.Encoding.ASCII.GetString((byte[])buf.ToArray(), 0, count - 2);
+         strBuffer = System.Text.Encoding.UTF8.GetString((byte[])buf.ToArray(), 0, count - 2);
          buf.Clear();
          return strBuffer;
       }
