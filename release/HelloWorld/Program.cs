@@ -17,6 +17,8 @@ namespace Scallop.HelloWorld
       public static IScallopNetwork NetworkInterface = null;
       string NetworkConfigFile = "PeerChannelConfig.xml";
 
+      static System.Threading.ManualResetEvent waitEvent = new System.Threading.ManualResetEvent(false);
+
       static void Main(string[] args)
       {
          try
@@ -42,6 +44,8 @@ namespace Scallop.HelloWorld
 
          SensorInterface = null;
          NetworkInterface = null;
+
+         waitEvent.Set();
       }
 
       public Program()
@@ -82,12 +86,7 @@ namespace Scallop.HelloWorld
          NetworkConfig.Load(NetworkConfigFile);
          NetworkInterface.Join(NetworkConfig, null);
 
-         do
-         {
-            // infinite loop
-            System.Threading.Thread.Sleep(1000);
-         } while (true);
-
+         waitEvent.WaitOne();
       }
 
       #region Network handlers
