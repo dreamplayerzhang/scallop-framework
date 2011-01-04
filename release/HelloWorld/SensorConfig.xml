@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 
-<AxisCameraConfigSet DefaultConfig="Rotuaari" xmlns="Scallop/AxisCameraSchema.xsd">
+<AxisCameraConfigSet DefaultConfig="Rutakko" xmlns="Scallop/AxisCameraSchema.xsd">
   
   <AxisCameraConfig ConfigName="LabTS318">
     <Address>http://130.231.50.72</Address>
@@ -66,9 +66,10 @@
   </AxisCameraConfig>
 
   <AxisCameraConfig ConfigName="Rutakko">
-    <Address>http://koti.sonkajarvi.net</Address>
+    <Address>http://rutakonraitti.axiscam.net:8899</Address>
     <FrameFormat>System.Drawing.Bitmap</FrameFormat>
-    <Resolution>CIF</Resolution>
+    <Resolution>320x240</Resolution>
+    <Framerate>5</Framerate>
   </AxisCameraConfig>
 
   <AxisCameraConfig ConfigName="IsoSyote">
@@ -81,7 +82,6 @@
     <Address>http://livekuva.suomi.net</Address>
     <FrameFormat>System.Drawing.Bitmap</FrameFormat>
     <Resolution>320x240</Resolution>
-    <Framerate>5</Framerate>
   </AxisCameraConfig>
 
 </AxisCameraConfigSet>
