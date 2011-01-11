@@ -1,8 +1,6 @@
 SensorConfigFile = 'SensorConfig.xml';
 
 global frameCount;
-global imgRed;
-global imgBG;
 
 frameCount = 0;
 
@@ -16,8 +14,8 @@ dataListener = addlistener(AxisCamera, 'Data', @eventSensorData);
 statusListener = addlistener(AxisCamera, 'StatusChanged', @eventSensorStatusChanged);
 
 %% Register sensor
-%AxisCamera.Register(System.Xml.Linq.XDocument.Load(SensorConfigFile),'Rotuaari');
-AxisCamera.Register(System.Xml.Linq.XDocument.Load(SensorConfigFile),'Linnanmaa');
+AxisCamera.Register(System.Xml.Linq.XDocument.Load(SensorConfigFile),'Rutakko');
+%AxisCamera.Register(System.Xml.Linq.XDocument.Load(SensorConfigFile),'IsoSyote');
 
 %% Start sensor
 startSensor(AxisCamera);

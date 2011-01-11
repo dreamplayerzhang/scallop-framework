@@ -3,6 +3,9 @@ function eventSensorData(sender, ScallopSensorDataEventArgs)
    global frameCount;
    global imgBG;
    global imgRed;
+   global hFig;
+   global hIm;
+   global hRed;
    
    %% Get the pointer to pixel data
    bmp = ScallopSensorDataEventArgs.Data;
@@ -35,8 +38,16 @@ function eventSensorData(sender, ScallopSensorDataEventArgs)
    img = cat(3,r,g,b);
    
    if(frameCount==0)
+      hFig = figure('Name','Scallop MATLAB Demo','MenuBar','none','NumberTitle','off');
+      hIm = imshow(zeros(height,width,'uint8'),'Border','Tight');
+      
       imgBG = rgb2gray(img);
       imgRed = cat(3,ones(height,width), zeros(height,width), zeros(height,width));
+      
+      hold on;
+      hRed = imshow(imgRed,'Border','Tight');
+      hold off;
+      
       frameCount = 1;
       return;
    end
@@ -46,12 +57,9 @@ function eventSensorData(sender, ScallopSensorDataEventArgs)
    imgDiff(imgDiff>8)=255;
    
    %% Show image
-   imshow(img,'Border','Tight');
+   set(hIm,'CData',img);
+   set(hRed, 'AlphaData', imgDiff);
    
-   hold on
-   h = imshow(imgRed,'Border','Tight');
-   hold off
-   set(h, 'AlphaData', imgDiff);   
    drawnow;
    
    imgBG = uint8( 0.8*rgb2gray(img) + 0.2*imgBG );
