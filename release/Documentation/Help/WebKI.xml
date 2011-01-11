@@ -4,10 +4,8 @@
   <HelpKINode Title="Active enumeration member" Url="html/07074b1c-9fc5-b8ce-1da2-02122c8521cc.htm" />
   <HelpKINode Title="Address property" Url="html/4c840903-882a-990e-8aca-f95b7e8436e6.htm" />
   <HelpKINode Title="AxisCamera class" Url="html/ca80d770-f6a6-65a2-8a9f-ac6300a90663.htm" />
-  <HelpKINode Title="AxisCamera class" Url="html/cd4b4b8b-b64f-9ab5-e802-398c0c87188e.htm" />
   <HelpKINode Title="AxisCamera class">
     <HelpKINode Title="about AxisCamera class" Url="html/ca80d770-f6a6-65a2-8a9f-ac6300a90663.htm" />
-    <HelpKINode Title="all members" Url="html/cd4b4b8b-b64f-9ab5-e802-398c0c87188e.htm" />
     <HelpKINode Title="constructor" Url="html/eb93c92b-4898-63e9-209d-4f5a7fa6413a.htm" />
     <HelpKINode Title="events" Url="html/6c6f06f3-c9fe-aa61-df3b-647f76a26bb7.htm" />
     <HelpKINode Title="methods" Url="html/cfaaaa17-928e-e48a-73ae-d1a303416af9.htm" />
@@ -29,10 +27,8 @@
   <HelpKINode Title="AxisCamera.Version property" Url="html/3122cadb-f1de-dbe0-44a0-a368f55a86b1.htm" />
   <HelpKINode Title="AxisCamera.Zoom method" Url="html/1317167d-8141-b171-fcdd-2aed990cb6eb.htm" />
   <HelpKINode Title="AxisCameraConfigSet class" Url="html/0c113511-4638-e2f4-ae7a-339738b6370f.htm" />
-  <HelpKINode Title="AxisCameraConfigSet class" Url="html/b47574b3-24e5-5d5a-e6f3-dd779396234d.htm" />
   <HelpKINode Title="AxisCameraConfigSet class">
     <HelpKINode Title="about AxisCameraConfigSet class" Url="html/0c113511-4638-e2f4-ae7a-339738b6370f.htm" />
-    <HelpKINode Title="all members" Url="html/b47574b3-24e5-5d5a-e6f3-dd779396234d.htm" />
     <HelpKINode Title="constructor" Url="html/948626f5-e203-0f0e-5bae-46cf95ba1a3b.htm" />
     <HelpKINode Title="properties" Url="html/1a1e21dc-3197-f2a3-9242-0a46541bd49e.htm" />
   </HelpKINode>
@@ -40,10 +36,8 @@
   <HelpKINode Title="AxisCameraConfigSet.DefaultConfig property" Url="html/a48f4acd-33f6-681f-1c9d-8d19f9e195fe.htm" />
   <HelpKINode Title="AxisCameraConfigSet.Items property" Url="html/89587a8f-feab-c6f7-e898-b42f69e6a2b4.htm" />
   <HelpKINode Title="AxisCameraConfigType class" Url="html/02925d69-c453-674b-fa96-f38595298491.htm" />
-  <HelpKINode Title="AxisCameraConfigType class" Url="html/c3ee0626-36cd-f3c8-d702-e5272d0f0a25.htm" />
   <HelpKINode Title="AxisCameraConfigType class">
     <HelpKINode Title="about AxisCameraConfigType class" Url="html/02925d69-c453-674b-fa96-f38595298491.htm" />
-    <HelpKINode Title="all members" Url="html/c3ee0626-36cd-f3c8-d702-e5272d0f0a25.htm" />
     <HelpKINode Title="constructor" Url="html/6fa0773f-6761-475f-ccd6-bc65a40e0817.htm" />
     <HelpKINode Title="properties" Url="html/fdc10225-4f2f-6427-98c0-62e8ce285df5.htm" />
   </HelpKINode>
@@ -147,10 +141,8 @@
   <HelpKINode Title="Info event" Url="html/b65d0caa-0edb-b7ab-727d-ea4d7719c1d5.htm" />
   <HelpKINode Title="Info event" Url="html/e24070e6-e9ad-6a28-0450-5ead3f9ead27.htm" />
   <HelpKINode Title="InterfaceFactory class" Url="html/324bc802-5e81-63d4-b5d7-009078d6c11f.htm" />
-  <HelpKINode Title="InterfaceFactory class" Url="html/51887531-4292-d478-5227-f4678de1e550.htm" />
   <HelpKINode Title="InterfaceFactory class">
     <HelpKINode Title="about InterfaceFactory class" Url="html/324bc802-5e81-63d4-b5d7-009078d6c11f.htm" />
-    <HelpKINode Title="all members" Url="html/51887531-4292-d478-5227-f4678de1e550.htm" />
     <HelpKINode Title="constructor" Url="html/6ae47c4b-b977-cb79-7b5f-d565bb379fe0.htm" />
     <HelpKINode Title="methods" Url="html/1fc06c43-8af5-dbe2-6d31-5c748635008c.htm" />
   </HelpKINode>
@@ -159,20 +151,16 @@
   <HelpKINode Title="InterfaceFactory.InterfaceFactory constructor" Url="html/6ae47c4b-b977-cb79-7b5f-d565bb379fe0.htm" />
   <HelpKINode Title="InternalMessage property" Url="html/ad2518ac-8007-65c6-d400-dcd3c6bf527d.htm" />
   <HelpKINode Title="InvalidConfigurationException class" Url="html/21d3a144-0b45-2123-7915-cca8bb05ee08.htm" />
-  <HelpKINode Title="InvalidConfigurationException class" Url="html/70b66969-594e-b4c1-0b5a-6a1e72714805.htm" />
   <HelpKINode Title="InvalidConfigurationException class">
     <HelpKINode Title="about InvalidConfigurationException class" Url="html/21d3a144-0b45-2123-7915-cca8bb05ee08.htm" />
-    <HelpKINode Title="all members" Url="html/70b66969-594e-b4c1-0b5a-6a1e72714805.htm" />
     <HelpKINode Title="constructor" Url="html/15f27ce6-4647-8284-a3de-45733ad7ae9e.htm" />
     <HelpKINode Title="methods" Url="html/d0c12e31-610c-a15f-2e2b-3ba87ca255f8.htm" />
     <HelpKINode Title="properties" Url="html/2dbefccc-2192-03e2-b60f-11c86cf824cd.htm" />
   </HelpKINode>
   <HelpKINode Title="InvalidConfigurationException.InvalidConfigurationException constructor" Url="html/15f27ce6-4647-8284-a3de-45733ad7ae9e.htm" />
-  <HelpKINode Title="IScallopNetwork interface" Url="html/0eddbe0a-13d8-c938-8d31-ba8badd8f191.htm" />
   <HelpKINode Title="IScallopNetwork interface" Url="html/d89b6dcf-1e67-742f-b14a-9d347f32f180.htm" />
   <HelpKINode Title="IScallopNetwork interface">
     <HelpKINode Title="about IScallopNetwork interface" Url="html/d89b6dcf-1e67-742f-b14a-9d347f32f180.htm" />
-    <HelpKINode Title="all members" Url="html/0eddbe0a-13d8-c938-8d31-ba8badd8f191.htm" />
     <HelpKINode Title="events" Url="html/d48210e9-8a22-866c-f862-a974a4202349.htm" />
     <HelpKINode Title="methods" Url="html/deec960e-b647-9a0e-249d-a19ae9c86e66.htm" />
     <HelpKINode Title="properties" Url="html/4aca3364-c3fe-f1a4-16c9-e97c1cc0c620.htm" />
@@ -194,10 +182,8 @@
   <HelpKINode Title="IScallopNetwork.StatusChanged event" Url="html/d5638fd6-7dcd-e3c4-deca-8949d815464b.htm" />
   <HelpKINode Title="IScallopNetwork.Version property" Url="html/8495c184-ce06-f3ed-d4f2-816bb98e544e.htm" />
   <HelpKINode Title="IScallopSensor interface" Url="html/2844eeaf-d588-725a-196e-432eb5224f60.htm" />
-  <HelpKINode Title="IScallopSensor interface" Url="html/96827185-12da-8775-6561-3287c65db5f3.htm" />
   <HelpKINode Title="IScallopSensor interface">
     <HelpKINode Title="about IScallopSensor interface" Url="html/2844eeaf-d588-725a-196e-432eb5224f60.htm" />
-    <HelpKINode Title="all members" Url="html/96827185-12da-8775-6561-3287c65db5f3.htm" />
     <HelpKINode Title="events" Url="html/6a197040-567c-ebfa-bdca-e61c3e259c86.htm" />
     <HelpKINode Title="methods" Url="html/e1c87a52-de90-48ed-959f-11c3f9b366a4.htm" />
     <HelpKINode Title="properties" Url="html/0a595f72-a9dc-e49d-3fd1-b21292800061.htm" />
@@ -253,10 +239,8 @@
   <HelpKINode Title="Message property" Url="html/d9c3270b-2e41-8977-19d2-a482c04196d6.htm" />
   <HelpKINode Title="Message property" Url="html/dc43c3c1-95df-3e36-58ed-aa9bcd616a49.htm" />
   <HelpKINode Title="MessageContentException class" Url="html/2450058f-95bb-b9dc-2165-32adda5cf728.htm" />
-  <HelpKINode Title="MessageContentException class" Url="html/9aa83a1a-8cd1-cf5a-9f68-b57070463259.htm" />
   <HelpKINode Title="MessageContentException class">
     <HelpKINode Title="about MessageContentException class" Url="html/2450058f-95bb-b9dc-2165-32adda5cf728.htm" />
-    <HelpKINode Title="all members" Url="html/9aa83a1a-8cd1-cf5a-9f68-b57070463259.htm" />
     <HelpKINode Title="constructor" Url="html/5d7869f5-49f3-99ad-e4a7-07ca7967cc70.htm" />
     <HelpKINode Title="methods" Url="html/53794f7d-7e1d-3e7a-4377-ff8f6c5216df.htm" />
     <HelpKINode Title="properties" Url="html/fe6e2dcc-da80-b5bc-ae46-5362cf81b336.htm" />
@@ -291,21 +275,17 @@
   <HelpKINode Title="PanTilt method" Url="html/7fe5a696-7e19-e49d-3407-5c902a518552.htm" />
   <HelpKINode Title="Password property" Url="html/aebeeca0-4716-7700-240d-7753d14d52ca.htm" />
   <HelpKINode Title="PeerChannelConfigSet class" Url="html/281ab857-883a-33ec-d7df-64c7d21cdd96.htm" />
-  <HelpKINode Title="PeerChannelConfigSet class" Url="html/b88fb0d4-4b53-4c8c-adf3-e2afeb98a2e8.htm" />
   <HelpKINode Title="PeerChannelConfigSet class">
     <HelpKINode Title="about PeerChannelConfigSet class" Url="html/281ab857-883a-33ec-d7df-64c7d21cdd96.htm" />
-    <HelpKINode Title="all members" Url="html/b88fb0d4-4b53-4c8c-adf3-e2afeb98a2e8.htm" />
     <HelpKINode Title="constructor" Url="html/98944688-37a5-8717-5762-d9fc269c0555.htm" />
     <HelpKINode Title="properties" Url="html/f2015ac0-ef5e-83cb-194b-bd5936f076a9.htm" />
   </HelpKINode>
   <HelpKINode Title="PeerChannelConfigSet.DefaultConfig property" Url="html/4bda97ca-cba1-7b4a-cc7c-4672566f8171.htm" />
   <HelpKINode Title="PeerChannelConfigSet.Items property" Url="html/495b23ce-c2d9-04be-b480-8e0a61c032fc.htm" />
   <HelpKINode Title="PeerChannelConfigSet.PeerChannelConfigSet constructor" Url="html/98944688-37a5-8717-5762-d9fc269c0555.htm" />
-  <HelpKINode Title="PeerChannelConfigType class" Url="html/1fe168cd-42a8-dc19-82a3-edda0842d031.htm" />
   <HelpKINode Title="PeerChannelConfigType class" Url="html/d5a22dc5-3913-fb3a-9871-957ce6b0eeb9.htm" />
   <HelpKINode Title="PeerChannelConfigType class">
     <HelpKINode Title="about PeerChannelConfigType class" Url="html/d5a22dc5-3913-fb3a-9871-957ce6b0eeb9.htm" />
-    <HelpKINode Title="all members" Url="html/1fe168cd-42a8-dc19-82a3-edda0842d031.htm" />
     <HelpKINode Title="constructor" Url="html/2b4e9f68-8e66-07f1-c71d-d37b245e04ec.htm" />
     <HelpKINode Title="properties" Url="html/27c0f123-1fb5-e564-e080-d10b63fcd55b.htm" />
   </HelpKINode>
@@ -330,83 +310,57 @@
   <HelpKINode Title="RotationSpecified property" Url="html/1e803231-dd4f-108e-51a0-75f1264fcee1.htm" />
   <HelpKINode Title="Scallop.Core namespace" Url="html/752d3aaf-820e-39ee-62fd-b3b049600c68.htm" />
   <HelpKINode Title="Scallop.Core.Events namespace" Url="html/a8bd6d19-9565-8919-1cec-2e3418b74e85.htm" />
-  <HelpKINode Title="Scallop.Core.Events.ScallopInfoEventArgs class" Url="html/7102d64b-04a2-ad60-f90e-6d372bffab4b.htm" />
   <HelpKINode Title="Scallop.Core.Events.ScallopInfoEventArgs class" Url="html/906ca150-b50c-2811-ecc3-f753559a1c63.htm" />
-  <HelpKINode Title="Scallop.Core.Events.ScallopNetworkDataEventArgs class" Url="html/4673a685-7ab8-eee2-732b-7015e103ade0.htm" />
   <HelpKINode Title="Scallop.Core.Events.ScallopNetworkDataEventArgs class" Url="html/9359441e-33a6-0f01-87e3-978e368fde10.htm" />
   <HelpKINode Title="Scallop.Core.Events.ScallopNetworkStatusChangedEventArgs class" Url="html/de5b1d00-534d-21d4-8a45-151c0e00f7cf.htm" />
-  <HelpKINode Title="Scallop.Core.Events.ScallopNetworkStatusChangedEventArgs class" Url="html/fdc3703a-7c3b-de2c-e5dd-bcd9636b00d5.htm" />
-  <HelpKINode Title="Scallop.Core.Events.ScallopSensorDataEventArgs class" Url="html/4953507e-606e-a149-304f-88ff77d34dbb.htm" />
   <HelpKINode Title="Scallop.Core.Events.ScallopSensorDataEventArgs class" Url="html/7b60b633-9e52-9071-11e1-eef40850f619.htm" />
-  <HelpKINode Title="Scallop.Core.Events.ScallopSensorStatusChangedEventArgs class" Url="html/aac15264-02e5-af52-0fc6-c6e67ecaeac6.htm" />
   <HelpKINode Title="Scallop.Core.Events.ScallopSensorStatusChangedEventArgs class" Url="html/cac55474-14e6-5641-2284-7248dc24709b.htm" />
   <HelpKINode Title="Scallop.Core.InterfaceFactory class" Url="html/324bc802-5e81-63d4-b5d7-009078d6c11f.htm" />
-  <HelpKINode Title="Scallop.Core.InterfaceFactory class" Url="html/51887531-4292-d478-5227-f4678de1e550.htm" />
   <HelpKINode Title="Scallop.Core.InvalidConfigurationException class" Url="html/21d3a144-0b45-2123-7915-cca8bb05ee08.htm" />
-  <HelpKINode Title="Scallop.Core.InvalidConfigurationException class" Url="html/70b66969-594e-b4c1-0b5a-6a1e72714805.htm" />
   <HelpKINode Title="Scallop.Core.MessageContentException class" Url="html/2450058f-95bb-b9dc-2165-32adda5cf728.htm" />
-  <HelpKINode Title="Scallop.Core.MessageContentException class" Url="html/9aa83a1a-8cd1-cf5a-9f68-b57070463259.htm" />
   <HelpKINode Title="Scallop.Core.Network namespace" Url="html/d9e21b02-c6f5-2ce0-2cb7-4eba5cf378c4.htm" />
-  <HelpKINode Title="Scallop.Core.Network.IScallopNetwork interface" Url="html/0eddbe0a-13d8-c938-8d31-ba8badd8f191.htm" />
   <HelpKINode Title="Scallop.Core.Network.IScallopNetwork interface" Url="html/d89b6dcf-1e67-742f-b14a-9d347f32f180.htm" />
   <HelpKINode Title="Scallop.Core.Network.ScallopMessage class" Url="html/439c98ed-0ec7-6326-3598-fed6b537e0e7.htm" />
-  <HelpKINode Title="Scallop.Core.Network.ScallopMessage class" Url="html/9da6a24b-2bff-1b52-4f06-7a20fa801d06.htm" />
-  <HelpKINode Title="Scallop.Core.Network.ScallopMessageHeader class" Url="html/08bf26b1-6c65-24a9-3870-d2d385b08c51.htm" />
   <HelpKINode Title="Scallop.Core.Network.ScallopMessageHeader class" Url="html/79aa9afa-494a-aee0-6700-d9d9902a0da9.htm" />
   <HelpKINode Title="Scallop.Core.Network.ScallopNetworkState enumeration" Url="html/cf2a1f9d-8b8f-89ae-18d5-e6752035f0e5.htm" />
-  <HelpKINode Title="Scallop.Core.ScallopException class" Url="html/00ed22c1-ddfa-2c90-7cf0-70521727c2c2.htm" />
   <HelpKINode Title="Scallop.Core.ScallopException class" Url="html/abfd8beb-53ad-817d-b5ae-459d56c13bd8.htm" />
-  <HelpKINode Title="Scallop.Core.ScallopUtils class" Url="html/c1fb98ba-3d00-ad9f-538b-443738b62f86.htm" />
   <HelpKINode Title="Scallop.Core.ScallopUtils class" Url="html/c4857890-4dc9-e5ba-f0c7-2da0b706886a.htm" />
   <HelpKINode Title="Scallop.Core.Sensor namespace" Url="html/946962fb-f697-dc68-1eb2-7f4bb0fa5c41.htm" />
   <HelpKINode Title="Scallop.Core.Sensor.IScallopSensor interface" Url="html/2844eeaf-d588-725a-196e-432eb5224f60.htm" />
-  <HelpKINode Title="Scallop.Core.Sensor.IScallopSensor interface" Url="html/96827185-12da-8775-6561-3287c65db5f3.htm" />
   <HelpKINode Title="Scallop.Core.Sensor.ScallopSensorState enumeration" Url="html/07074b1c-9fc5-b8ce-1da2-02122c8521cc.htm" />
   <HelpKINode Title="Scallop.Network.PeerChannel namespace" Url="html/4f9b13ae-127c-5573-9d5d-2a0892c24891.htm" />
   <HelpKINode Title="Scallop.Network.PeerChannel.PeerChannelConfigSet class" Url="html/281ab857-883a-33ec-d7df-64c7d21cdd96.htm" />
-  <HelpKINode Title="Scallop.Network.PeerChannel.PeerChannelConfigSet class" Url="html/b88fb0d4-4b53-4c8c-adf3-e2afeb98a2e8.htm" />
-  <HelpKINode Title="Scallop.Network.PeerChannel.PeerChannelConfigType class" Url="html/1fe168cd-42a8-dc19-82a3-edda0842d031.htm" />
   <HelpKINode Title="Scallop.Network.PeerChannel.PeerChannelConfigType class" Url="html/d5a22dc5-3913-fb3a-9871-957ce6b0eeb9.htm" />
-  <HelpKINode Title="Scallop.Network.PeerChannel.ScallopPeerChannel class" Url="html/0804d3db-429b-9e6f-c53a-f9090b0c5a01.htm" />
   <HelpKINode Title="Scallop.Network.PeerChannel.ScallopPeerChannel class" Url="html/75c8e121-3c55-554b-4461-ddde85c6ea17.htm" />
   <HelpKINode Title="Scallop.Sensor.Axis namespace" Url="html/a5cedd47-e96b-99ff-3921-a924337d8faa.htm" />
   <HelpKINode Title="Scallop.Sensor.Axis.AxisCamera class" Url="html/ca80d770-f6a6-65a2-8a9f-ac6300a90663.htm" />
-  <HelpKINode Title="Scallop.Sensor.Axis.AxisCamera class" Url="html/cd4b4b8b-b64f-9ab5-e802-398c0c87188e.htm" />
   <HelpKINode Title="Scallop.Sensor.Axis.AxisCameraConfigSet class" Url="html/0c113511-4638-e2f4-ae7a-339738b6370f.htm" />
-  <HelpKINode Title="Scallop.Sensor.Axis.AxisCameraConfigSet class" Url="html/b47574b3-24e5-5d5a-e6f3-dd779396234d.htm" />
   <HelpKINode Title="Scallop.Sensor.Axis.AxisCameraConfigType class" Url="html/02925d69-c453-674b-fa96-f38595298491.htm" />
-  <HelpKINode Title="Scallop.Sensor.Axis.AxisCameraConfigType class" Url="html/c3ee0626-36cd-f3c8-d702-e5272d0f0a25.htm" />
   <HelpKINode Title="Scallop.Sensor.Axis.AxisCameraConfigTypeCamera enumeration" Url="html/1275b550-1382-d338-5f4f-270962d4a5ba.htm" />
   <HelpKINode Title="Scallop.Sensor.Axis.AxisCameraConfigTypeFrameFormat enumeration" Url="html/c06d570b-b52a-66ec-9b70-ce6bf8db201d.htm" />
   <HelpKINode Title="Scallop.Sensor.Axis.AxisCameraConfigTypeResolution enumeration" Url="html/b480b6fa-bf7b-f224-5aab-3cb04c9958c1.htm" />
   <HelpKINode Title="Scallop.Sensor.Axis.AxisCameraConfigTypeTextBackgroundColor enumeration" Url="html/ae55241f-7368-9234-e6dd-610b8a3cc195.htm" />
   <HelpKINode Title="Scallop.Sensor.Axis.AxisCameraConfigTypeTextColor enumeration" Url="html/07a9aa78-a49f-ee37-78dc-639a2cc80bd4.htm" />
   <HelpKINode Title="Scallop.Sensor.Axis.AxisCameraConfigTypeTextPosition enumeration" Url="html/2ea87571-8964-7f0e-540e-408a56da0f1c.htm" />
-  <HelpKINode Title="ScallopException class" Url="html/00ed22c1-ddfa-2c90-7cf0-70521727c2c2.htm" />
   <HelpKINode Title="ScallopException class" Url="html/abfd8beb-53ad-817d-b5ae-459d56c13bd8.htm" />
   <HelpKINode Title="ScallopException class">
     <HelpKINode Title="about ScallopException class" Url="html/abfd8beb-53ad-817d-b5ae-459d56c13bd8.htm" />
-    <HelpKINode Title="all members" Url="html/00ed22c1-ddfa-2c90-7cf0-70521727c2c2.htm" />
     <HelpKINode Title="constructor" Url="html/d57f6354-dcff-7aa7-cdb0-d41ee1a5e5bf.htm" />
     <HelpKINode Title="methods" Url="html/2a8faf18-aace-dd0f-fa26-c07ca0d9a6b1.htm" />
     <HelpKINode Title="properties" Url="html/6395f28f-770a-8055-5bce-bee8ebdd5c7f.htm" />
   </HelpKINode>
   <HelpKINode Title="ScallopException.ScallopException constructor" Url="html/d57f6354-dcff-7aa7-cdb0-d41ee1a5e5bf.htm" />
-  <HelpKINode Title="ScallopInfoEventArgs class" Url="html/7102d64b-04a2-ad60-f90e-6d372bffab4b.htm" />
   <HelpKINode Title="ScallopInfoEventArgs class" Url="html/906ca150-b50c-2811-ecc3-f753559a1c63.htm" />
   <HelpKINode Title="ScallopInfoEventArgs class">
     <HelpKINode Title="about ScallopInfoEventArgs class" Url="html/906ca150-b50c-2811-ecc3-f753559a1c63.htm" />
-    <HelpKINode Title="all members" Url="html/7102d64b-04a2-ad60-f90e-6d372bffab4b.htm" />
     <HelpKINode Title="constructor" Url="html/5dc86845-c78d-5d7c-26b2-be590ea13131.htm" />
     <HelpKINode Title="properties" Url="html/ab8609e6-18e2-06fa-0368-eb02f5d5c834.htm" />
   </HelpKINode>
   <HelpKINode Title="ScallopInfoEventArgs.Message property" Url="html/47e3255b-e8b6-49b5-64bd-d5f47bed6d70.htm" />
   <HelpKINode Title="ScallopInfoEventArgs.ScallopInfoEventArgs constructor" Url="html/5dc86845-c78d-5d7c-26b2-be590ea13131.htm" />
   <HelpKINode Title="ScallopMessage class" Url="html/439c98ed-0ec7-6326-3598-fed6b537e0e7.htm" />
-  <HelpKINode Title="ScallopMessage class" Url="html/9da6a24b-2bff-1b52-4f06-7a20fa801d06.htm" />
   <HelpKINode Title="ScallopMessage class">
     <HelpKINode Title="about ScallopMessage class" Url="html/439c98ed-0ec7-6326-3598-fed6b537e0e7.htm" />
-    <HelpKINode Title="all members" Url="html/9da6a24b-2bff-1b52-4f06-7a20fa801d06.htm" />
     <HelpKINode Title="constructor" Url="html/21f79e42-4744-26c7-f0a3-277728966b7f.htm" />
     <HelpKINode Title="properties" Url="html/37fa3f3f-7e5c-bdc7-b726-11f21c29e131.htm" />
   </HelpKINode>
@@ -414,11 +368,9 @@
   <HelpKINode Title="ScallopMessage.Header property" Url="html/04601b6f-a829-0abc-62dd-78201cb35d9a.htm" />
   <HelpKINode Title="ScallopMessage.HopCount property" Url="html/04d6cc3f-b170-a355-ccc7-4874663ef1aa.htm" />
   <HelpKINode Title="ScallopMessage.ScallopMessage constructor" Url="html/21f79e42-4744-26c7-f0a3-277728966b7f.htm" />
-  <HelpKINode Title="ScallopMessageHeader class" Url="html/08bf26b1-6c65-24a9-3870-d2d385b08c51.htm" />
   <HelpKINode Title="ScallopMessageHeader class" Url="html/79aa9afa-494a-aee0-6700-d9d9902a0da9.htm" />
   <HelpKINode Title="ScallopMessageHeader class">
     <HelpKINode Title="about ScallopMessageHeader class" Url="html/79aa9afa-494a-aee0-6700-d9d9902a0da9.htm" />
-    <HelpKINode Title="all members" Url="html/08bf26b1-6c65-24a9-3870-d2d385b08c51.htm" />
     <HelpKINode Title="constructor" Url="html/6898f4e1-91ad-f2bb-721b-3c12a08f0f34.htm" />
     <HelpKINode Title="properties" Url="html/b9cfeccb-8586-e715-278f-7382c837d5ca.htm" />
   </HelpKINode>
@@ -427,11 +379,9 @@
   <HelpKINode Title="ScallopMessageHeader.Receivers property" Url="html/b3a26aa6-4859-d04f-dcd5-112494bfef7a.htm" />
   <HelpKINode Title="ScallopMessageHeader.ScallopMessageHeader constructor" Url="html/6898f4e1-91ad-f2bb-721b-3c12a08f0f34.htm" />
   <HelpKINode Title="ScallopMessageHeader.Sender property" Url="html/be1c141d-70fc-c5c6-ac2e-cc1078ed6440.htm" />
-  <HelpKINode Title="ScallopNetworkDataEventArgs class" Url="html/4673a685-7ab8-eee2-732b-7015e103ade0.htm" />
   <HelpKINode Title="ScallopNetworkDataEventArgs class" Url="html/9359441e-33a6-0f01-87e3-978e368fde10.htm" />
   <HelpKINode Title="ScallopNetworkDataEventArgs class">
     <HelpKINode Title="about ScallopNetworkDataEventArgs class" Url="html/9359441e-33a6-0f01-87e3-978e368fde10.htm" />
-    <HelpKINode Title="all members" Url="html/4673a685-7ab8-eee2-732b-7015e103ade0.htm" />
     <HelpKINode Title="constructor" Url="html/1cb451c0-41dc-568b-f2ef-abde11aff723.htm" />
     <HelpKINode Title="properties" Url="html/233a9a04-08d8-c52e-3761-9ae17bd2886c.htm" />
   </HelpKINode>
@@ -441,10 +391,8 @@
   <HelpKINode Title="ScallopNetworkDataEventArgs.ScallopNetworkDataEventArgs constructor" Url="html/1cb451c0-41dc-568b-f2ef-abde11aff723.htm" />
   <HelpKINode Title="ScallopNetworkState enumeration" Url="html/cf2a1f9d-8b8f-89ae-18d5-e6752035f0e5.htm" />
   <HelpKINode Title="ScallopNetworkStatusChangedEventArgs class" Url="html/de5b1d00-534d-21d4-8a45-151c0e00f7cf.htm" />
-  <HelpKINode Title="ScallopNetworkStatusChangedEventArgs class" Url="html/fdc3703a-7c3b-de2c-e5dd-bcd9636b00d5.htm" />
   <HelpKINode Title="ScallopNetworkStatusChangedEventArgs class">
     <HelpKINode Title="about ScallopNetworkStatusChangedEventArgs class" Url="html/de5b1d00-534d-21d4-8a45-151c0e00f7cf.htm" />
-    <HelpKINode Title="all members" Url="html/fdc3703a-7c3b-de2c-e5dd-bcd9636b00d5.htm" />
     <HelpKINode Title="constructor" Url="html/42289c2c-fe1f-15f7-67ae-b5d2d96af995.htm" />
     <HelpKINode Title="properties" Url="html/58db0c5c-8df4-f954-11d9-6c7e43dc3898.htm" />
   </HelpKINode>
@@ -453,11 +401,9 @@
   <HelpKINode Title="ScallopNetworkStatusChangedEventArgs.NewState property" Url="html/00be1f05-f510-ba8b-8723-d0e21fbb3d7b.htm" />
   <HelpKINode Title="ScallopNetworkStatusChangedEventArgs.OldState property" Url="html/e770a099-a764-b0e3-1d3c-bf37d693f82d.htm" />
   <HelpKINode Title="ScallopNetworkStatusChangedEventArgs.ScallopNetworkStatusChangedEventArgs constructor" Url="html/42289c2c-fe1f-15f7-67ae-b5d2d96af995.htm" />
-  <HelpKINode Title="ScallopPeerChannel class" Url="html/0804d3db-429b-9e6f-c53a-f9090b0c5a01.htm" />
   <HelpKINode Title="ScallopPeerChannel class" Url="html/75c8e121-3c55-554b-4461-ddde85c6ea17.htm" />
   <HelpKINode Title="ScallopPeerChannel class">
     <HelpKINode Title="about ScallopPeerChannel class" Url="html/75c8e121-3c55-554b-4461-ddde85c6ea17.htm" />
-    <HelpKINode Title="all members" Url="html/0804d3db-429b-9e6f-c53a-f9090b0c5a01.htm" />
     <HelpKINode Title="constructor" Url="html/598c7d45-9139-5580-4aa1-dfdd5a0f07f3.htm" />
     <HelpKINode Title="events" Url="html/e0905a89-ee0d-ff5f-5cb7-ab0143011dc9.htm" />
     <HelpKINode Title="methods" Url="html/9263101a-25a7-530d-38bb-087a4e75e323.htm" />
@@ -482,11 +428,9 @@
   <HelpKINode Title="ScallopPeerChannel.State property" Url="html/d571c20a-c04f-3959-8b62-0e20703b78e0.htm" />
   <HelpKINode Title="ScallopPeerChannel.StatusChanged event" Url="html/24372922-161f-122d-c92e-006f8b79900a.htm" />
   <HelpKINode Title="ScallopPeerChannel.Version property" Url="html/5eaedbf5-bcdd-cc99-6d5f-ec4d035c4bcb.htm" />
-  <HelpKINode Title="ScallopSensorDataEventArgs class" Url="html/4953507e-606e-a149-304f-88ff77d34dbb.htm" />
   <HelpKINode Title="ScallopSensorDataEventArgs class" Url="html/7b60b633-9e52-9071-11e1-eef40850f619.htm" />
   <HelpKINode Title="ScallopSensorDataEventArgs class">
     <HelpKINode Title="about ScallopSensorDataEventArgs class" Url="html/7b60b633-9e52-9071-11e1-eef40850f619.htm" />
-    <HelpKINode Title="all members" Url="html/4953507e-606e-a149-304f-88ff77d34dbb.htm" />
     <HelpKINode Title="constructor" Url="html/facd1ab6-e582-420a-8b83-590b209a8a65.htm" />
     <HelpKINode Title="properties" Url="html/dd8313ee-3aaa-9828-d13c-77d6e7e6ad8a.htm" />
   </HelpKINode>
@@ -495,11 +439,9 @@
   <HelpKINode Title="ScallopSensorDataEventArgs.Message property" Url="html/d891c318-cebc-e078-4e3e-5c31b7511bd0.htm" />
   <HelpKINode Title="ScallopSensorDataEventArgs.ScallopSensorDataEventArgs constructor" Url="html/facd1ab6-e582-420a-8b83-590b209a8a65.htm" />
   <HelpKINode Title="ScallopSensorState enumeration" Url="html/07074b1c-9fc5-b8ce-1da2-02122c8521cc.htm" />
-  <HelpKINode Title="ScallopSensorStatusChangedEventArgs class" Url="html/aac15264-02e5-af52-0fc6-c6e67ecaeac6.htm" />
   <HelpKINode Title="ScallopSensorStatusChangedEventArgs class" Url="html/cac55474-14e6-5641-2284-7248dc24709b.htm" />
   <HelpKINode Title="ScallopSensorStatusChangedEventArgs class">
     <HelpKINode Title="about ScallopSensorStatusChangedEventArgs class" Url="html/cac55474-14e6-5641-2284-7248dc24709b.htm" />
-    <HelpKINode Title="all members" Url="html/aac15264-02e5-af52-0fc6-c6e67ecaeac6.htm" />
     <HelpKINode Title="constructor" Url="html/1a5ed69f-939c-9069-9859-cc442c5003c0.htm" />
     <HelpKINode Title="properties" Url="html/eea07ae3-0438-500e-883a-9650e4843e5a.htm" />
   </HelpKINode>
@@ -508,11 +450,9 @@
   <HelpKINode Title="ScallopSensorStatusChangedEventArgs.NewState property" Url="html/66226453-1f34-0e6e-e055-3d3a48eb68da.htm" />
   <HelpKINode Title="ScallopSensorStatusChangedEventArgs.OldState property" Url="html/ed94ce14-f5ae-a7c3-5921-b971e582592b.htm" />
   <HelpKINode Title="ScallopSensorStatusChangedEventArgs.ScallopSensorStatusChangedEventArgs constructor" Url="html/1a5ed69f-939c-9069-9859-cc442c5003c0.htm" />
-  <HelpKINode Title="ScallopUtils class" Url="html/c1fb98ba-3d00-ad9f-538b-443738b62f86.htm" />
   <HelpKINode Title="ScallopUtils class" Url="html/c4857890-4dc9-e5ba-f0c7-2da0b706886a.htm" />
   <HelpKINode Title="ScallopUtils class">
     <HelpKINode Title="about ScallopUtils class" Url="html/c4857890-4dc9-e5ba-f0c7-2da0b706886a.htm" />
-    <HelpKINode Title="all members" Url="html/c1fb98ba-3d00-ad9f-538b-443738b62f86.htm" />
     <HelpKINode Title="methods" Url="html/5c62ecaf-bb50-e686-7228-dcc9b10dda52.htm" />
   </HelpKINode>
   <HelpKINode Title="ScallopUtils.Base64Decode method" Url="html/e7338748-0ff6-7c8e-7167-66964fbeddd5.htm" />

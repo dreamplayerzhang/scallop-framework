@@ -46,7 +46,7 @@ namespace Scallop.Core
     /// </summary>
     /// <param name="assembly">The assembly containing the sensor class.</param>
     /// <param name="sensorType">Name of the sensor class, including namespace.</param>
-    /// <returns></returns>
+    /// <returns>Sensor instance that was created.</returns>
     public static IScallopSensor CreateSensorInstance(string assembly,
                                                       string sensorType )
     {
@@ -57,7 +57,7 @@ namespace Scallop.Core
     /// 
     /// </summary>
     /// <param name="assembly">The assembly containing the sensor class.</param>
-    /// <returns></returns>
+    /// <returns>Sensor instance that was created.</returns>
     public static IScallopSensor CreateSensorInstance(string assembly)
     {
        string sensorType = null;
@@ -84,7 +84,7 @@ namespace Scallop.Core
     /// </summary>
     /// <param name="assembly">The assembly containing the network class.</param>
     /// <param name="networkType">Name of the network class, including namespace.</param>
-    /// <returns></returns>
+    /// <returns>Network instance that was created.</returns>
     public static IScallopNetwork CreateNetworkInstance(string assembly,
                                                         string networkType)
     {
@@ -95,7 +95,7 @@ namespace Scallop.Core
     /// 
     /// </summary>
     /// <param name="assembly">The assembly containing the sensor class.</param>
-    /// <returns></returns>
+    /// <returns>Network instance that was created.</returns>
     public static IScallopNetwork CreateNetworkInstance(string assembly)
     {
        string sensorType = null;

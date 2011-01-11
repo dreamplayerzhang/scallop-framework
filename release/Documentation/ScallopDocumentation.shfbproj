@@ -14,7 +14,7 @@
     <RootNamespace>Documentation</RootNamespace>
     <Name>Documentation</Name>
     <!-- SHFB properties -->
-    <OutputPath>.\Help\</OutputPath>
+    <OutputPath>.\Output\</OutputPath>
     <HtmlHelpName>Scallop API</HtmlHelpName>
     <ApiFilter>
       <Filter entryType="Namespace" fullName="System" isExposed="True" xmlns="">
@@ -30,8 +30,7 @@
     </HtmlHelp2xCompilerPath>
     <SandcastlePath>
     </SandcastlePath>
-    <WorkingPath>
-    </WorkingPath>
+    <WorkingPath>tmp\</WorkingPath>
     <BuildLogFile>
     </BuildLogFile>
     <FrameworkVersion>4.0.30319</FrameworkVersion>

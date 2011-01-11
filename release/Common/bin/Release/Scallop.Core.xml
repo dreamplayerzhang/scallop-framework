@@ -599,14 +599,14 @@
             </summary>
             <param name="assembly">The assembly containing the sensor class.</param>
             <param name="sensorType">Name of the sensor class, including namespace.</param>
-            <returns></returns>
+            <returns>Sensor instance that was created.</returns>
         </member>
         <member name="M:Scallop.Core.InterfaceFactory.CreateSensorInstance(System.String)">
             <summary>
             
             </summary>
             <param name="assembly">The assembly containing the sensor class.</param>
-            <returns></returns>
+            <returns>Sensor instance that was created.</returns>
         </member>
         <member name="M:Scallop.Core.InterfaceFactory.CreateNetworkInstance(System.String,System.String)">
             <summary>
@@ -614,14 +614,14 @@
             </summary>
             <param name="assembly">The assembly containing the network class.</param>
             <param name="networkType">Name of the network class, including namespace.</param>
-            <returns></returns>
+            <returns>Network instance that was created.</returns>
         </member>
         <member name="M:Scallop.Core.InterfaceFactory.CreateNetworkInstance(System.String)">
             <summary>
             
             </summary>
             <param name="assembly">The assembly containing the sensor class.</param>
-            <returns></returns>
+            <returns>Network instance that was created.</returns>
         </member>
     </members>
 </doc>
