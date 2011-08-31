@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="PeerChannelSchema"
+    targetNamespace="Scallop/PeerChannelConfig.xsd"
+    elementFormDefault="qualified"
+    xmlns="Scallop/PeerChannelConfig.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="PeerChannelConfigSet">
+    <xs:annotation>
+      <xs:documentation>
+        A set of PeerChannel configurations.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:choice>
+        <xs:element name="PeerChannelConfig" type="PeerChannelConfigType"
+                    minOccurs="1" maxOccurs="unbounded"/>
+      </xs:choice>
+      <xs:attribute name="DefaultConfig" type="xs:string" use="required" id="unique"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="PeerChannelConfigType" id="conf">
+    <xs:all>
+      <xs:element name="NodeId" type="xs:string"
+                  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Node identification string.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="NetworkName" type="xs:string"
+                  minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Name of network to use. This gets appended to p2p://Scallop.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="NetworkAddress" type="xs:anyURI"
+                  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Network interface to use.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="EnableTransportSecurity" type="xs:boolean"
+                  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Enables TLS (Transport layer security ), as specified in RFC4346. Requires a password from the user.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="TLSPassword" type="xs:string"
+                        minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Password for TLS.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="NeighborQueryRate" type="xs:int"
+                        minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Number of seconds to wait between sending out neighbor queries.
+            Lower values lead to better topology estimates but more network traffic.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+
+    </xs:all>
+
+    <xs:attribute name="ConfigName" use="required" form="unqualified" type="xs:string"/>
+  </xs:complexType>
+
+
+
+</xs:schema>
+

@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<AxisCameraConfigSet DefaultConfig="Rotuaari" xmlns="Scallop/AxisCameraSchema.xsd">
+  
+  <AxisCameraConfig ConfigName="LabTS318">
+    <Address>http://130.231.50.72</Address>
+    <FrameFormat>System.Drawing.Bitmap</FrameFormat>
+    <User>mvg</User>
+    <Password>mvgview</Password>
+    <Resolution>CIF</Resolution>
+    <Framerate>15</Framerate>
+  </AxisCameraConfig>
+
+  <AxisCameraConfig ConfigName="LobbyTS339a">
+    <Address>http://10.20.100.4</Address>
+    <FrameFormat>System.Drawing.Bitmap</FrameFormat>
+    <User>mvg</User>
+    <Password>mvgview</Password>
+    <Resolution>320x240</Resolution>
+    <Framerate>15</Framerate>
+  </AxisCameraConfig>
+
+  <AxisCameraConfig ConfigName="CorridorTS339b">
+    <Address>http://10.20.100.3</Address>
+    <FrameFormat>System.Drawing.Bitmap</FrameFormat>
+    <User>mvg</User>
+    <Password>mvgview</Password>
+    <Resolution>320x240</Resolution>
+    <Framerate>15</Framerate>
+  </AxisCameraConfig>
+
+  <AxisCameraConfig ConfigName="CorridorTS340a">
+    <Address>http://10.20.100.1</Address>
+    <FrameFormat>System.Drawing.Bitmap</FrameFormat>
+    <User>mvg</User>
+    <Password>mvgview</Password>
+    <Resolution>320x240</Resolution>
+    <Framerate>15</Framerate>
+  </AxisCameraConfig>
+
+  <AxisCameraConfig ConfigName="CorridorTS340b">
+    <Address>http://10.20.100.2</Address>
+    <FrameFormat>System.Drawing.Bitmap</FrameFormat>
+    <User>mvg</User>
+    <Password>mvgview</Password>
+    <Resolution>320x240</Resolution>
+    <Framerate>15</Framerate>
+  </AxisCameraConfig>
+
+  <AxisCameraConfig ConfigName="CorridorTS340c">
+    <Address>http://10.20.100.6</Address>
+    <FrameFormat>System.Drawing.Bitmap</FrameFormat>
+    <User>mvg</User>
+    <Password>mvgview</Password>
+    <Resolution>320x240</Resolution>
+    <Framerate>15</Framerate>
+  </AxisCameraConfig>
+
+  <AxisCameraConfig ConfigName="BusstopTS316">
+    <Address>http://10.20.100.5</Address>
+    <FrameFormat>System.Drawing.Bitmap</FrameFormat>
+    <User>mvg</User>
+    <Password>mvgview</Password>
+    <Resolution>CIF</Resolution>
+    <Framerate>15</Framerate>
+  </AxisCameraConfig>
+
+  <AxisCameraConfig ConfigName="Rutakko">
+    <Address>http://koti.sonkajarvi.net</Address>
+    <FrameFormat>System.Drawing.Bitmap</FrameFormat>
+    <Resolution>CIF</Resolution>
+  </AxisCameraConfig>
+
+  <AxisCameraConfig ConfigName="IsoSyote">
+    <Address>http://194.137.218.62</Address>
+    <FrameFormat>System.Drawing.Bitmap</FrameFormat>
+    <Resolution>320x240</Resolution>
+  </AxisCameraConfig>
+
+  <AxisCameraConfig ConfigName="Rotuaari">
+    <Address>http://livekuva.suomi.net</Address>
+    <FrameFormat>System.Drawing.Bitmap</FrameFormat>
+    <Resolution>320x240</Resolution>
+  </AxisCameraConfig>
+
+</AxisCameraConfigSet>
+
+

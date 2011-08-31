@@ -1,0 +1,83 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <!-- The configuration and platform will be used to determine which
+         assemblies to include from solution and project documentation
+         sources -->
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{c909a1c5-1468-47ac-b0b2-37a54064e57d}</ProjectGuid>
+    <SHFBSchemaVersion>1.8.0.0</SHFBSchemaVersion>
+    <!-- AssemblyName, Name, and RootNamespace are not used by SHFB but Visual
+         Studio adds them anyway -->
+    <AssemblyName>Documentation</AssemblyName>
+    <RootNamespace>Documentation</RootNamespace>
+    <Name>Documentation</Name>
+    <!-- SHFB properties -->
+    <OutputPath>.\Help\</OutputPath>
+    <HtmlHelpName>Scallop API</HtmlHelpName>
+    <ApiFilter>
+      <Filter entryType="Namespace" fullName="System" isExposed="True" xmlns="">
+        <Filter entryType="Class" fullName="System.Object" filterName="Object" isExposed="False" />
+      </Filter>
+    </ApiFilter>
+    <ProjectSummary>Scallop distributed sensor framework API documentation.</ProjectSummary>
+    <MissingTags>Parameter, Returns, AutoDocumentCtors, Namespace, TypeParameter</MissingTags>
+    <VisibleItems>InheritedMembers, InheritedFrameworkMembers, Protected, SealedProtected</VisibleItems>
+    <HtmlHelp1xCompilerPath>
+    </HtmlHelp1xCompilerPath>
+    <HtmlHelp2xCompilerPath>
+    </HtmlHelp2xCompilerPath>
+    <SandcastlePath>
+    </SandcastlePath>
+    <WorkingPath>
+    </WorkingPath>
+    <BuildLogFile>
+    </BuildLogFile>
+    <FrameworkVersion>3.5</FrameworkVersion>
+    <HelpTitle>Scallop API documentation</HelpTitle>
+    <CopyrightText>The Scallop framework %28including the binary executables and the source code%29 is distributed under the terms of the MIT license.</CopyrightText>
+    <ProjectLinkType>Local</ProjectLinkType>
+    <PresentationStyle>vs2005</PresentationStyle>
+    <ContentPlacement>BelowNamespaces</ContentPlacement>
+    <DocumentationSources>
+      <DocumentationSource sourceFile="..\Common\bin\Release\Scallop.Core.dll" />
+<DocumentationSource sourceFile="..\Common\bin\Release\Scallop.Core.xml" />
+<DocumentationSource sourceFile="..\Network\PeerChannel\bin\Release\Scallop.Network.PeerChannel.dll" />
+<DocumentationSource sourceFile="..\Network\PeerChannel\bin\Release\Scallop.Network.PeerChannel.xml" />
+<DocumentationSource sourceFile="..\Sensor\Axis\bin\Release\Scallop.Sensor.Axis.dll" />
+<DocumentationSource sourceFile="..\Sensor\Axis\bin\Release\Scallop.Sensor.Axis.xml" /></DocumentationSources>
+    <NamespaceSummaries>
+      <NamespaceSummaryItem name="(global)" isDocumented="False" />
+      <NamespaceSummaryItem name="Scallop.Network" isDocumented="True">Namespace for Scallop network implementations.</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="Scallop.Network.PeerChannel" isDocumented="True">Namespace for Scallop PeerChannel network implementation.</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="Scallop.Sensor" isDocumented="True">Namespace for Scallop sensor implementations.</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="Scallop.Sensor.Axis" isDocumented="True">Namespace for Scallop Axisl sensor implementation.</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="Scallop.Core" isDocumented="True">Namespace for Scallop core functionalities.</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="Scallop.Core.Events" isDocumented="True">Namespace for Scallop events.</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="Scallop.Core.Network" isDocumented="True">Namespace for Scallop core network functionalities.</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="Scallop.Core.Sensor" isDocumented="True">Namespace for Scallop core sensor functionalities.</NamespaceSummaryItem>
+    </NamespaceSummaries>
+    <HelpFileFormat>Help1xAndWebsite</HelpFileFormat>
+    <Language>en-US</Language>
+    <ComponentConfigurations>
+      <ComponentConfig id="Code Block Component" enabled="True" xmlns="">
+        <component id="Code Block Component" type="SandcastleBuilder.Components.CodeBlockComponent" assembly="{@SHFBFolder}SandcastleBuilder.Components.dll">
+  <basePath value="{@HtmlEncProjectFolder}" />
+  <languageFilter value="true" />
+  <allowMissingSource value="false" />
+  <removeRegionMarkers value="false" />
+  <colorizer syntaxFile="{@SHFBFolder}Colorizer\highlight.xml" styleFile="{@SHFBFolder}Colorizer\highlight.xsl" copyImageUrl="../icons/CopyCode.gif" language="cs" tabSize="0" numberLines="false" outlining="false" keepSeeTags="false" defaultTitle="true" />
+</component>
+      </ComponentConfig>
+    </ComponentConfigurations>
+  </PropertyGroup>
+  <!-- There are no properties for these two groups but they need to appear in
+       order for Visual Studio to perform the build. -->
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+  </PropertyGroup>
+  <!-- Import the SHFB build targets -->
+  <Import Project="$(SHFBROOT)\SandcastleHelpFileBuilder.targets" />
+</Project>
