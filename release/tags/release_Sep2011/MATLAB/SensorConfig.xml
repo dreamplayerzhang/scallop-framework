@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<AxisCameraConfigSet DefaultConfig="Rotuaari" xmlns="Scallop/AxisCameraSchema.xsd">
+  
+  <AxisCameraConfig ConfigName="Rutakko">
+    <Address>http://rutakonraitti.axiscam.net:8899</Address>
+    <FrameFormat>System.Drawing.Bitmap</FrameFormat>
+    <Resolution>320x240</Resolution>
+    <Framerate>25</Framerate>
+    <Compression>5</Compression>
+  </AxisCameraConfig>
+
+  <AxisCameraConfig ConfigName="Linnanmaa">
+    <Address>http://camera.willab.fi</Address>
+    <FrameFormat>System.Drawing.Bitmap</FrameFormat>
+    <Resolution>320x240</Resolution>
+  </AxisCameraConfig>
+
+  <AxisCameraConfig ConfigName="Rotuaari">
+    <Address>http://livekuva.suomi.net</Address>
+    <FrameFormat>System.Drawing.Bitmap</FrameFormat>
+    <Resolution>320x240</Resolution>
+  </AxisCameraConfig>
+
+  <AxisCameraConfig ConfigName="Kungsbacka">
+    <Address>http://217.28.194.148/</Address>
+    <FrameFormat>System.Drawing.Bitmap</FrameFormat>
+    <Resolution>320x240</Resolution>
+  </AxisCameraConfig>
+  
+  <AxisCameraConfig ConfigName="IsoSyote">
+    <Address>http://85.23.161.214</Address>
+    <FrameFormat>System.Drawing.Bitmap</FrameFormat>
+    <Resolution>320x240</Resolution>
+  </AxisCameraConfig>
+
+</AxisCameraConfigSet>

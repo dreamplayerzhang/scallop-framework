@@ -1,0 +1,542 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FxCopProject Version="1.36" Name="My FxCop Project">
+ <ProjectOptions>
+  <SharedProject>True</SharedProject>
+  <Stylesheet Apply="False">c:\program files\microsoft fxcop 1.36\Xml\FxCopReport.xsl</Stylesheet>
+  <SaveMessages>
+   <Project Status="Active, Excluded" NewOnly="False" />
+   <Report Status="Active" NewOnly="False" />
+  </SaveMessages>
+  <ProjectFile Compress="True" DefaultTargetCheck="True" DefaultRuleCheck="True" SaveByRuleGroup="" Deterministic="True" />
+  <EnableMultithreadedLoad>True</EnableMultithreadedLoad>
+  <EnableMultithreadedAnalysis>True</EnableMultithreadedAnalysis>
+  <SourceLookup>True</SourceLookup>
+  <AnalysisExceptionsThreshold>10</AnalysisExceptionsThreshold>
+  <RuleExceptionsThreshold>1</RuleExceptionsThreshold>
+  <Spelling Locale="en-US" />
+  <OverrideRuleVisibilities>False</OverrideRuleVisibilities>
+  <CustomDictionaries SearchFxCopDir="True" SearchUserProfile="True" SearchProjectDir="True" />
+  <SearchGlobalAssemblyCache>False</SearchGlobalAssemblyCache>
+  <DeadlockDetectionTimeout>120</DeadlockDetectionTimeout>
+  <IgnoreGeneratedCode>False</IgnoreGeneratedCode>
+ </ProjectOptions>
+ <Targets>
+  <Target Name="$(ProjectDir)/Common/bin/Release/Scallop.Core.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/Network/PeerChannel/bin/Release/Scallop.Network.PeerChannel.dll" Analyze="True" AnalyzeAllChildren="False">
+   <Modules AnalyzeAllChildren="False">
+    <Module Name="scallop.network.peerchannel.dll" Analyze="True" AnalyzeAllChildren="False">
+     <Namespaces AnalyzeAllChildren="False">
+      <Namespace Name="" Analyze="True" AnalyzeAllChildren="True" />
+      <Namespace Name="Scallop.Network.PeerChannel" Analyze="True" AnalyzeAllChildren="False">
+       <Types AnalyzeAllChildren="False">
+        <Type Name="IPeerChannel" Analyze="True" AnalyzeAllChildren="True" />
+        <Type Name="IPeerChannelChannel" Analyze="True" />
+        <Type Name="PeerChannelParameters" Analyze="True" AnalyzeAllChildren="True" />
+        <Type Name="ScallopMessageFilter" Analyze="True" AnalyzeAllChildren="True" />
+        <Type Name="ScallopPeerChannel" Analyze="True" AnalyzeAllChildren="True" />
+       </Types>
+      </Namespace>
+     </Namespaces>
+     <Resources AnalyzeAllChildren="True" />
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="$(ProjectDir)/Sensor/Axis/bin/Release/Scallop.Sensor.Axis.dll" Analyze="True" AnalyzeAllChildren="False">
+   <Modules AnalyzeAllChildren="False">
+    <Module Name="scallop.sensor.axis.dll" Analyze="True" AnalyzeAllChildren="False">
+     <Namespaces AnalyzeAllChildren="False">
+      <Namespace Name="" Analyze="True" AnalyzeAllChildren="True" />
+      <Namespace Name="Scallop.Sensor.Axis" Analyze="True" AnalyzeAllChildren="False">
+       <Types AnalyzeAllChildren="False">
+        <Type Name="AxisCamera" Analyze="True" AnalyzeAllChildren="True" />
+        <Type Name="AxisCamera+&lt;&gt;c__DisplayClass3" Analyze="True" AnalyzeAllChildren="True" />
+        <Type Name="AxisParameters" Analyze="True" AnalyzeAllChildren="True" />
+       </Types>
+      </Namespace>
+     </Namespaces>
+     <Resources AnalyzeAllChildren="True" />
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="$(ProjectDir)/Sensor/FileSource/bin/Release/Scallop.Sensor.FileSource.dll" Analyze="True" AnalyzeAllChildren="True" />
+ </Targets>
+ <Rules>
+  <RuleFiles>
+   <RuleFile Name="$(FxCopDir)\Rules\DesignRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\GlobalizationRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\InteroperabilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\MobilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\NamingRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\PerformanceRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\PortabilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\SecurityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\UsageRules.dll" Enabled="True" AllRulesEnabled="True" />
+  </RuleFiles>
+  <Groups />
+  <Settings />
+ </Rules>
+ <FxCopReport Version="1.36">
+  <Namespaces>
+   <Namespace Name="Scallop.Core.Network">
+    <Messages>
+     <Message TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020" Created="2009-07-02 08:48:15Z">
+      <Issue>
+       <Item>Scallop.Core.Network</Item>
+      </Issue>
+     </Message>
+    </Messages>
+   </Namespace>
+   <Namespace Name="Scallop.Core.Sensor">
+    <Messages>
+     <Message TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020" Created="2009-07-02 08:48:15Z">
+      <Issue>
+       <Item>Scallop.Core.Sensor</Item>
+      </Issue>
+     </Message>
+    </Messages>
+   </Namespace>
+   <Namespace Name="Scallop.Network.PeerChannel">
+    <Messages>
+     <Message TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020" Created="2009-08-17 12:23:25Z">
+      <Issue>
+       <Item>Scallop.Network.PeerChannel</Item>
+      </Issue>
+     </Message>
+    </Messages>
+   </Namespace>
+  </Namespaces>
+  <Targets>
+   <Target Name="$(ProjectDir)/Common/bin/Release/Scallop.Core.dll">
+    <Modules>
+     <Module Name="scallop.core.dll">
+      <Messages>
+       <Message TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210" Created="2009-07-02 08:48:15Z">
+        <Issue Name="NoStrongName">
+         <Item>'Scallop.Core.dll'</Item>
+        </Issue>
+       </Message>
+      </Messages>
+      <Namespaces>
+       <Namespace Name="Scallop.Core">
+        <Types>
+         <Type Name="ScallopUtils">
+          <Messages>
+           <Message Id="Utils" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2009-07-02 08:48:15Z">
+            <Issue Name="Type">
+             <Item>Utils</Item>
+             <Item>'ScallopUtils'</Item>
+            </Issue>
+           </Message>
+          </Messages>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="Scallop.Core.Network">
+        <Types>
+         <Type Name="IScallopNetwork">
+          <Members>
+           <Member Name="#Join(System.Xml.XmlDocument,System.String)">
+            <Messages>
+             <Message Id="System.Xml.XmlNode" TypeName="MembersShouldNotExposeCertainConcreteTypes" Category="Microsoft.Design" CheckId="CA1059" Created="2009-07-02 08:48:15Z">
+              <Issue Name="Xml">
+               <Item>'IScallopNetwork.Join(XmlDocument, string)'</Item>
+               <Item>'XmlDocument'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#SendMessage(System.String,System.String[])">
+            <Messages>
+             <Message Id="nodeids" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2009-07-02 08:48:15Z">
+              <Issue Name="MemberParameter">
+               <Item>'IScallopNetwork.SendMessage(string, params string[])'</Item>
+               <Item>nodeids</Item>
+               <Item>'nodeids'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="ScallopMessageHeader">
+          <Members>
+           <Member Name="#OrigHopcount">
+            <Messages>
+             <Message Id="Hopcount" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2009-07-02 13:30:01Z">
+              <Issue Name="Member">
+               <Item>Hopcount</Item>
+               <Item>'ScallopMessageHeader.OrigHopcount'</Item>
+              </Issue>
+             </Message>
+             <Message Id="Orig" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2009-07-02 13:30:01Z">
+              <Issue Name="Member">
+               <Item>Orig</Item>
+               <Item>'ScallopMessageHeader.OrigHopcount'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Receivers">
+            <Messages>
+             <Message TypeName="PropertiesShouldNotReturnArrays" Category="Microsoft.Performance" CheckId="CA1819" Created="2009-07-02 13:30:01Z">
+              <Issue>
+               <Item>'ScallopMessageHeader.Receivers'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="Scallop.Core.Sensor">
+        <Types>
+         <Type Name="IScallopSensor">
+          <Members>
+           <Member Name="#PanTilt(System.Boolean,System.Int32,System.Int32)">
+            <Messages>
+             <Message Id="x" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2009-07-02 08:48:15Z">
+              <Issue Name="MemberParameter">
+               <Item>'IScallopSensor.PanTilt(bool, int, int)'</Item>
+               <Item>x</Item>
+               <Item>'xCoordinate'</Item>
+              </Issue>
+             </Message>
+             <Message Id="y" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2009-07-02 08:48:15Z">
+              <Issue Name="MemberParameter">
+               <Item>'IScallopSensor.PanTilt(bool, int, int)'</Item>
+               <Item>y</Item>
+               <Item>'yCoordinate'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Stop()">
+            <Messages>
+             <Message Id="Stop" TypeName="IdentifiersShouldNotMatchKeywords" Category="Microsoft.Naming" CheckId="CA1716" Created="2009-07-02 08:48:15Z">
+              <Issue Name="Member">
+               <Item>'IScallopSensor.Stop()'</Item>
+               <Item>Stop</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+      </Namespaces>
+     </Module>
+    </Modules>
+   </Target>
+   <Target Name="$(ProjectDir)/Network/PeerChannel/bin/Release/Scallop.Network.PeerChannel.dll">
+    <Modules>
+     <Module Name="scallop.network.peerchannel.dll">
+      <Messages>
+       <Message TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210" Created="2009-07-02 08:48:15Z">
+        <Issue Name="NoStrongName">
+         <Item>'Scallop.Network.PeerChannel.dll'</Item>
+        </Issue>
+       </Message>
+      </Messages>
+      <Namespaces>
+       <Namespace Name="Scallop.Network.PeerChannel">
+        <Types>
+         <Type Name="PeerChannelParameters">
+          <Members>
+           <Member Name="#ParseConfig(System.Xml.XmlDocument,System.String)">
+            <Messages>
+             <Message Id="System.Int32.Parse(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2009-07-02 08:48:15Z">
+              <Issue>
+               <Item>'int.Parse(string)'</Item>
+               <Item>'PeerChannelParameters.ParseConfig(XmlDocument, string)'</Item>
+               <Item>'int.Parse(string, IFormatProvider)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="ScallopMessageFilter">
+          <Members>
+           <Member Name="#ID">
+            <Accessors>
+             <Accessor Name="#get_ID()">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2009-08-17 12:23:25Z">
+                <Issue>
+                 <Item>'ScallopMessageFilter.ID.get()'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+             <Accessor Name="#set_ID(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2009-08-17 12:23:25Z">
+                <Issue>
+                 <Item>'ScallopMessageFilter.ID.set(string)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="ScallopPeerChannel">
+          <Members>
+           <Member Name="#configDocument">
+            <Messages>
+             <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Created="2009-07-02 08:48:15Z">
+              <Issue>
+               <Item>'ScallopPeerChannel.configDocument'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Join(System.Xml.XmlDocument,System.String)">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Created="2009-07-02 08:48:15Z">
+              <Issue>
+               <Item>'ScallopPeerChannel.Join(XmlDocument, string)'</Item>
+               <Item>'Exception'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#lastNeighbourQuery">
+            <Messages>
+             <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Created="2009-07-02 08:48:15Z">
+              <Issue>
+               <Item>'ScallopPeerChannel.lastNeighbourQuery'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Leave()">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Created="2009-07-02 08:48:15Z">
+              <Issue>
+               <Item>'ScallopPeerChannel.Leave()'</Item>
+               <Item>'object'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#oldNeighbours">
+            <Messages>
+             <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Created="2009-08-25 08:29:27Z">
+              <Issue>
+               <Item>'ScallopPeerChannel.oldNeighbours'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Scallop.Network.PeerChannel.IPeerChannel.PCSend(Scallop.Core.Network.ScallopMessage)">
+            <Messages>
+             <Message Id="System.String.StartsWith(System.String)" TypeName="SpecifyStringComparison" Category="Microsoft.Globalization" CheckId="CA1307" Created="2009-07-02 08:48:15Z">
+              <Issue>
+               <Item>'ScallopPeerChannel.IPeerChannel.PCSend(ScallopMessage)'</Item>
+               <Item>'string.StartsWith(string)'</Item>
+               <Item>'string.StartsWith(string, StringComparison)'</Item>
+              </Issue>
+              <Issue>
+               <Item>'ScallopPeerChannel.IPeerChannel.PCSend(ScallopMessage)'</Item>
+               <Item>'string.StartsWith(string)'</Item>
+               <Item>'string.StartsWith(string, StringComparison)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#selectedConfig">
+            <Messages>
+             <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Created="2009-07-02 08:48:15Z">
+              <Issue>
+               <Item>'ScallopPeerChannel.selectedConfig'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+      </Namespaces>
+     </Module>
+    </Modules>
+   </Target>
+   <Target Name="$(ProjectDir)/Sensor/Axis/bin/Release/Scallop.Sensor.Axis.dll">
+    <Modules>
+     <Module Name="scallop.sensor.axis.dll">
+      <Messages>
+       <Message TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210" Created="2009-07-02 08:48:15Z">
+        <Issue Name="NoStrongName">
+         <Item>'Scallop.Sensor.Axis.dll'</Item>
+        </Issue>
+       </Message>
+      </Messages>
+      <Namespaces>
+       <Namespace Name="Scallop.Sensor.Axis">
+        <Types>
+         <Type Name="AxisCamera">
+          <Members>
+           <Member Name="#doStatusChanged(System.Object,Scallop.Core.Events.ScallopSensorStatusChangedEventArgs)">
+            <Messages>
+             <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2009-07-02 12:46:36Z">
+              <Issue>
+               <Item>'AxisCamera.doStatusChanged(object, ScallopSensorStatusChangedEventArgs)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#getFrames(System.Object,System.ComponentModel.DoWorkEventArgs)">
+            <Messages>
+             <Message Id="System.Int32.Parse(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2009-07-02 12:46:36Z">
+              <Issue>
+               <Item>'int.Parse(string)'</Item>
+               <Item>'AxisCamera.getFrames(object, DoWorkEventArgs)'</Item>
+               <Item>'int.Parse(string, IFormatProvider)'</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.StartsWith(System.String)" TypeName="SpecifyStringComparison" Category="Microsoft.Globalization" CheckId="CA1307" Created="2009-07-02 12:46:36Z">
+              <Issue>
+               <Item>'AxisCamera.getFrames(object, DoWorkEventArgs)'</Item>
+               <Item>'string.StartsWith(string)'</Item>
+               <Item>'string.StartsWith(string, StringComparison)'</Item>
+              </Issue>
+              <Issue>
+               <Item>'AxisCamera.getFrames(object, DoWorkEventArgs)'</Item>
+               <Item>'string.StartsWith(string)'</Item>
+               <Item>'string.StartsWith(string, StringComparison)'</Item>
+              </Issue>
+              <Issue>
+               <Item>'AxisCamera.getFrames(object, DoWorkEventArgs)'</Item>
+               <Item>'string.StartsWith(string)'</Item>
+               <Item>'string.StartsWith(string, StringComparison)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+      </Namespaces>
+     </Module>
+    </Modules>
+   </Target>
+   <Target Name="$(ProjectDir)/Sensor/FileSource/bin/Release/Scallop.Sensor.FileSource.dll">
+    <Modules>
+     <Module Name="scallop.sensor.filesource.dll">
+      <Messages>
+       <Message TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210" Created="2009-07-02 08:48:15Z">
+        <Issue Name="NoStrongName">
+         <Item>'Scallop.Sensor.FileSource.dll'</Item>
+        </Issue>
+       </Message>
+      </Messages>
+      <Namespaces>
+       <Namespace Name="Scallop.Sensor.FileSource">
+        <Types>
+         <Type Name="ScallopFileSource">
+          <Messages>
+           <Message TypeName="ImplementIDisposableCorrectly" Category="Microsoft.Design" CheckId="CA1063" Created="2009-07-02 08:48:15Z">
+            <Issue Name="ProvideDisposeBool">
+             <Item>'ScallopFileSource'</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="#Dispose()">
+            <Messages>
+             <Message TypeName="CallGCSuppressFinalizeCorrectly" Category="Microsoft.Usage" CheckId="CA1816" Created="2009-07-02 08:48:15Z">
+              <Issue Name="NotCalled">
+               <Item>'ScallopFileSource.Dispose()'</Item>
+               <Item>'GC.SuppressFinalize(object)'</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="ImplementIDisposableCorrectly" Category="Microsoft.Design" CheckId="CA1063" Created="2009-07-02 08:48:15Z">
+              <Issue Name="DisposeImplementation">
+               <Item>'ScallopFileSource.Dispose()'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#PanTilt(System.Boolean,System.Int32,System.Int32)">
+            <Messages>
+             <Message Id="1#" TypeName="ParameterNamesShouldMatchBaseDeclaration" Category="Microsoft.Naming" CheckId="CA1725" Created="2009-08-25 13:14:29Z">
+              <Issue>
+               <Item>'ScallopFileSource.PanTilt(bool, int, int)'</Item>
+               <Item>'x'</Item>
+               <Item>'xCoordinate'</Item>
+               <Item>'IScallopSensor.PanTilt(bool, int, int)'</Item>
+              </Issue>
+             </Message>
+             <Message Id="2#" TypeName="ParameterNamesShouldMatchBaseDeclaration" Category="Microsoft.Naming" CheckId="CA1725" Created="2009-08-25 13:14:29Z">
+              <Issue>
+               <Item>'ScallopFileSource.PanTilt(bool, int, int)'</Item>
+               <Item>'y'</Item>
+               <Item>'yCoordinate'</Item>
+               <Item>'IScallopSensor.PanTilt(bool, int, int)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+      </Namespaces>
+     </Module>
+    </Modules>
+   </Target>
+  </Targets>
+  <Rules>
+   <Rule TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210">
+    <Resolution Name="NoStrongName">Sign {0} with a strong name key.</Resolution>
+   </Rule>
+   <Rule TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020">
+    <Resolution Name="Default">Consider merging the types defined in '{0}' with another namespace.</Resolution>
+   </Rule>
+   <Rule TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811">
+    <Resolution Name="Default">{0} appears to have no upstream public or protected callers.</Resolution>
+   </Rule>
+   <Rule TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823">
+    <Resolution Name="Default">It appears that field {0} is never used or is only ever assigned to. Use this field or remove it.</Resolution>
+   </Rule>
+   <Rule TypeName="CallGCSuppressFinalizeCorrectly" Category="Microsoft.Usage" CheckId="CA1816">
+    <Resolution Name="NotCalled">Change {0} to call {1}. This will prevent unnecessary finalization of the object once it has been disposed and it has fallen out of scope.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031">
+    <Resolution Name="Default">Modify {0} to catch a more specific exception than {1} or rethrow the exception.</Resolution>
+   </Rule>
+   <Rule TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704">
+    <Resolution Name="Member">Correct the spelling of '{0}' in member name {1} or remove it entirely if it represents any sort of Hungarian notation.</Resolution>
+    <Resolution Name="MemberParameter">In method {0}, correct the spelling of '{1}' in parameter name {2} or remove it entirely if it represents any sort of Hungarian notation.</Resolution>
+    <Resolution Name="Type">Correct the spelling of '{0}' in type name {1}.</Resolution>
+   </Rule>
+   <Rule TypeName="IdentifiersShouldNotMatchKeywords" Category="Microsoft.Naming" CheckId="CA1716">
+    <Resolution Name="Member">Rename virtual/interface member {0} so that it no longer conflicts with the reserved language keyword '{1}'. Using a reserved keyword as the name of a virtual/interface member makes it harder for consumers in other languages to override/implement the member.</Resolution>
+   </Rule>
+   <Rule TypeName="ImplementIDisposableCorrectly" Category="Microsoft.Design" CheckId="CA1063">
+    <Resolution Name="DisposeImplementation">Modify {0} so that it calls Dispose(true), then calls GC.SuppressFinalize on the current object instance ('this' or 'Me' in Visual Basic), and then returns.</Resolution>
+    <Resolution Name="ProvideDisposeBool">Provide an overridable implementation of Dispose(bool) on {0} or mark the type as sealed. A call to Dispose(false) should only clean up native resources. A call to Dispose(true) should clean up both managed and native resources.</Resolution>
+   </Rule>
+   <Rule TypeName="MembersShouldNotExposeCertainConcreteTypes" Category="Microsoft.Design" CheckId="CA1059">
+    <Resolution Name="Xml">Modify member {0} so that it no longer exposes the concrete type {1}. Use IXPathNavigable to represent XML data sources.</Resolution>
+   </Rule>
+   <Rule TypeName="ParameterNamesShouldMatchBaseDeclaration" Category="Microsoft.Naming" CheckId="CA1725">
+    <Resolution Name="Default">In member {0}, change parameter name {1} to {2} in order to match the identifier as it has been declared in {3}.</Resolution>
+   </Rule>
+   <Rule TypeName="PropertiesShouldNotReturnArrays" Category="Microsoft.Performance" CheckId="CA1819">
+    <Resolution Name="Default">Change {0} to return a collection or make it a method.</Resolution>
+   </Rule>
+   <Rule TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305">
+    <Resolution Name="Default">Because the behavior of {0} could vary based on the current user's locale settings, replace this call in {1} with a call to {2}. If the result of {2} will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Resolution>
+   </Rule>
+   <Rule TypeName="SpecifyStringComparison" Category="Microsoft.Globalization" CheckId="CA1307">
+    <Resolution Name="Default">{0} makes a call to {1} that does not explicitly provide a StringComparison. This should be replaced with a call to {2}.</Resolution>
+   </Rule>
+  </Rules>
+ </FxCopReport>
+</FxCopProject>

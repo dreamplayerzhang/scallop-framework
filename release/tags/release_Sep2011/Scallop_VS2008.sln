@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScallopCore", "Common\ScallopCore.csproj", "{793576E2-852C-4227-9D5A-7582B5BE0BB1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Network", "Network", "{C5C21AE9-8E6A-4C9E-BFB5-E5C5C21E7127}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeerChannel", "Network\PeerChannel\PeerChannel.csproj", "{06FA057D-E01A-4D18-9F6A-007DE3A0DF76}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sensor", "Sensor", "{E580528A-C03A-4C91-AB5B-EAC89F3C8900}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AxisCamera", "Sensor\Axis\AxisCamera.csproj", "{233D2032-1FED-4B3D-9DDC-C5B217437E20}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileSource", "Sensor\FileSource\FileSource.csproj", "{82BD6068-A2DD-4776-9136-5A4C1ACA9F70}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorld", "HelloWorld\HelloWorld.csproj", "{5D3CB8F0-DD51-41EB-BF30-5BC89E017B81}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{22C12E49-48D4-4247-A40E-51BAD684E3FD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{793576E2-852C-4227-9D5A-7582B5BE0BB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{793576E2-852C-4227-9D5A-7582B5BE0BB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{793576E2-852C-4227-9D5A-7582B5BE0BB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{793576E2-852C-4227-9D5A-7582B5BE0BB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06FA057D-E01A-4D18-9F6A-007DE3A0DF76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06FA057D-E01A-4D18-9F6A-007DE3A0DF76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06FA057D-E01A-4D18-9F6A-007DE3A0DF76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06FA057D-E01A-4D18-9F6A-007DE3A0DF76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{233D2032-1FED-4B3D-9DDC-C5B217437E20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{233D2032-1FED-4B3D-9DDC-C5B217437E20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{233D2032-1FED-4B3D-9DDC-C5B217437E20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{233D2032-1FED-4B3D-9DDC-C5B217437E20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82BD6068-A2DD-4776-9136-5A4C1ACA9F70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82BD6068-A2DD-4776-9136-5A4C1ACA9F70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82BD6068-A2DD-4776-9136-5A4C1ACA9F70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82BD6068-A2DD-4776-9136-5A4C1ACA9F70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D3CB8F0-DD51-41EB-BF30-5BC89E017B81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D3CB8F0-DD51-41EB-BF30-5BC89E017B81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D3CB8F0-DD51-41EB-BF30-5BC89E017B81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D3CB8F0-DD51-41EB-BF30-5BC89E017B81}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{06FA057D-E01A-4D18-9F6A-007DE3A0DF76} = {C5C21AE9-8E6A-4C9E-BFB5-E5C5C21E7127}
+		{233D2032-1FED-4B3D-9DDC-C5B217437E20} = {E580528A-C03A-4C91-AB5B-EAC89F3C8900}
+		{82BD6068-A2DD-4776-9136-5A4C1ACA9F70} = {E580528A-C03A-4C91-AB5B-EAC89F3C8900}
+	EndGlobalSection
+EndGlobal

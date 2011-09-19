@@ -1,0 +1,247 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Scallop.Network.PeerChannel</name>
+    </assembly>
+    <members>
+        <member name="T:Scallop.Network.PeerChannel.ScallopMessageFilter">
+            <summary>
+            A message filter that filters out own sent messages
+            </summary>
+        </member>
+        <member name="M:Scallop.Network.PeerChannel.ScallopMessageFilter.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="strID"></param>
+        </member>
+        <member name="M:Scallop.Network.PeerChannel.ScallopMessageFilter.ShouldMessagePropagate(System.ServiceModel.Channels.Message,System.ServiceModel.PeerMessageOrigination)">
+            <summary>
+            Delivers only the messages sent by other nodes
+            </summary>
+            <param name="message">Incoming message</param>
+            <param name="origination">Message source</param>
+            <returns></returns>
+        </member>
+        <member name="P:Scallop.Network.PeerChannel.ScallopMessageFilter.ID">
+            <summary>
+            Own node ID
+            </summary>
+        </member>
+        <member name="T:Scallop.Network.PeerChannel.ScallopPeerChannel">
+            <summary>
+            Class representing a ScallopCore PeerChannel network connection.
+            </summary>
+        </member>
+        <member name="T:Scallop.Network.PeerChannel.IPeerChannel">
+            <summary>
+            Interface for PeerChannel communication.
+            </summary>
+        </member>
+        <member name="M:Scallop.Network.PeerChannel.IPeerChannel.PCSend(Scallop.Core.Network.ScallopMessage)">
+            <summary>
+            Method to send a message.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Scallop.Network.PeerChannel.IPeerChannel.PCJoin(System.String)">
+            <summary>
+            Method to join a network.
+            </summary>
+        </member>
+        <member name="M:Scallop.Network.PeerChannel.IPeerChannel.PCLeave(System.String)">
+            <summary>
+            Method to leave a network.
+            </summary>
+        </member>
+        <member name="M:Scallop.Network.PeerChannel.ScallopPeerChannel.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:Scallop.Network.PeerChannel.ScallopPeerChannel.Finalize">
+            <summary>
+            Object destructor
+            </summary>
+        </member>
+        <member name="M:Scallop.Network.PeerChannel.ScallopPeerChannel.Dispose">
+            <summary>
+            Frees the resources used by the object.
+            </summary>
+        </member>
+        <member name="M:Scallop.Network.PeerChannel.ScallopPeerChannel.Dispose(System.Boolean)">
+            <summary>
+            Frees the resources used by the object
+            </summary>
+            <param name="disposing">The parameter tells if the Dispose is called directly</param>
+        </member>
+        <member name="M:Scallop.Network.PeerChannel.ScallopPeerChannel.SendMessage(System.String)">
+            <summary>
+            Sends a message to all recipients, broadcast.
+            </summary>
+            <param name="message">The message object.</param>
+        </member>
+        <member name="M:Scallop.Network.PeerChannel.ScallopPeerChannel.SendMessage(System.String,System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+            <param name="nodeids"></param>
+        </member>
+        <member name="M:Scallop.Network.PeerChannel.ScallopPeerChannel.SendMessage(System.String,System.Int32)">
+            <summary>
+            Sends a message to all reciepients within the specified number of hops.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="reach">Hopcount.</param>
+        </member>
+        <member name="M:Scallop.Network.PeerChannel.ScallopPeerChannel.Join(System.Xml.XmlDocument,System.String)">
+            <summary>
+            Joins a PeerChannel.
+            </summary>
+            <param name="networkSettings">Configuration XML document.</param>
+            <param name="selectConfig">String identifying config item to use.</param>
+        </member>
+        <member name="M:Scallop.Network.PeerChannel.ScallopPeerChannel.Leave">
+            <summary>
+            Leaves the PeerChannel.
+            </summary>
+        </member>
+        <member name="M:Scallop.Network.PeerChannel.ScallopPeerChannel.registerPeerChannel(System.String)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Scallop.Network.PeerChannel.ScallopPeerChannel.Scallop#Network#PeerChannel#IPeerChannel#PCSend(Scallop.Core.Network.ScallopMessage)">
+            <summary>
+            Sends a message over PeerChannel.
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="P:Scallop.Network.PeerChannel.ScallopPeerChannel.ConfigSchema">
+            <summary>
+            Gets the config schema for a PeerChannel network.
+            </summary>
+        </member>
+        <member name="P:Scallop.Network.PeerChannel.ScallopPeerChannel.NodeId">
+            <summary>
+            Gets the node identification.
+            </summary>
+        </member>
+        <member name="P:Scallop.Network.PeerChannel.ScallopPeerChannel.Version">
+            <summary>
+            Gets the network version.
+            </summary>
+        </member>
+        <member name="P:Scallop.Network.PeerChannel.ScallopPeerChannel.Neighbors">
+            <summary>
+            An array containing the neighbouring nodes.
+            </summary>
+        </member>
+        <member name="P:Scallop.Network.PeerChannel.ScallopPeerChannel.MessageCountRX">
+            <summary>
+            Number of received messages.
+            </summary>
+        </member>
+        <member name="P:Scallop.Network.PeerChannel.ScallopPeerChannel.MessageCountTX">
+            <summary>
+            Number of sent messages.
+            </summary>
+        </member>
+        <member name="P:Scallop.Network.PeerChannel.ScallopPeerChannel.MessageSizeRX">
+            <summary>
+            Cumulative size of payloads of received messages.
+            </summary>
+        </member>
+        <member name="P:Scallop.Network.PeerChannel.ScallopPeerChannel.MessageSizeTX">
+            <summary>
+            Cumulative size of payloads of sent messages.
+            </summary>
+        </member>
+        <member name="P:Scallop.Network.PeerChannel.ScallopPeerChannel.HopCountSum">
+            <summary>
+            Sum of hopcounts of received messages. Divide by MessageCountRX to get average.
+            </summary>
+        </member>
+        <member name="E:Scallop.Network.PeerChannel.ScallopPeerChannel.StatusChanged">
+            <summary>
+            Raised when the network status changes.
+            </summary>
+        </member>
+        <member name="E:Scallop.Network.PeerChannel.ScallopPeerChannel.Data">
+            <summary>
+            Raised when a new message is received. The message is passed in the
+            event arguments.
+            </summary>
+        </member>
+        <member name="E:Scallop.Network.PeerChannel.ScallopPeerChannel.Info">
+            <summary>
+            Raised when the network module wants to inform the user of something.
+            </summary>
+        </member>
+        <member name="P:Scallop.Network.PeerChannel.ScallopPeerChannel.State">
+            <summary>
+            Gets the network state.
+            </summary>
+        </member>
+        <member name="T:Scallop.Network.PeerChannel.ScallopPeerChannelMessageType">
+            <summary>
+            Enumeration of message types.
+            </summary>
+        </member>
+        <member name="F:Scallop.Network.PeerChannel.ScallopPeerChannelMessageType.Regular">
+            <summary>
+            Regular message.
+            </summary>
+        </member>
+        <member name="F:Scallop.Network.PeerChannel.ScallopPeerChannelMessageType.NeighbourQuery">
+            <summary>
+            A neighbour query message.
+            </summary>
+        </member>
+        <member name="T:Scallop.Network.PeerChannel.IPeerChannelChannel">
+            <summary>
+            Inner communication channel.
+            </summary>
+        </member>
+        <member name="T:Scallop.Network.PeerChannel.PeerChannelConfigSet">
+            <remarks/>
+        </member>
+        <member name="P:Scallop.Network.PeerChannel.PeerChannelConfigSet.Items">
+            <remarks/>
+        </member>
+        <member name="P:Scallop.Network.PeerChannel.PeerChannelConfigSet.DefaultConfig">
+            <remarks/>
+        </member>
+        <member name="T:Scallop.Network.PeerChannel.PeerChannelConfigType">
+            <remarks/>
+        </member>
+        <member name="P:Scallop.Network.PeerChannel.PeerChannelConfigType.NodeId">
+            <remarks/>
+        </member>
+        <member name="P:Scallop.Network.PeerChannel.PeerChannelConfigType.NetworkName">
+            <remarks/>
+        </member>
+        <member name="P:Scallop.Network.PeerChannel.PeerChannelConfigType.NetworkAddress">
+            <remarks/>
+        </member>
+        <member name="P:Scallop.Network.PeerChannel.PeerChannelConfigType.EnableTransportSecurity">
+            <remarks/>
+        </member>
+        <member name="P:Scallop.Network.PeerChannel.PeerChannelConfigType.EnableTransportSecuritySpecified">
+            <remarks/>
+        </member>
+        <member name="P:Scallop.Network.PeerChannel.PeerChannelConfigType.TLSPassword">
+            <remarks/>
+        </member>
+        <member name="P:Scallop.Network.PeerChannel.PeerChannelConfigType.NeighborQueryRate">
+            <remarks/>
+        </member>
+        <member name="P:Scallop.Network.PeerChannel.PeerChannelConfigType.NeighborQueryRateSpecified">
+            <remarks/>
+        </member>
+        <member name="P:Scallop.Network.PeerChannel.PeerChannelConfigType.ConfigName">
+            <remarks/>
+        </member>
+    </members>
+</doc>

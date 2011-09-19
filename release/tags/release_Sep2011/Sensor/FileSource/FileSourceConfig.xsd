@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="FileSourceSchema"
+    targetNamespace="Scallop/FileSourceSchema.xsd"
+    elementFormDefault="qualified"
+    xmlns="Scallop/FileSourceSchema.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="FileSourceConfigSet">
+    <xs:annotation>
+      <xs:documentation>
+        A set of file source configurations.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:choice>
+        <xs:element name="FileSourceConfig" type="FileSourceConfigType"
+                    minOccurs="1" maxOccurs="unbounded"/>
+      </xs:choice>
+      <xs:attribute name="DefaultConfig" type="xs:string" use="required" id="unique"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="FileSourceConfigType" id="conf">
+    <xs:all>
+      <xs:element name="SourceUri" minOccurs="1" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>
+              URI of the source video file.
+            </xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:anyURI">
+              <xs:whiteSpace value="collapse"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+      
+      <xs:element name="FrameFormat"
+                    minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Format of the frames returned by the file source module. Valid values are:
+
+            System.Drawing.Bitmap - A Windows Forms bitmap.
+            System.Windows.Media.Imaging.BitmapSource - A WPF bitmap.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="System.Drawing.Bitmap"/>
+            <xs:enumeration value="System.Windows.Media.Imaging.BitmapSource"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      
+      
+    </xs:all>
+    <xs:attribute name="ConfigName" use="required" form="unqualified" type="xs:string"/>
+  </xs:complexType>
+
+  
+
+</xs:schema>
