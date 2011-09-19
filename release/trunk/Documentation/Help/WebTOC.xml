@@ -1,22 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <HelpTOC>
 
-  <HelpTOCNode Id="d1a841b8-0754-4e53-87a6-1ef57888dd46" Title="Scallop.Core Namespace" Url="html/752d3aaf-820e-39ee-62fd-b3b049600c68.htm">
-    <HelpTOCNode Id="b5532e14-956d-40b9-8df6-f6962c583512" Title="InterfaceFactory Class" Url="html/324bc802-5e81-63d4-b5d7-009078d6c11f.htm">
+  <HelpTOCNode Id="a6376058-f389-449b-aa89-a1aa4032fdb0" Title="Scallop.Core Namespace" Url="html/752d3aaf-820e-39ee-62fd-b3b049600c68.htm">
+    <HelpTOCNode Id="61575980-ebec-4f4a-a853-02d03c59724e" Title="InterfaceFactory Class" Url="html/324bc802-5e81-63d4-b5d7-009078d6c11f.htm">
       <HelpTOCNode Title="InterfaceFactory Constructor " Url="html/6ae47c4b-b977-cb79-7b5f-d565bb379fe0.htm" />
-      <HelpTOCNode Id="d7add360-78b9-4b72-92bb-6bf91f58444c" Title="InterfaceFactory Methods " Url="html/1fc06c43-8af5-dbe2-6d31-5c748635008c.htm">
-        <HelpTOCNode Id="ffb383b9-1807-4415-9da3-2878644426c2" Title="CreateNetworkInstance Method " Url="html/635c3d50-822f-6cfb-ed8e-160c4c56a46b.htm">
+      <HelpTOCNode Id="2b796a19-cb2a-45a5-b1ef-fe6aca41ffd5" Title="InterfaceFactory Methods " Url="html/1fc06c43-8af5-dbe2-6d31-5c748635008c.htm">
+        <HelpTOCNode Id="103cc65a-ffce-407d-9bf9-5859f041c586" Title="CreateNetworkInstance Method " Url="html/635c3d50-822f-6cfb-ed8e-160c4c56a46b.htm">
           <HelpTOCNode Title="CreateNetworkInstance Method (String)" Url="html/691632a8-4616-a4c3-2321-6cde34065af7.htm" />
           <HelpTOCNode Title="CreateNetworkInstance Method (String, String)" Url="html/70e33594-61dc-d424-49d4-5cfcead1379d.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="118aa0e0-3230-4e26-9199-19de1a968933" Title="CreateSensorInstance Method " Url="html/1aaffafd-80c5-5fe0-59d9-24ebdf71bc4c.htm">
+        <HelpTOCNode Id="7a1be4af-6034-490c-92dd-1f0b08d7ab1a" Title="CreateSensorInstance Method " Url="html/1aaffafd-80c5-5fe0-59d9-24ebdf71bc4c.htm">
           <HelpTOCNode Title="CreateSensorInstance Method (String)" Url="html/617dbdc6-5700-c178-1976-a775383c3bf1.htm" />
           <HelpTOCNode Title="CreateSensorInstance Method (String, String)" Url="html/e6f27be0-abb2-eb36-ab90-466bb8687bc0.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="096b1f4c-90fa-44cd-89d2-f39bc3939e72" Title="InvalidConfigurationException Class" Url="html/21d3a144-0b45-2123-7915-cca8bb05ee08.htm">
-      <HelpTOCNode Id="b22421cc-d85b-457a-b208-eadf689cc285" Title="InvalidConfigurationException Constructor " Url="html/15f27ce6-4647-8284-a3de-45733ad7ae9e.htm">
+    <HelpTOCNode Id="bcf41e16-6eb7-45b2-b399-771e69cbc8f8" Title="InvalidConfigurationException Class" Url="html/21d3a144-0b45-2123-7915-cca8bb05ee08.htm">
+      <HelpTOCNode Id="a9104139-1844-44a4-a514-cb92d468c5dd" Title="InvalidConfigurationException Constructor " Url="html/15f27ce6-4647-8284-a3de-45733ad7ae9e.htm">
         <HelpTOCNode Title="InvalidConfigurationException Constructor " Url="html/ae38cc81-21cf-4611-ac0f-3ce73b0c5eb0.htm" />
         <HelpTOCNode Title="InvalidConfigurationException Constructor (String)" Url="html/c9a9c981-35d3-320a-5a80-b68ce1d2f02c.htm" />
         <HelpTOCNode Title="InvalidConfigurationException Constructor (SerializationInfo, StreamingContext)" Url="html/8fb9d6ff-4b0a-ad56-3d53-34461415eb99.htm" />
@@ -24,9 +24,10 @@
       </HelpTOCNode>
       <HelpTOCNode Title="InvalidConfigurationException Methods " Url="html/d0c12e31-610c-a15f-2e2b-3ba87ca255f8.htm" />
       <HelpTOCNode Title="InvalidConfigurationException Properties " Url="html/2dbefccc-2192-03e2-b60f-11c86cf824cd.htm" />
+      <HelpTOCNode Title="InvalidConfigurationException Events" Url="html/9d935414-1f52-02f9-efd4-99f3e5f2b99d.htm" />
     </HelpTOCNode>
-    <HelpTOCNode Id="17d95f53-0f81-4d0d-a1ce-84b4a7e8f168" Title="MessageContentException Class" Url="html/2450058f-95bb-b9dc-2165-32adda5cf728.htm">
-      <HelpTOCNode Id="e61357a7-9e1f-485a-bed1-168839e3bb29" Title="MessageContentException Constructor " Url="html/5d7869f5-49f3-99ad-e4a7-07ca7967cc70.htm">
+    <HelpTOCNode Id="0556b424-218b-4bb0-b6ef-4f60076a7136" Title="MessageContentException Class" Url="html/2450058f-95bb-b9dc-2165-32adda5cf728.htm">
+      <HelpTOCNode Id="470029dc-d8ac-4bc3-9634-38d549140d9e" Title="MessageContentException Constructor " Url="html/5d7869f5-49f3-99ad-e4a7-07ca7967cc70.htm">
         <HelpTOCNode Title="MessageContentException Constructor " Url="html/5154b92a-dfac-1c97-9826-ea1a80b81634.htm" />
         <HelpTOCNode Title="MessageContentException Constructor (Exception)" Url="html/21d8b580-2f5d-586c-4534-5286d0cacc76.htm" />
         <HelpTOCNode Title="MessageContentException Constructor (String)" Url="html/0846fd43-4f4e-876b-b32f-2afe6b1c5589.htm" />
@@ -35,9 +36,10 @@
       </HelpTOCNode>
       <HelpTOCNode Title="MessageContentException Methods " Url="html/53794f7d-7e1d-3e7a-4377-ff8f6c5216df.htm" />
       <HelpTOCNode Title="MessageContentException Properties " Url="html/fe6e2dcc-da80-b5bc-ae46-5362cf81b336.htm" />
+      <HelpTOCNode Title="MessageContentException Events" Url="html/9f143d7b-5908-2d1c-db14-84dd0f10ce06.htm" />
     </HelpTOCNode>
-    <HelpTOCNode Id="5e19ebcc-bcfb-464c-9d42-d327a5df3f50" Title="ScallopException Class" Url="html/abfd8beb-53ad-817d-b5ae-459d56c13bd8.htm">
-      <HelpTOCNode Id="6f99d819-439d-4c83-bc5a-d084a1a44542" Title="ScallopException Constructor " Url="html/d57f6354-dcff-7aa7-cdb0-d41ee1a5e5bf.htm">
+    <HelpTOCNode Id="395afd29-5e71-45a2-9d43-0c767dda6314" Title="ScallopException Class" Url="html/abfd8beb-53ad-817d-b5ae-459d56c13bd8.htm">
+      <HelpTOCNode Id="c1474fcf-8276-4596-afa4-1c0ec87ccc1e" Title="ScallopException Constructor " Url="html/d57f6354-dcff-7aa7-cdb0-d41ee1a5e5bf.htm">
         <HelpTOCNode Title="ScallopException Constructor " Url="html/78b055dd-f821-2f95-35d7-f097b3f5e856.htm" />
         <HelpTOCNode Title="ScallopException Constructor (String)" Url="html/9ca4c3e3-e647-d6a8-bccb-089a24062bfd.htm" />
         <HelpTOCNode Title="ScallopException Constructor (SerializationInfo, StreamingContext)" Url="html/4fffbb20-0ca7-f9f0-90c5-3c431e0f8299.htm" />
@@ -45,57 +47,58 @@
       </HelpTOCNode>
       <HelpTOCNode Title="ScallopException Methods " Url="html/2a8faf18-aace-dd0f-fa26-c07ca0d9a6b1.htm" />
       <HelpTOCNode Title="ScallopException Properties " Url="html/6395f28f-770a-8055-5bce-bee8ebdd5c7f.htm" />
+      <HelpTOCNode Title="ScallopException Events" Url="html/cd20493a-b5fd-b51a-ba73-eb410c623c34.htm" />
     </HelpTOCNode>
-    <HelpTOCNode Id="64eb9af9-6634-4097-9b8b-c7ddbc180750" Title="ScallopUtils Class" Url="html/c4857890-4dc9-e5ba-f0c7-2da0b706886a.htm">
-      <HelpTOCNode Id="29a4a524-cc6f-449d-a3af-a4b31f48144d" Title="ScallopUtils Methods " Url="html/5c62ecaf-bb50-e686-7228-dcc9b10dda52.htm">
+    <HelpTOCNode Id="f4c8ab19-df34-42fd-a0d7-197aeffbd08d" Title="ScallopUtils Class" Url="html/c4857890-4dc9-e5ba-f0c7-2da0b706886a.htm">
+      <HelpTOCNode Id="e75b3533-00fd-4dfe-b5ad-1111c0315008" Title="ScallopUtils Methods " Url="html/5c62ecaf-bb50-e686-7228-dcc9b10dda52.htm">
         <HelpTOCNode Title="Base64Decode Method " Url="html/e7338748-0ff6-7c8e-7167-66964fbeddd5.htm" />
         <HelpTOCNode Title="Base64Encode Method " Url="html/878d72e0-e7d7-7da8-fd25-28fffca70cfb.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
   </HelpTOCNode>
-  <HelpTOCNode Id="e2af7f7a-ac76-4fba-8875-359f6ed9d322" Title="Scallop.Core.Events Namespace" Url="html/a8bd6d19-9565-8919-1cec-2e3418b74e85.htm">
-    <HelpTOCNode Id="ab9769ee-bcbc-4a34-bed8-06d25e9fae8a" Title="ScallopInfoEventArgs Class" Url="html/906ca150-b50c-2811-ecc3-f753559a1c63.htm">
+  <HelpTOCNode Id="872d257d-31f7-452d-b828-a7604b10a9fb" Title="Scallop.Core.Events Namespace" Url="html/a8bd6d19-9565-8919-1cec-2e3418b74e85.htm">
+    <HelpTOCNode Id="7f92a65c-0038-4fcf-b842-5582930437ed" Title="ScallopInfoEventArgs Class" Url="html/906ca150-b50c-2811-ecc3-f753559a1c63.htm">
       <HelpTOCNode Title="ScallopInfoEventArgs Constructor " Url="html/5dc86845-c78d-5d7c-26b2-be590ea13131.htm" />
-      <HelpTOCNode Id="0adc0299-5c83-44c1-b717-baf94eeea420" Title="ScallopInfoEventArgs Properties " Url="html/ab8609e6-18e2-06fa-0368-eb02f5d5c834.htm">
+      <HelpTOCNode Id="91464d34-42e2-4de5-84a1-99056bc0ccad" Title="ScallopInfoEventArgs Properties " Url="html/ab8609e6-18e2-06fa-0368-eb02f5d5c834.htm">
         <HelpTOCNode Title="Message Property " Url="html/47e3255b-e8b6-49b5-64bd-d5f47bed6d70.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="daee65f1-8d0b-41ff-b5ad-5810558b3a28" Title="ScallopNetworkDataEventArgs Class" Url="html/9359441e-33a6-0f01-87e3-978e368fde10.htm">
+    <HelpTOCNode Id="9cc548bc-545a-4524-a82b-453e6fab5467" Title="ScallopNetworkDataEventArgs Class" Url="html/9359441e-33a6-0f01-87e3-978e368fde10.htm">
       <HelpTOCNode Title="ScallopNetworkDataEventArgs Constructor " Url="html/1cb451c0-41dc-568b-f2ef-abde11aff723.htm" />
-      <HelpTOCNode Id="940e3c55-cdb6-41bc-90d6-2fc1cf8e6022" Title="ScallopNetworkDataEventArgs Properties " Url="html/233a9a04-08d8-c52e-3761-9ae17bd2886c.htm">
+      <HelpTOCNode Id="dc7fb7db-d184-4c83-90e2-b4a745dfe3d2" Title="ScallopNetworkDataEventArgs Properties " Url="html/233a9a04-08d8-c52e-3761-9ae17bd2886c.htm">
         <HelpTOCNode Title="Data Property " Url="html/129368cd-2aa7-fcdc-7af9-fb5aa6973451.htm" />
         <HelpTOCNode Title="DataType Property " Url="html/af06594e-adb5-fee5-a55d-728d031f56e1.htm" />
         <HelpTOCNode Title="Message Property " Url="html/8539b498-8e2b-6b29-5322-59da07da18db.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="de64dd81-83b5-4b30-863f-cf8d9256906d" Title="ScallopNetworkStatusChangedEventArgs Class" Url="html/de5b1d00-534d-21d4-8a45-151c0e00f7cf.htm">
-      <HelpTOCNode Id="ddb6ed34-2c8a-4ed9-a159-84c521e2f025" Title="ScallopNetworkStatusChangedEventArgs Constructor " Url="html/42289c2c-fe1f-15f7-67ae-b5d2d96af995.htm">
+    <HelpTOCNode Id="2d335426-d5e3-4b92-9278-3dd49f9c08bc" Title="ScallopNetworkStatusChangedEventArgs Class" Url="html/de5b1d00-534d-21d4-8a45-151c0e00f7cf.htm">
+      <HelpTOCNode Id="b2b7f638-9798-4503-a862-6678ec674989" Title="ScallopNetworkStatusChangedEventArgs Constructor " Url="html/42289c2c-fe1f-15f7-67ae-b5d2d96af995.htm">
         <HelpTOCNode Title="ScallopNetworkStatusChangedEventArgs Constructor (ScallopNetworkState, ScallopNetworkState)" Url="html/edef83a9-a317-fd1c-8e3d-54fb8e4bcb08.htm" />
         <HelpTOCNode Title="ScallopNetworkStatusChangedEventArgs Constructor (ScallopNetworkState, ScallopNetworkState, String)" Url="html/50a6bae0-8a1a-542d-dc6e-89b9c736cbd5.htm" />
         <HelpTOCNode Title="ScallopNetworkStatusChangedEventArgs Constructor (ScallopNetworkState, ScallopNetworkState, String, Exception)" Url="html/b1499b6d-361d-2150-6781-b9e32eaf5e58.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="707a50af-f2c0-4fa5-ada8-475b2634f15e" Title="ScallopNetworkStatusChangedEventArgs Properties " Url="html/58db0c5c-8df4-f954-11d9-6c7e43dc3898.htm">
+      <HelpTOCNode Id="11763fe1-f5f1-4003-9981-cf7bd77c87ca" Title="ScallopNetworkStatusChangedEventArgs Properties " Url="html/58db0c5c-8df4-f954-11d9-6c7e43dc3898.htm">
         <HelpTOCNode Title="CausingException Property " Url="html/f7eaa3d3-467b-e53a-5519-bc075c4df6ef.htm" />
         <HelpTOCNode Title="Message Property " Url="html/d9c3270b-2e41-8977-19d2-a482c04196d6.htm" />
         <HelpTOCNode Title="NewState Property " Url="html/00be1f05-f510-ba8b-8723-d0e21fbb3d7b.htm" />
         <HelpTOCNode Title="OldState Property " Url="html/e770a099-a764-b0e3-1d3c-bf37d693f82d.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="6f6a2bae-6716-472a-ba06-fe0dc8c6b6f7" Title="ScallopSensorDataEventArgs Class" Url="html/7b60b633-9e52-9071-11e1-eef40850f619.htm">
+    <HelpTOCNode Id="889cc382-40f1-4c00-b1fe-483cc170eb78" Title="ScallopSensorDataEventArgs Class" Url="html/7b60b633-9e52-9071-11e1-eef40850f619.htm">
       <HelpTOCNode Title="ScallopSensorDataEventArgs Constructor " Url="html/facd1ab6-e582-420a-8b83-590b209a8a65.htm" />
-      <HelpTOCNode Id="02386b27-0334-4529-bb29-d7a0c0ee6c42" Title="ScallopSensorDataEventArgs Properties " Url="html/dd8313ee-3aaa-9828-d13c-77d6e7e6ad8a.htm">
+      <HelpTOCNode Id="aa797812-9d29-4409-b30d-f1ad3d11650d" Title="ScallopSensorDataEventArgs Properties " Url="html/dd8313ee-3aaa-9828-d13c-77d6e7e6ad8a.htm">
         <HelpTOCNode Title="Data Property " Url="html/df24e519-2df3-d6ab-5080-f6c5682d0d4a.htm" />
         <HelpTOCNode Title="DataType Property " Url="html/5ebb9328-a727-678b-f6ec-6f755e9e1b7d.htm" />
         <HelpTOCNode Title="Message Property " Url="html/d891c318-cebc-e078-4e3e-5c31b7511bd0.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="b5f28cc9-9e61-4f5b-a52a-117682b8e0ca" Title="ScallopSensorStatusChangedEventArgs Class" Url="html/cac55474-14e6-5641-2284-7248dc24709b.htm">
-      <HelpTOCNode Id="cb4f7f5b-efb3-4e75-9ec1-ac04a7cdbd1a" Title="ScallopSensorStatusChangedEventArgs Constructor " Url="html/1a5ed69f-939c-9069-9859-cc442c5003c0.htm">
+    <HelpTOCNode Id="ab0d288e-3d05-42df-8f40-0caf10f1f73c" Title="ScallopSensorStatusChangedEventArgs Class" Url="html/cac55474-14e6-5641-2284-7248dc24709b.htm">
+      <HelpTOCNode Id="bdf4ba56-b6c2-4094-9564-a09728f3378c" Title="ScallopSensorStatusChangedEventArgs Constructor " Url="html/1a5ed69f-939c-9069-9859-cc442c5003c0.htm">
         <HelpTOCNode Title="ScallopSensorStatusChangedEventArgs Constructor (ScallopSensorState, ScallopSensorState)" Url="html/65bddcb2-edc0-27b1-c767-b4a407e81441.htm" />
         <HelpTOCNode Title="ScallopSensorStatusChangedEventArgs Constructor (ScallopSensorState, ScallopSensorState, String)" Url="html/97b73a1f-ad35-6f07-d718-12ff403d49ff.htm" />
         <HelpTOCNode Title="ScallopSensorStatusChangedEventArgs Constructor (ScallopSensorState, ScallopSensorState, String, Exception)" Url="html/6755a262-91f9-c498-a556-79861328a102.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="2885f648-b29c-4fc9-be4d-9ae129666dfa" Title="ScallopSensorStatusChangedEventArgs Properties " Url="html/eea07ae3-0438-500e-883a-9650e4843e5a.htm">
+      <HelpTOCNode Id="ae87ecbe-dea3-4578-bad2-b3db594ca959" Title="ScallopSensorStatusChangedEventArgs Properties " Url="html/eea07ae3-0438-500e-883a-9650e4843e5a.htm">
         <HelpTOCNode Title="CausingException Property " Url="html/1697e095-7bb9-1db8-c5be-46eb984932ec.htm" />
         <HelpTOCNode Title="Message Property " Url="html/dc43c3c1-95df-3e36-58ed-aa9bcd616a49.htm" />
         <HelpTOCNode Title="NewState Property " Url="html/66226453-1f34-0e6e-e055-3d3a48eb68da.htm" />
@@ -103,18 +106,18 @@
       </HelpTOCNode>
     </HelpTOCNode>
   </HelpTOCNode>
-  <HelpTOCNode Id="75a071c0-a798-4098-a3cd-e682ab99f364" Title="Scallop.Core.Network Namespace" Url="html/d9e21b02-c6f5-2ce0-2cb7-4eba5cf378c4.htm">
-    <HelpTOCNode Id="ad6158b4-ffcb-4767-bf82-f884e1a82239" Title="IScallopNetwork Interface" Url="html/d89b6dcf-1e67-742f-b14a-9d347f32f180.htm">
-      <HelpTOCNode Id="72c36c32-4dfe-4981-ba1b-7afdde8bbf1c" Title="IScallopNetwork Methods " Url="html/deec960e-b647-9a0e-249d-a19ae9c86e66.htm">
+  <HelpTOCNode Id="080a0ac0-cce5-42b1-8fd0-82c66476ac44" Title="Scallop.Core.Network Namespace" Url="html/d9e21b02-c6f5-2ce0-2cb7-4eba5cf378c4.htm">
+    <HelpTOCNode Id="3112f05e-fe80-495b-924c-82942d378a13" Title="IScallopNetwork Interface" Url="html/d89b6dcf-1e67-742f-b14a-9d347f32f180.htm">
+      <HelpTOCNode Id="e6e07327-68db-4e13-9ef4-7094f39ca1e6" Title="IScallopNetwork Methods " Url="html/deec960e-b647-9a0e-249d-a19ae9c86e66.htm">
         <HelpTOCNode Title="Join Method " Url="html/b4886544-8f64-b8a1-682a-5a64bac5bd88.htm" />
         <HelpTOCNode Title="Leave Method " Url="html/64bcc845-f982-58d7-0736-8b6afe0742d4.htm" />
-        <HelpTOCNode Id="5a756b4e-7bf1-4b85-b365-e24cd2fe77cf" Title="SendMessage Method " Url="html/a72bb634-d1aa-0b68-fa03-8b0c528fd32e.htm">
+        <HelpTOCNode Id="5910ea02-bdd2-4d46-9393-30bfb2f54114" Title="SendMessage Method " Url="html/a72bb634-d1aa-0b68-fa03-8b0c528fd32e.htm">
           <HelpTOCNode Title="SendMessage Method (String)" Url="html/4a88b825-4d1d-ca71-0d69-30108860fb8c.htm" />
           <HelpTOCNode Title="SendMessage Method (String, Int32)" Url="html/74c3970a-8720-2c69-eb49-280c651d12d9.htm" />
           <HelpTOCNode Title="SendMessage Method (String, String[])" Url="html/3ee120d9-5236-6b72-9d41-d0b511243cd6.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="83e909ec-a96f-4cf0-8b7b-e11d3cfd017b" Title="IScallopNetwork Properties " Url="html/4aca3364-c3fe-f1a4-16c9-e97c1cc0c620.htm">
+      <HelpTOCNode Id="932d74a3-14ab-4d96-b505-489a148c24ff" Title="IScallopNetwork Properties " Url="html/4aca3364-c3fe-f1a4-16c9-e97c1cc0c620.htm">
         <HelpTOCNode Title="ConfigSchema Property " Url="html/eec774ea-4b8f-f232-3092-8553bc73ddd8.htm" />
         <HelpTOCNode Title="HopCountSum Property " Url="html/9d06113b-6fa2-dde4-0c83-3f6f2abe229f.htm" />
         <HelpTOCNode Title="MessageCountRX Property " Url="html/27d7ea0b-c7ea-9ea8-78c0-74ea3aee3818.htm" />
@@ -126,26 +129,26 @@
         <HelpTOCNode Title="State Property " Url="html/57961392-92a5-ec66-a1bf-b9e8c6daa982.htm" />
         <HelpTOCNode Title="Version Property " Url="html/8495c184-ce06-f3ed-d4f2-816bb98e544e.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="667c524f-28d6-4f32-a252-82beb3077e7d" Title="IScallopNetwork Events" Url="html/d48210e9-8a22-866c-f862-a974a4202349.htm">
+      <HelpTOCNode Id="8bd2115f-340e-475d-bba8-d81fef0ba4e5" Title="IScallopNetwork Events" Url="html/d48210e9-8a22-866c-f862-a974a4202349.htm">
         <HelpTOCNode Title="Data Event" Url="html/ea4dfe35-ca76-cdfa-bc22-5ad9184efe34.htm" />
         <HelpTOCNode Title="Info Event" Url="html/258d5066-54a2-c335-d93b-d9d8daa26716.htm" />
         <HelpTOCNode Title="StatusChanged Event" Url="html/d5638fd6-7dcd-e3c4-deca-8949d815464b.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="7084f4bb-21b6-4386-8322-6a9f94ac8feb" Title="ScallopMessage Class" Url="html/439c98ed-0ec7-6326-3598-fed6b537e0e7.htm">
-      <HelpTOCNode Id="030c1553-7e94-431c-a333-df701ec0f76b" Title="ScallopMessage Constructor " Url="html/21f79e42-4744-26c7-f0a3-277728966b7f.htm">
+    <HelpTOCNode Id="a20f7e68-2ebb-46c5-8f30-b0cd2fe59bb8" Title="ScallopMessage Class" Url="html/439c98ed-0ec7-6326-3598-fed6b537e0e7.htm">
+      <HelpTOCNode Id="d3628d11-dcfc-4346-a50f-9dad8cf4dc28" Title="ScallopMessage Constructor " Url="html/21f79e42-4744-26c7-f0a3-277728966b7f.htm">
         <HelpTOCNode Title="ScallopMessage Constructor " Url="html/1d9e85c2-293b-ea20-3610-f1e595a20b78.htm" />
         <HelpTOCNode Title="ScallopMessage Constructor (ScallopMessageHeader)" Url="html/3045bfd3-45a1-c8ec-3f70-033ab0d17bb6.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="8cb07e49-de3a-42a4-a600-a155c68757d4" Title="ScallopMessage Properties " Url="html/37fa3f3f-7e5c-bdc7-b726-11f21c29e131.htm">
+      <HelpTOCNode Id="2f4bb3fd-8092-48c2-a305-a0ebcc61a460" Title="ScallopMessage Properties " Url="html/37fa3f3f-7e5c-bdc7-b726-11f21c29e131.htm">
         <HelpTOCNode Title="Contents Property " Url="html/750c939d-2027-d4c8-e149-72613834909b.htm" />
         <HelpTOCNode Title="Header Property " Url="html/04601b6f-a829-0abc-62dd-78201cb35d9a.htm" />
         <HelpTOCNode Title="HopCount Property " Url="html/04d6cc3f-b170-a355-ccc7-4874663ef1aa.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="d66ccb59-ddae-4c2e-b5ec-ac54dfbf92a9" Title="ScallopMessageHeader Class" Url="html/79aa9afa-494a-aee0-6700-d9d9902a0da9.htm">
+    <HelpTOCNode Id="4efa1678-fd56-4d58-9cfa-d8fba9a91188" Title="ScallopMessageHeader Class" Url="html/79aa9afa-494a-aee0-6700-d9d9902a0da9.htm">
       <HelpTOCNode Title="ScallopMessageHeader Constructor " Url="html/6898f4e1-91ad-f2bb-721b-3c12a08f0f34.htm" />
-      <HelpTOCNode Id="9a17f83f-c084-40a7-be5b-52bb5e85d813" Title="ScallopMessageHeader Properties " Url="html/b9cfeccb-8586-e715-278f-7382c837d5ca.htm">
+      <HelpTOCNode Id="e7e56c7e-fe80-416a-a954-4669c9849ddc" Title="ScallopMessageHeader Properties " Url="html/b9cfeccb-8586-e715-278f-7382c837d5ca.htm">
         <HelpTOCNode Title="InternalMessage Property " Url="html/ad2518ac-8007-65c6-d400-dcd3c6bf527d.htm" />
         <HelpTOCNode Title="OrigHopcount Property " Url="html/cd8545f9-709f-236c-a391-a2a3a421bc0d.htm" />
         <HelpTOCNode Title="Receivers Property " Url="html/b3a26aa6-4859-d04f-dcd5-112494bfef7a.htm" />
@@ -154,21 +157,21 @@
     </HelpTOCNode>
     <HelpTOCNode Title="ScallopNetworkState Enumeration" Url="html/cf2a1f9d-8b8f-89ae-18d5-e6752035f0e5.htm" />
   </HelpTOCNode>
-  <HelpTOCNode Id="9931d3e4-e37a-4f34-83bc-d364e8e43a13" Title="Scallop.Core.Sensor Namespace" Url="html/946962fb-f697-dc68-1eb2-7f4bb0fa5c41.htm">
-    <HelpTOCNode Id="7ec4ea52-38b1-4a8a-826a-6db8494c1981" Title="IScallopSensor Interface" Url="html/2844eeaf-d588-725a-196e-432eb5224f60.htm">
-      <HelpTOCNode Id="0bc9f059-9411-4797-ac8e-a5c016aad10e" Title="IScallopSensor Methods " Url="html/e1c87a52-de90-48ed-959f-11c3f9b366a4.htm">
+  <HelpTOCNode Id="eccb9ddd-8b05-413d-b6c7-1be6be372110" Title="Scallop.Core.Sensor Namespace" Url="html/946962fb-f697-dc68-1eb2-7f4bb0fa5c41.htm">
+    <HelpTOCNode Id="329fc3fd-e65b-4260-a383-deb9c1b0c2ea" Title="IScallopSensor Interface" Url="html/2844eeaf-d588-725a-196e-432eb5224f60.htm">
+      <HelpTOCNode Id="a1bd4b5a-cc7b-4879-ab2b-3471a5fefef6" Title="IScallopSensor Methods " Url="html/e1c87a52-de90-48ed-959f-11c3f9b366a4.htm">
         <HelpTOCNode Title="PanTilt Method " Url="html/7fe5a696-7e19-e49d-3407-5c902a518552.htm" />
         <HelpTOCNode Title="Register Method " Url="html/39453b54-b76d-db92-ed39-4290989fb0b2.htm" />
         <HelpTOCNode Title="Start Method " Url="html/36dc8b71-7210-ff1c-68a4-37152d9bc898.htm" />
         <HelpTOCNode Title="Stop Method " Url="html/faa48882-fb7b-15ce-cfd8-857f2b946b45.htm" />
         <HelpTOCNode Title="Zoom Method " Url="html/431cf712-ab51-e8bf-afdf-7f46aaefabb9.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="aae4e499-ecb3-45af-9fed-523ab4fc553d" Title="IScallopSensor Properties " Url="html/0a595f72-a9dc-e49d-3fd1-b21292800061.htm">
+      <HelpTOCNode Id="f589f385-81c5-44a2-9d95-7d3dc8a83696" Title="IScallopSensor Properties " Url="html/0a595f72-a9dc-e49d-3fd1-b21292800061.htm">
         <HelpTOCNode Title="ConfigSchema Property " Url="html/f590bfaa-0d83-da16-3d09-6a499c411d48.htm" />
         <HelpTOCNode Title="State Property " Url="html/75399e01-d8fb-3345-2db0-851c3ee98e63.htm" />
         <HelpTOCNode Title="Version Property " Url="html/74d4e8f1-4a4b-6afc-8648-0986a54d1b44.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="a74d8702-14af-4ad4-8cbe-288c4a80f062" Title="IScallopSensor Events" Url="html/6a197040-567c-ebfa-bdca-e61c3e259c86.htm">
+      <HelpTOCNode Id="ed145151-8f2f-492b-8d51-ff1c00bbb562" Title="IScallopSensor Events" Url="html/6a197040-567c-ebfa-bdca-e61c3e259c86.htm">
         <HelpTOCNode Title="Data Event" Url="html/061bbca9-7f6d-2d98-9776-a96a5c725dbb.htm" />
         <HelpTOCNode Title="Info Event" Url="html/b65d0caa-0edb-b7ab-727d-ea4d7719c1d5.htm" />
         <HelpTOCNode Title="StatusChanged Event" Url="html/0e3bc25c-e561-c8c1-e528-1394f7c76cea.htm" />
@@ -176,17 +179,17 @@
     </HelpTOCNode>
     <HelpTOCNode Title="ScallopSensorState Enumeration" Url="html/07074b1c-9fc5-b8ce-1da2-02122c8521cc.htm" />
   </HelpTOCNode>
-  <HelpTOCNode Id="26850f9c-044f-45a7-b9d2-c3eef5084b9f" Title="Scallop.Network.PeerChannel Namespace" Url="html/4f9b13ae-127c-5573-9d5d-2a0892c24891.htm">
-    <HelpTOCNode Id="8b47e0cc-fdd7-46a6-8586-93b9a607e021" Title="PeerChannelConfigSet Class" Url="html/281ab857-883a-33ec-d7df-64c7d21cdd96.htm">
+  <HelpTOCNode Id="207cbb49-32e1-4e56-9741-77b7db06e405" Title="Scallop.Network.PeerChannel Namespace" Url="html/4f9b13ae-127c-5573-9d5d-2a0892c24891.htm">
+    <HelpTOCNode Id="5665a82e-d8cd-4cc5-a6a6-03300fd101fa" Title="PeerChannelConfigSet Class" Url="html/281ab857-883a-33ec-d7df-64c7d21cdd96.htm">
       <HelpTOCNode Title="PeerChannelConfigSet Constructor " Url="html/98944688-37a5-8717-5762-d9fc269c0555.htm" />
-      <HelpTOCNode Id="a38e060d-e196-4b0a-ab87-5b0846d96f9c" Title="PeerChannelConfigSet Properties " Url="html/f2015ac0-ef5e-83cb-194b-bd5936f076a9.htm">
+      <HelpTOCNode Id="4380097f-e875-4d26-bbd5-d54af0f74381" Title="PeerChannelConfigSet Properties " Url="html/f2015ac0-ef5e-83cb-194b-bd5936f076a9.htm">
         <HelpTOCNode Title="DefaultConfig Property " Url="html/4bda97ca-cba1-7b4a-cc7c-4672566f8171.htm" />
         <HelpTOCNode Title="Items Property " Url="html/495b23ce-c2d9-04be-b480-8e0a61c032fc.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="73c98822-1525-4c3c-91af-1de1016bda5c" Title="PeerChannelConfigType Class" Url="html/d5a22dc5-3913-fb3a-9871-957ce6b0eeb9.htm">
+    <HelpTOCNode Id="d39b19c7-d979-4b1c-a9a1-f4441f9a15b2" Title="PeerChannelConfigType Class" Url="html/d5a22dc5-3913-fb3a-9871-957ce6b0eeb9.htm">
       <HelpTOCNode Title="PeerChannelConfigType Constructor " Url="html/2b4e9f68-8e66-07f1-c71d-d37b245e04ec.htm" />
-      <HelpTOCNode Id="a0340ab8-ed1c-4630-9d03-21191080738f" Title="PeerChannelConfigType Properties " Url="html/27c0f123-1fb5-e564-e080-d10b63fcd55b.htm">
+      <HelpTOCNode Id="beac7370-654e-4f74-a531-9d7bb994d242" Title="PeerChannelConfigType Properties " Url="html/27c0f123-1fb5-e564-e080-d10b63fcd55b.htm">
         <HelpTOCNode Title="ConfigName Property " Url="html/b9f2ece0-e770-f5e8-eb93-7b44e599504c.htm" />
         <HelpTOCNode Title="EnableTransportSecurity Property " Url="html/b57a0c33-fd33-cb87-aa59-c75b4b49bc33.htm" />
         <HelpTOCNode Title="EnableTransportSecuritySpecified Property " Url="html/5f8cfeb0-6b58-0325-4af5-988f8b8fe63a.htm" />
@@ -198,23 +201,23 @@
         <HelpTOCNode Title="TLSPassword Property " Url="html/8f96c468-9c3b-4c6c-e82c-e07fff38ef17.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="2ab73413-d1c7-4e7d-9df0-059a82228439" Title="ScallopPeerChannel Class" Url="html/75c8e121-3c55-554b-4461-ddde85c6ea17.htm">
+    <HelpTOCNode Id="29a130f9-b30c-4fce-8cb6-4412650c3a1f" Title="ScallopPeerChannel Class" Url="html/75c8e121-3c55-554b-4461-ddde85c6ea17.htm">
       <HelpTOCNode Title="ScallopPeerChannel Constructor " Url="html/598c7d45-9139-5580-4aa1-dfdd5a0f07f3.htm" />
-      <HelpTOCNode Id="4a5af8c3-0a4e-4779-8d81-ed7c536b1207" Title="ScallopPeerChannel Methods " Url="html/9263101a-25a7-530d-38bb-087a4e75e323.htm">
-        <HelpTOCNode Id="5ab94c5a-90e3-410d-95d2-efbaccfe5c3f" Title="Dispose Method " Url="html/c83019a7-fa46-afb7-3c30-f261c98d5944.htm">
+      <HelpTOCNode Id="8744a5fb-5521-4526-80db-18a09fdbb715" Title="ScallopPeerChannel Methods " Url="html/9263101a-25a7-530d-38bb-087a4e75e323.htm">
+        <HelpTOCNode Id="d4a8828e-67b5-4f55-b31c-423e042d54aa" Title="Dispose Method " Url="html/c83019a7-fa46-afb7-3c30-f261c98d5944.htm">
           <HelpTOCNode Title="Dispose Method " Url="html/714aabd8-f1ba-9179-72e3-8d69482b50f9.htm" />
           <HelpTOCNode Title="Dispose Method (Boolean)" Url="html/3c32ee38-49e7-460e-c78e-e5d0e65f8ac0.htm" />
         </HelpTOCNode>
         <HelpTOCNode Title="Finalize Method " Url="html/2702bba6-fb5e-5b5f-dc77-4b11a10ca5af.htm" />
         <HelpTOCNode Title="Join Method " Url="html/2c54d6cd-0375-e40e-d882-233383ff373b.htm" />
         <HelpTOCNode Title="Leave Method " Url="html/51807d6c-4003-9d6d-af84-3b71fd1be924.htm" />
-        <HelpTOCNode Id="8adaef61-b96d-4a5e-8cb2-df22835396fb" Title="SendMessage Method " Url="html/69b8e0da-0288-cac1-daf1-a23b30fa33d9.htm">
+        <HelpTOCNode Id="de4d6b11-49c3-42e7-8e67-1635595c9814" Title="SendMessage Method " Url="html/69b8e0da-0288-cac1-daf1-a23b30fa33d9.htm">
           <HelpTOCNode Title="SendMessage Method (String)" Url="html/91d92ef9-5dce-af4b-8e30-a0fc6e260a4d.htm" />
           <HelpTOCNode Title="SendMessage Method (String, Int32)" Url="html/ebcadb33-dd27-7d1e-81fc-b5854d7ee692.htm" />
           <HelpTOCNode Title="SendMessage Method (String, String[])" Url="html/e189745f-7691-587c-f400-eb6a672c96ab.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="761c0bb4-42d7-4732-a5ad-afd285c2247a" Title="ScallopPeerChannel Properties " Url="html/0e48c4a5-75a7-bfce-537d-a7f8d06186a3.htm">
+      <HelpTOCNode Id="9b916609-1bd0-40bb-a902-e69f37bebfc3" Title="ScallopPeerChannel Properties " Url="html/0e48c4a5-75a7-bfce-537d-a7f8d06186a3.htm">
         <HelpTOCNode Title="ConfigSchema Property " Url="html/f0e03f8c-18d5-5b2a-5d2d-e245b92420e7.htm" />
         <HelpTOCNode Title="HopCountSum Property " Url="html/110d375d-b99f-3161-a0a0-7fce6ed46bd0.htm" />
         <HelpTOCNode Title="MessageCountRX Property " Url="html/1bf4a815-ea1c-9fc8-178f-9c51e99a3d5e.htm" />
@@ -226,18 +229,18 @@
         <HelpTOCNode Title="State Property " Url="html/d571c20a-c04f-3959-8b62-0e20703b78e0.htm" />
         <HelpTOCNode Title="Version Property " Url="html/5eaedbf5-bcdd-cc99-6d5f-ec4d035c4bcb.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="874f4b50-2244-471e-a69c-20a84c453c11" Title="ScallopPeerChannel Events" Url="html/e0905a89-ee0d-ff5f-5cb7-ab0143011dc9.htm">
+      <HelpTOCNode Id="3f828451-8ca8-40f4-9079-a806bb60c5cd" Title="ScallopPeerChannel Events" Url="html/e0905a89-ee0d-ff5f-5cb7-ab0143011dc9.htm">
         <HelpTOCNode Title="Data Event" Url="html/759680b4-680c-0710-f91f-2d6f2586a070.htm" />
         <HelpTOCNode Title="Info Event" Url="html/b2dbd5bb-6c13-0583-312f-00037f1892e8.htm" />
         <HelpTOCNode Title="StatusChanged Event" Url="html/24372922-161f-122d-c92e-006f8b79900a.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
   </HelpTOCNode>
-  <HelpTOCNode Id="ef3cba60-84d2-48c4-a236-ea6543c9fd2e" Title="Scallop.Sensor.Axis Namespace" Url="html/a5cedd47-e96b-99ff-3921-a924337d8faa.htm">
-    <HelpTOCNode Id="d9e90503-fb97-4bdc-85f0-5a78c0d98ddd" Title="AxisCamera Class" Url="html/ca80d770-f6a6-65a2-8a9f-ac6300a90663.htm">
+  <HelpTOCNode Id="2bb189e6-8dc0-40d2-8bd0-ef6b192a389c" Title="Scallop.Sensor.Axis Namespace" Url="html/a5cedd47-e96b-99ff-3921-a924337d8faa.htm">
+    <HelpTOCNode Id="5fef7fc8-465d-4c45-9f5e-a5253b4e4af3" Title="AxisCamera Class" Url="html/ca80d770-f6a6-65a2-8a9f-ac6300a90663.htm">
       <HelpTOCNode Title="AxisCamera Constructor " Url="html/eb93c92b-4898-63e9-209d-4f5a7fa6413a.htm" />
-      <HelpTOCNode Id="35089063-6dca-4a27-bf62-2a56a822173d" Title="AxisCamera Methods " Url="html/cfaaaa17-928e-e48a-73ae-d1a303416af9.htm">
-        <HelpTOCNode Id="3e44a533-7d66-4d00-a88b-c00cc6810f7f" Title="Dispose Method " Url="html/de674f19-a9ea-76b4-c8d8-7fda3eab6ed7.htm">
+      <HelpTOCNode Id="56fd730e-c9d6-4a7c-a1c6-70d6bd499f20" Title="AxisCamera Methods " Url="html/cfaaaa17-928e-e48a-73ae-d1a303416af9.htm">
+        <HelpTOCNode Id="3fbbcde2-cc6f-4552-83ea-94ff7b4d2c9d" Title="Dispose Method " Url="html/de674f19-a9ea-76b4-c8d8-7fda3eab6ed7.htm">
           <HelpTOCNode Title="Dispose Method " Url="html/d3d5e3fe-cfd2-d1bd-8978-f3c1da88a2e4.htm" />
           <HelpTOCNode Title="Dispose Method (Boolean)" Url="html/77ca4eeb-ca43-4262-dae3-0dfd8be7dd8e.htm" />
         </HelpTOCNode>
@@ -249,27 +252,27 @@
         <HelpTOCNode Title="Unregister Method " Url="html/5094590b-f375-2647-adcd-3d144051dad7.htm" />
         <HelpTOCNode Title="Zoom Method " Url="html/1317167d-8141-b171-fcdd-2aed990cb6eb.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="565d6da1-0ffc-4098-a7e7-137f56e0dede" Title="AxisCamera Properties " Url="html/76c87caf-e5b7-71bd-f101-9a28676058d3.htm">
+      <HelpTOCNode Id="99085770-7c74-4215-9e3e-cf1b154cc8e2" Title="AxisCamera Properties " Url="html/76c87caf-e5b7-71bd-f101-9a28676058d3.htm">
         <HelpTOCNode Title="ConfigSchema Property " Url="html/45a47bbc-5abf-e9dd-51ac-470279121ccd.htm" />
         <HelpTOCNode Title="State Property " Url="html/ffc4e53d-7c2d-9dfc-eb64-eb2fce1c97fa.htm" />
         <HelpTOCNode Title="Version Property " Url="html/3122cadb-f1de-dbe0-44a0-a368f55a86b1.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="6f0015fa-c4a8-42de-957f-955cc831a350" Title="AxisCamera Events" Url="html/6c6f06f3-c9fe-aa61-df3b-647f76a26bb7.htm">
+      <HelpTOCNode Id="1785f851-fd27-4ff1-8bb3-ccd075797c15" Title="AxisCamera Events" Url="html/6c6f06f3-c9fe-aa61-df3b-647f76a26bb7.htm">
         <HelpTOCNode Title="Data Event" Url="html/216ced92-decd-5e0f-6a27-ba30e2500bfa.htm" />
         <HelpTOCNode Title="Info Event" Url="html/e24070e6-e9ad-6a28-0450-5ead3f9ead27.htm" />
         <HelpTOCNode Title="StatusChanged Event" Url="html/6d345188-f6f6-571e-82f1-16ee2ea9380a.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="1194bcca-30a8-445d-a5e3-da3c33528047" Title="AxisCameraConfigSet Class" Url="html/0c113511-4638-e2f4-ae7a-339738b6370f.htm">
+    <HelpTOCNode Id="27c244d7-896c-4649-9fd9-f2862887563e" Title="AxisCameraConfigSet Class" Url="html/0c113511-4638-e2f4-ae7a-339738b6370f.htm">
       <HelpTOCNode Title="AxisCameraConfigSet Constructor " Url="html/948626f5-e203-0f0e-5bae-46cf95ba1a3b.htm" />
-      <HelpTOCNode Id="22984fdd-b668-4320-b195-1a12bc3d4c1e" Title="AxisCameraConfigSet Properties " Url="html/1a1e21dc-3197-f2a3-9242-0a46541bd49e.htm">
+      <HelpTOCNode Id="f61aedaf-1f70-44ac-92aa-9c0a698bc105" Title="AxisCameraConfigSet Properties " Url="html/1a1e21dc-3197-f2a3-9242-0a46541bd49e.htm">
         <HelpTOCNode Title="DefaultConfig Property " Url="html/a48f4acd-33f6-681f-1c9d-8d19f9e195fe.htm" />
         <HelpTOCNode Title="Items Property " Url="html/89587a8f-feab-c6f7-e898-b42f69e6a2b4.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="3ae01067-51c1-4bc4-806d-cedc75b7b666" Title="AxisCameraConfigType Class" Url="html/02925d69-c453-674b-fa96-f38595298491.htm">
+    <HelpTOCNode Id="b4a236bc-05dc-4af6-9f59-5cec59d01a52" Title="AxisCameraConfigType Class" Url="html/02925d69-c453-674b-fa96-f38595298491.htm">
       <HelpTOCNode Title="AxisCameraConfigType Constructor " Url="html/6fa0773f-6761-475f-ccd6-bc65a40e0817.htm" />
-      <HelpTOCNode Id="99c27abc-b224-44e4-9d95-af67fb4f7d03" Title="AxisCameraConfigType Properties " Url="html/fdc10225-4f2f-6427-98c0-62e8ce285df5.htm">
+      <HelpTOCNode Id="81af8016-4858-4771-8e08-96e8b4dd11f0" Title="AxisCameraConfigType Properties " Url="html/fdc10225-4f2f-6427-98c0-62e8ce285df5.htm">
         <HelpTOCNode Title="Address Property " Url="html/4c840903-882a-990e-8aca-f95b7e8436e6.htm" />
         <HelpTOCNode Title="Camera Property " Url="html/9ada3bd2-1080-3c93-9fba-50016d53f1a8.htm" />
         <HelpTOCNode Title="CameraSpecified Property " Url="html/a68dd94f-1102-fff4-3355-b10c51a9d061.htm" />
@@ -314,5 +317,28 @@
     <HelpTOCNode Title="AxisCameraConfigTypeTextBackgroundColor Enumeration" Url="html/ae55241f-7368-9234-e6dd-610b8a3cc195.htm" />
     <HelpTOCNode Title="AxisCameraConfigTypeTextColor Enumeration" Url="html/07a9aa78-a49f-ee37-78dc-639a2cc80bd4.htm" />
     <HelpTOCNode Title="AxisCameraConfigTypeTextPosition Enumeration" Url="html/2ea87571-8964-7f0e-540e-408a56da0f1c.htm" />
+  </HelpTOCNode>
+  <HelpTOCNode Id="b7c896dd-d3c7-419c-a360-6348d123f049" Title="Scallop.Sensor.FileSource Namespace" Url="html/ce715e67-e2ef-1538-7d50-5f606340386b.htm">
+    <HelpTOCNode Id="736aed9c-138b-4bc7-be63-f564da41b872" Title="ScallopFileSource Class" Url="html/4f94a28c-ca4b-020f-eed4-97dca4ee3b6d.htm">
+      <HelpTOCNode Title="ScallopFileSource Constructor " Url="html/a80fc855-9cd3-e92f-2657-a6a61461d9e3.htm" />
+      <HelpTOCNode Id="534bcff1-49a8-4aea-b65a-4cd3aeb57c1e" Title="ScallopFileSource Methods " Url="html/b61fe840-06a8-cc67-d7c5-c009e63c588b.htm">
+        <HelpTOCNode Title="Dispose Method " Url="html/92f1ea40-960b-c081-ade3-5844bd8e904d.htm" />
+        <HelpTOCNode Title="PanTilt Method " Url="html/d5eb07ff-26e5-dd82-4bf7-8c32d8e4e217.htm" />
+        <HelpTOCNode Title="Register Method " Url="html/be446530-31f4-2376-865a-f86ce79d033d.htm" />
+        <HelpTOCNode Title="Start Method " Url="html/297a07f1-fa4c-6886-233c-170b28863fb6.htm" />
+        <HelpTOCNode Title="Stop Method " Url="html/3b964030-f302-c978-70ff-37627394fd81.htm" />
+        <HelpTOCNode Title="Zoom Method " Url="html/1e09b588-c528-a760-8d2b-26c480753cfc.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="9c8f4151-ae00-4fb9-9679-1cdd7b47b0e4" Title="ScallopFileSource Properties " Url="html/ced17fc0-0689-ba17-ff8b-5f7349926c62.htm">
+        <HelpTOCNode Title="ConfigSchema Property " Url="html/9a045626-3d5a-b396-5809-616ba38461b7.htm" />
+        <HelpTOCNode Title="State Property " Url="html/60fd4b5a-ab41-997f-8d09-e4b92a7c120b.htm" />
+        <HelpTOCNode Title="Version Property " Url="html/ed580806-43de-7443-a199-772efca2a184.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="215fc618-269f-433d-a9f4-e81909cc5118" Title="ScallopFileSource Events" Url="html/e9694ae6-099a-a945-6d48-f17bae644001.htm">
+        <HelpTOCNode Title="Data Event" Url="html/459eca2b-e751-53bd-a321-0c898e87f293.htm" />
+        <HelpTOCNode Title="Info Event" Url="html/433437c5-3b45-e087-b362-40ac93275e3b.htm" />
+        <HelpTOCNode Title="StatusChanged Event" Url="html/3e4b5109-8725-69c4-4af8-ed89e7a7f5ef.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
   </HelpTOCNode>
 </HelpTOC>
