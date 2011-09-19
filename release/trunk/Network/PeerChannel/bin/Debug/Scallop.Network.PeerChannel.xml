@@ -4,58 +4,33 @@
         <name>Scallop.Network.PeerChannel</name>
     </assembly>
     <members>
-        <member name="T:Scallop.Network.PeerChannel.PeerChannelConfigSet">
-            <remarks/>
-        </member>
-        <member name="P:Scallop.Network.PeerChannel.PeerChannelConfigSet.Items">
-            <remarks/>
-        </member>
-        <member name="P:Scallop.Network.PeerChannel.PeerChannelConfigSet.DefaultConfig">
-            <remarks/>
-        </member>
-        <member name="T:Scallop.Network.PeerChannel.PeerChannelConfigType">
-            <remarks/>
-        </member>
-        <member name="P:Scallop.Network.PeerChannel.PeerChannelConfigType.NodeId">
-            <remarks/>
-        </member>
-        <member name="P:Scallop.Network.PeerChannel.PeerChannelConfigType.NetworkName">
-            <remarks/>
-        </member>
-        <member name="P:Scallop.Network.PeerChannel.PeerChannelConfigType.NetworkAddress">
-            <remarks/>
-        </member>
-        <member name="P:Scallop.Network.PeerChannel.PeerChannelConfigType.EnableTransportSecurity">
-            <remarks/>
-        </member>
-        <member name="P:Scallop.Network.PeerChannel.PeerChannelConfigType.EnableTransportSecuritySpecified">
-            <remarks/>
-        </member>
-        <member name="P:Scallop.Network.PeerChannel.PeerChannelConfigType.TLSPassword">
-            <remarks/>
-        </member>
-        <member name="P:Scallop.Network.PeerChannel.PeerChannelConfigType.NeighborQueryRate">
-            <remarks/>
-        </member>
-        <member name="P:Scallop.Network.PeerChannel.PeerChannelConfigType.NeighborQueryRateSpecified">
-            <remarks/>
-        </member>
-        <member name="P:Scallop.Network.PeerChannel.PeerChannelConfigType.ConfigName">
-            <remarks/>
-        </member>
-        <member name="T:Scallop.Network.PeerChannel.ScallopPeerChannelMessageType">
+        <member name="T:Scallop.Network.PeerChannel.ScallopMessageFilter">
             <summary>
-            Enumeration of message types.
+            A message filter that filters out own sent messages
             </summary>
         </member>
-        <member name="F:Scallop.Network.PeerChannel.ScallopPeerChannelMessageType.Regular">
+        <member name="M:Scallop.Network.PeerChannel.ScallopMessageFilter.#ctor(System.String)">
             <summary>
-            Regular message.
+            Constructor
+            </summary>
+            <param name="strID"></param>
+        </member>
+        <member name="M:Scallop.Network.PeerChannel.ScallopMessageFilter.ShouldMessagePropagate(System.ServiceModel.Channels.Message,System.ServiceModel.PeerMessageOrigination)">
+            <summary>
+            Delivers only the messages sent by other nodes
+            </summary>
+            <param name="message">Incoming message</param>
+            <param name="origination">Message source</param>
+            <returns></returns>
+        </member>
+        <member name="P:Scallop.Network.PeerChannel.ScallopMessageFilter.ID">
+            <summary>
+            Own node ID
             </summary>
         </member>
-        <member name="F:Scallop.Network.PeerChannel.ScallopPeerChannelMessageType.NeighbourQuery">
+        <member name="T:Scallop.Network.PeerChannel.ScallopPeerChannel">
             <summary>
-            A neighbour query message.
+            Class representing a ScallopCore PeerChannel network connection.
             </summary>
         </member>
         <member name="T:Scallop.Network.PeerChannel.IPeerChannel">
@@ -77,16 +52,6 @@
         <member name="M:Scallop.Network.PeerChannel.IPeerChannel.PCLeave(System.String)">
             <summary>
             Method to leave a network.
-            </summary>
-        </member>
-        <member name="T:Scallop.Network.PeerChannel.IPeerChannelChannel">
-            <summary>
-            Inner communication channel.
-            </summary>
-        </member>
-        <member name="T:Scallop.Network.PeerChannel.ScallopPeerChannel">
-            <summary>
-            Class representing a ScallopCore PeerChannel network connection.
             </summary>
         </member>
         <member name="M:Scallop.Network.PeerChannel.ScallopPeerChannel.#ctor">
@@ -219,29 +184,64 @@
             Gets the network state.
             </summary>
         </member>
-        <member name="T:Scallop.Network.PeerChannel.ScallopMessageFilter">
+        <member name="T:Scallop.Network.PeerChannel.ScallopPeerChannelMessageType">
             <summary>
-            A message filter that filters out own sent messages
+            Enumeration of message types.
             </summary>
         </member>
-        <member name="M:Scallop.Network.PeerChannel.ScallopMessageFilter.#ctor(System.String)">
+        <member name="F:Scallop.Network.PeerChannel.ScallopPeerChannelMessageType.Regular">
             <summary>
-            Constructor
+            Regular message.
             </summary>
-            <param name="strID"></param>
         </member>
-        <member name="M:Scallop.Network.PeerChannel.ScallopMessageFilter.ShouldMessagePropagate(System.ServiceModel.Channels.Message,System.ServiceModel.PeerMessageOrigination)">
+        <member name="F:Scallop.Network.PeerChannel.ScallopPeerChannelMessageType.NeighbourQuery">
             <summary>
-            Delivers only the messages sent by other nodes
+            A neighbour query message.
             </summary>
-            <param name="message">Incoming message</param>
-            <param name="origination">Message source</param>
-            <returns></returns>
         </member>
-        <member name="P:Scallop.Network.PeerChannel.ScallopMessageFilter.ID">
+        <member name="T:Scallop.Network.PeerChannel.IPeerChannelChannel">
             <summary>
-            Own node ID
+            Inner communication channel.
             </summary>
+        </member>
+        <member name="T:Scallop.Network.PeerChannel.PeerChannelConfigSet">
+            <remarks/>
+        </member>
+        <member name="P:Scallop.Network.PeerChannel.PeerChannelConfigSet.Items">
+            <remarks/>
+        </member>
+        <member name="P:Scallop.Network.PeerChannel.PeerChannelConfigSet.DefaultConfig">
+            <remarks/>
+        </member>
+        <member name="T:Scallop.Network.PeerChannel.PeerChannelConfigType">
+            <remarks/>
+        </member>
+        <member name="P:Scallop.Network.PeerChannel.PeerChannelConfigType.NodeId">
+            <remarks/>
+        </member>
+        <member name="P:Scallop.Network.PeerChannel.PeerChannelConfigType.NetworkName">
+            <remarks/>
+        </member>
+        <member name="P:Scallop.Network.PeerChannel.PeerChannelConfigType.NetworkAddress">
+            <remarks/>
+        </member>
+        <member name="P:Scallop.Network.PeerChannel.PeerChannelConfigType.EnableTransportSecurity">
+            <remarks/>
+        </member>
+        <member name="P:Scallop.Network.PeerChannel.PeerChannelConfigType.EnableTransportSecuritySpecified">
+            <remarks/>
+        </member>
+        <member name="P:Scallop.Network.PeerChannel.PeerChannelConfigType.TLSPassword">
+            <remarks/>
+        </member>
+        <member name="P:Scallop.Network.PeerChannel.PeerChannelConfigType.NeighborQueryRate">
+            <remarks/>
+        </member>
+        <member name="P:Scallop.Network.PeerChannel.PeerChannelConfigType.NeighborQueryRateSpecified">
+            <remarks/>
+        </member>
+        <member name="P:Scallop.Network.PeerChannel.PeerChannelConfigType.ConfigName">
+            <remarks/>
         </member>
     </members>
 </doc>

@@ -24,193 +24,101 @@
             <param name="encoded">The encoded string.</param>
             <returns>Byte buffer containing decoded data.</returns>
         </member>
-        <member name="T:Scallop.Core.Events.ScallopSensorStatusChangedEventArgs">
+        <member name="T:Scallop.Core.ScallopException">
             <summary>
-            Event arguments for sensor status changed events.
+            A generic Scallop exception.
             </summary>
         </member>
-        <member name="F:Scallop.Core.Events.ScallopSensorStatusChangedEventArgs.causingException">
+        <member name="M:Scallop.Core.ScallopException.#ctor">
             <summary>
-            Possible exception that caused the error.
+            Default constructor.
             </summary>
         </member>
-        <member name="F:Scallop.Core.Events.ScallopSensorStatusChangedEventArgs.msg">
-            <summary>
-            StatusChanged message.
-            </summary>
-        </member>
-        <member name="F:Scallop.Core.Events.ScallopSensorStatusChangedEventArgs.newState">
-            <summary>
-            The state after the event.
-            </summary>
-        </member>
-        <member name="F:Scallop.Core.Events.ScallopSensorStatusChangedEventArgs.oldState">
-            <summary>
-            The state before the event.
-            </summary>
-        </member>
-        <member name="M:Scallop.Core.Events.ScallopSensorStatusChangedEventArgs.#ctor(Scallop.Core.Sensor.ScallopSensorState,Scallop.Core.Sensor.ScallopSensorState)">
+        <member name="M:Scallop.Core.ScallopException.#ctor(System.String)">
             <summary>
             Constructor.
             </summary>
-            <param name="fromState">State before event.</param>
-            <param name="toState">State after event.</param>
+            <param name="message">Message to user.</param>
         </member>
-        <member name="M:Scallop.Core.Events.ScallopSensorStatusChangedEventArgs.#ctor(Scallop.Core.Sensor.ScallopSensorState,Scallop.Core.Sensor.ScallopSensorState,System.String)">
+        <member name="M:Scallop.Core.ScallopException.#ctor(System.String,System.Exception)">
             <summary>
             Constructor.
             </summary>
-            <param name="fromState">State before event.</param>
-            <param name="toState">State after event.</param>
-            <param name="msg">A freeform string message for the user.</param>
+            <param name="message">Message to user.</param>
+            <param name="inner">A possible causing InnerException.</param>
         </member>
-        <member name="M:Scallop.Core.Events.ScallopSensorStatusChangedEventArgs.#ctor(Scallop.Core.Sensor.ScallopSensorState,Scallop.Core.Sensor.ScallopSensorState,System.String,System.Exception)">
+        <member name="M:Scallop.Core.ScallopException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the class with serialized data.
+            </summary>
+            <param name="info">The SerializationInfo that holds the serialized object data about the exception being thrown.</param>
+            <param name="context">The StreamingContext that contains contextual information about the source or destination.</param>
+        </member>
+        <member name="T:Scallop.Core.InvalidConfigurationException">
+            <summary>
+            Thrown when the XML configuration is invalid.
+            </summary>
+        </member>
+        <member name="M:Scallop.Core.InvalidConfigurationException.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Scallop.Core.InvalidConfigurationException.#ctor(System.String)">
             <summary>
             Constructor.
             </summary>
-            <param name="fromState">State before event.</param>
-            <param name="toState">State after event.</param>
-            <param name="msg">A freeform string message for the user.</param>
-            <param name="causingException">Possible exception that caused an error.</param>
+            <param name="message">Message to user.</param>
         </member>
-        <member name="P:Scallop.Core.Events.ScallopSensorStatusChangedEventArgs.CausingException">
-            <summary>
-            Gets the possible exception that caused the error.
-            </summary>
-        </member>
-        <member name="P:Scallop.Core.Events.ScallopSensorStatusChangedEventArgs.Message">
-            <summary>
-            Gets the StatusChanged message.
-            </summary>
-        </member>
-        <member name="P:Scallop.Core.Events.ScallopSensorStatusChangedEventArgs.NewState">
-            <summary>
-            Gets the state after the event.
-            </summary>
-        </member>
-        <member name="P:Scallop.Core.Events.ScallopSensorStatusChangedEventArgs.OldState">
-            <summary>
-            Gets the state before the event.
-            </summary>
-        </member>
-        <member name="T:Scallop.Core.Events.ScallopSensorDataEventArgs">
-            <summary>
-            Event arguments for sensor data events.
-            </summary>
-        </member>
-        <member name="M:Scallop.Core.Events.ScallopSensorDataEventArgs.#ctor(System.Object,System.String)">
+        <member name="M:Scallop.Core.InvalidConfigurationException.#ctor(System.String,System.Exception)">
             <summary>
             Constructor.
             </summary>
-            <param name="data">The event sensordata.</param>
-            <param name="msg">A message.</param>
+            <param name="message">Message to user.</param>
+            <param name="inner">A possible causing InnerException.</param>
         </member>
-        <member name="P:Scallop.Core.Events.ScallopSensorDataEventArgs.Data">
+        <member name="M:Scallop.Core.InvalidConfigurationException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
             <summary>
-            The data content.
+            Initializes a new instance of the class with serialized data.
+            </summary>
+            <param name="info">The SerializationInfo that holds the serialized object data about the exception being thrown.</param>
+            <param name="context">The StreamingContext that contains contextual information about the source or destination.</param>
+        </member>
+        <member name="T:Scallop.Core.MessageContentException">
+            <summary>
+            Thrown when a message content does not match the XML schema.
             </summary>
         </member>
-        <member name="P:Scallop.Core.Events.ScallopSensorDataEventArgs.DataType">
+        <member name="M:Scallop.Core.MessageContentException.#ctor">
             <summary>
-            Type of data.
+            Default constructor.
             </summary>
         </member>
-        <member name="P:Scallop.Core.Events.ScallopSensorDataEventArgs.Message">
-            <summary>
-            A freeform message for the user.
-            </summary>
-        </member>
-        <member name="T:Scallop.Core.Events.ScallopInfoEventArgs">
-            <summary>
-            Event arguments for sensor and network information events.
-            </summary>
-        </member>
-        <member name="M:Scallop.Core.Events.ScallopInfoEventArgs.#ctor(System.String)">
+        <member name="M:Scallop.Core.MessageContentException.#ctor(System.Exception)">
             <summary>
             Constructor.
             </summary>
-            <param name="msg">The information message.</param>
+            <param name="inner">Message to user.</param>
         </member>
-        <member name="P:Scallop.Core.Events.ScallopInfoEventArgs.Message">
-            <summary>
-            The information message.
-            </summary>
-        </member>
-        <member name="T:Scallop.Core.Events.ScallopNetworkStatusChangedEventArgs">
-            <summary>
-            Event arguments for network status changed events.
-            </summary>
-        </member>
-        <member name="M:Scallop.Core.Events.ScallopNetworkStatusChangedEventArgs.#ctor(Scallop.Core.Network.ScallopNetworkState,Scallop.Core.Network.ScallopNetworkState)">
+        <member name="M:Scallop.Core.MessageContentException.#ctor(System.String)">
             <summary>
             Constructor.
             </summary>
-            <param name="fromState">State before event.</param>
-            <param name="toState">State after event.</param>
+            <param name="message">Message to user.</param>
         </member>
-        <member name="M:Scallop.Core.Events.ScallopNetworkStatusChangedEventArgs.#ctor(Scallop.Core.Network.ScallopNetworkState,Scallop.Core.Network.ScallopNetworkState,System.String)">
+        <member name="M:Scallop.Core.MessageContentException.#ctor(System.String,System.Exception)">
             <summary>
             Constructor.
             </summary>
-            <param name="fromState">State before event.</param>
-            <param name="toState">State after event.</param>
-            <param name="msg">A freeform string message for the user.</param>
+            <param name="message">Message to user.</param>
+            <param name="inner">A possible causing InnerException.</param>
         </member>
-        <member name="M:Scallop.Core.Events.ScallopNetworkStatusChangedEventArgs.#ctor(Scallop.Core.Network.ScallopNetworkState,Scallop.Core.Network.ScallopNetworkState,System.String,System.Exception)">
+        <member name="M:Scallop.Core.MessageContentException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
             <summary>
-            Constructor.
+            Initializes a new instance of the class with serialized data.
             </summary>
-            <param name="fromState">State before event.</param>
-            <param name="toState">State after event.</param>
-            <param name="msg">A freeform string message for the user.</param>
-            <param name="causingException">Possible exception that caused an error.</param>
-        </member>
-        <member name="P:Scallop.Core.Events.ScallopNetworkStatusChangedEventArgs.CausingException">
-            <summary>
-            Possible exception that caused the error.
-            </summary>
-        </member>
-        <member name="P:Scallop.Core.Events.ScallopNetworkStatusChangedEventArgs.Message">
-            <summary>
-            StatusChanged message.
-            </summary>
-        </member>
-        <member name="P:Scallop.Core.Events.ScallopNetworkStatusChangedEventArgs.NewState">
-            <summary>
-            State after the event.
-            </summary>
-        </member>
-        <member name="P:Scallop.Core.Events.ScallopNetworkStatusChangedEventArgs.OldState">
-            <summary>
-            State before the event.
-            </summary>
-        </member>
-        <member name="T:Scallop.Core.Events.ScallopNetworkDataEventArgs">
-            <summary>
-            Event arguments for network data events.
-            </summary>
-        </member>
-        <member name="M:Scallop.Core.Events.ScallopNetworkDataEventArgs.#ctor(System.Object,System.String)">
-            <summary>
-            Constructor.
-            </summary>
-            <param name="data">The network data.</param>
-            <param name="msg">A user message.</param>
-        </member>
-        <member name="P:Scallop.Core.Events.ScallopNetworkDataEventArgs.Data">
-            <summary>
-            The data received from the network.
-            </summary>
-        </member>
-        <member name="P:Scallop.Core.Events.ScallopNetworkDataEventArgs.DataType">
-            <summary>
-            Type of data.
-            </summary>
-        </member>
-        <member name="P:Scallop.Core.Events.ScallopNetworkDataEventArgs.Message">
-            <summary>
-            An optional message for the user.
-            </summary>
+            <param name="info">The SerializationInfo that holds the serialized object data about the exception being thrown.</param>
+            <param name="context">The StreamingContext that contains contextual information about the source or destination.</param>
         </member>
         <member name="T:Scallop.Core.Sensor.ScallopSensorState">
             <summary>
@@ -492,101 +400,193 @@
             Flag indicating whether this is a message internal to the implementation.
             </summary>
         </member>
-        <member name="T:Scallop.Core.ScallopException">
+        <member name="T:Scallop.Core.Events.ScallopSensorStatusChangedEventArgs">
             <summary>
-            A generic Scallop exception.
+            Event arguments for sensor status changed events.
             </summary>
         </member>
-        <member name="M:Scallop.Core.ScallopException.#ctor">
+        <member name="F:Scallop.Core.Events.ScallopSensorStatusChangedEventArgs.causingException">
             <summary>
-            Default constructor.
+            Possible exception that caused the error.
             </summary>
         </member>
-        <member name="M:Scallop.Core.ScallopException.#ctor(System.String)">
+        <member name="F:Scallop.Core.Events.ScallopSensorStatusChangedEventArgs.msg">
+            <summary>
+            StatusChanged message.
+            </summary>
+        </member>
+        <member name="F:Scallop.Core.Events.ScallopSensorStatusChangedEventArgs.newState">
+            <summary>
+            The state after the event.
+            </summary>
+        </member>
+        <member name="F:Scallop.Core.Events.ScallopSensorStatusChangedEventArgs.oldState">
+            <summary>
+            The state before the event.
+            </summary>
+        </member>
+        <member name="M:Scallop.Core.Events.ScallopSensorStatusChangedEventArgs.#ctor(Scallop.Core.Sensor.ScallopSensorState,Scallop.Core.Sensor.ScallopSensorState)">
             <summary>
             Constructor.
             </summary>
-            <param name="message">Message to user.</param>
+            <param name="fromState">State before event.</param>
+            <param name="toState">State after event.</param>
         </member>
-        <member name="M:Scallop.Core.ScallopException.#ctor(System.String,System.Exception)">
+        <member name="M:Scallop.Core.Events.ScallopSensorStatusChangedEventArgs.#ctor(Scallop.Core.Sensor.ScallopSensorState,Scallop.Core.Sensor.ScallopSensorState,System.String)">
             <summary>
             Constructor.
             </summary>
-            <param name="message">Message to user.</param>
-            <param name="inner">A possible causing InnerException.</param>
+            <param name="fromState">State before event.</param>
+            <param name="toState">State after event.</param>
+            <param name="msg">A freeform string message for the user.</param>
         </member>
-        <member name="M:Scallop.Core.ScallopException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
-            <summary>
-            Initializes a new instance of the class with serialized data.
-            </summary>
-            <param name="info">The SerializationInfo that holds the serialized object data about the exception being thrown.</param>
-            <param name="context">The StreamingContext that contains contextual information about the source or destination.</param>
-        </member>
-        <member name="T:Scallop.Core.InvalidConfigurationException">
-            <summary>
-            Thrown when the XML configuration is invalid.
-            </summary>
-        </member>
-        <member name="M:Scallop.Core.InvalidConfigurationException.#ctor">
-            <summary>
-            Default constructor.
-            </summary>
-        </member>
-        <member name="M:Scallop.Core.InvalidConfigurationException.#ctor(System.String)">
+        <member name="M:Scallop.Core.Events.ScallopSensorStatusChangedEventArgs.#ctor(Scallop.Core.Sensor.ScallopSensorState,Scallop.Core.Sensor.ScallopSensorState,System.String,System.Exception)">
             <summary>
             Constructor.
             </summary>
-            <param name="message">Message to user.</param>
+            <param name="fromState">State before event.</param>
+            <param name="toState">State after event.</param>
+            <param name="msg">A freeform string message for the user.</param>
+            <param name="causingException">Possible exception that caused an error.</param>
         </member>
-        <member name="M:Scallop.Core.InvalidConfigurationException.#ctor(System.String,System.Exception)">
+        <member name="P:Scallop.Core.Events.ScallopSensorStatusChangedEventArgs.CausingException">
+            <summary>
+            Gets the possible exception that caused the error.
+            </summary>
+        </member>
+        <member name="P:Scallop.Core.Events.ScallopSensorStatusChangedEventArgs.Message">
+            <summary>
+            Gets the StatusChanged message.
+            </summary>
+        </member>
+        <member name="P:Scallop.Core.Events.ScallopSensorStatusChangedEventArgs.NewState">
+            <summary>
+            Gets the state after the event.
+            </summary>
+        </member>
+        <member name="P:Scallop.Core.Events.ScallopSensorStatusChangedEventArgs.OldState">
+            <summary>
+            Gets the state before the event.
+            </summary>
+        </member>
+        <member name="T:Scallop.Core.Events.ScallopSensorDataEventArgs">
+            <summary>
+            Event arguments for sensor data events.
+            </summary>
+        </member>
+        <member name="M:Scallop.Core.Events.ScallopSensorDataEventArgs.#ctor(System.Object,System.String)">
             <summary>
             Constructor.
             </summary>
-            <param name="message">Message to user.</param>
-            <param name="inner">A possible causing InnerException.</param>
+            <param name="data">The event sensordata.</param>
+            <param name="msg">A message.</param>
         </member>
-        <member name="M:Scallop.Core.InvalidConfigurationException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+        <member name="P:Scallop.Core.Events.ScallopSensorDataEventArgs.Data">
             <summary>
-            Initializes a new instance of the class with serialized data.
-            </summary>
-            <param name="info">The SerializationInfo that holds the serialized object data about the exception being thrown.</param>
-            <param name="context">The StreamingContext that contains contextual information about the source or destination.</param>
-        </member>
-        <member name="T:Scallop.Core.MessageContentException">
-            <summary>
-            Thrown when a message content does not match the XML schema.
+            The data content.
             </summary>
         </member>
-        <member name="M:Scallop.Core.MessageContentException.#ctor">
+        <member name="P:Scallop.Core.Events.ScallopSensorDataEventArgs.DataType">
             <summary>
-            Default constructor.
+            Type of data.
             </summary>
         </member>
-        <member name="M:Scallop.Core.MessageContentException.#ctor(System.Exception)">
+        <member name="P:Scallop.Core.Events.ScallopSensorDataEventArgs.Message">
             <summary>
-            Constructor.
+            A freeform message for the user.
             </summary>
-            <param name="inner">Message to user.</param>
         </member>
-        <member name="M:Scallop.Core.MessageContentException.#ctor(System.String)">
+        <member name="T:Scallop.Core.Events.ScallopInfoEventArgs">
+            <summary>
+            Event arguments for sensor and network information events.
+            </summary>
+        </member>
+        <member name="M:Scallop.Core.Events.ScallopInfoEventArgs.#ctor(System.String)">
             <summary>
             Constructor.
             </summary>
-            <param name="message">Message to user.</param>
+            <param name="msg">The information message.</param>
         </member>
-        <member name="M:Scallop.Core.MessageContentException.#ctor(System.String,System.Exception)">
+        <member name="P:Scallop.Core.Events.ScallopInfoEventArgs.Message">
+            <summary>
+            The information message.
+            </summary>
+        </member>
+        <member name="T:Scallop.Core.Events.ScallopNetworkStatusChangedEventArgs">
+            <summary>
+            Event arguments for network status changed events.
+            </summary>
+        </member>
+        <member name="M:Scallop.Core.Events.ScallopNetworkStatusChangedEventArgs.#ctor(Scallop.Core.Network.ScallopNetworkState,Scallop.Core.Network.ScallopNetworkState)">
             <summary>
             Constructor.
             </summary>
-            <param name="message">Message to user.</param>
-            <param name="inner">A possible causing InnerException.</param>
+            <param name="fromState">State before event.</param>
+            <param name="toState">State after event.</param>
         </member>
-        <member name="M:Scallop.Core.MessageContentException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+        <member name="M:Scallop.Core.Events.ScallopNetworkStatusChangedEventArgs.#ctor(Scallop.Core.Network.ScallopNetworkState,Scallop.Core.Network.ScallopNetworkState,System.String)">
             <summary>
-            Initializes a new instance of the class with serialized data.
+            Constructor.
             </summary>
-            <param name="info">The SerializationInfo that holds the serialized object data about the exception being thrown.</param>
-            <param name="context">The StreamingContext that contains contextual information about the source or destination.</param>
+            <param name="fromState">State before event.</param>
+            <param name="toState">State after event.</param>
+            <param name="msg">A freeform string message for the user.</param>
+        </member>
+        <member name="M:Scallop.Core.Events.ScallopNetworkStatusChangedEventArgs.#ctor(Scallop.Core.Network.ScallopNetworkState,Scallop.Core.Network.ScallopNetworkState,System.String,System.Exception)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="fromState">State before event.</param>
+            <param name="toState">State after event.</param>
+            <param name="msg">A freeform string message for the user.</param>
+            <param name="causingException">Possible exception that caused an error.</param>
+        </member>
+        <member name="P:Scallop.Core.Events.ScallopNetworkStatusChangedEventArgs.CausingException">
+            <summary>
+            Possible exception that caused the error.
+            </summary>
+        </member>
+        <member name="P:Scallop.Core.Events.ScallopNetworkStatusChangedEventArgs.Message">
+            <summary>
+            StatusChanged message.
+            </summary>
+        </member>
+        <member name="P:Scallop.Core.Events.ScallopNetworkStatusChangedEventArgs.NewState">
+            <summary>
+            State after the event.
+            </summary>
+        </member>
+        <member name="P:Scallop.Core.Events.ScallopNetworkStatusChangedEventArgs.OldState">
+            <summary>
+            State before the event.
+            </summary>
+        </member>
+        <member name="T:Scallop.Core.Events.ScallopNetworkDataEventArgs">
+            <summary>
+            Event arguments for network data events.
+            </summary>
+        </member>
+        <member name="M:Scallop.Core.Events.ScallopNetworkDataEventArgs.#ctor(System.Object,System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="data">The network data.</param>
+            <param name="msg">A user message.</param>
+        </member>
+        <member name="P:Scallop.Core.Events.ScallopNetworkDataEventArgs.Data">
+            <summary>
+            The data received from the network.
+            </summary>
+        </member>
+        <member name="P:Scallop.Core.Events.ScallopNetworkDataEventArgs.DataType">
+            <summary>
+            Type of data.
+            </summary>
+        </member>
+        <member name="P:Scallop.Core.Events.ScallopNetworkDataEventArgs.Message">
+            <summary>
+            An optional message for the user.
+            </summary>
         </member>
         <member name="T:Scallop.Core.InterfaceFactory">
             <summary>
@@ -599,14 +599,14 @@
             </summary>
             <param name="assembly">The assembly containing the sensor class.</param>
             <param name="sensorType">Name of the sensor class, including namespace.</param>
-            <returns></returns>
+            <returns>Sensor instance that was created.</returns>
         </member>
         <member name="M:Scallop.Core.InterfaceFactory.CreateSensorInstance(System.String)">
             <summary>
             
             </summary>
             <param name="assembly">The assembly containing the sensor class.</param>
-            <returns></returns>
+            <returns>Sensor instance that was created.</returns>
         </member>
         <member name="M:Scallop.Core.InterfaceFactory.CreateNetworkInstance(System.String,System.String)">
             <summary>
@@ -614,14 +614,14 @@
             </summary>
             <param name="assembly">The assembly containing the network class.</param>
             <param name="networkType">Name of the network class, including namespace.</param>
-            <returns></returns>
+            <returns>Network instance that was created.</returns>
         </member>
         <member name="M:Scallop.Core.InterfaceFactory.CreateNetworkInstance(System.String)">
             <summary>
             
             </summary>
             <param name="assembly">The assembly containing the sensor class.</param>
-            <returns></returns>
+            <returns>Network instance that was created.</returns>
         </member>
     </members>
 </doc>
