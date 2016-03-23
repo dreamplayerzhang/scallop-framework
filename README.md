@@ -4,6 +4,7 @@
 Home page
 -------------
 http://www.ee.oulu.fi/research/imag/scallop/
+Documentation: http://www.ee.oulu.fi/research/imag/scallop/doc/Index.html
 
 Introduction
 -------------
